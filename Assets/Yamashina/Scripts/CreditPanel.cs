@@ -1,18 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
-public class CreditPanel : MonoBehaviour
+
+public class PanelChange : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject mainPanel;
+    public GameObject subPanel;
+
     void Start()
     {
-        
+        mainPanel.SetActive(true);
+        subPanel.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MainView()
     {
-        
+        mainPanel.SetActive(true);
+        subPanel.SetActive(false);
+    }
+
+    public void SubView()
+    {
+        mainPanel.SetActive(false);
+        subPanel.SetActive(true);
     }
 }
