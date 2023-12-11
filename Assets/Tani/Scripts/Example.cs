@@ -10,6 +10,8 @@ public class Example : MonoBehaviour
    [SerializeField] 
     SceneObject scene;
     Text text;
+
+
     
 
     
@@ -45,7 +47,9 @@ public class Example : MonoBehaviour
 
     public void ChangeScene(SceneObject scene)
     {
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        
+        
     }
 
     public void OnHovered()
