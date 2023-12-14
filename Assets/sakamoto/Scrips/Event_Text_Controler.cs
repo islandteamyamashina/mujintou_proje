@@ -8,7 +8,7 @@ namespace NovelGame
 {
     public class Event_Text_Controler : MonoBehaviour
     {
-        [SerializeField] TextMeshProUGUI _eventTextObject;
+        [SerializeField]  TextMeshProUGUI _eventTextObject;
         int _displayed_Sentence_Length;
         int _sentence_Lenght;
         float _time;
@@ -35,6 +35,11 @@ namespace NovelGame
         // Update is called once per frame
         void Update()
         {
+            Disply_One_Character(_eventTextObject);
+        }
+
+        public void  Disply_One_Character(TextMeshProUGUI selectTextObject)
+        {
             _time += Time.deltaTime;
             if (_time >= _feed_Time)
             {
@@ -42,9 +47,10 @@ namespace NovelGame
                 if (!Game_Manager.Instance.mainTextController.CanGoToTheNextLine())
                 {
                     _displayed_Sentence_Length++;
-                    _eventTextObject.maxVisibleCharacters = _displayed_Sentence_Length;
+                    selectTextObject.maxVisibleCharacters = _displayed_Sentence_Length;
                 }
             }
+
         }
     }
 }

@@ -57,6 +57,9 @@ namespace NovelGame
                 case "&rmimg":
                     Game_Manager.Instance.imageManager.Remove_Image(words[1]);
                     break;
+                case "&sentakushi":
+                    Game_Manager.Instance.sentakusiManeger.Set_Sentakusi_Words(words[1], words[2], words[3]);
+                    break;
             }
         }
     }

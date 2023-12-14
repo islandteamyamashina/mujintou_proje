@@ -14,6 +14,7 @@ namespace NovelGame
         public Event_Text_Controler eventTextController;
         public Image_Manager imageManager;
         public Title_Manager titeManager;
+        public Sentakusi_Maneger sentakusiManeger; 
 
 
         // ユーザスクリプトの、今の行の数値。クリック（タップ）のたびに1ずつ増える。

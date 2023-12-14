@@ -153,10 +153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userScriptManager: {fileID: 150698205}
-  mainTextController: {fileID: 189740030}
+  mainTextController: {fileID: 189740032}
   eventTextController: {fileID: 189740029}
   imageManager: {fileID: 1824686994}
   titeManager: {fileID: 925506911}
+  sentakusiManeger: {fileID: 1867816853}
 --- !u!4 &26138453
 Transform:
   m_ObjectHideFlags: 0
@@ -517,6 +518,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 925506908}
+  - {fileID: 602296235}
   m_Father: {fileID: 1787607533}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -575,7 +577,8 @@ GameObject:
   - component: {fileID: 189740027}
   - component: {fileID: 189740026}
   - component: {fileID: 189740029}
-  - component: {fileID: 189740030}
+  - component: {fileID: 189740031}
+  - component: {fileID: 189740032}
   m_Layer: 5
   m_Name: Main_Text
   m_TagString: Untagged
@@ -713,7 +716,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventTextObject: {fileID: 189740026}
---- !u!114 &189740030
+--- !u!114 &189740031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189740024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96714fdb13af424eaf2e898a5888c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventTextObject: {fileID: 189740026}
+  _EventTextObject: {fileID: 189740026}
+  _sentakusiTextObject1: {fileID: 0}
+  _sentakusiTextObject2: {fileID: 0}
+  _sentakusiTextObject3: {fileID: 0}
+  _sentakusi1: {fileID: 0}
+  _sentakusi2: {fileID: 0}
+  _sentakusi3: {fileID: 0}
+--- !u!114 &189740032
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1030,12 +1053,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 189740025}
-  m_Father: {fileID: 1787607533}
+  m_Father: {fileID: 181238094}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 700, y: 0}
+  m_AnchoredPosition: {x: 450, y: -175.00002}
   m_SizeDelta: {x: 500, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &602296236
@@ -1803,7 +1826,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 181238094}
-  - {fileID: 602296235}
   - {fileID: 2125675873}
   - {fileID: 824138685}
   m_Father: {fileID: 512600170}
@@ -1966,7 +1988,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96714fdb13af424eaf2e898a5888c24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventTxstObject: {fileID: 189740026}
+  _eventTextObject: {fileID: 189740026}
+  _EventTextObject: {fileID: 189740026}
+  _sentakusiTextObject1: {fileID: 122700699}
+  _sentakusiTextObject2: {fileID: 882868764}
+  _sentakusiTextObject3: {fileID: 1585466227}
+  _sentakusi1: {fileID: 1879597638}
+  _sentakusi2: {fileID: 1540837457}
+  _sentakusi3: {fileID: 27186747}
 --- !u!4 &1867816854
 Transform:
   m_ObjectHideFlags: 0
@@ -1974,7 +2003,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867816852}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.816831, y: -0.6766118, z: 0.020564094}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
