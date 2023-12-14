@@ -29,6 +29,12 @@ namespace NovelGame
             return _sentences[Game_Manager.Instance.lineNumber];
         }
 
+        // 1行目の文(lineNumber = 0 の文 aka イベントタイトルに当たる文)を取得する
+        public string Get_Choice_Current_Sentence(int Line_Num)
+        {
+            return _sentences[Line_Num];
+        }
+
         // 文が命令かどうか
         public bool IsStatement(string sentence)
         {
