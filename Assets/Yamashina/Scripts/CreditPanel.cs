@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using Unity.VisualScripting;
 
 
-public class PanelChange : MonoBehaviour
+public class CreditPanel : MonoBehaviour
 {
     public GameObject mainPanel;
     public GameObject subPanel;
