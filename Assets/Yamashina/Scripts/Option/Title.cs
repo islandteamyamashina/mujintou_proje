@@ -38,7 +38,7 @@ public class Title : MonoBehaviour
             }
             else if (Input.GetButtonDown("Fire1"))
             {
-                yield return StartCoroutine(MenuTable[Cursor].Select());
+                //yield return StartCoroutine(MenuTable[Cursor].Select());
             }
 
             // カーソルの制御
@@ -65,7 +65,7 @@ public class Title : MonoBehaviour
     void SetMenu()
     {
         // カーソルの位置を設定
-        CursorRenderer.transform.position = [Cursor].transform.position;
+       // CursorRenderer.transform.position = op[Cursor].transform.position;
 
     }
 

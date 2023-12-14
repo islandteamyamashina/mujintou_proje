@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class StartMenu : TitleMenu
 {
     // Œˆ’è‚³‚ê‚½‚Æ‚«‚Ì“®ì
-    public override IEnumerator Select()
+   /* public override IEnumerator Select()
     {
 
         StartCoroutine(LoadScene());
@@ -20,5 +20,6 @@ public class StartMenu : TitleMenu
             yield return null;
         }
     }
+   */
 }
 

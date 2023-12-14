@@ -10,7 +10,7 @@ public class Option_menu : TitleMenu
     GameObject clone;
 
     // Œˆ’è‚³‚ê‚½‚Æ‚«‚Ì“®ì
-    public override IEnumerator Select()
+   /* public override IEnumerator Select()
     {
         
     
@@ -23,6 +23,7 @@ public class Option_menu : TitleMenu
             yield return null;
         }
     }
+   */
 
 }
 

@@ -25,7 +25,7 @@ public abstract class TitleMenu : MonoBehaviour
         // ‰æ‘œ‚ğØ‚è‘Ö‚¦‚é
         spriteRenderer.sprite = OffSprite;
     }
-    public abstract IEnumerator Select();
+    //public abstract IEnumerator Select();
 }
 
 // Œˆ’è‚³‚ê‚½‚Æ‚«‚Ì“®ì
