@@ -567,6 +567,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2008533688}
   - component: {fileID: 2008533690}
+  - component: {fileID: 2008533691}
+  - component: {fileID: 2008533692}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -602,7 +604,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: 1
-  b: 3
+  b: 10
+--- !u!114 &2008533691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008533687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e557b8de67a20c4fad04ce4bea5f1df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2008533692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008533687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5a450c3f8e7184bad165714abd3db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Init_Player_Health: 100
+  _Init_Player_Hunger: 100
+  _Init_Player_Thirst: 100
+  _Max_Player_Health: 100
+  _Max_Player_Hunger: 100
+  _Max_Player_Thirst: 100
 --- !u!1 &2028144016
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,7 +688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene:
-    m_SceneName: 
+    m_SceneName: S_Game
 --- !u!114 &2028144019
 MonoBehaviour:
   m_ObjectHideFlags: 0
