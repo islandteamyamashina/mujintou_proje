@@ -15,6 +15,7 @@ public class S_Title_Manager : SingletonMonoBehaviour<S_Title_Manager>
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+        
     }
 
     // Update is called once per frame
