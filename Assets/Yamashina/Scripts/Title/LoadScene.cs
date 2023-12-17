@@ -14,3 +14,4 @@ public class LoadScene : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 }
+

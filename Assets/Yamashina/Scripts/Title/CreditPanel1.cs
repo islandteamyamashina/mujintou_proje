@@ -1,12 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using Unity.VisualScripting;
 
-
-public class CreditPanel : MonoBehaviour
+public class CreditPanel1 : MonoBehaviour
 {
     public GameObject mainPanel;
     public GameObject subPanel;

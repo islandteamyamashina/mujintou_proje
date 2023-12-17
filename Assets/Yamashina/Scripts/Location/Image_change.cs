@@ -1,11 +1,8 @@
-
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 
-
-public class Location_sentaku : MonoBehaviour
+public class Image_change : MonoBehaviour
 {
 
     [SerializeField] public GameObject image;
@@ -15,17 +12,13 @@ public class Location_sentaku : MonoBehaviour
         image.SetActive(false);
     }
 
-    private void OnMouseOver()
+    public void ImageChange()
     {
         image.SetActive(true);
     }
 
-
-    private void OnMouseExit()
+    public void restartImage()
     {
         image.SetActive(false);
-
     }
-
-
 }

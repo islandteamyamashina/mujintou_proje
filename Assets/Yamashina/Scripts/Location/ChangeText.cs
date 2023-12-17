@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Text_controler : MonoBehaviour
+
+public class ChangeText : MonoBehaviour
 {
+    [SerializeField] public Text gotext; // 新しいUIパネルへの参照
 
-        [SerializeField] public Text gotext; // 新しいUIパネルへの参照
-
-        public void Text_of_each_Location(int num)
+    public void Text_of_each_Location(int num)
     {
         switch (num)
         {

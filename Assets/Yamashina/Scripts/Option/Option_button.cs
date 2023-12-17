@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Option_button : MonoBehaviour
 {
-    [SerializeField] public GameObject prefab;
+    //[SerializeField] public GameObject prefab;
     [SerializeField] public string sceneName;
 
     public void OnClick()
     {
-        Destroy(prefab);
+       // Destroy(prefab);
         SceneManager.LoadScene(sceneName);
 
     }
