@@ -29,6 +29,12 @@ namespace NovelGame
             return _sentences[Game_Manager.Instance.lineNumber];
         }
 
+        // 1行目の文(lineNumber = 0 の文 aka イベントタイトルに当たる文)を取得する
+        public string Get_Choice_Current_Sentence(int Line_Num)
+        {
+            return _sentences[Line_Num];
+        }
+
         // 文が命令かどうか
         public bool IsStatement(string sentence)
         {
@@ -50,6 +56,9 @@ namespace NovelGame
                     break;
                 case "&rmimg":
                     Game_Manager.Instance.imageManager.Remove_Image(words[1]);
+                    break;
+                case "&sentakushi":
+                    Game_Manager.Instance.sentakusiManeger.Set_Sentakusi_Words(words[1], words[2], words[3]);
                     break;
             }
         }

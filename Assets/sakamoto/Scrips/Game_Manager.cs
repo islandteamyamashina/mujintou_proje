@@ -11,7 +11,11 @@ namespace NovelGame
 
         public User_Script_Manager userScriptManager;
         public Main_Text_Controller mainTextController;
+        public Event_Text_Controler eventTextController;
         public Image_Manager imageManager;
+        public Title_Manager titeManager;
+        public Sentakusi_Maneger sentakusiManeger; 
+
 
         // ユーザスクリプトの、今の行の数値。クリック（タップ）のたびに1ずつ増える。
         [System.NonSerialized] public int lineNumber;
@@ -21,7 +25,7 @@ namespace NovelGame
             // これで、別のクラスからGameManagerの変数などを使えるようになる。
             Instance = this;
 
-            lineNumber = 0;
+            lineNumber = 1;
         }
     }
 }
