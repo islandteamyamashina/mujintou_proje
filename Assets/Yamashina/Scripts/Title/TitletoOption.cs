@@ -11,5 +11,7 @@ public class TitletoOption : MonoBehaviour
     {
 
         Instantiate(prefab);
+
+
     }
 }

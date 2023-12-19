@@ -6,13 +6,13 @@ public class CreditPanel1 : MonoBehaviour
 {
     public GameObject mainPanel;
     public GameObject subPanel;
-    public GameObject CreditPanel;
+    public GameObject OptionPanel;
 
     void Start()
     {
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
-        CreditPanel.SetActive(false);
+        OptionPanel.SetActive(false);
 
     }
 
@@ -20,7 +20,7 @@ public class CreditPanel1 : MonoBehaviour
     {
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
-        CreditPanel.SetActive(false);
+        OptionPanel.SetActive(false);
 
     }
 
@@ -28,13 +28,13 @@ public class CreditPanel1 : MonoBehaviour
     {
         mainPanel.SetActive(false);
         subPanel.SetActive(true);
-        CreditPanel.SetActive(false);
+        OptionPanel.SetActive(false);
 
     }
     public void CreditView() 
     {
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
-        CreditPanel.SetActive(true);
+        OptionPanel.SetActive(true);
     }
 }

@@ -725,9 +725,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 705593288}
-        m_TargetAssemblyTypeName: TitletoOption, Assembly-CSharp
-        m_MethodName: OnClick
+      - m_Target: {fileID: 861566799}
+        m_TargetAssemblyTypeName: CreditPanel1, Assembly-CSharp
+        m_MethodName: CreditView
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -883,7 +883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2593cb78bf00b134390dd4c9c8897cc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 382631993665606713, guid: f1fcb4ffed685e942aabbd3564299bfe, type: 3}
+  prefab: {fileID: 1576356936}
 --- !u!114 &705593289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1465,7 +1465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPanel: {fileID: 1845246940}
   subPanel: {fileID: 1927729487}
-  CreditPanel: {fileID: 1576356936}
+  OptionPanel: {fileID: 1576356936}
 --- !u!81 &861566801
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2388,7 +2388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1845246941
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2627,45 +2627,49 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 5743363428234657014, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 5743363428146210277, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5743363428234657014, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.514
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743363428234657014, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5743363428234657014, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.514
       objectReference: {fileID: 0}
     - target: {fileID: 5743363428578171217, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.555
       objectReference: {fileID: 0}
     - target: {fileID: 5743363428578171217, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5743363428578171217, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.555
       objectReference: {fileID: 0}
     - target: {fileID: 5743363428983135336, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.514
       objectReference: {fileID: 0}
     - target: {fileID: 5743363428983135336, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5743363429014901628, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.555
       objectReference: {fileID: 0}
     - target: {fileID: 5743363429014901628, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
