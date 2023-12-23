@@ -18,7 +18,6 @@ public class EnventryManager : SingletonMonoBehaviour<EnventryManager>
         DontDestroyOnLoad(this.gameObject);
 
         _slot_manager = _Slot_Manager_Object.GetComponent<SlotManager>();
-        Debug.Log(_slot_manager);
     }
     void Start()
     {
@@ -27,6 +26,8 @@ public class EnventryManager : SingletonMonoBehaviour<EnventryManager>
         {
             Debug.Log("アイテムデータに登録された個数が一致しません");
         }
+
+        
 
     }
 

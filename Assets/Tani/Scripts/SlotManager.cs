@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class SlotManager : MonoBehaviour
 {
-    private Slot[] _Slots;
+    private Slot[] _Slots = null;
 
 
     private void Awake()
@@ -22,7 +23,14 @@ public class SlotManager : MonoBehaviour
     }
     void Start()
     {
-
+        for(int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            EventTrigger eventTrigger = _Slots[i].gameObject.GetComponent<EventTrigger>();
+            EventTrigger.Entry entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.PointerClick;
+            entry.callback.AddListener((data) => { OnSlotSelected((int)i); });
+            eventTrigger.triggers.Add(entry);
+        }
 
 
         
@@ -63,5 +71,14 @@ public class SlotManager : MonoBehaviour
             }
         }
         return null;
+    }
+    public Slot[] GetSlots()
+    {
+        return _Slots != null ? _Slots : null;
+    }
+
+    void OnSlotSelected(int slotIndex)
+    {
+
     }
 }
