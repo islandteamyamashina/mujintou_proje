@@ -7,7 +7,7 @@ using TMPro;
 public class Event_Text : Text_Method
 {
     [SerializeField] public EventData eventData;
-    [SerializeField] TextMeshProUGUI titleObject;
+    [SerializeField] Text titleObject;
 
     // Start is called before the first frame update
     void Start()
