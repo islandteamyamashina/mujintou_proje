@@ -104,6 +104,12 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     public void UseItem(Items.Item_ID item_ID)
     {
         Owing_Items[(int)item_ID]--;
+
+        if(Owing_Items[(int)item_ID] < 0)
+        {
+            Owing_Items[(int)item_ID] = 0;
+        }
+
         EnventryManager.Instance.OnItemsChanged();
     }
 
@@ -115,6 +121,10 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     public void SetItemNum(Items.Item_ID item_ID, int num)
     {
         Owing_Items[(int)item_ID] = num;
+        if (Owing_Items[(int)item_ID] < 0)
+        {
+            Owing_Items[(int)item_ID] = 0;
+        }
         EnventryManager.Instance.OnItemsChanged();
     }
 }

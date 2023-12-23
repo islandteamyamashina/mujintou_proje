@@ -12,6 +12,8 @@ public class EnventryManager : SingletonMonoBehaviour<EnventryManager>
     [SerializeField] private GameObject _Slot_Manager_Object;
     private SlotManager _slot_manager;
 
+    [SerializeField] GameObject ItemViewObject;
+
     protected override void Awake()
     {
         base.Awake();
@@ -27,8 +29,8 @@ public class EnventryManager : SingletonMonoBehaviour<EnventryManager>
             Debug.Log("アイテムデータに登録された個数が一致しません");
         }
 
-        
 
+       // ItemViewObject.GetComponent<ItemView>().SetViewItem(GetItemData(Items.Item_ID.Fish));
     }
 
     public Items GetItemData(Items.Item_ID id)
@@ -46,5 +48,11 @@ public class EnventryManager : SingletonMonoBehaviour<EnventryManager>
         Debug.Log("EnventryManager OnItemsChanged");
 
         _slot_manager.OnItemsChanged();
+    }
+
+    public void OnSlotSelected(int slotIndex)
+    {
+        Debug.Log($"slotindex : {slotIndex}");
+        ItemViewObject.GetComponent<ItemView>().SetViewItem(_slot_manager.GetSlots()[slotIndex].GetItem());
     }
 }

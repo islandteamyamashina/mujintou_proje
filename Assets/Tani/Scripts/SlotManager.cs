@@ -18,19 +18,12 @@ public class SlotManager : MonoBehaviour
             {
                 Debug.Log("Error at SlotManager");
             }
+            _Slots[i]._slot_Index = i;
 
         }
     }
     void Start()
     {
-        for(int i = 0; i < gameObject.transform.childCount; i++)
-        {
-            EventTrigger eventTrigger = _Slots[i].gameObject.GetComponent<EventTrigger>();
-            EventTrigger.Entry entry = new EventTrigger.Entry();
-            entry.eventID = EventTriggerType.PointerClick;
-            entry.callback.AddListener((data) => { OnSlotSelected((int)i); });
-            eventTrigger.triggers.Add(entry);
-        }
 
 
         
@@ -77,8 +70,5 @@ public class SlotManager : MonoBehaviour
         return _Slots != null ? _Slots : null;
     }
 
-    void OnSlotSelected(int slotIndex)
-    {
 
-    }
 }
