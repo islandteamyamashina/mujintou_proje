@@ -17,7 +17,7 @@ public class ShowStats : MonoBehaviour
 
     private void Update()
     {
-        text.text = "Health : " + PlayerInfo.Instance.Health.ToString() + "  " +
+        text.text = "Health : " + PlayerInfo.Instance.Health + "  " +
                 "Hunger : " + PlayerInfo.Instance.Hunger + "  " +
                 "Thirst : " + PlayerInfo.Instance.Thirst;
     }

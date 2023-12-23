@@ -38,7 +38,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         _player_Thirst = _Init_Player_Thirst;
         Owing_Items = new int[(int)Items.Item_ID.Item_Max];
         for (int i = 0; i < (int)Items.Item_ID.Item_Max; i++) Owing_Items[i] = 0;
-        Owing_Items[(int)Items.Item_ID.Butterfly] = 0;
+        Owing_Items[(int)Items.Item_ID.Butterfly] = 3;
         Owing_Items[(int)Items.Item_ID.Fish] = 2;
         Owing_Items[(int)Items.Item_ID.Leaf] = 3;
         Owing_Items[(int)Items.Item_ID.Plank] = 4;
@@ -58,7 +58,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         set
         {
             _player_Health = value;
-            Mathf.Clamp(_player_Health, 0, _Max_Player_Health);
+            _player_Health = Mathf.Clamp(_player_Health, 0, _Max_Player_Health);
         }
     }
     public int Hunger
@@ -66,8 +66,10 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         get { return _player_Hunger; }
         set
         {
+
             _player_Hunger = value;
-            Mathf.Clamp(_player_Hunger, 0, _Max_Player_Hunger);
+            _player_Hunger = Mathf.Clamp(_player_Hunger, 0, _Max_Player_Hunger);
+
         }
     }
     public int Thirst
@@ -76,7 +78,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         set
         {
             _player_Thirst = value;
-            Mathf.Clamp(_player_Thirst, 0, _Max_Player_Thirst);
+            _player_Thirst = Mathf.Clamp(_player_Thirst, 0, _Max_Player_Thirst);
         }
     }
 
@@ -103,12 +105,16 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     /// <param name="item_ID"></param>
     public void UseItem(Items.Item_ID item_ID)
     {
-        Owing_Items[(int)item_ID]--;
 
-        if(Owing_Items[(int)item_ID] < 0)
-        {
-            Owing_Items[(int)item_ID] = 0;
-        }
+        if (Owing_Items[(int)item_ID] <= 0) return;
+        Owing_Items[(int)item_ID]--;
+        Items used_item = EnventryManager.Instance.GetItemData(item_ID);
+        Health += used_item.Health_Change;
+        Hunger += used_item.Hunger_Change;
+        Thirst += used_item.Thirst_Chage;
+        Luck += used_item.Luck_Change;
+
+   
 
         EnventryManager.Instance.OnItemsChanged();
     }
