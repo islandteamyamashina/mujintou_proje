@@ -11,12 +11,12 @@ public class ItemSlot : MonoBehaviour
     public GameObject item;
 
 //【マネージャーを取得(これはstatic GameManager等でインスタンス化させてい置くとさらに◎)】
-    private InventoryManager cpInventoryManager;
+  //  private InventoryManager cpInventoryManager;
 
     void Start()
     {
        // 【自分が動的に生成されるので、スポーンした後にマネージャーを探す】
-        cpInventoryManager = GameObject.Find("StorageManage").GetComponent<InventoryManager>();
+       // cpInventoryManager = GameObject.Find("StorageManage").GetComponent<InventoryManager>();
     }
 
 //【マネージャー側で呼び出す関数。自身の配列番地をマネージャーから教えてもらう】

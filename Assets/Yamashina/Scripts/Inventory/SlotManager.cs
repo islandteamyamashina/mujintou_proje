@@ -5,7 +5,7 @@ using UnityEngine;
 public class SlotManager : MonoBehaviour
 {
     
-    [SerializeField] private int iSideSlideValue;
+  /*  [SerializeField] private int iSideSlideValue;
 
     //【スポーンさせるItemSlot.csのプレハブ、約70種類あるアイテム達(今は1つだけ。配列にして種類を増やしてね)】
     public GameObject prefab_Slot, prefab_Item;
@@ -60,4 +60,5 @@ public class SlotManager : MonoBehaviour
     {
         Debug.Log("SlotNum" + x + ":" + y + "=" + cpSlots[x, y].item.GetComponent<Item>().name);
     }
+  */
 }

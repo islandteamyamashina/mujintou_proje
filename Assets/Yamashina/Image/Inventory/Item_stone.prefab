@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7047049570347235681}
   - component: {fileID: 7047049570347235687}
-  - component: {fileID: 7047049570347235686}
   - component: {fileID: 47384956897793750}
   - component: {fileID: 592335224913531089}
+  - component: {fileID: 6788961824167018294}
   m_Layer: 0
   m_Name: Item_stone
   m_TagString: Untagged
@@ -33,7 +33,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -92,22 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7047049570347235686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7047049570347235680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5cd761d96b327e41bb9389be899ddbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enCategory: 0
-  sName: "\u77F3"
-  image: {fileID: 21300000, guid: 0620eb9330f043b4093575a21367132f, type: 3}
-  description: "\u77F3\u306E\u8AAC\u660E\u6587"
 --- !u!222 &47384956897793750
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -146,3 +130,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6788961824167018294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7047049570347235680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39ca888264e8984fa8c6741e9b559de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enCategory: 0
+  sName: "\u77F3"
+  image: {fileID: 21300000, guid: 0620eb9330f043b4093575a21367132f, type: 3}
+  description: text
