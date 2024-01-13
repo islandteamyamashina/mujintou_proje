@@ -5,6 +5,8 @@ using TMPro;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Sentakushi_Method : Event_Text
 {
@@ -19,14 +21,25 @@ public class Sentakushi_Method : Event_Text
 
     int[] Result_tam;
     int Result_Num;
+    bool GoToLoadScene;
     // Start is called before the first frame update
 
     private void Start()
     {
         Result_Num = 0;
         Set_Sentakusi_Words(eventData.Sentakusi1, eventData.Sentakusi2, eventData.Cancel);
+        GoToLoadScene = false;
     }
-
+    private void Update()
+    {
+        if (GoToLoadScene)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                SceneManager.LoadScene("Event_Load");
+            }
+        }
+    }
     public void Push_Sentakusi1()
     {
         Choise_Result1();
@@ -52,6 +65,7 @@ public class Sentakushi_Method : Event_Text
         }
         _sentakusi2.SetActive(false);
         _sentakusi3.SetActive(false);
+        GoToLoadScene = true;
     }
 
     public void Push_Sentakusi2()
@@ -79,6 +93,7 @@ public class Sentakushi_Method : Event_Text
         }
         _sentakusi1.SetActive(false);
         _sentakusi3.SetActive(false);
+        GoToLoadScene = true;
     }
 
     public void Push_Sentakusi3()
@@ -86,6 +101,7 @@ public class Sentakushi_Method : Event_Text
         Text_Disply(eventData.Cancel_Result);
         _sentakusi1.SetActive(false);
         _sentakusi2.SetActive(false);
+        GoToLoadScene = true;
     }
 
     public void Set_Sentakusi_Words(string Words1, string Words2, string Words3)
