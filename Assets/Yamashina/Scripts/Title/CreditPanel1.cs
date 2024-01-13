@@ -16,7 +16,7 @@ public class CreditPanel1 : MonoBehaviour
 
     }
 
-    public void MainView()
+    public virtual void MainView()
     {
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
@@ -24,14 +24,14 @@ public class CreditPanel1 : MonoBehaviour
 
     }
 
-    public void SubView()
+    public virtual void SubView()
     {
         mainPanel.SetActive(false);
         subPanel.SetActive(true);
         OptionPanel.SetActive(false);
 
     }
-    public void CreditView() 
+    public virtual void CreditView() 
     {
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
