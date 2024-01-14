@@ -23,7 +23,7 @@ public class Audiovolume : MonoBehaviour
     public void SetAudioMixerBGM(float value)
     {
         //5’iŠK•â³
-        value /= 5;
+        value /= 10;
         //-80~0‚É•ÏŠ·
         var volume = Mathf.Clamp(Mathf.Log10(value) * 20f, -80f, 0f);
         //audioMixer‚É‘ã“ü
@@ -35,7 +35,7 @@ public class Audiovolume : MonoBehaviour
     public void SetAudioMixerSE(float value)
     {
         //5’iŠK•â³
-        value /= 5;
+        value /= 10;
         //-80~0‚É•ÏŠ·
         var volume = Mathf.Clamp(Mathf.Log10(value) * 20f, -80f, 0f);
         //audioMixer‚É‘ã“ü
