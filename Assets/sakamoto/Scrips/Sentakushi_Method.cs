@@ -46,6 +46,13 @@ public class Sentakushi_Method : Event_Text
         if (Result_Num == 1)
         {
             Text_Disply(eventData.Sentakusi1_Result1);
+
+            //int tnp = Random.Range(eventData.GetRope_min, eventData.GetRope_max);
+            //for (int i = 0; i < tnp; i++)
+            //{
+            //    Debug.Log("ボロボロのロープを手に入れた。");
+            //}
+
         }
         if (Result_Num == 2)
         {

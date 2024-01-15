@@ -34,6 +34,52 @@ public class EventData : ScriptableObject
     public string Sentakusi1_Result1;
     [Header("選択肢1結果1確率")]
     public int Sentakusi1_Result1_Probability;
+
+    //[Header("石の取得数 max")]
+    //public int 1_1GetRope_max;
+    //[Header("石の取得数 min")]
+    //public int GetRope_min;
+    //[Header("枝の取得数 max")]
+    //public int GetRope_max;
+    //[Header("枝の取得数 min")]
+    //public int GetRope_min;
+    //[Header("小さいカニの取得数 max")]
+    //public int GetRope_max;
+    //[Header("小さいカニの取得数 min")]
+    //public int GetRope_min;
+    //[Header("小さい巻貝の取得数 max")]
+    //public int GetRope_max;
+    //[Header("小さい巻貝の取得数 min")]
+    //public int GetRope_min;
+    //[Header("ココナッツの取得数 max")]
+    //public int GetRope_max;
+    //[Header("ココナッツの取得数 min")]
+    //public int GetRope_min;
+    //[Header("空のボトルの取得数 max")]
+    //public int GetRope_max;
+    //[Header("空のボトルの取得数 min")]
+    //public int GetRope_min;
+    //[Header("ボロボロの縄の取得数 max")]
+    //public int GetRope_max;
+    //[Header("ボロボロの縄の取得数 min")]
+    //public int GetRope_min;
+    //[Header("ヤシガラの取得数 max")]
+    //public int GetRope_max;
+    //[Header("ヤシガラの取得数 min")]
+    //public int GetRope_min;
+    //[Header("フルーツの取得数 max")]
+    //public int GetRope_max;
+    //[Header("フルーツの取得数 min")]
+    //public int GetRope_min;
+    //[Header("小ぶりなイモの取得数 max")]
+    //public int GetRope_max;
+    //[Header("小ぶりなイモの取得数 min")]
+    //public int GetRope_min;
+    //[Header("ボロ布の取得数 max")]
+    //public int GetRope_max;
+    //[Header("ボロ布の取得数 min")]
+    //public int GetRope_min;
+
     [Header("選択肢1結果2")]
     public string Sentakusi1_Result2;
     [Header("選択肢1結果2確率")]

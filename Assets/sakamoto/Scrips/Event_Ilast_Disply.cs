@@ -1,21 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Event_Ilast_Disply : Image_Method
 {
-    [SerializeField] EventData eventData;
+   
+    public Event_Manage event_Manage;
+
     // Start is called before the first frame update
     void Start()
     {
-        //ƒCƒxƒ“ƒgƒCƒ‰ƒXƒg‚ğ•`Ê
-        PutImage(eventData.Event_Ilast);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+       // eventData = event_Manage.eventDatas[event_Manage.now_event_num];
+        //”wŒi‚ğ•`Ê
+        PutImage(event_Manage.eventDatas[event_Manage.now_event_num].Event_Ilast);
     }
+    public void DisplayIlast()
+    {
+    }
+
 }

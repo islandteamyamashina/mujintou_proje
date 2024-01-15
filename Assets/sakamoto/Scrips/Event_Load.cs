@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-//using UnityEngine.Windows;
 
-public class Event_Load : MonoBehaviour
+public class Event_Load : Event_Data_Manager
 {
     int[] Result_tam;
     int Result_Num;
     int now_array_num;
     int Max_Probability;
-    float countTime ;
+    float countTime;
     [SerializeField] float countTime_Max;
 
     [SerializeField] public EventData eventData1;
@@ -29,7 +29,7 @@ public class Event_Load : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {       
+    {
         Result_Num = 0;
         now_array_num = 0;
         Max_Probability = 0;
@@ -78,34 +78,20 @@ public class Event_Load : MonoBehaviour
         }
         if (eventData11.Event_Flag)
         {
-            Max_Probability += eventData11.Probability;
+            Max_Probability += eventData11.Probability + 1;
         }
 
-        Result_tam = new int[Max_Probability]; 
-        
+        Debug.Log(Max_Probability);
+
+        Result_tam = new int[Max_Probability];
+
         if (eventData1.Event_Flag)
         {
             for (int i = 0; eventData1.Probability > i; i++)
             {
                 Result_tam[i] = eventData1.Event_Num;
-            }        
+            }
             now_array_num = eventData1.Probability - 1;
-        }
-        if (eventData2.Event_Flag)
-        {
-            for (int i = 0; eventData2.Probability > i; i++)
-            {
-                Result_tam[now_array_num + i] = eventData2.Event_Num;
-            }
-            now_array_num += eventData2.Probability - 1;
-        }
-        if (eventData2.Event_Flag)
-        {
-            for (int i = 0; eventData2.Probability > i; i++)
-            {
-                Result_tam[now_array_num + i] = eventData2.Event_Num;
-            }
-            now_array_num += eventData2.Probability - 1;
         }
         if (eventData2.Event_Flag)
         {
@@ -179,13 +165,29 @@ public class Event_Load : MonoBehaviour
             }
             now_array_num += eventData10.Probability - 1;
         }
+        if (eventData11.Event_Flag)
+        {
+            for (int i = 0; eventData10.Probability > i; i++)
+            {
+                Result_tam[now_array_num + i] = eventData10.Event_Num;
+            }
+            now_array_num += eventData10.Probability - 1;
+        }
+        //if (eventData10.Event_Flag)
+        //{
+        //    for (int i = 0; eventData10.Probability > i; i++)
+        //    {
+        //        Result_tam[now_array_num + i] = eventData10.Event_Num;
+        //    }
+        //    now_array_num += eventData10.Probability - 1;
+        //}
         //if (eventData11.Event_Flag)
         //{
         //    for (int i = 0; eventData11.Probability > i; i++)
         //    {
         //        Result_tam[now_array_num + i] = eventData11.Event_Num;
         //    }
-        //    //now_array_num += eventData11.Probability - 1;
+        //    now_array_num += eventData11.Probability - 1;
         //}
 
     }
@@ -197,45 +199,55 @@ public class Event_Load : MonoBehaviour
         {
             int Result_num_tnp = Random.Range(0, Max_Probability);
             Result_Num = Result_tam[Result_num_tnp];
-            if(Result_Num == 1)
+            SceneManager.LoadScene("Event1");
+            if (Result_Num == 1)
             {
-                SceneManager.LoadScene("Event1");
+                setEventData(eventData1);
             }
-            if(Result_Num == 2)
+            if (Result_Num == 2)
             {
-                SceneManager.LoadScene("Event2");
+                setEventData(eventData2);
+                //SceneManager.LoadScene("Event2");
             }
             if (Result_Num == 3)
             {
-                SceneManager.LoadScene("Event3");
+                setEventData(eventData3);
+                //SceneManager.LoadScene("Event3");
             }
             if (Result_Num == 4)
             {
-                SceneManager.LoadScene("Event4");
+                setEventData(eventData4);
+                //SceneManager.LoadScene("Event4");
             }
             if (Result_Num == 5)
             {
-                SceneManager.LoadScene("Event5");
+                setEventData(eventData5);
+                //SceneManager.LoadScene("Event5");
             }
             if (Result_Num == 6)
             {
-                SceneManager.LoadScene("Event6");
+                setEventData(eventData6);
+                //SceneManager.LoadScene("Event6");
             }
             if (Result_Num == 7)
             {
-                SceneManager.LoadScene("Event7");
+                setEventData(eventData7);
+                //SceneManager.LoadScene("Event7");
             }
             if (Result_Num == 8)
             {
-                SceneManager.LoadScene("Event8");
+                setEventData(eventData8);
+                //SceneManager.LoadScene("Event8");
             }
             if (Result_Num == 9)
             {
-                SceneManager.LoadScene("Event9");
+                setEventData(eventData9);
+                //SceneManager.LoadScene("Event9");
             }
             if (Result_Num == 10)
             {
-                SceneManager.LoadScene("Event10");
+                setEventData(eventData10);
+                //SceneManager.LoadScene("Event10");
             }
             //if (Result_Num == 11)
             //{
@@ -245,3 +257,6 @@ public class Event_Load : MonoBehaviour
         countTime -= Time.deltaTime;
     }
 }
+
+
+
