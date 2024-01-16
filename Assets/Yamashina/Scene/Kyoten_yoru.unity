@@ -2135,7 +2135,6 @@ GameObject:
   - component: {fileID: 1265888927}
   - component: {fileID: 1265888931}
   - component: {fileID: 1265888932}
-  - component: {fileID: 1265888933}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2334,20 +2333,6 @@ MonoBehaviour:
   WakimizuPanel: {fileID: 439741819}
   cookingPanel: {fileID: 1502442091}
   sleeppingPanel: {fileID: 2544419247308850010, guid: c526b8120efcb7447929a7c374c69f46, type: 3}
---- !u!114 &1265888933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265888926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b3b179b74767654ba4fa1f2e5acc21e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newPanel: {fileID: 2544419247308850010, guid: c526b8120efcb7447929a7c374c69f46, type: 3}
-  sceneName: 
 --- !u!1 &1273170410
 GameObject:
   m_ObjectHideFlags: 0
@@ -4217,7 +4202,7 @@ PrefabInstance:
     - target: {fileID: 2523971703512211801, guid: c526b8120efcb7447929a7c374c69f46, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1265888933}
+      objectReference: {fileID: 0}
     - target: {fileID: 2523971703512211801, guid: c526b8120efcb7447929a7c374c69f46, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayOneShot
@@ -4345,7 +4330,7 @@ PrefabInstance:
     - target: {fileID: 4563901990880078695, guid: c526b8120efcb7447929a7c374c69f46, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1265888933}
+      objectReference: {fileID: 0}
     - target: {fileID: 4563901990880078695, guid: c526b8120efcb7447929a7c374c69f46, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: yesnobutton
