@@ -2,30 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Image_change : MonoBehaviour
+public class ImageChange_kyoten : MonoBehaviour
 {
-
-    //[SerializeField] public GameObject image;
+    [SerializeField] public GameObject image;
     [SerializeField] public GameObject hightlightImage;
 
     public  void Start()
     {
-       // image.SetActive(false);
+        image.SetActive(false);
         hightlightImage.SetActive(true);
 
     }
 
-    public  void ImageChange()
+    public void ImageChange1()
     {
-        //image.SetActive(true);
+        image.SetActive(true);
         hightlightImage.SetActive(false);
 
 
     }
 
-    public  void  restartImage()
+    public void restartImage2()
     {
-       // image.SetActive(false);
+        image.SetActive(false);
         hightlightImage.SetActive(true);
+
     }
 }

@@ -9,6 +9,8 @@ public class KyotenToOtherspace : CreditPanel1
     public GameObject TakibiPanel;
     public GameObject WakimizuPanel;
     public GameObject cookingPanel;
+    public GameObject sleeppingPanel;
+
 
 
     // Start is called before the first frame update
@@ -21,6 +23,7 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);
+        sleeppingPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -33,6 +36,7 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);
+        sleeppingPanel.SetActive(false);
 
     }
 
@@ -45,6 +49,7 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);
+        sleeppingPanel.SetActive(false);
 
 
     }
@@ -57,6 +62,7 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);
+        sleeppingPanel.SetActive(false);
 
     }
 
@@ -69,6 +75,7 @@ public class KyotenToOtherspace : CreditPanel1
         InventoryPanel.SetActive(true);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
+        sleeppingPanel.SetActive(false);
 
     }
     public void WakimizuView()
@@ -80,6 +87,8 @@ public class KyotenToOtherspace : CreditPanel1
         InventoryPanel.SetActive(false);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(true);
+        sleeppingPanel.SetActive(false);
+
 
     }
     public void TakibiView()
@@ -91,6 +100,8 @@ public class KyotenToOtherspace : CreditPanel1
         InventoryPanel.SetActive(false);
         TakibiPanel.SetActive(true);
         WakimizuPanel.SetActive(false);
+        sleeppingPanel.SetActive(false);
+
 
     }
     public void CookingView()
@@ -102,6 +113,21 @@ public class KyotenToOtherspace : CreditPanel1
         InventoryPanel.SetActive(false);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
+        sleeppingPanel.SetActive(false);
+
+
+    }
+    public void sleepingView()
+    {
+        mainPanel.SetActive(false);
+        subPanel.SetActive(false);
+        OptionPanel.SetActive(false);
+        cookingPanel.SetActive(false);
+        InventoryPanel.SetActive(false);
+        TakibiPanel.SetActive(false);
+        WakimizuPanel.SetActive(false);
+        sleeppingPanel.SetActive(true);
+
 
     }
 }
