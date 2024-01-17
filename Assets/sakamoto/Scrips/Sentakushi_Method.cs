@@ -6,7 +6,7 @@ using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using System.Linq;
 
 public class Sentakushi_Method : Event_Text
 {
@@ -19,6 +19,11 @@ public class Sentakushi_Method : Event_Text
     [SerializeField] GameObject _sentakusi2;
     [SerializeField] GameObject _sentakusi3;
 
+    public Event_Ilast_Disply event_Ilast_Disply;
+    public Event_BG_Disply event_BG_Disply;
+    public Event_Text event_Text;
+    public Event_Manage event_manage;
+
     int[] Result_tam;
     int Result_Num;
     bool GoToLoadScene;
@@ -26,7 +31,6 @@ public class Sentakushi_Method : Event_Text
 
     private void Start()
     {
-        Result_Num = 0;
         Set_Sentakusi_Words(eventData.Sentakusi1, eventData.Sentakusi2, eventData.Cancel);
         GoToLoadScene = false;
     }
@@ -35,80 +39,84 @@ public class Sentakushi_Method : Event_Text
         if (GoToLoadScene)
         {
             if (Input.GetMouseButton(0))
-            {
-                SceneManager.LoadScene("Event_Load");
+            {        
+                event_Text.SetEventText();
+                event_Ilast_Disply.SetEventIlast();
+                event_BG_Disply.SetEventBG();
+
+                _sentakusi1.SetActive(true);
+                _sentakusi2.SetActive(true);
+                _sentakusi3.SetActive(true);
+                GoToLoadScene = false;
             }
         }
     }
     public void Push_Sentakusi1()
     {
-        Choise_Result1();
-        if (Result_Num == 1)
+        if (GoToLoadScene == false)
         {
             Text_Disply(eventData.Sentakusi1_Result1);
 
-            //int tnp = Random.Range(eventData.GetRope_min, eventData.GetRope_max);
-            //for (int i = 0; i < tnp; i++)
-            //{
-            //    Debug.Log("ボロボロのロープを手に入れた。");
-            //}
+            //_sentakusi1.SetActive(false);
+            _sentakusi2.SetActive(false);
+            _sentakusi3.SetActive(false);
+            GoToLoadScene = true;
 
+            for (int i = 0; i < event_manage.eventDatas.Length; i++)
+            {
+                if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Next_Ivent_ID == event_manage.eventDatas[i].Event_ID)
+                {
+                    Debug.Log(event_manage.eventDatas[i].Event_ID);
+                    event_manage.now_event_num = i;
+                    Debug.Log(event_manage.eventDatas[event_manage.now_event_num].Event_ID);
+                    break;
+                }
+            }
         }
-        if (Result_Num == 2)
-        {
-            Text_Disply(eventData.Sentakusi1_Result2);
-        }
-        if (Result_Num == 3)
-        {
-            Text_Disply(eventData.Sentakusi1_Result3);
-        }
-        if (Result_Num == 4)
-        {
-            Text_Disply(eventData.Sentakusi1_Result4);
-        }
-        if (Result_Num == 5)
-        {
-            Text_Disply(eventData.Sentakusi1_Result5);
-        }
-        _sentakusi2.SetActive(false);
-        _sentakusi3.SetActive(false);
-        GoToLoadScene = true;
     }
 
     public void Push_Sentakusi2()
     {
-        Choise_Result2();
-        if (Result_Num == 1)
+        if (GoToLoadScene == false)
         {
             Text_Disply(eventData.Sentakusi2_Result1);
+            _sentakusi1.SetActive(false);
+            _sentakusi3.SetActive(false);
+            GoToLoadScene = true;
+
+            for (int i = 0; i < event_manage.eventDatas.Length; i++)
+            {
+                if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Next_Ivent_ID == event_manage.eventDatas[i].Event_ID)
+                {
+                    Debug.Log(event_manage.eventDatas[i].Event_ID);
+                    event_manage.now_event_num = i;
+                    Debug.Log(event_manage.eventDatas[event_manage.now_event_num].Event_ID);
+                    break;
+                }
+            }
         }
-        if (Result_Num == 2)
-        {
-            Text_Disply(eventData.Sentakusi2_Result2);
-        }
-        if (Result_Num == 3)
-        {
-            Text_Disply(eventData.Sentakusi2_Result3);
-        }
-        if (Result_Num == 4)
-        {
-            Text_Disply(eventData.Sentakusi2_Result4);
-        }
-        if (Result_Num == 5)
-        {
-            Text_Disply(eventData.Sentakusi2_Result5);
-        }
-        _sentakusi1.SetActive(false);
-        _sentakusi3.SetActive(false);
-        GoToLoadScene = true;
     }
 
     public void Push_Sentakusi3()
     {
-        Text_Disply(eventData.Cancel_Result);
-        _sentakusi1.SetActive(false);
-        _sentakusi2.SetActive(false);
-        GoToLoadScene = true;
+        if (GoToLoadScene == false)
+        {
+            Text_Disply(eventData.Cancel_Result);
+            _sentakusi1.SetActive(false);
+            _sentakusi2.SetActive(false);
+            GoToLoadScene = true;
+
+            for (int i = 0; i < event_manage.eventDatas.Length; i++)
+            {
+                if (event_manage.eventDatas[event_manage.now_event_num].Cancel_Next_Ivent_ID == event_manage.eventDatas[i].Event_ID)
+                {
+                    Debug.Log(event_manage.eventDatas[i].Event_ID);
+                    event_manage.now_event_num = i;
+                    Debug.Log(event_manage.eventDatas[event_manage.now_event_num].Event_ID);
+                    break;
+                }
+            }
+        }
     }
 
     public void Set_Sentakusi_Words(string Words1, string Words2, string Words3)
@@ -118,73 +126,5 @@ public class Sentakushi_Method : Event_Text
         _sentakusiTextObject3.text = Words3;
     }
 
-    //選択肢１を押したとき
-    void Choise_Result1()
-    {
-        int Max_Probability = eventData.Sentakusi1_Result1_Probability + eventData.Sentakusi1_Result2_Probability + eventData.Sentakusi1_Result3_Probability +
-                                eventData.Sentakusi1_Result4_Probability + eventData.Sentakusi1_Result5_Probability;
-
-        Result_tam = new int[Max_Probability];
-
-        for (int i = 0; i < Max_Probability; i++)
-        {
-            if (i < eventData.Sentakusi1_Result1_Probability)
-            {
-                Result_tam[i] = 1;
-            }
-            else if (i < eventData.Sentakusi1_Result1_Probability + eventData.Sentakusi1_Result2_Probability)
-            {
-                Result_tam[i] = 2;
-            }
-            else if (i < eventData.Sentakusi1_Result1_Probability + eventData.Sentakusi1_Result2_Probability + eventData.Sentakusi1_Result3_Probability)
-            {
-                Result_tam[i] = 3;
-            }
-            else if (i < eventData.Sentakusi1_Result1_Probability + eventData.Sentakusi1_Result2_Probability + eventData.Sentakusi1_Result3_Probability + eventData.Sentakusi1_Result4_Probability)
-            {
-                Result_tam[i] = 4;
-            }
-            else if (i < eventData.Sentakusi1_Result1_Probability + eventData.Sentakusi1_Result2_Probability + eventData.Sentakusi1_Result3_Probability + eventData.Sentakusi1_Result4_Probability + eventData.Sentakusi1_Result5_Probability)
-            {
-                Result_tam[i] = 5;
-            }
-        }
-        int Result_num_tnp = Random.Range(0, Max_Probability);
-        Result_Num = Result_tam[Result_num_tnp];
-    }
-
-    //選択肢2を押したとき
-    void Choise_Result2()
-    {
-        int Max_Probability = eventData.Sentakusi2_Result1_Probability + eventData.Sentakusi2_Result2_Probability + eventData.Sentakusi2_Result3_Probability +
-                                eventData.Sentakusi2_Result4_Probability + eventData.Sentakusi2_Result5_Probability;
-
-        Result_tam = new int[Max_Probability];
-
-        for (int i = 0; i < Max_Probability; i++)
-        {
-            if (i < eventData.Sentakusi2_Result1_Probability)
-            {
-                Result_tam[i] = 1;
-            }
-            else if (i < eventData.Sentakusi2_Result1_Probability + eventData.Sentakusi2_Result2_Probability)
-            {
-                Result_tam[i] = 2;
-            }
-            else if (i < eventData.Sentakusi2_Result1_Probability + eventData.Sentakusi2_Result2_Probability + eventData.Sentakusi2_Result3_Probability)
-            {
-                Result_tam[i] = 3;
-            }
-            else if (i < eventData.Sentakusi2_Result1_Probability + eventData.Sentakusi2_Result2_Probability + eventData.Sentakusi2_Result3_Probability + eventData.Sentakusi2_Result4_Probability)
-            {
-                Result_tam[i] = 4;
-            }
-            else if (i < eventData.Sentakusi2_Result1_Probability + eventData.Sentakusi2_Result2_Probability + eventData.Sentakusi2_Result3_Probability + eventData.Sentakusi2_Result4_Probability + eventData.Sentakusi2_Result5_Probability)
-            {
-                Result_tam[i] = 5;
-            }
-        }
-        int Result_num_tnp = Random.Range(0, Max_Probability);
-        Result_Num = Result_tam[Result_num_tnp];
-    }
+    
 }

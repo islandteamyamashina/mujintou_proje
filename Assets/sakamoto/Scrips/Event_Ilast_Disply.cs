@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class Event_Ilast_Disply : Image_Method
 {
-   
     public Event_Manage event_Manage;
+    public EventData eventData;
 
     // Start is called before the first frame update
     void Start()
-    {
+    {     
+        SetEventIlast();
     }
 
     // Update is called once per frame
     void Update()
     {
-       // eventData = event_Manage.eventDatas[event_Manage.now_event_num];
-        //”wŒi‚ğ•`Ê
-        PutImage(event_Manage.eventDatas[event_Manage.now_event_num].Event_Ilast);
-    }
-    public void DisplayIlast()
-    {
     }
 
+    public void SetEventIlast()
+    {
+        eventData = event_Manage.eventDatas[event_Manage.now_event_num];
+        //”wŒi‚ğ•`Ê
+        PutImage(eventData.Event_Ilast);
+    }
 }

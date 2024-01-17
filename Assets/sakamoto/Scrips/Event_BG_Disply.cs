@@ -9,18 +9,19 @@ public class Event_BG_Disply : Image_Method
 
     // Start is called before the first frame update
     void Start()
-    {       
+    {
+        SetEventBG();
     }
 
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public void SetEventBG()
+    {
         eventData = event_Manage.eventDatas[event_Manage.now_event_num];
         //”wŒi‚ð•`ŽÊ
         PutImage(eventData.Event_BG);
     }
-    public void DisplayBG()
-    {
-    }
-
 }

@@ -11,7 +11,7 @@ public class Event_Manage : MonoBehaviour
     void Start()
     {     
         start_event_num = Random.Range(-1, 2) + 1;
-        Debug.Log("start_num‚Í" + start_event_num + "‚Å‚·");
+        //Debug.Log("start_num‚Í" + start_event_num + "‚Å‚·");
         if (start_event_num > 2)
         {
             start_event_num = 2;
@@ -25,5 +25,6 @@ public class Event_Manage : MonoBehaviour
     {
 
     }
+
 
 }
