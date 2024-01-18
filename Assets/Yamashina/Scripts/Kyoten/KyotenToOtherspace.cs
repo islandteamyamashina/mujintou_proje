@@ -95,6 +95,7 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
+        Debug.Log("sleepingPanelè¡ÇµÇ‹ÇµÇΩ");
         cookingPanel.SetActive(false);
         
         //takibi_tabu.SetActive(false);
@@ -181,7 +182,23 @@ public class KyotenToOtherspace : CreditPanel1
 
 
 
+
     }
+    public  void SleepingtoTitleView()
+    {
+        mainPanel.SetActive(true);
+        subPanel.SetActive(false);
+        OptionPanel.SetActive(false);
+        InventoryPanel.SetActive(false);
+        TakibiPanel.SetActive(false);
+        WakimizuPanel.SetActive(false);
+        cookingPanel.SetActive(false);
+        sleeppingPanel.SetActive(false);
+        //takibi_tabu.SetActive(false);
+        //wakimizu_tabu.SetActive (false);        
+
+    }
+
     //public void takibi_tabuPanel()
     //{
     //    mainPanel.SetActive(true);
