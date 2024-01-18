@@ -13,7 +13,8 @@ public class KyotenToOtherspace : CreditPanel1
     public GameObject sleeppingPanel;
     //public GameObject takibi_tabu;
     //public GameObject wakimizu_tabu;
-    float takibi = 0;
+    public float takibi = 0;
+    public bool takibi_f;
     //  [SerializeField] public Text takibi_number; // 新しいUIパネルへの参照
 
     //bool takibicheck = false;
@@ -23,6 +24,7 @@ public class KyotenToOtherspace : CreditPanel1
     // Start is called before the first frame update
     void Start()
     {
+        takibi_f = false;
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
@@ -122,6 +124,7 @@ public class KyotenToOtherspace : CreditPanel1
         //{
         //if (Boolnumber())
         //{
+        takibi_f = true;
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
