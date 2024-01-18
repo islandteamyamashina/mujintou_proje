@@ -19,6 +19,8 @@ public class Sentakushi_Method : Event_Text
     [SerializeField] GameObject _sentakusi2;
     [SerializeField] GameObject _sentakusi3;
 
+    [SerializeField] string scene_Name;
+
     public Event_Ilast_Disply event_Ilast_Disply;
     public Event_BG_Disply event_BG_Disply;
     public Event_Text event_Text;
@@ -27,10 +29,13 @@ public class Sentakushi_Method : Event_Text
     int[] Result_tam;
     int Result_Num;
     bool GoToLoadScene;
+
+    int Event_num;
     // Start is called before the first frame update
 
     private void Start()
     {
+        Event_num = 0;
         Set_Sentakusi_Words(eventData.Sentakusi1, eventData.Sentakusi2, eventData.Cancel);
         GoToLoadScene = false;
     }
@@ -39,7 +44,8 @@ public class Sentakushi_Method : Event_Text
         if (GoToLoadScene)
         {
             if (Input.GetMouseButton(0))
-            {        
+            {
+                Event_num++;
                 event_Text.SetEventText();
                 event_Ilast_Disply.SetEventIlast();
                 event_BG_Disply.SetEventBG();
@@ -48,6 +54,10 @@ public class Sentakushi_Method : Event_Text
                 _sentakusi2.SetActive(true);
                 _sentakusi3.SetActive(true);
                 GoToLoadScene = false;
+                if(Event_num == 3)
+                {
+                    SceneManager.LoadScene(scene_Name);
+                }
             }
         }
     }
