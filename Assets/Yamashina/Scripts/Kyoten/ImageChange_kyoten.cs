@@ -1,31 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ImageChange_kyoten : MonoBehaviour
+public class ImageChange_kyoten :Image_Method
 {
-    [SerializeField] public GameObject image;
-    [SerializeField] public GameObject hightlightImage;
+    
+    public KyotenToOtherspace kyotenToOtherspace;
 
-    public  void Start()
+    [SerializeField] Sprite image;
+    [SerializeField] Sprite Image2;
+     void Start()
     {
-        image.SetActive(false);
-        hightlightImage.SetActive(true);
+        int image_num;
+        PutImage(image);
+    }
+    void Update()
+    {
+        if(kyotenToOtherspace.takibi_f)
+        {
+            if (Input.GetMouseButton(0))
+            {
 
+            }
+        }
     }
 
-    public void ImageChange1()
-    {
-        image.SetActive(true);
-        hightlightImage.SetActive(false);
-
-
-    }
-
-    public void restartImage2()
-    {
-        image.SetActive(false);
-        hightlightImage.SetActive(true);
-
-    }
 }
