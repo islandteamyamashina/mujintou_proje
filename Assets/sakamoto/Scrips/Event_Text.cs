@@ -10,16 +10,12 @@ public class Event_Text : Text_Method
     [SerializeField] Text titleObject;
     public Event_Manage event_Manage;
 
+
     
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("eventData‚Í" + event_Manage.start_event_num + "‚Å‚·");
-        eventData = event_Manage.eventDatas[event_Manage.now_event_num];
-        Text_Disply(event_Manage.eventDatas[event_Manage.now_event_num].Main_Text);
-        Debug.Log("eventData‚Í" + event_Manage.start_event_num + "‚Å‚·");
-        Debug.Log(event_Manage.eventDatas[event_Manage.now_event_num].Main_Text);
-        Title_Disply(event_Manage.eventDatas[event_Manage.now_event_num].Event_Title);
+        SetEventText();
     }
 
     // Update is called once per frame
@@ -32,6 +28,16 @@ public class Event_Text : Text_Method
     {
         string sentence = text;
         titleObject.text = sentence;
+    }
+
+   public void SetEventText()
+    {       
+        //Debug.Log("eventData‚Í" + event_Manage.start_event_num + "‚Å‚·");
+        eventData = event_Manage.eventDatas[event_Manage.now_event_num];
+        Text_Disply(eventData.Main_Text);
+        //Debug.Log("eventData‚Í" + event_Manage.start_event_num + "‚Å‚·");
+        //Debug.Log(eventData.Main_Text);
+        Title_Disply(eventData.Event_Title);
     }
 
 }
