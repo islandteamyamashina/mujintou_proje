@@ -1736,7 +1736,6 @@ GameObject:
   - component: {fileID: 377919645688218938}
   - component: {fileID: 377919645688218939}
   - component: {fileID: 377919645688218940}
-  - component: {fileID: 377919645688218937}
   - component: {fileID: 377919645688218942}
   m_Layer: 5
   m_Name: Sleeping_button
@@ -1848,7 +1847,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 377919645688218937}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: KyotenToOtherspace, Assembly-CSharp
         m_MethodName: sleepingView
         m_Mode: 1
@@ -1872,29 +1871,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &377919645688218937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 377919645688218928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02a9177cd76f3d348afc81f55b1632ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainPanel: {fileID: 377919645753724596}
-  subPanel: {fileID: 0}
-  OptionPanel: {fileID: 0}
-  InventoryPanel: {fileID: 0}
-  TakibiPanel: {fileID: 0}
-  WakimizuPanel: {fileID: 0}
-  cookingPanel: {fileID: 0}
-  sleeppingPanel: {fileID: 0}
-  takibi_tabu: {fileID: 0}
-  wakimizu_tabu: {fileID: 0}
-  takibi_number: {fileID: 0}
 --- !u!82 &377919645688218942
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2032,7 +2008,7 @@ RectTransform:
   - {fileID: 377919644747972291}
   - {fileID: 377919645688218943}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

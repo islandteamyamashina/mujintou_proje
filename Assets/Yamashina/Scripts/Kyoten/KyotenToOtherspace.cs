@@ -79,7 +79,7 @@ public class KyotenToOtherspace : CreditPanel1
         cookingPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
         cookingPanel.SetActive(false);
-        sleeppingPanel.SetActive(false);
+       
         //takibi_tabu.SetActive(false);
         //wakimizu_tabu.SetActive(false);
 
@@ -96,7 +96,7 @@ public class KyotenToOtherspace : CreditPanel1
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
         cookingPanel.SetActive(false);
-        sleeppingPanel.SetActive(false);
+        
         //takibi_tabu.SetActive(false);
         //wakimizu_tabu.SetActive(false);
 
@@ -112,7 +112,7 @@ public class KyotenToOtherspace : CreditPanel1
         WakimizuPanel.SetActive(true);
         sleeppingPanel.SetActive(false);
         cookingPanel.SetActive(false);
-        sleeppingPanel.SetActive(false);
+      
         //takibi_tabu.SetActive(false);
         //wakimizu_tabu.SetActive(false);
 
@@ -134,7 +134,7 @@ public class KyotenToOtherspace : CreditPanel1
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
         cookingPanel.SetActive(false);
-        sleeppingPanel.SetActive(false);
+       
         //    takibi_tabu.SetActive(false);
         //    wakimizu_tabu.SetActive(false);
         //}
@@ -157,7 +157,7 @@ public class KyotenToOtherspace : CreditPanel1
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
         cookingPanel.SetActive(false);
-        sleeppingPanel.SetActive(false);
+       
         //takibi_tabu.SetActive(false);
         //wakimizu_tabu.SetActive(false);
 
@@ -175,7 +175,7 @@ public class KyotenToOtherspace : CreditPanel1
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(true);
         cookingPanel.SetActive(false);
-        sleeppingPanel.SetActive(false);
+       
         //takibi_tabu.SetActive(false);
         //wakimizu_tabu.SetActive(false);
 
