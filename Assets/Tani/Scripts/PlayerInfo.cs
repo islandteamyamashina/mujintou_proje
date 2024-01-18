@@ -108,7 +108,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
         if (Owing_Items[(int)item_ID] <= 0) return;
         Owing_Items[(int)item_ID]--;
-        Items used_item = EnventryManager.Instance.GetItemData(item_ID);
+        Items used_item = Inventry.Instance.GetItemData(item_ID);
         Health += used_item.Health_Change;
         Hunger += used_item.Hunger_Change;
         Thirst += used_item.Thirst_Chage;
@@ -131,6 +131,6 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         {
             Owing_Items[(int)item_ID] = 0;
         }
-        EnventryManager.Instance.OnItemsChanged();
+        
     }
 }

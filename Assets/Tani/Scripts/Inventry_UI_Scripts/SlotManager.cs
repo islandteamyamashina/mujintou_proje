@@ -24,7 +24,7 @@ public class SlotManager : MonoBehaviour
     }
     void Start()
     {
-
+        
 
         
     }
@@ -40,14 +40,14 @@ public class SlotManager : MonoBehaviour
         PlayerInfo info = PlayerInfo.Instance;
         for(int i = 0; i < (int)Items.Item_ID.Item_Max; i++)
         {
-            Debug.Log(info.GetItemAmount((Items.Item_ID)i));
+       
             if (info.GetItemAmount((Items.Item_ID)i)  != 0)
             {
                 int? slotIndex = GetNullSlotIndex();
                 if(slotIndex.HasValue)
                 {
                     _Slots[(int)slotIndex].SetItemToSlot(
-                        EnventryManager.Instance.GetItemData((Items.Item_ID)i), info.GetItemAmount((Items.Item_ID)i));
+                        Inventry.Instance.GetItemData((Items.Item_ID)i));
                 }
                
             }
