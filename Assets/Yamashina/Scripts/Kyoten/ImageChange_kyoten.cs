@@ -15,7 +15,16 @@ public class ImageChange_kyoten :Image_Method
     [SerializeField] public Sprite Image2;
      void Start()
     {
+       
         image_num = 0;
+        if (kyotenToOtherspace.takibi <= 0)
+        {
+            TakibiImage.sprite = Image2;
+        }
+        else
+        {
+            TakibiImage.sprite = image;
+        }
         // PutImage(image);
     }
     void Update()
@@ -24,7 +33,7 @@ public class ImageChange_kyoten :Image_Method
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if(image_num == 0 )
+                if(image_num == 0 && kyotenToOtherspace.takibi <= 0)
                 {
                     TakibiImage.sprite = Image2;
                     //PutImage(Image2);
@@ -33,16 +42,24 @@ public class ImageChange_kyoten :Image_Method
                     
                 }
 
-             else if (image_num == 1)
+             else if (image_num == 1 )
                 {
                     TakibiImage.sprite = image;
                     //PutImage(image);
                     //Remove_Image(Image2);
                     image_num = 0;
+                    kyotenToOtherspace.takibi = 100;
+                    Debug.Log(kyotenToOtherspace.takibi);
                 }
 
             }
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                kyotenToOtherspace.takibi = 0;
+                Debug.Log(kyotenToOtherspace.takibi);
+            }
         }
+
     }
 
 }
