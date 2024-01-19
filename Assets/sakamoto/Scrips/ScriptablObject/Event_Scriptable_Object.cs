@@ -24,17 +24,28 @@ public class EventData : ScriptableObject
     public string Cancel;
     [Header("選択肢1結果")]
     public string Sentakusi1_Result1;
-    //[Header("選択肢1結果1確率")]
-    //public int Sentakusi1_Result1_Probability;
+    [Header("選択肢1条件ID")]
+    public int Sentakusi1_Zyouken;
+    [Header("選択肢1条件の個数")]
+    public int Sentakusi1_Zyouken_num;
+    [Header("報酬アイテムID")]
+    public int Sentakusi1_Reward;
+    [Header("報酬アイテムの個数")]
+    public int Sentakusi1_Reward_num;
     [Header("次のイベントID")]
     public int Sentakusi1_Next_Ivent_ID;
     [Header("選択肢2結果1")]
     public string Sentakusi2_Result1;
-    //[Header("選択肢2結果1確率")]
-    //public int Sentakusi2_Result1_Probability;
+    [Header("選択肢2条件ID")]
+    public int Sentakusi2_Zyouken;
+    [Header("選択肢2条件の個数")]
+    public int Sentakusi2_Zyouken_num;
+    [Header("報酬アイテムID")]
+    public int Sentakusi2_Reward;
+    [Header("報酬アイテムの個数")]
+    public int Sentakusi2_Reward_num;
     [Header("次のイベントID")]
     public int Sentakusi2_Next_Ivent_ID;
-
     [Header("キャンセル結果")]
     public string Cancel_Result;
     [Header("次のイベントID")]

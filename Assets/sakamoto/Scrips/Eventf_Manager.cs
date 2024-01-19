@@ -5,6 +5,7 @@ using UnityEngine;
 public class Event_Manage : MonoBehaviour
 {
     [SerializeField] public EventData[] eventDatas;
+    [SerializeField] public NewItem[] newItem;
     public int start_event_num;
     public int now_event_num;
     // Start is called before the first frame update
