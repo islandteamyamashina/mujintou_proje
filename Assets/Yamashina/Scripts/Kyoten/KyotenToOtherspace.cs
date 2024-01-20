@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class KyotenToOtherspace : CreditPanel1
 {
-    public GameObject InventoryPanel;
-    public GameObject TakibiPanel;
-    public GameObject WakimizuPanel;
-    public GameObject cookingPanel;
-    public GameObject sleeppingPanel;
+ [SerializeField]  GameObject InventoryPanel;
+    [SerializeField]  GameObject TakibiPanel;
+    [SerializeField] GameObject WakimizuPanel;
+    [SerializeField]  GameObject cookingPanel;
+    [SerializeField] GameObject sleeppingPanel;
+    [SerializeField] Prehubdelete prehubdelete;
+    [SerializeField] GameObject prefab;
     //public GameObject takibi_tabu;
     //public GameObject wakimizu_tabu;
     public float takibi = 0;
@@ -24,7 +26,7 @@ public class KyotenToOtherspace : CreditPanel1
     // Start is called before the first frame update
     void Start()
     {
-        takibi_f = false;
+       // prehubdelete.deletePrehub();
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
@@ -95,6 +97,7 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
+        Debug.Log("sleepingPanelè¡ÇµÇ‹ÇµÇΩ");
         cookingPanel.SetActive(false);
         
         //takibi_tabu.SetActive(false);
@@ -166,6 +169,8 @@ public class KyotenToOtherspace : CreditPanel1
     }
     public void sleepingView()
     {
+        Instantiate(prefab);
+
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
@@ -178,6 +183,7 @@ public class KyotenToOtherspace : CreditPanel1
        
         //takibi_tabu.SetActive(false);
         //wakimizu_tabu.SetActive(false);
+
 
 
 
