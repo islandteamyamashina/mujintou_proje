@@ -22,11 +22,8 @@ public class Prehubdelete : MonoBehaviour
         
             Destroy(prefab);
 
-        if (deleteSleepPanel_after == true)
-        {
-           // KyotenToOtherspace.MainView();
-        }
 
+       
     }
 
 }
