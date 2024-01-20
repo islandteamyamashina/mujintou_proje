@@ -5,13 +5,29 @@ using UnityEngine;
 public class Prehubdelete : MonoBehaviour
 {
     [SerializeField] public GameObject prefab;
+    public bool deleteSleepPanel_after;
+    //public KyotenToOtherspace KyotenToOtherspace;
 
-    public void OnClick()
+    private void Update()
     {
+        deleteSleepPanel_after = false;
+        
+        
+    }
+   
+    public void deletePrehub()
+    {
+        
+        deleteSleepPanel_after = true;
+        
+            Destroy(prefab);
 
-        Destroy(prefab);
-
+        if (deleteSleepPanel_after == true)
+        {
+           // KyotenToOtherspace.MainView();
+        }
 
     }
+
 }
 

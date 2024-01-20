@@ -217,7 +217,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 721834388}
+    m_TransformParent: {fileID: 1273170411}
     m_Modifications:
     - target: {fileID: 1147363833127842278, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -241,11 +241,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2753397258836180521, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -136.99997
+      value: -137
       objectReference: {fileID: 0}
     - target: {fileID: 2753397258836180521, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 131.00002
+      value: 131
       objectReference: {fileID: 0}
     - target: {fileID: 2753397258836180521, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -681,6 +681,7 @@ RectTransform:
   - {fileID: 1502442092}
   - {fileID: 534959893}
   - {fileID: 465715847}
+  - {fileID: 509051729}
   m_Father: {fileID: 1265888929}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1109,6 +1110,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: sleepingView
       objectReference: {fileID: 0}
+    - target: {fileID: 377919645688218942, guid: fc722cdcb71c8e841ade281dee49f444, type: 3}
+      propertyPath: Pan2D
+      value: -0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 377919645753724595, guid: fc722cdcb71c8e841ade281dee49f444, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1232,10 +1237,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 377919645688218937, guid: fc722cdcb71c8e841ade281dee49f444, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 377919645753724595, guid: fc722cdcb71c8e841ade281dee49f444, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 509051729}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc722cdcb71c8e841ade281dee49f444, type: 3}
 --- !u!1001 &2332585286194111168
@@ -1786,6 +1788,14 @@ PrefabInstance:
       propertyPath: prefab
       value: 
       objectReference: {fileID: 465715846}
+    - target: {fileID: 7300595719922801732, guid: aea71b07048a86f4d88777f5cfa5bf35, type: 3}
+      propertyPath: KyotenToOtherspace
+      value: 
+      objectReference: {fileID: 1265888932}
+    - target: {fileID: 7300595719922801732, guid: aea71b07048a86f4d88777f5cfa5bf35, type: 3}
+      propertyPath: deleteSleepPanel_after
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7988464863579754718, guid: aea71b07048a86f4d88777f5cfa5bf35, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -1820,7 +1830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7988464863579754718, guid: aea71b07048a86f4d88777f5cfa5bf35, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: OnClick
+      value: deletePrehub
       objectReference: {fileID: 0}
     - target: {fileID: 7988464863579754718, guid: aea71b07048a86f4d88777f5cfa5bf35, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
