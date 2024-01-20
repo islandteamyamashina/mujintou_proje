@@ -13,6 +13,8 @@ public class KyotenToOtherspace : CreditPanel1
     [SerializeField] GameObject sleeppingPanel;
     [SerializeField] Prehubdelete prehubdelete;
    [SerializeField] GameObject prefab;
+    [SerializeField]multiAudio multiAudio;
+
     //public GameObject takibi_tabu;
     //public GameObject wakimizu_tabu;
     public float takibi = 0;
@@ -219,7 +221,7 @@ public class KyotenToOtherspace : CreditPanel1
     //        return false;
     //    }
     //}
-
+  
 }
 
 
