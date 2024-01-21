@@ -33,7 +33,7 @@ public class SlotManager : MonoBehaviour
 
     public void OnItemChanged(int index)
     {
-        _Slots[index].SetItemToSlot(Inventry.Instance.GetItemData(PlayerInfo.Instance.GetItem(index)));
+      //  _Slots[index].SetItemToSlot(Inventry.Instance.GetItemData(PlayerInfo.Instance.GetItem(index)));
     }
 
     private int? GetNullSlotIndex()

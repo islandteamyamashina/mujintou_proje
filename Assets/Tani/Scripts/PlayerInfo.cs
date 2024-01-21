@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 {
+    //日付天気焚火値湧き水地、日付
+    //焚火 0 - 100
+    public int Day { get; set; }
+    public Weather weather { get; set; }
+
+    [SerializeField] private int _Max_Poisoned_Damage = 5;
+    [SerializeField] private int _Min_Poisoned_Damage = 5;
+
+    [SerializeField] private int _Max_Hungry_Effect = 5;
+    [SerializeField] private int _Min_Hungry_Effect = 3;
+
+    [SerializeField] private int _Max_Thirsty_Effect = 5;
+    [SerializeField] private int _Min_Thirsty_Effect = 3;
+
+    [SerializeField] private int _Max_HungryAndThirsty_Damage = 10;
+    [SerializeField] private int _Min_HungryAndThirsty_Damage = 8;
 
     private int _Init_Player_Health = 50;
     private int _Init_Player_Hunger = 50;
@@ -22,12 +38,17 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     private uint _player_condition = 0;
 
-  //  private Items.Item_ID[] Owing_Items;
+    
+    public enum Weather
+    {
+        Weather_Max
+    }
 
     
     protected override  void Awake() 
     {
         base.Awake();
+
         DontDestroyOnLoad(gameObject);
         
     }
@@ -158,19 +179,19 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
                         Luck += 5;
                         break;
                     case (int)Condition.Poisoned:
-                        int decrease_health = Random.Range(3, 6);
+                        int decrease_health = Random.Range(_Min_Poisoned_Damage, _Max_Poisoned_Damage + 1);
                         Health -= decrease_health;
                         break;
                     case (int)Condition.Hungry:
-                        int decrease_thirst = Random.Range(3, 6);
+                        int decrease_thirst = Random.Range(_Min_Hungry_Effect, _Max_Hungry_Effect + 1);
                         Thirst -= decrease_thirst;
                         break;
                     case (int)Condition.Thirsty:
-                        int decrease_hunger = Random.Range(3, 6);
+                        int decrease_hunger = Random.Range(_Min_Thirsty_Effect, _Max_Thirsty_Effect + 1);
                         Thirst -= decrease_hunger;
                         break;
                     case (int)Condition.ThirstyAndHungry:
-                        decrease_health = Random.Range(8, 11);
+                        decrease_health = Random.Range(_Min_HungryAndThirsty_Damage, _Max_HungryAndThirsty_Damage + 1);
                         Health -= decrease_health;
                         Luck = 30;
                         break;
@@ -178,6 +199,10 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
             }
            
         }
+    }
+    public uint GetConditionRawData()
+    {
+        return _player_condition;
     }
     #region
     ///// <summary>
