@@ -5,7 +5,7 @@ using UnityEngine;
 public class Items : ScriptableObject
 {
     //アイテID
-    public Item_ID item_ID = Item_ID.Item_Max;
+    public Item_ID item_ID = Item_ID.EmptyObject;
     //アイテムのアイコン
     public Sprite icon = null;
     //使用できるか
@@ -20,6 +20,7 @@ public class Items : ScriptableObject
     
     public enum Item_ID
     {
+        EmptyObject,
         Butterfly,
         Fish,
         Leaf,

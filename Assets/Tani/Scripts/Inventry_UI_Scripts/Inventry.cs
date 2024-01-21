@@ -5,12 +5,18 @@ using UnityEngine;
 public class Inventry : SingletonMonoBehaviour<Inventry>
 {
     [SerializeField] private List<Items> Item_Datas;
-
+    [SerializeField] private GameObject slot_manager_object;
+    [HideInInspector] public SlotManager slot_manager;
 
 
     protected override void Awake() 
     {
         base.Awake();
+        if(!slot_manager_object.TryGetComponent<SlotManager>(out slot_manager))
+        {
+            Debug.Log("Erorr Get Slot_Manager_");
+        }
+        
     }
 
     void Start()
@@ -37,8 +43,14 @@ public class Inventry : SingletonMonoBehaviour<Inventry>
 
     public void OnSlotSelected(int slotIndex)
     {
-        Debug.Log($"slotindex : {slotIndex}");
+        Debug.Log($"slotindex : {slotIndex} , item_id : {slot_manager.GetSlots()[slotIndex].GetItem().item_ID}");
         
+        
+    }
+
+    public void OnItemChanged(int index)
+    {
+        slot_manager.OnItemChanged(index);
     }
 
 }

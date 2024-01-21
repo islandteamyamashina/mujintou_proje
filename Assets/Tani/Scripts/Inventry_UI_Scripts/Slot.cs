@@ -8,16 +8,17 @@ public class Slot : MonoBehaviour
 {
     private Image _image;
     private Items _item;
-    public int _slot_Index = -1;
+    [SerializeField] private int _slot_Index = -1;
 
     private void Awake()
     {
         _image = gameObject.transform.GetChild(0).gameObject.GetComponent<Image>();
-        _item = null;
+        _item = Inventry.Instance.GetItemData(Items.Item_ID.EmptyObject);
         
     }
     void Start()
     {
+        if(_slot_Index == -1) { Debug.Log("Slot Index Erorr"); }
         EventTrigger eventTrigger = gameObject.GetComponent<EventTrigger>();
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerClick;
@@ -28,8 +29,8 @@ public class Slot : MonoBehaviour
 
     public void SetItemToSlot(Items inItem)
     {
-        
-        if (inItem != null)
+        if (!inItem) Debug.Log("Null");
+        if (inItem.item_ID != Items.Item_ID.EmptyObject)
         {
             _item = inItem;
             _image.sprite = inItem.icon;
@@ -45,7 +46,7 @@ public class Slot : MonoBehaviour
 
     public bool SlotHasItem()
     {
-        return _item != null;
+        return _item.item_ID != Items.Item_ID.EmptyObject;
     }
 
     public Items GetItem()
@@ -57,4 +58,5 @@ public class Slot : MonoBehaviour
     {
         Inventry.Instance.OnSlotSelected(slotIndex);
     }
+    public int GetSlotIndex() { return _slot_Index; }
 }
