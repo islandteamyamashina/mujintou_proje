@@ -21,15 +21,25 @@ public class Slot : MonoBehaviour
         if(_slot_Index == -1) { Debug.Log("Slot Index Erorr"); }
         EventTrigger eventTrigger = gameObject.GetComponent<EventTrigger>();
         EventTrigger.Entry entry = new EventTrigger.Entry();
+        EventTrigger.Entry entry1 = new EventTrigger.Entry();
+        EventTrigger.Entry entry2 = new EventTrigger.Entry();
+
         entry.eventID = EventTriggerType.PointerClick;
+        entry1.eventID = EventTriggerType.BeginDrag;
+        entry2.eventID = EventTriggerType.Drop;
+
         entry.callback.AddListener((data) => { OnSlotSelected(_slot_Index); });
+        entry1.callback.AddListener((data) => { OnSlotStartDrag(_slot_Index); });
+        entry2.callback.AddListener((data) => { OnSlotDrop(_slot_Index); });
         eventTrigger.triggers.Add(entry);
+        eventTrigger.triggers.Add(entry1);
+        eventTrigger.triggers.Add(entry2);
     }
 
 
     public void SetItemToSlot(Items inItem)
     {
-        if (!inItem) Debug.Log("Null");
+        
         if (inItem.item_ID != Items.Item_ID.EmptyObject)
         {
             _item = inItem;
@@ -59,4 +69,21 @@ public class Slot : MonoBehaviour
         Inventry.Instance.OnSlotSelected(slotIndex);
     }
     public int GetSlotIndex() { return _slot_Index; }
+
+    public void OnSlotStartDrag(int index)
+    {
+        Debug.Log($"Begin Drag : {index}");
+        Inventry.Instance.SetDraggingItem(_item, _slot_Index);
+        SetItemToSlot(Inventry.Instance.GetItemData(Items.Item_ID.EmptyObject));
+
+
+    }
+
+    public void OnSlotDrop(int index)
+    {
+        //Debug.Log($"Drop : {index}");
+        //Inventry.Instance.slot_manager.GetSlots()[(int)Inventry.Instance.GetDraggingData().index]
+        //    .SetItemToSlot(Inventry.Instance.GetDraggingData().item);
+
+    }
 }
