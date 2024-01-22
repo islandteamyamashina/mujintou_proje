@@ -36,6 +36,7 @@ public class Sentakushi_Method : Event_Text
     private void Start()
     {
         Event_num = 0;
+        Debug.Log(event_manage.start_event_num);
         Set_Sentakusi_Words(event_manage.eventDatas[event_manage.start_event_num].Sentakusi1, 
                             event_manage.eventDatas[event_manage.start_event_num].Sentakusi2, 
                             event_manage.eventDatas[event_manage.start_event_num].Cancel);
@@ -52,9 +53,9 @@ public class Sentakushi_Method : Event_Text
                 event_Text.SetEventText();
                 event_Ilast_Disply.SetEventIlast();
                 event_BG_Disply.SetEventBG();
-                Set_Sentakusi_Words(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1,
-                                    event_manage.eventDatas[event_manage.now_event_num].Sentakusi2,
-                                    event_manage.eventDatas[event_manage.now_event_num].Cancel);
+                Set_Sentakusi_Words(event_manage.eventDatas[event_manage.start_event_num].Sentakusi1,
+                                    event_manage.eventDatas[event_manage.start_event_num].Sentakusi2,
+                                    event_manage.eventDatas[event_manage.start_event_num].Cancel);
 
                 _sentakusiSetActive(event_Manage.now_event_num);
                 //_sentakusi1.SetActive(true);
@@ -156,7 +157,7 @@ public class Sentakushi_Method : Event_Text
                     Debug.Log("ğŒ‚ÌŒÂ”‚Í" + event_manage.eventDatas[event_num].Sentakusi1_Zyouken_num);
                     Debug.Log("‚Á‚Ä‚¢‚éŒÂ”‚Í" + event_manage.newItem[i].CurrentStackCount);
 
-                    if (event_manage.eventDatas[event_num].Sentakusi1_Zyouken_num == event_manage.newItem[i].CurrentStackCount)
+                    if (event_manage.eventDatas[event_num].Sentakusi1_Zyouken_num <= event_manage.newItem[i].CurrentStackCount)
                     {
 
                         _sentakusi1.SetActive(true);
@@ -180,7 +181,7 @@ public class Sentakushi_Method : Event_Text
             {
                 if (event_manage.eventDatas[event_num].Sentakusi2_Zyouken == event_manage.newItem[i].ScriptalItem.itemID)
                 {
-                    if (event_manage.eventDatas[event_num].Sentakusi2_Zyouken_num == event_manage.newItem[i].CurrentStackCount)
+                    if (event_manage.eventDatas[event_num].Sentakusi2_Zyouken_num <= event_manage.newItem[i].CurrentStackCount)
                     {
                         _sentakusi2.SetActive(true);
                     }
@@ -201,20 +202,49 @@ public class Sentakushi_Method : Event_Text
     {
         if (Sentakusi == "Sentakusi1")
         {
-            if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward != 0)
+            if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1 != 0)
             {
                 for (int i = 0; i < event_manage.newItem.Length; i++)
                 {
-                    if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward == event_manage.newItem[i].ScriptalItem.itemID)
+                    if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1 == event_manage.newItem[i].ScriptalItem.itemID)
                     {
                         Debug.Log(event_manage.newItem[i].ScriptalItem.name + "‚ğƒQƒbƒg‚µ‚Ü‚µ‚½");
-                        for (int j = 0; j < event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward_num; j++)
+                        for (int j = 0; j < event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1_num; j++)
                         {
                             Debug.Log("get");
                         }
                     }
                 }
             }
+            if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward2 != 0)
+            {
+                for (int i = 0; i < event_manage.newItem.Length; i++)
+                {
+                    if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward2 == event_manage.newItem[i].ScriptalItem.itemID)
+                    {
+                        Debug.Log(event_manage.newItem[i].ScriptalItem.name + "‚ğƒQƒbƒg‚µ‚Ü‚µ‚½");
+                        for (int j = 0; j < event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward2_num; j++)
+                        {
+                            Debug.Log("get");
+                        }
+                    }
+                }
+            }
+            if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward3 != 0)
+            {
+                for (int i = 0; i < event_manage.newItem.Length; i++)
+                {
+                    if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward3 == event_manage.newItem[i].ScriptalItem.itemID)
+                    {
+                        Debug.Log(event_manage.newItem[i].ScriptalItem.name + "‚ğƒQƒbƒg‚µ‚Ü‚µ‚½");
+                        for (int j = 0; j < event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward3_num; j++)
+                        {
+                            Debug.Log("get");
+                        }
+                    }
+                }
+            }
+            
         }
         if(Sentakusi == "Sentakusi2")
         if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward != 0)

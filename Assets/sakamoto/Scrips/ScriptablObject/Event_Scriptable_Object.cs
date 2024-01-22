@@ -29,9 +29,29 @@ public class EventData : ScriptableObject
     [Header("選択肢1条件の個数")]
     public int Sentakusi1_Zyouken_num;
     [Header("報酬アイテムID")]
-    public int Sentakusi1_Reward;
+    public int Sentakusi1_Reward1;
     [Header("報酬アイテムの個数")]
-    public int Sentakusi1_Reward_num;
+    public int Sentakusi1_Reward1_num;
+    [Header("報酬アイテムID")]
+    public int Sentakusi1_Reward2;
+    [Header("報酬アイテムの個数")]
+    public int Sentakusi1_Reward2_num;
+    [Header("報酬アイテムID")]
+    public int Sentakusi1_Reward3;
+    [Header("報酬アイテムの個数")]
+    public int Sentakusi1_Reward3_num;
+    [Header("報酬アイテムID")]
+    public int Sentakusi1_Reward4;
+    [Header("報酬アイテムの個数")]
+    public int Sentakusi1_Reward4_num;
+    [Header("報酬アイテムID")]
+    public int Sentakusi1_Reward5;
+    [Header("報酬アイテムの個数")]
+    public int Sentakusi1_Reward5_num;
+    [Header("報酬アイテムID")]
+    public int Sentakusi1_Reward6;
+    [Header("報酬アイテムの個数")]
+    public int Sentakusi1_Reward6_num;
     [Header("次のイベントID")]
     public int Sentakusi1_Next_Ivent_ID;
     [Header("選択肢2結果1")]

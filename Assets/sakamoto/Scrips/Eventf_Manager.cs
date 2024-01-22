@@ -9,7 +9,7 @@ public class Event_Manage : MonoBehaviour
     public int start_event_num;
     public int now_event_num;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {     
         start_event_num = Random.Range(-1, 2) + 1;
         //Debug.Log("start_num‚Í" + start_event_num + "‚Å‚·");
