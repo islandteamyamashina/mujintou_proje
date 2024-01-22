@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2962157304182558228}
   - component: {fileID: 5622883370059698165}
   - component: {fileID: 5269716634985495941}
+  - component: {fileID: 6743728836076542554}
   m_Layer: 5
   m_Name: Yes_button
   m_TagString: Untagged
@@ -122,6 +123,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6743728836076542554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776764231086126638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08885aeba551b24483f6f062449896e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Kyoten_hiru
 --- !u!1 &2581780901232006044
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
-  deleteSleepPanel_after: 0
+  deleteSleepPanel_after: 1
 --- !u!1 &8265919103190461349
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8300453769314249499
 RectTransform:
   m_ObjectHideFlags: 0

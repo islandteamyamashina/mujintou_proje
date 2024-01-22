@@ -12,7 +12,9 @@ public class KyotenToOtherspace : CreditPanel1
     [SerializeField]  GameObject cookingPanel;
     [SerializeField] GameObject sleeppingPanel;
     [SerializeField] Prehubdelete prehubdelete;
-    [SerializeField] GameObject prefab;
+   [SerializeField] GameObject prefab;
+    [SerializeField]multiAudio multiAudio;
+
     //public GameObject takibi_tabu;
     //public GameObject wakimizu_tabu;
     public float takibi = 0;
@@ -169,7 +171,7 @@ public class KyotenToOtherspace : CreditPanel1
     }
     public void sleepingView()
     {
-        Instantiate(prefab);
+       Instantiate(prefab);
 
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
@@ -219,7 +221,7 @@ public class KyotenToOtherspace : CreditPanel1
     //        return false;
     //    }
     //}
-
+  
 }
 
 
