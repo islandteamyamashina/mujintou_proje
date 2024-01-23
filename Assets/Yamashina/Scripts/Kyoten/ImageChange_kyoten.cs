@@ -37,14 +37,14 @@ public class ImageChange_kyoten : Image_Method
                 TakibiImage.sprite = Image2;
                 //PutImage(Image2);
                 //Remove_Image(image);
-                image_num = 1;
+                image_num = 1; 
                 kyotenToOtherspace.takibi_f = true;
                 Debug.Log("¬Œ÷");
 
 
             }
 
-            else if (kyotenToOtherspace.takibi_f ==true)
+            else if(image_num == 1 && kyotenToOtherspace.takibi > 0)
             {
                 TakibiImage.sprite = image;
                 //PutImage(image);

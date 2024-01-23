@@ -62,7 +62,7 @@ public class KyotenToOtherspace : CreditPanel1
         mainPanel.SetActive(false);
         subPanel.SetActive(true);
         OptionPanel.SetActive(false);
-        InventoryPanel.SetActive(false);
+        InventoryPanel.SetActive(true);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);
@@ -158,11 +158,11 @@ public class KyotenToOtherspace : CreditPanel1
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
         cookingPanel.SetActive(true);
-        InventoryPanel.SetActive(false);
+        InventoryPanel.SetActive(true);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
-        cookingPanel.SetActive(false);
+        cookingPanel.SetActive(true);
        
         takibi_tabu.SetActive(false);
         //wakimizu_tabu.SetActive(false);
