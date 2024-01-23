@@ -1087,17 +1087,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5743363428146210276, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
   m_PrefabInstance: {fileID: 2112995013}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1906524421 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7348713752188841788, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
-  m_PrefabInstance: {fileID: 8755225659349706505}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee49ac9369bfe6147849456e0a5d7187, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2056634178 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5743363428963535201, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
@@ -2280,6 +2269,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2332585287377113261, guid: 75caa7bc5e6934f408dc9cb91da0e2fa, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332585287377113261, guid: 75caa7bc5e6934f408dc9cb91da0e2fa, type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
@@ -2303,6 +2296,7 @@ PrefabInstance:
     - {fileID: 2977866865348961848, guid: 75caa7bc5e6934f408dc9cb91da0e2fa, type: 3}
     - {fileID: 5740593518387229902, guid: 75caa7bc5e6934f408dc9cb91da0e2fa, type: 3}
     - {fileID: 6757284121281904996, guid: 75caa7bc5e6934f408dc9cb91da0e2fa, type: 3}
+    - {fileID: 5736820071739706034, guid: 75caa7bc5e6934f408dc9cb91da0e2fa, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75caa7bc5e6934f408dc9cb91da0e2fa, type: 3}
@@ -2405,6 +2399,34 @@ PrefabInstance:
     - target: {fileID: 4017962095381516055, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066164265124517514, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066164265124517514, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066164265124517514, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1265888932}
+    - target: {fileID: 6066164265124517514, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066164265124517514, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainView
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066164265124517514, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: KyotenToOtherspace, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066164265124517514, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3697,15 +3719,15 @@ PrefabInstance:
     - target: {fileID: 450340101750705482, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 807375906270605633, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 815448563270140550, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 1874704775407352349, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3713,23 +3735,23 @@ PrefabInstance:
     - target: {fileID: 2679531718185242567, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 3120426402085329813, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 3233831013303909574, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 4055063983294008260, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 4500248621900043997, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 4509633674346893758, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -3745,35 +3767,35 @@ PrefabInstance:
     - target: {fileID: 5234686574939373382, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 5234686575240482974, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 5234686576268551833, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 5234686576277775932, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 5860372087580395130, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 6141876354195908562, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 6672576655311480164, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 7348713750816478222, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 7348713752188841787, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: m_Name
       value: InventoryManager2
@@ -3781,7 +3803,7 @@ PrefabInstance:
     - target: {fileID: 8060693346072818947, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 8254314061157858881, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -3797,7 +3819,7 @@ PrefabInstance:
     - target: {fileID: 8379917339246328882, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 8755225660491459424, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: m_Name
       value: Sozaibako&craft_Panel
@@ -3905,13 +3927,14 @@ PrefabInstance:
     - target: {fileID: 8926705929321548653, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     - target: {fileID: 9148150770442340105, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: cpInventoryManager
       value: 
-      objectReference: {fileID: 1906524421}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7348713752188841787, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
