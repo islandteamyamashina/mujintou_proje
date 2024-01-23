@@ -14,8 +14,8 @@ public class KyotenToOtherspace : CreditPanel1
     [SerializeField] Prehubdelete prehubdelete;
    [SerializeField] GameObject prefab;
     [SerializeField]multiAudio multiAudio;
-
-    //public GameObject takibi_tabu;
+    [SerializeField] GameObject takibi_tabu;
+    [SerializeField] GameObject takibi_button;
     //public GameObject wakimizu_tabu;
     public float takibi = 0;
     public bool takibi_f;
@@ -37,7 +37,7 @@ public class KyotenToOtherspace : CreditPanel1
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
-        //takibi_tabu.SetActive(false);
+        takibi_tabu.SetActive(false);
         //wakimizu_tabu.SetActive(false);
     }
 
@@ -52,7 +52,7 @@ public class KyotenToOtherspace : CreditPanel1
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
-        //takibi_tabu.SetActive(false);
+       takibi_tabu.SetActive(false);
         //wakimizu_tabu.SetActive (false);        
 
     }
@@ -67,7 +67,7 @@ public class KyotenToOtherspace : CreditPanel1
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
-        //takibi_tabu.SetActive(false);
+        takibi_tabu.SetActive(false);
         //wakimizu_tabu.SetActive(false);
 
 
@@ -84,7 +84,7 @@ public class KyotenToOtherspace : CreditPanel1
         sleeppingPanel.SetActive(false);
         cookingPanel.SetActive(false);
        
-        //takibi_tabu.SetActive(false);
+        takibi_tabu.SetActive(false);
         //wakimizu_tabu.SetActive(false);
 
     }
@@ -102,7 +102,7 @@ public class KyotenToOtherspace : CreditPanel1
         Debug.Log("sleepingPanelè¡ÇµÇ‹ÇµÇΩ");
         cookingPanel.SetActive(false);
         
-        //takibi_tabu.SetActive(false);
+        takibi_tabu.SetActive(false);
         //wakimizu_tabu.SetActive(false);
 
     }
@@ -118,18 +118,19 @@ public class KyotenToOtherspace : CreditPanel1
         sleeppingPanel.SetActive(false);
         cookingPanel.SetActive(false);
       
-        //takibi_tabu.SetActive(false);
+        takibi_tabu.SetActive(false);
         //wakimizu_tabu.SetActive(false);
 
     }
     public void TakibiView()
     {
+
         //Debug.Log("takibi" + takibi);
         // if (!takibicheck)
         //{
         //if (Boolnumber())
         //{
-        takibi_f = true;
+       //takibi_f = false;
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
@@ -140,7 +141,7 @@ public class KyotenToOtherspace : CreditPanel1
         sleeppingPanel.SetActive(false);
         cookingPanel.SetActive(false);
        
-        //    takibi_tabu.SetActive(false);
+            takibi_tabu.SetActive(false);
         //    wakimizu_tabu.SetActive(false);
         //}
         //  }
@@ -163,7 +164,7 @@ public class KyotenToOtherspace : CreditPanel1
         sleeppingPanel.SetActive(false);
         cookingPanel.SetActive(false);
        
-        //takibi_tabu.SetActive(false);
+        takibi_tabu.SetActive(false);
         //wakimizu_tabu.SetActive(false);
 
 
@@ -183,46 +184,60 @@ public class KyotenToOtherspace : CreditPanel1
         sleeppingPanel.SetActive(true);
         cookingPanel.SetActive(false);
        
-        //takibi_tabu.SetActive(false);
+        takibi_tabu.SetActive(false);
         //wakimizu_tabu.SetActive(false);
 
 
 
 
     }
-    //public void takibi_tabuPanel()
-    //{
-    //    mainPanel.SetActive(true);
-    //    subPanel.SetActive(false);
-    //    OptionPanel.SetActive(false);
-    //    InventoryPanel.SetActive(false);
-    //    TakibiPanel.SetActive(false);
-    //    WakimizuPanel.SetActive(false);
-    //    cookingPanel.SetActive(false);
-    //    sleeppingPanel.SetActive(false);
-    //    //takibi_tabu.SetActive(true);
-    //    //wakimizu_tabu.SetActive(false);
-    //    // takibi_number.text = "ï∞Ç´âŒ:" + takibi;
+    public void takibi_tabuPanel()
+    {
+        mainPanel.SetActive(true);
+        subPanel.SetActive(false);
+        OptionPanel.SetActive(false);
+        InventoryPanel.SetActive(false);
+        TakibiPanel.SetActive(false);
+        WakimizuPanel.SetActive(false);
+        cookingPanel.SetActive(false);
+        sleeppingPanel.SetActive(false);
+        takibi_tabu.SetActive(true);
+        //wakimizu_tabu.SetActive(false);
+        // takibi_number.text = "ï∞Ç´âŒ:" + takibi;
 
-    //}
-    //bool Boolnumber()
-    //{
+        }
 
 
-    //    if (takibi <=0)
-    //    {
-    //        takibicheck = true;
-    //        takibi = 100;
-    //        return true;
-    //    }
-    //    else 
-    //    {
-    //        takibicheck = false;
-    //        return false;
-    //    }
-    //}
   
-}
+      public  void takibiCheck()
+    {
+        
+       if( takibi_f == false)
+        {
+            TakibiView();
+        }
+       else if (takibi_f ==true)
+        {
+            takibi_button.SetActive(false);
+        }
+    }
+        //{
+
+
+        //    if (takibi <=0)
+        //    {
+        //        takibicheck = true;
+        //        takibi = 100;
+        //        return true;
+        //    }
+        //    else 
+        //    {
+        //        takibicheck = false;
+        //        return false;
+        //    }
+        //}
+
+    }
 
 
 
