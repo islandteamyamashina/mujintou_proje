@@ -66,6 +66,7 @@ public class Sentakushi_Method : Event_Text
                 {
                     SceneManager.LoadScene(scene_Name);
                 }
+                //PlayerInfo.Instance.Health
             }
         }
     }
@@ -79,6 +80,13 @@ public class Sentakushi_Method : Event_Text
             _sentakusi2.SetActive(false);
             _sentakusi3.SetActive(false);
             GoToLoadScene = true;
+
+            Debug.Log("変換前の体力は" + PlayerInfo.Instance.Health + "空腹度は" + PlayerInfo.Instance.Hunger + "水分は" + PlayerInfo.Instance.Thirst + "です");
+            PlayerInfo.Instance.Health += event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_health;
+            PlayerInfo.Instance.Hunger += event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_hunger;
+            PlayerInfo.Instance.Thirst += event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_warter;
+            Debug.Log("変換後の体力は" + PlayerInfo.Instance.Health + "空腹度は" + PlayerInfo.Instance.Hunger + "水分は" + PlayerInfo.Instance.Thirst + "です");
+
 
             for (int i = 0; i < event_manage.eventDatas.Length; i++)
             {
@@ -102,6 +110,12 @@ public class Sentakushi_Method : Event_Text
             _sentakusi1.SetActive(false);
             _sentakusi3.SetActive(false);
             GoToLoadScene = true;
+
+            Debug.Log("変換前の体力は" + PlayerInfo.Instance.Health + "空腹度は" + PlayerInfo.Instance.Hunger + "水分は" + PlayerInfo.Instance.Thirst + "です");
+            PlayerInfo.Instance.Health -= event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_health;
+            PlayerInfo.Instance.Hunger -= event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_hunger;
+            PlayerInfo.Instance.Thirst -= event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_warter;
+            Debug.Log("変換後の体力は" + PlayerInfo.Instance.Health + "空腹度は" + PlayerInfo.Instance.Hunger + "水分は" + PlayerInfo.Instance.Thirst + "です");
 
             for (int i = 0; i < event_manage.eventDatas.Length; i++)
             {
@@ -246,17 +260,47 @@ public class Sentakushi_Method : Event_Text
             }
             
         }
-        if(Sentakusi == "Sentakusi2")
-        if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward != 0)
+        if (Sentakusi == "Sentakusi2")
         {
-            for (int i = 0; i < event_manage.newItem.Length; i++)
+            if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward != 0)
             {
-                if(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward == event_manage.newItem[i].ScriptalItem.itemID)
+                for (int i = 0; i < event_manage.newItem.Length; i++)
                 {
-                    Debug.Log(event_manage.newItem[i].ScriptalItem.name + "をゲットしました");
-                    for (int j = 0; j < event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward_num; j++)
+                    if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward == event_manage.newItem[i].ScriptalItem.itemID)
                     {
-                        Debug.Log("get");
+                        Debug.Log(event_manage.newItem[i].ScriptalItem.name + "をゲットしました");
+                        for (int j = 0; j < event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward_num; j++)
+                        {
+                            Debug.Log("get");
+                        }
+                    }
+                }
+            }
+            if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward2 != 0)
+            {
+                for (int i = 0; i < event_manage.newItem.Length; i++)
+                {
+                    if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward2 == event_manage.newItem[i].ScriptalItem.itemID)
+                    {
+                        Debug.Log(event_manage.newItem[i].ScriptalItem.name + "をゲットしました");
+                        for (int j = 0; j < event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward2_num; j++)
+                        {
+                            Debug.Log("get");
+                        }
+                    }
+                }
+            }
+            if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward3 != 0)
+            {
+                for (int i = 0; i < event_manage.newItem.Length; i++)
+                {
+                    if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward3 == event_manage.newItem[i].ScriptalItem.itemID)
+                    {
+                        Debug.Log(event_manage.newItem[i].ScriptalItem.name + "をゲットしました");
+                        for (int j = 0; j < event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward3_num; j++)
+                        {
+                            Debug.Log("get");
+                        }
                     }
                 }
             }
