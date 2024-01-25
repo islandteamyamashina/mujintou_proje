@@ -332,7 +332,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 119, y: -24}
+  m_AnchoredPosition: {x: 127, y: -24}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &705593284
@@ -1464,6 +1464,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5743363427882735308, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 861566799}
+    - target: {fileID: 5743363427882735308, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 861566803}
@@ -1472,8 +1476,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5743363427882735308, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainView
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743363427882735308, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SE1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743363427882735308, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CreditPanel1, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5743363427882735308, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -2043,7 +2055,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 124, y: -61}
+  m_AnchoredPosition: {x: 127, y: -61}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1729793627
@@ -2469,7 +2481,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 118, y: -100}
+  m_AnchoredPosition: {x: 127, y: -100}
   m_SizeDelta: {x: 160, y: 32.8375}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2070996102
