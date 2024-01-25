@@ -29,6 +29,7 @@ public class Sentakushi_Method : Event_Text
     int[] Result_tam;
     int Result_Num;
     bool GoToLoadScene;
+    int next_num_tnp;//ひとつ前のイベントナンバー
 
     int Event_num;
     // Start is called before the first frame update
@@ -49,7 +50,7 @@ public class Sentakushi_Method : Event_Text
         {              
 
             if (Input.GetMouseButton(0))
-            { 
+            {        
                 GoToEnding();
                 Event_num++;
                 event_Text.SetEventText();
@@ -67,7 +68,8 @@ public class Sentakushi_Method : Event_Text
                 if(Event_num == 3)
                 {
                     SceneManager.LoadScene(scene_Name);
-                }
+                }    
+
                 //PlayerInfo.Instance.Health
             }
         }
@@ -89,7 +91,7 @@ public class Sentakushi_Method : Event_Text
             PlayerInfo.Instance.Thirst += event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_warter;
             Debug.Log("変換後の体力は" + PlayerInfo.Instance.Health + "空腹度は" + PlayerInfo.Instance.Hunger + "水分は" + PlayerInfo.Instance.Thirst + "です");
 
-
+            next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Next_Ivent_ID;
             for (int i = 0; i < event_manage.eventDatas.Length; i++)
             {
                 if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Next_Ivent_ID == event_manage.eventDatas[i].Event_ID)
@@ -119,6 +121,8 @@ public class Sentakushi_Method : Event_Text
             PlayerInfo.Instance.Hunger -= event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_hunger;
             PlayerInfo.Instance.Thirst -= event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_warter;
             Debug.Log("変換後の体力は" + PlayerInfo.Instance.Health + "空腹度は" + PlayerInfo.Instance.Hunger + "水分は" + PlayerInfo.Instance.Thirst + "です");
+
+            next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Next_Ivent_ID;
 
             for (int i = 0; i < event_manage.eventDatas.Length; i++)
             {
@@ -314,18 +318,20 @@ public class Sentakushi_Method : Event_Text
 
     void GoToEnding()
     {
+        Debug.Log(next_num_tnp);
+        Debug.Log(next_num_tnp / 1000);
+        //トゥルーエンド
+        if(next_num_tnp / 1000 == 0)
+        {
+            Debug.Log("トゥルーエンド");
+            SceneManager.LoadScene("TrueEnd");
+        }
         //バッドエンド
         if(PlayerInfo.Instance.Health == 0)
         {
             Debug.Log("バッドエンド");
             SceneManager.LoadScene("BadEnd");
         }    
-        //トゥルーエンド
-        if(event_manage.now_event_num / 1000 == 0)
-        {
-            Debug.Log("トゥルーエンド");
-            SceneManager.LoadScene("TrueEnd");
-        }
 
     }
 }
