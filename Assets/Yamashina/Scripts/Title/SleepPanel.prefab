@@ -242,7 +242,6 @@ GameObject:
   - component: {fileID: 4594836566830534421}
   - component: {fileID: 7108930186176513996}
   - component: {fileID: 7988464863579754718}
-  - component: {fileID: 7300595719922801732}
   - component: {fileID: 6815187317712632875}
   m_Layer: 5
   m_Name: No_button
@@ -354,20 +353,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7300595719922801732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6216748642870734528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7fa987cd02ff1949976e4f58f0ba4d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  deleteSleepPanel_after: 1
 --- !u!114 &6815187317712632875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,7 +494,7 @@ RectTransform:
   m_Children:
   - {fileID: 8300453769993584392}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
