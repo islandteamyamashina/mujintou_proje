@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+//using System.Diagnostics;
 
 public class Story_Text : Text_Method
 {
@@ -28,6 +29,10 @@ public class Story_Text : Text_Method
             if (line_num == 3)
             {
                 Text_Disply(storyData.ThirdLine);
+                if(storyData.ThirdLine == "NULL")
+                {
+                    Debug.Log("ƒ^ƒCƒgƒ‹‚É–ß‚é");
+                }
             }
             if (line_num == 4)
             {

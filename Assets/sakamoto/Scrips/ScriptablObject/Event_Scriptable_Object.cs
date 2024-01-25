@@ -40,18 +40,12 @@ public class EventData : ScriptableObject
     public int Sentakusi1_Reward3;
     [Header("報酬アイテムの個数")]
     public int Sentakusi1_Reward3_num;
-    [Header("報酬アイテムID")]
-    public int Sentakusi1_Reward4;
-    [Header("報酬アイテムの個数")]
-    public int Sentakusi1_Reward4_num;
-    [Header("報酬アイテムID")]
-    public int Sentakusi1_Reward5;
-    [Header("報酬アイテムの個数")]
-    public int Sentakusi1_Reward5_num;
-    [Header("報酬アイテムID")]
-    public int Sentakusi1_Reward6;
-    [Header("報酬アイテムの個数")]
-    public int Sentakusi1_Reward6_num;
+    [Header("体力")]
+    public int Sentakusi1_health;
+    [Header("空腹度")]
+    public int Sentakusi1_hunger;
+    [Header("水分")]
+    public int Sentakusi1_warter;
     [Header("次のイベントID")]
     public int Sentakusi1_Next_Ivent_ID;
     [Header("選択肢2結果1")]
@@ -64,6 +58,21 @@ public class EventData : ScriptableObject
     public int Sentakusi2_Reward;
     [Header("報酬アイテムの個数")]
     public int Sentakusi2_Reward_num;
+    [Header("報酬アイテムID")]
+    public int Sentakusi2_Reward2;
+    [Header("報酬アイテムの個数")]
+    public int Sentakusi2_Reward2_num;
+    [Header("報酬アイテムID")]
+    public int Sentakusi2_Reward3;
+    [Header("報酬アイテムの個数")]
+    public int Sentakusi2_Reward3_num;
+    [Header("体力")]
+    public int Sentakusi2_health;
+    [Header("空腹度")]
+    public int Sentakusi2_hunger;
+    [Header("水分")]
+    public int Sentakusi2_warter;
+
     [Header("次のイベントID")]
     public int Sentakusi2_Next_Ivent_ID;
     [Header("キャンセル結果")]
