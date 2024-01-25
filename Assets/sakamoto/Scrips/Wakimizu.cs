@@ -23,6 +23,7 @@ public class Wakimizu : MonoBehaviour
 
     public void DrinkWater()
     {
+        Debug.Log("飲む前の水分は" + PlayerInfo.Instance.Thirst);
         if (wakimizu_f)
         {
             PlayerInfo.Instance.Thirst += 20;
@@ -32,6 +33,9 @@ public class Wakimizu : MonoBehaviour
         {
             Debug.Log("何も起こらなかった。");
         }
+
+        Debug.Log("飲んだ後の水分は" + PlayerInfo.Instance.Thirst);
+
     }
 
     public void DrawWater()
@@ -41,13 +45,16 @@ public class Wakimizu : MonoBehaviour
             if (enptyBottle.CurrentStackCount >= 1)
             {
                 waterBottle.CurrentStackCount++;
+
                 enptyBottle.CurrentStackCount--;
                 wakimizu_f = false;
             }
-            else
-            {
-                Debug.Log("何も起こらなかった。");
-            }
         }
+        else
+        {
+            Debug.Log("何も起こらなかった。");
+        }
+
+
     }
 }

@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 7009618976378558753}
   - component: {fileID: 1410773557640965248}
   - component: {fileID: 8626020157704339221}
+  - component: {fileID: 8227410012375368814}
   m_Layer: 5
   m_Name: drink_button
   m_TagString: Untagged
@@ -441,7 +442,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7009618976378558753}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8227410012375368814}
+        m_TargetAssemblyTypeName: Wakimizu, Assembly-CSharp
+        m_MethodName: DrinkWater
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8626020157704339221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,6 +468,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+--- !u!114 &8227410012375368814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5969397435348501952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9e5aa6986a88c48bcce31714956a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enptyBottle: {fileID: 0}
+  waterBottle: {fileID: 0}
+  wakimizu_f: 0
 --- !u!1 &7228987493719785964
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +496,7 @@ GameObject:
   - component: {fileID: 4805941673235809683}
   - component: {fileID: 5859324798809365877}
   - component: {fileID: 5705036286927996480}
+  - component: {fileID: 4267460671358734968}
   m_Layer: 5
   m_Name: draw_water_button
   m_TagString: Untagged
@@ -577,7 +606,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4805941673235809683}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4267460671358734968}
+        m_TargetAssemblyTypeName: Wakimizu, Assembly-CSharp
+        m_MethodName: DrawWater
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5705036286927996480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,6 +632,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+--- !u!114 &4267460671358734968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7228987493719785964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9e5aa6986a88c48bcce31714956a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enptyBottle: {fileID: 0}
+  waterBottle: {fileID: 0}
+  wakimizu_f: 0
 --- !u!1 &7298346384998634396
 GameObject:
   m_ObjectHideFlags: 0
