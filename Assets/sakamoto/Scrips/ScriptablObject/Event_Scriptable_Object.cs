@@ -55,9 +55,9 @@ public class EventData : ScriptableObject
     [Header("選択肢2条件の個数")]
     public int Sentakusi2_Zyouken_num;
     [Header("報酬アイテムID")]
-    public int Sentakusi2_Reward;
+    public int Sentakusi2_Reward1;
     [Header("報酬アイテムの個数")]
-    public int Sentakusi2_Reward_num;
+    public int Sentakusi2_Reward1_num;
     [Header("報酬アイテムID")]
     public int Sentakusi2_Reward2;
     [Header("報酬アイテムの個数")]
@@ -82,7 +82,16 @@ public class EventData : ScriptableObject
 
 #if UNITY_EDITOR
     public void SetEventData(int eventID, string eventTitle, string mainText, string sentakushi1, string sentakussi2, string cansel,
-                            string sentakusi1Result1, int sentakusi1NextIventID, string sentakusi1Result2, int sentakusi2NextIventID,
+                            string sentakusi1Result1,  
+                            int sentakusi1Zyouken,int sentakusi1Zyouken_num, 
+                            int sentakusi1Reward1,int sentakusi1Reward1_num,int sentakusi1Reward2,int sentakusi1Reward2_num,int sentakusi1Reward3,int sentakusi1Reward3_num,
+                            int sentakusi1Health, int sentakusi1Hunger,int sentakusi1Warter,
+                            int sentakusi1NextIventID, 
+                            string sentakusi2Result1,
+                            int sentakusi2Zyouken,int sentakusi2Zyouken_num,
+                            int sentakusi2Reward1,int sentakusi2Reward1_num, int sentakusi2Reward2, int sentakusi2Reward2_num, int sentakusi2Reward3, int sentakusi2Reward3_num,
+                            int sentakusi2Health, int sentakusi2Hunger, int sentakusi2Warter,
+                            int sentakusi2NextIventID,
                             string cancelResult, int cancelNextIventID)
     {
         this.Event_ID = eventID;
@@ -92,8 +101,31 @@ public class EventData : ScriptableObject
         this.Sentakusi2 = sentakussi2;
         this.Cancel = cansel;
         this.Sentakusi1_Result1 = sentakusi1Result1;
+        this.Sentakusi1_Zyouken = sentakusi1Zyouken;
+        this.Sentakusi1_Zyouken_num = sentakusi1Zyouken_num;
+        this.Sentakusi1_Reward1 = sentakusi1Reward1;
+        this.Sentakusi1_Reward1_num = sentakusi1Reward1_num;
+        this.Sentakusi1_Reward2 = sentakusi1Reward2;
+        this.Sentakusi1_Reward2_num = sentakusi1Reward2_num;
+        this.Sentakusi1_Reward3 = sentakusi1Reward3;
+        this.Sentakusi1_Reward3_num = sentakusi1Reward3_num;
+        this.Sentakusi1_health = sentakusi1Health;
+        this.Sentakusi1_hunger = sentakusi1Hunger; 
+        this.Sentakusi1_warter = sentakusi1Warter; 
         this.Sentakusi1_Next_Ivent_ID = sentakusi1NextIventID;
-        this.Sentakusi2_Result1 = sentakusi1Result2;
+        this.Sentakusi2_Result1 = sentakusi2Result1;
+        this.Sentakusi2_Zyouken = sentakusi2Zyouken;
+        this.Sentakusi2_Zyouken_num = sentakusi2Zyouken_num;
+        this.Sentakusi2_Reward1 = sentakusi1Reward1;
+        this.Sentakusi2_Reward1_num = sentakusi2Reward1_num;
+        this.Sentakusi2_Reward2 = sentakusi2Reward2;
+        this.Sentakusi2_Reward2_num = sentakusi2Reward2_num;
+        this.Sentakusi2_Reward3 = sentakusi2Reward3;
+        this.Sentakusi2_Reward3_num = sentakusi2Reward3_num;
+        this.Sentakusi2_health = sentakusi2Health;
+        this.Sentakusi2_hunger = sentakusi2Hunger;
+        this.Sentakusi2_warter = sentakusi2Warter;
+
         this.Sentakusi2_Next_Ivent_ID = sentakusi2NextIventID;
         this.Cancel_Result = cancelResult; 
         this.Cancel_Next_Ivent_ID = cancelNextIventID;

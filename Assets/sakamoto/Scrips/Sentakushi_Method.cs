@@ -270,14 +270,14 @@ public class Sentakushi_Method : Event_Text
         }
         if (Sentakusi == "Sentakusi2")
         {
-            if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward != 0)
+            if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1 != 0)
             {
                 for (int i = 0; i < event_manage.newItem.Length; i++)
                 {
-                    if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward == event_manage.newItem[i].ScriptalItem.itemID)
+                    if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1 == event_manage.newItem[i].ScriptalItem.itemID)
                     {
                         Debug.Log(event_manage.newItem[i].ScriptalItem.name + "‚ğƒQƒbƒg‚µ‚Ü‚µ‚½");
-                        for (int j = 0; j < event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward_num; j++)
+                        for (int j = 0; j < event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1_num; j++)
                         {
                             Debug.Log("get");
                         }
