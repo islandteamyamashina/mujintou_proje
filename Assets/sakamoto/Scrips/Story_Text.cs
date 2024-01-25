@@ -99,7 +99,7 @@ public class Story_Text : Text_Method
             if (line_num == 10)
             {
                 Text_Disply(storyData.TenthLine);
-                    SceneManager.LoadScene(sceneName);
+                    Debug.Log("ƒ^ƒCƒgƒ‹‚É–ß‚é");
             }
 
 

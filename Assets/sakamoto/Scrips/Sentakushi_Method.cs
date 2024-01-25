@@ -46,9 +46,11 @@ public class Sentakushi_Method : Event_Text
     private void Update()
     {
         if (GoToLoadScene)
-        {
+        {              
+
             if (Input.GetMouseButton(0))
-            {
+            { 
+                GoToEnding();
                 Event_num++;
                 event_Text.SetEventText();
                 event_Ilast_Disply.SetEventIlast();
@@ -99,7 +101,6 @@ public class Sentakushi_Method : Event_Text
                 }
             }
 
-            GoToEnding();
         }
     }
 
@@ -130,7 +131,6 @@ public class Sentakushi_Method : Event_Text
                 }
             }
 
-            GoToEnding();
         }
     }
 
