@@ -33,7 +33,7 @@ public class CreditPanel1 : MonoBehaviour
     }
     public virtual void CreditView() 
     {
-        mainPanel.SetActive(false);
+        mainPanel.SetActive(true);
         subPanel.SetActive(false);
         OptionPanel.SetActive(true);
     }
