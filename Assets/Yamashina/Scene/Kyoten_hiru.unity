@@ -695,6 +695,7 @@ GameObject:
   - component: {fileID: 1293771792}
   - component: {fileID: 1293771793}
   - component: {fileID: 1293771795}
+  - component: {fileID: 1293771796}
   m_Layer: 0
   m_Name: SEObject
   m_TagString: Untagged
@@ -826,6 +827,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293771791}
   m_CullTransparentMesh: 1
+--- !u!114 &1293771796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293771791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5a450c3f8e7184bad165714abd3db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Init_Player_Health: 100
+  _Init_Player_Hunger: 100
+  _Init_Player_Thirst: 100
+  _Max_Player_Health: 100
+  _Max_Player_Hunger: 100
+  _Max_Player_Thirst: 100
 --- !u!1 &1402465366 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6216748642870734528, guid: aea71b07048a86f4d88777f5cfa5bf35, type: 3}

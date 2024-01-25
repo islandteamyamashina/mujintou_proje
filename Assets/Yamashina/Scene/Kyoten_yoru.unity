@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 44378200}
   - component: {fileID: 44378201}
+  - component: {fileID: 44378202}
   m_Layer: 0
   m_Name: SEObject
   m_TagString: Untagged
@@ -251,6 +252,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &44378202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44378199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5a450c3f8e7184bad165714abd3db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Init_Player_Health: 100
+  _Init_Player_Hunger: 100
+  _Init_Player_Thirst: 100
+  _Max_Player_Health: 100
+  _Max_Player_Hunger: 100
+  _Max_Player_Thirst: 100
 --- !u!1 &111779359 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 377919644879198500, guid: fc722cdcb71c8e841ade281dee49f444, type: 3}
