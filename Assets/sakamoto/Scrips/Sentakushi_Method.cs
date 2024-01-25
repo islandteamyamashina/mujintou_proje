@@ -98,6 +98,8 @@ public class Sentakushi_Method : Event_Text
                     break;
                 }
             }
+
+            GoToEnding();
         }
     }
 
@@ -127,6 +129,8 @@ public class Sentakushi_Method : Event_Text
                     break;
                 }
             }
+
+            GoToEnding();
         }
     }
 
@@ -304,6 +308,23 @@ public class Sentakushi_Method : Event_Text
                     }
                 }
             }
+        }
+
+    }
+
+    void GoToEnding()
+    {
+        //バッドエンド
+        if(PlayerInfo.Instance.Health == 0)
+        {
+            Debug.Log("バッドエンド");
+            SceneManager.LoadScene("BadEnd");
+        }    
+        //トゥルーエンド
+        if(event_manage.now_event_num / 1000 == 0)
+        {
+            Debug.Log("トゥルーエンド");
+            SceneManager.LoadScene("TrueEnd");
         }
 
     }

@@ -43,7 +43,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         Owing_Items[(int)Items.Item_ID.Leaf] = 3;
         Owing_Items[(int)Items.Item_ID.Plank] = 4;
 
-        EnventryManager.Instance.OnItemsChanged();
+        //EnventryManager.Instance.OnItemsChanged();
     }
 
     // Update is called once per frame
