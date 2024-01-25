@@ -28,6 +28,14 @@ public class KyotenToOtherspace : CreditPanel1
     // Start is called before the first frame update
     void Start()
     {
+        if(takibi <= 0)
+        {
+            takibi_f = false;
+        }
+        else
+        {
+            takibi_f = true;
+        }
        // prehubdelete.deletePrehub();
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
