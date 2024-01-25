@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &7427946 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4267460671358734968, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+  m_PrefabInstance: {fileID: 4017962095009522284}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9e5aa6986a88c48bcce31714956a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &260782785 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 377919645959967115, guid: fc722cdcb71c8e841ade281dee49f444, type: 3}
@@ -234,6 +245,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 776764231086126638, guid: aea71b07048a86f4d88777f5cfa5bf35, type: 3}
   m_PrefabInstance: {fileID: 8300453768890509724}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1078069608 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8227410012375368814, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+  m_PrefabInstance: {fileID: 4017962095009522284}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9e5aa6986a88c48bcce31714956a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1142344809 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8755225660491459424, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
@@ -844,7 +866,7 @@ MonoBehaviour:
   _Init_Player_Thirst: 100
   _Max_Player_Health: 100
   _Max_Player_Hunger: 100
-  _Max_Player_Thirst: 100
+  _Max_Player_Thirst: 1000
 --- !u!1 &1402465366 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6216748642870734528, guid: aea71b07048a86f4d88777f5cfa5bf35, type: 3}
@@ -2306,10 +2328,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1410773557640965248, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1410773557640965248, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410773557640965248, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1410773557640965248, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
@@ -2317,7 +2343,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1265888933}
     - target: {fileID: 1410773557640965248, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1078069608}
+    - target: {fileID: 1410773557640965248, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410773557640965248, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1410773557640965248, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
@@ -2325,11 +2359,23 @@ PrefabInstance:
       value: SE1
       objectReference: {fileID: 0}
     - target: {fileID: 1410773557640965248, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DrinkWater
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410773557640965248, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: multiAudio, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1410773557640965248, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Wakimizu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410773557640965248, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410773557640965248, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4017962095381516050, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
@@ -2424,6 +2470,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4267460671358734968, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: enptyBottle
+      value: 
+      objectReference: {fileID: 7129106709641092868, guid: fd513f0ae4049a34095b2ba960e2b36b, type: 3}
+    - target: {fileID: 4267460671358734968, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: waterBottle
+      value: 
+      objectReference: {fileID: 7129106709641092868, guid: 541e29437f34c5542b2fc2da31f6a2c0, type: 3}
     - target: {fileID: 5705036286927996480, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_Delegates.Array.size
       value: 1
@@ -2458,10 +2512,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5859324798809365877, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5859324798809365877, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859324798809365877, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5859324798809365877, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
@@ -2469,7 +2527,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1265888933}
     - target: {fileID: 5859324798809365877, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7427946}
+    - target: {fileID: 5859324798809365877, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859324798809365877, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5859324798809365877, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
@@ -2477,11 +2543,23 @@ PrefabInstance:
       value: SE1
       objectReference: {fileID: 0}
     - target: {fileID: 5859324798809365877, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DrawWater
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859324798809365877, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: multiAudio, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5859324798809365877, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Wakimizu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859324798809365877, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859324798809365877, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6066164265124517514, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
@@ -2536,6 +2614,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8227410012375368814, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: enptyBottle
+      value: 
+      objectReference: {fileID: 7129106709641092868, guid: fd513f0ae4049a34095b2ba960e2b36b, type: 3}
+    - target: {fileID: 8227410012375368814, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
+      propertyPath: waterBottle
+      value: 
+      objectReference: {fileID: 7129106709641092868, guid: 541e29437f34c5542b2fc2da31f6a2c0, type: 3}
     - target: {fileID: 8626020157704339221, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_Delegates.Array.size
       value: 1
@@ -3446,7 +3532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7829532095141352757, guid: 4568460be2efafd45a8868fb5781fc54, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -21.146004
+      value: -21.145996
       objectReference: {fileID: 0}
     - target: {fileID: 7829532095141352757, guid: 4568460be2efafd45a8868fb5781fc54, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -45,10 +45,18 @@ public class Wakimizu : MonoBehaviour
             if (enptyBottle.CurrentStackCount >= 1)
             {
                 waterBottle.CurrentStackCount++;
+                Debug.Log("水のボトルを1つ増やしました");
 
                 enptyBottle.CurrentStackCount--;
+                Debug.Log("空のボトルを1つ減らしました");
+
                 wakimizu_f = false;
             }
+            else
+            {
+                Debug.Log("空のボトルがありません");
+            }
+
         }
         else
         {
