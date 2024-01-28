@@ -7,7 +7,7 @@ public class After_LocationSentaku1 : MonoBehaviour
 {
     public GameObject newPanel; // 新しいUIパネルへの参照
                                 // public GameObject text;
-
+   // public KyotenToOtherspace kyotenToOtherspace;
     [SerializeField]
     string sceneName;
 
@@ -43,6 +43,8 @@ public class After_LocationSentaku1 : MonoBehaviour
             case 2: //押されたボタンのUnity側で設定された引数が2のだったとき
                 Debug.Log("Bのボタンが押されたよ");
                 newPanel.SetActive(false);
+              //  kyotenToOtherspace.MainView();
+                
                 break;
 
         }

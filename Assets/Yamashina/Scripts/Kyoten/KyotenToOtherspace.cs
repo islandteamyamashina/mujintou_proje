@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,7 @@ public class KyotenToOtherspace : CreditPanel1
     //public GameObject wakimizu_tabu;
     public float takibi = 0;
     public bool takibi_f;
+
     //  [SerializeField] public Text takibi_number; // 新しいUIパネルへの参照
 
     //bool takibicheck = false;
@@ -255,6 +257,9 @@ public class KyotenToOtherspace : CreditPanel1
             takibi_button.SetActive(false);
         }
     }
+
+ 
+
         //{
 
 
