@@ -5,20 +5,27 @@ using UnityEngine;
 public class Image_change : MonoBehaviour
 {
 
-    [SerializeField] public GameObject image;
+    //[SerializeField] public GameObject image;
+    [SerializeField] public GameObject hightlightImage;
 
-    public void Start()
+    public  void Start()
     {
-        image.SetActive(false);
+       // image.SetActive(false);
+        hightlightImage.SetActive(true);
+
     }
 
-    public void ImageChange()
+    public  void ImageChange()
     {
-        image.SetActive(true);
+        //image.SetActive(true);
+        hightlightImage.SetActive(false);
+
+
     }
 
-    public void restartImage()
+    public  void  restartImage()
     {
-        image.SetActive(false);
+       // image.SetActive(false);
+        hightlightImage.SetActive(true);
     }
 }

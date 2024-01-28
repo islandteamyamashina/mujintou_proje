@@ -4,51 +4,30 @@ using UnityEngine;
 
 public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 {
-    //日付天気焚火値湧き水地、日付
-    //焚火 0 - 100
-    public int Day { get; set; }
-    public Weather weather { get; set; }
-
-    [SerializeField] private int _Max_Poisoned_Damage = 5;
-    [SerializeField] private int _Min_Poisoned_Damage = 5;
-
-    [SerializeField] private int _Max_Hungry_Effect = 5;
-    [SerializeField] private int _Min_Hungry_Effect = 3;
-
-    [SerializeField] private int _Max_Thirsty_Effect = 5;
-    [SerializeField] private int _Min_Thirsty_Effect = 3;
-
-    [SerializeField] private int _Max_HungryAndThirsty_Damage = 10;
-    [SerializeField] private int _Min_HungryAndThirsty_Damage = 8;
-
-    private int _Init_Player_Health = 50;
-    private int _Init_Player_Hunger = 50;
-    private int _Init_Player_Thirst = 50;
-
-
+    [SerializeField]
+    private int _Init_Player_Health = 100;
+    [SerializeField]
+    private int _Init_Player_Hunger = 100;
+    [SerializeField]
+    private int _Init_Player_Thirst = 100;
+    [SerializeField]
     private int _Max_Player_Health = 100;
+    [SerializeField]
     private int _Max_Player_Hunger = 100;
+    [SerializeField]
     private int _Max_Player_Thirst = 100;
-    private int _Max_Player_Luck = 100;
 
     private int _player_Health;
     private int _player_Hunger;
     private int _player_Thirst;
     private int _player_Luck;
 
-    private uint _player_condition = 0;
-
-    
-    public enum Weather
-    {
-        Weather_Max
-    }
+    private int[] Owing_Items;
 
     
     protected override  void Awake() 
     {
         base.Awake();
-
         DontDestroyOnLoad(gameObject);
         
     }
@@ -57,28 +36,14 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         _player_Health = _Init_Player_Health;
         _player_Hunger = _Init_Player_Hunger;
         _player_Thirst = _Init_Player_Thirst;
-        _player_Luck = 0;
-        #region
-        //アイテムスロットの初期化
-        //if (Inventry.InstanceNullable)
-        //{
-        //    Owing_Items = new Items.Item_ID[Inventry.Instance.slot_manager.GetSlotNum()];
-        //    for (int i = 0; i < Inventry.Instance.slot_manager.GetSlotNum(); i++) Owing_Items[i] = Items.Item_ID.EmptyObject;
+        Owing_Items = new int[(int)Items.Item_ID.Item_Max];
+        for (int i = 0; i < (int)Items.Item_ID.Item_Max; i++) Owing_Items[i] = 0;
+        Owing_Items[(int)Items.Item_ID.Butterfly] = 3;
+        Owing_Items[(int)Items.Item_ID.Fish] = 2;
+        Owing_Items[(int)Items.Item_ID.Leaf] = 3;
+        Owing_Items[(int)Items.Item_ID.Plank] = 4;
 
-
-        //    Owing_Items[0] = Items.Item_ID.Butterfly;
-        //    Owing_Items[1] = Items.Item_ID.Plank;
-        //    Inventry.Instance.OnItemChanged(0);
-        //    Inventry.Instance.OnItemChanged(1);
-
-        //}
-
-
-
-
-
-        //Inventry.Instance.OnItemsChanged();
-        #endregion
+        //EnventryManager.Instance.OnItemsChanged();
     }
 
     // Update is called once per frame
@@ -123,126 +88,49 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         set
         {
             _player_Luck = value;
-             _player_Luck = Mathf.Clamp(_player_Luck,0,_Max_Player_Luck);
+             Mathf.Clamp(value,-100,100);
         }
     }
 
-    public enum Condition
+    /// <summary>
+    /// 指定されたアイテムの個数を取得します
+    /// </summary>
+    public int GetItemAmount(Items.Item_ID id)
     {
-        Good,Poisoned,Thirsty,Hungry,ThirstyAndHungry,CONDIITON_MAX
+        return Owing_Items[(int)id];
+    }
+    /// <summary>
+    /// 指定したアイテムを一つ使用します(個数を一つ減らす)
+    /// </summary>
+    /// <param name="item_ID"></param>
+    public void UseItem(Items.Item_ID item_ID)
+    {
+
+        if (Owing_Items[(int)item_ID] <= 0) return;
+        Owing_Items[(int)item_ID]--;
+        Items used_item = EnventryManager.Instance.GetItemData(item_ID);
+        Health += used_item.Health_Change;
+        Hunger += used_item.Hunger_Change;
+        Thirst += used_item.Thirst_Chage;
+        Luck += used_item.Luck_Change;
+
+   
+
+        EnventryManager.Instance.OnItemsChanged();
     }
 
-    //プレイヤーに体調を付加しましす
-    public void AddPlayerCondition(Condition condition)
+    /// <summary>
+    /// 指定したアイテムの数を直接指定します
+    /// </summary>
+    /// <param name="item_ID"></param>
+    /// <param name="num"></param>
+    public void SetItemNum(Items.Item_ID item_ID, int num)
     {
-        _player_condition |= (uint)1 << (int)condition;
-    }
-
-    //プレイヤーの現在の体調すべてをリストで返します
-    public List<Condition> GetPlayerAllConditions()
-    {
-        List<Condition> conditions = new List<Condition>();
-        for (int i = 0; i < (int)Condition.CONDIITON_MAX; i++)
+        Owing_Items[(int)item_ID] = num;
+        if (Owing_Items[(int)item_ID] < 0)
         {
-            if (IsPlayerConditionEqualTo((Condition)i))
-            {
-                conditions.Add((Condition)i);
-            }
+            Owing_Items[(int)item_ID] = 0;
         }
-        return conditions;
+        EnventryManager.Instance.OnItemsChanged();
     }
-    //プレイヤーが指定した体調であるかどうか
-    public bool IsPlayerConditionEqualTo(Condition condition)
-    {
-        return (_player_condition & ((uint)1 << (int)condition)) != 0;
-    }
-    //すべての体調をなくします
-    public void ResetCondition()
-    {
-        _player_condition = 0;
-    }
-    //指定した体調をなくします
-    public void EraseCondition(Condition condition)
-    {
-        _player_condition &= ~((uint)1 << (int)condition);
-    }
-    //行動ごとに実行してください。体調によって各パラメーターが変化します
-    public void DoAction()
-    {
-        for(int i = 0; i < (int)Condition.CONDIITON_MAX; i++)
-        {
-            if(IsPlayerConditionEqualTo((Condition)i))
-            {
-                switch (i)
-                {
-                    case (int)Condition.Good:
-                        Luck += 5;
-                        break;
-                    case (int)Condition.Poisoned:
-                        int decrease_health = Random.Range(_Min_Poisoned_Damage, _Max_Poisoned_Damage + 1);
-                        Health -= decrease_health;
-                        break;
-                    case (int)Condition.Hungry:
-                        int decrease_thirst = Random.Range(_Min_Hungry_Effect, _Max_Hungry_Effect + 1);
-                        Thirst -= decrease_thirst;
-                        break;
-                    case (int)Condition.Thirsty:
-                        int decrease_hunger = Random.Range(_Min_Thirsty_Effect, _Max_Thirsty_Effect + 1);
-                        Thirst -= decrease_hunger;
-                        break;
-                    case (int)Condition.ThirstyAndHungry:
-                        decrease_health = Random.Range(_Min_HungryAndThirsty_Damage, _Max_HungryAndThirsty_Damage + 1);
-                        Health -= decrease_health;
-                        Luck = 30;
-                        break;
-                }
-            }
-           
-        }
-    }
-    public uint GetConditionRawData()
-    {
-        return _player_condition;
-    }
-    #region
-    ///// <summary>
-    ///// 指定したアイテムを一つ使用します(個数を一つ減らす)
-    ///// </summary>
-    ///// <param name="item_ID"></param>
-    //public void UseItem(int index)
-    //{
-
-    //    if (Owing_Items[index] == Items.Item_ID.EmptyObject) return;
-    //    Items used_item = Inventry.Instance.GetItemData(Owing_Items[index]);
-
-    //    Health += used_item.Health_Change;
-    //    Hunger += used_item.Hunger_Change;
-    //    Thirst += used_item.Thirst_Chage;
-    //    Luck += used_item.Luck_Change;
-
-    //    Owing_Items[index] = Items.Item_ID.EmptyObject;
-
-    //    Inventry.Instance.OnItemChanged(index);
-    //}
-
-    ///// <summary>
-    ///// 指定したアイテムの数を直接指定します
-    ///// </summary>
-    ///// <param name="item_ID"></param>
-    ///// <param name="num"></param>
-    //public void SetItemNum(Items.Item_ID item_ID, int num)
-    //{
-    //   // Owing_Items[(int)item_ID] = num;
-    //    if (Owing_Items[(int)item_ID] < 0)
-    //    {
-    //        Owing_Items[(int)item_ID] = 0;
-    //    }
-
-    //}
-
-    //public Items.Item_ID GetItem(int index)
-    //{
-    //    return Owing_Items[index];
-    //}
-    #endregion
 }
