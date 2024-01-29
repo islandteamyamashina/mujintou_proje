@@ -18,6 +18,7 @@ public class KyotenToOtherspace : CreditPanel1
     [SerializeField] GameObject takibi_tabu;
     [SerializeField] GameObject takibi_button;
     [SerializeField] GameObject TansakuPanel;
+    [SerializeField] GameObject Cooking_messagePanel;
     //public GameObject wakimizu_tabu;
     public float takibi = 0;
     public bool takibi_f;
@@ -50,6 +51,7 @@ public class KyotenToOtherspace : CreditPanel1
         sleeppingPanel.SetActive(false);
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false); 
+        Cooking_messagePanel.SetActive(false);  
         //wakimizu_tabu.SetActive(false);
     }
 
@@ -66,6 +68,7 @@ public class KyotenToOtherspace : CreditPanel1
         sleeppingPanel.SetActive(false);
        takibi_tabu.SetActive(false);
         TansakuPanel.SetActive (false); 
+        Cooking_messagePanel.SetActive (false); 
         //wakimizu_tabu.SetActive (false);        
 
     }
@@ -81,7 +84,8 @@ public class KyotenToOtherspace : CreditPanel1
         cookingPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
         takibi_tabu.SetActive(false);
-        TansakuPanel.SetActive(false);   
+        TansakuPanel.SetActive(false);
+        Cooking_messagePanel.SetActive(false);
         //wakimizu_tabu.SetActive(false);
 
 
@@ -96,8 +100,7 @@ public class KyotenToOtherspace : CreditPanel1
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
-        cookingPanel.SetActive(false);
-       
+       Cooking_messagePanel.SetActive(false) ;
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         //wakimizu_tabu.SetActive(false);
@@ -115,10 +118,10 @@ public class KyotenToOtherspace : CreditPanel1
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
         Debug.Log("sleepingPanelè¡ÇµÇ‹ÇµÇΩ");
-        cookingPanel.SetActive(false);
         
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
+        Cooking_messagePanel.SetActive (false); 
         //wakimizu_tabu.SetActive(false);
 
     }
@@ -132,10 +135,11 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(true);
         sleeppingPanel.SetActive(false);
-        cookingPanel.SetActive(false);
       
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
+        Cooking_messagePanel.SetActive(false);
+
         //wakimizu_tabu.SetActive(false);
 
     }
@@ -156,10 +160,12 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(true);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
-        cookingPanel.SetActive(false);
+       
        
             takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
+        Cooking_messagePanel.SetActive(false);
+
         //    wakimizu_tabu.SetActive(false);
         //}
         //  }
@@ -180,10 +186,12 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
-        cookingPanel.SetActive(true);
+      
        
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
+        Cooking_messagePanel.SetActive(false);
+
         //wakimizu_tabu.SetActive(false);
 
 
@@ -201,10 +209,11 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(true);
-        cookingPanel.SetActive(false);
        
         takibi_tabu.SetActive(false);
             TansakuPanel.SetActive(false);
+        Cooking_messagePanel.SetActive(false);
+
         //wakimizu_tabu.SetActive(false);
 
 
@@ -223,10 +232,12 @@ public class KyotenToOtherspace : CreditPanel1
         sleeppingPanel.SetActive(false);
         takibi_tabu.SetActive(true);
             TansakuPanel.SetActive(false);
+        Cooking_messagePanel.SetActive(false);
+
         //wakimizu_tabu.SetActive(false);
         // takibi_number.text = "ï∞Ç´âŒ:" + takibi;
 
-        }
+    }
 
     public void tansakuPanel()
     {
@@ -238,14 +249,15 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
-        cookingPanel.SetActive(false);
 
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(true);
+        Cooking_messagePanel.SetActive(false);
+
     }
 
 
-      public  void takibiCheck()
+    public  void takibiCheck()
     {
         
        if( takibi_f == false)
@@ -258,25 +270,54 @@ public class KyotenToOtherspace : CreditPanel1
         }
     }
 
- 
+    public void cooking_tabu()
+    {
 
-        //{
+        mainPanel.SetActive(true);
+        subPanel.SetActive(false);
+        OptionPanel.SetActive(false);
+        cookingPanel.SetActive(false);
+        InventoryPanel.SetActive(false);
+        TakibiPanel.SetActive(false);
+        WakimizuPanel.SetActive(false);
+        sleeppingPanel.SetActive(false);
 
-
-        //    if (takibi <=0)
-        //    {
-        //        takibicheck = true;
-        //        takibi = 100;
-        //        return true;
-        //    }
-        //    else 
-        //    {
-        //        takibicheck = false;
-        //        return false;
-        //    }
-        //}
+        takibi_tabu.SetActive(false);
+        TansakuPanel.SetActive(false);
+        Cooking_messagePanel.SetActive(true);
 
     }
+
+
+    //{
+
+    public void Cookingflag()
+    {
+      if(takibi_f == false) 
+        {
+            multiAudio.SE3();
+            cooking_tabu();
+        }
+      else if(takibi_f == true)
+        {
+            CookingView();
+        }
+
+    }
+    //    if (takibi <=0)
+    //    {
+    //        takibicheck = true;
+    //        takibi = 100;
+    //        return true;
+    //    }
+    //    else 
+    //    {
+    //        takibicheck = false;
+    //        return false;
+    //    }
+    //}
+
+}
 
 
 
