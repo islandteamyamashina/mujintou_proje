@@ -11,7 +11,7 @@ public class Image_change : MonoBehaviour
     public  void Start()
     {
        // image.SetActive(false);
-        hightlightImage.SetActive(true);
+        hightlightImage.SetActive(false);
 
     }
 
