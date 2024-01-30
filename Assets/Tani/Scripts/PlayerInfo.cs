@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 {
@@ -17,6 +18,9 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     [SerializeField] private int _Max_HungryAndThirsty_Damage = 10;
     [SerializeField] private int _Min_HungryAndThirsty_Damage = 8;
+
+    [SerializeField] private Text status_text;
+    [SerializeField] private Text condition_text;
 
     private int _Init_Player_Health = 50;
     private int _Init_Player_Hunger = 50;
@@ -95,10 +99,26 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         _player_Thirst = _Init_Player_Thirst;
         _player_Luck = 0;
 
+        AddPlayerCondition(Condition.Good);
+        AddPlayerCondition(Condition.Poisoned);
+
     }
     private void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            DoAction();
+        }
+        status_text.text = $"Health : {_player_Health},Hunger : {_player_Hunger},Thirst : {_player_Thirst},Luck : {_player_Luck}";
+        string str = "";
+        for(int i = 0; i < (int)Condition.CONDIITON_MAX; i++)
+        {
+            if (IsPlayerConditionEqualTo((Condition)i))
+            {
+                str += $"{(Condition)i},";
+            }
+        }
+        condition_text.text = str;
     }
 
     public enum Condition
@@ -141,6 +161,16 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     public void DoAction()
     {
+        if(IsPlayerConditionEqualTo(Condition.Hungry) &&
+            IsPlayerConditionEqualTo(Condition.Thirsty))
+        {
+            AddPlayerCondition(Condition.ThirstyAndHungry);
+        }
+        else
+        {
+            EraseCondition(Condition.ThirstyAndHungry);
+        }
+
         for (int i = 0; i < (int)Condition.CONDIITON_MAX; i++)
         {
             if (IsPlayerConditionEqualTo((Condition)i))
