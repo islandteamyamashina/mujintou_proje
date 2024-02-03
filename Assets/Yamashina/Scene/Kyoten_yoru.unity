@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 44378200}
   - component: {fileID: 44378201}
-  - component: {fileID: 44378202}
   m_Layer: 0
   m_Name: SEObject
   m_TagString: Untagged
@@ -252,26 +251,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &44378202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 44378199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b5a450c3f8e7184bad165714abd3db8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Max_Poisoned_Damage: 5
-  _Min_Poisoned_Damage: 5
-  _Max_Hungry_Effect: 5
-  _Min_Hungry_Effect: 3
-  _Max_Thirsty_Effect: 5
-  _Min_Thirsty_Effect: 3
-  _Max_HungryAndThirsty_Damage: 10
-  _Min_HungryAndThirsty_Damage: 8
 --- !u!114 &90547588 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6759767907788924424, guid: fc722cdcb71c8e841ade281dee49f444, type: 3}
@@ -1855,7 +1834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5200040391503576156, guid: 742f3bc1d24704f4c9e85159b7036d75, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -191.19003
+      value: -191.19006
       objectReference: {fileID: 0}
     - target: {fileID: 5200040391503576156, guid: 742f3bc1d24704f4c9e85159b7036d75, type: 3}
       propertyPath: m_AnchoredPosition.y
