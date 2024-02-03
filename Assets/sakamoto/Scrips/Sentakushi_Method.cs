@@ -19,6 +19,10 @@ public class Sentakushi_Method : Event_Text
     [SerializeField] GameObject _sentakusi2;
     [SerializeField] GameObject _sentakusi3;
 
+    [SerializeField] GameObject shadow1;
+    [SerializeField] GameObject shadow2;
+    [SerializeField] GameObject shadow3;
+
     [SerializeField] string scene_Name;
 
     public Event_Ilast_Disply event_Ilast_Disply;
@@ -28,6 +32,7 @@ public class Sentakushi_Method : Event_Text
 
     int[] Result_tam;
     int Result_Num;
+    bool SceneContinue;
     bool GoToLoadScene;
     int next_num_tnp;//ひとつ前のイベントナンバー
 
@@ -42,6 +47,7 @@ public class Sentakushi_Method : Event_Text
                             event_manage.eventDatas[event_manage.start_event_num].Sentakusi2, 
                             event_manage.eventDatas[event_manage.start_event_num].Cancel);
         _sentakusiSetActive(event_manage.start_event_num);
+        SceneContinue = false;
         GoToLoadScene = false;
     }
     private void Update()
@@ -61,11 +67,11 @@ public class Sentakushi_Method : Event_Text
                                     event_manage.eventDatas[event_manage.now_event_num].Cancel);
 
                 _sentakusiSetActive(event_Manage.now_event_num);
-                //_sentakusi1.SetActive(true);
-                //_sentakusi2.SetActive(true);
-                //_sentakusi3.SetActive(true);
+                _sentakusi1.SetActive(true);
+                _sentakusi2.SetActive(true);
+                _sentakusi3.SetActive(true);
                 GoToLoadScene = false;
-                if(Event_num == 3)
+                if(Event_num == 5)
                 {
                     SceneManager.LoadScene(scene_Name);
                 }    
@@ -83,6 +89,8 @@ public class Sentakushi_Method : Event_Text
             //_sentakusi1.SetActive(false);
             _sentakusi2.SetActive(false);
             _sentakusi3.SetActive(false);
+            allShadow(false);
+
             GoToLoadScene = true;
 
             Debug.Log("変換前の体力は" + PlayerInfo.Instance.Health + "空腹度は" + PlayerInfo.Instance.Hunger + "水分は" + PlayerInfo.Instance.Thirst + "です");
@@ -114,6 +122,8 @@ public class Sentakushi_Method : Event_Text
             getItem("Sentakusi2");
             _sentakusi1.SetActive(false);
             _sentakusi3.SetActive(false);
+            allShadow(false);
+
             GoToLoadScene = true;
 
             Debug.Log("変換前の体力は" + PlayerInfo.Instance.Health + "空腹度は" + PlayerInfo.Instance.Hunger + "水分は" + PlayerInfo.Instance.Thirst + "です");
@@ -145,6 +155,8 @@ public class Sentakushi_Method : Event_Text
             Text_Disply(event_manage.eventDatas[event_manage.now_event_num].Cancel_Result);
             _sentakusi1.SetActive(false);
             _sentakusi2.SetActive(false);
+            allShadow(false);
+
             GoToLoadScene = true;
 
             for (int i = 0; i < event_manage.eventDatas.Length; i++)
@@ -182,12 +194,12 @@ public class Sentakushi_Method : Event_Text
                     if (event_manage.eventDatas[event_num].Sentakusi1_Zyouken_num <= event_manage.newItem[i].CurrentStackCount)
                     {
 
-                        _sentakusi1.SetActive(true);
+                        shadow1.SetActive(false);
                         break;
                     }
                     else
                     {
-                        _sentakusi1.SetActive(false);
+                        shadow1.SetActive(true);
                         break;
                     }
                 }
@@ -195,7 +207,7 @@ public class Sentakushi_Method : Event_Text
         }
         else
         {
-            _sentakusi1.SetActive(true);
+            shadow1.SetActive(false);
         }
         if (event_manage.eventDatas[event_num].Sentakusi2_Zyouken != 0)
         {
@@ -205,20 +217,20 @@ public class Sentakushi_Method : Event_Text
                 {
                     if (event_manage.eventDatas[event_num].Sentakusi2_Zyouken_num <= event_manage.newItem[i].CurrentStackCount)
                     {
-                        _sentakusi2.SetActive(true);
+                        shadow2.SetActive(false);
                     }
                     else
                     {
-                        _sentakusi2.SetActive(false);
+                        shadow2.SetActive(true);
                     }
                 }
             }
         }
         else
         {
-            _sentakusi2.SetActive(true);
+            shadow2.SetActive(false);
         }
-        _sentakusi3.SetActive(true);
+        shadow3.SetActive(false);
     }
     void getItem(string Sentakusi)
     {
@@ -334,4 +346,13 @@ public class Sentakushi_Method : Event_Text
         }    
 
     }
+    protected
+       void allShadow(bool check)
+       {
+           shadow1.SetActive(check);
+           shadow2.SetActive(check);
+           shadow3.SetActive(check);
+       }
 }
+
+//全てのシャドウのセットアクティブをオン・オフする
