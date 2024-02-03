@@ -19,14 +19,14 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
         // パス名取得
         filepath = Application.dataPath + "/Tani/Saves/" + fileName;
 
-        // ファイルがないとき、ファイル作成
-        if (!File.Exists(filepath))
-        {
-            Save(data);
-        }
+        //// ファイルがないとき、ファイル作成
+        //if (!File.Exists(filepath))
+        //{
+        //    Save(data);
+        //}
 
-        // ファイルを読み込んでdataに格納
-        data = Load(filepath);
+        //// ファイルを読み込んでdataに格納
+        //data = Load(filepath);
     }
     //-------------------------------------------------------------------
     // jsonとしてデータを保存

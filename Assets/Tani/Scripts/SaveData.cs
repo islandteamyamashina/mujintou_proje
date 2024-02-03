@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class SaveData 
 {
-    public SaveData()
+    public void MakeSaveData()
     {
         PlayerInfo info = null;
         if (PlayerInfo.InstanceNullable)

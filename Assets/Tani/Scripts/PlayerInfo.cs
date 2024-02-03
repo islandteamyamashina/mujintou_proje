@@ -22,15 +22,15 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] private Text status_text;
     [SerializeField] private Text condition_text;
 
-    private int _Init_Player_Health = 50;
-    private int _Init_Player_Hunger = 50;
-    private int _Init_Player_Thirst = 50;
+    [SerializeField] private int _Init_Player_Health = 50;
+    [SerializeField] private int _Init_Player_Hunger = 50;
+    [SerializeField] private int _Init_Player_Thirst = 50;
 
-    private int _Max_Player_Health = 100;
-    private int _Max_Player_Hunger = 100;
+    [SerializeField] private int _Max_Player_Health = 100;
+    [SerializeField] private int _Max_Player_Hunger = 100;
 
-    private int _Max_Player_Thirst = 100;
-    private int _Max_Player_Luck = 100;
+    [SerializeField] private int _Max_Player_Thirst = 100;
+    [SerializeField] private int _Max_Player_Luck = 100;
 
     private int _player_Health;
     private int _player_Hunger;
@@ -107,7 +107,10 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            DoAction();
+            SaveData saveData = new SaveData();
+            saveData.MakeSaveData();
+            Debug.Log($"{saveData.player_health},{saveData.player_hunger},{saveData.player_thirst}");
+           DataManager.Instance.Save(saveData);
         }
         status_text.text = $"Health : {_player_Health},Hunger : {_player_Hunger},Thirst : {_player_Thirst},Luck : {_player_Luck}";
         string str = "";
