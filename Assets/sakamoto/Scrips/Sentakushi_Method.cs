@@ -62,7 +62,6 @@ public class Sentakushi_Method : Event_Text
                 event_Text.SetEventText();
                 event_Ilast_Disply.SetEventIlast();
                 event_BG_Disply.SetEventBG();
-                multiAudio.SE2();
                 Set_Sentakusi_Words(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1,
                                     event_manage.eventDatas[event_manage.now_event_num].Sentakusi2,
                                     event_manage.eventDatas[event_manage.now_event_num].Cancel);
