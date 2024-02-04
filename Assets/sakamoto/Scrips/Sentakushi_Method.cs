@@ -29,7 +29,7 @@ public class Sentakushi_Method : Event_Text
     public Event_BG_Disply event_BG_Disply;
     public Event_Text event_Text;
     public Event_Manage event_manage;
-
+    public multiAudio multiAudio;
     int[] Result_tam;
     int Result_Num;
     bool SceneContinue;
@@ -56,12 +56,13 @@ public class Sentakushi_Method : Event_Text
         {              
 
             if (Input.GetMouseButton(0))
-            {        
+            {
                 GoToEnding();
                 Event_num++;
                 event_Text.SetEventText();
                 event_Ilast_Disply.SetEventIlast();
                 event_BG_Disply.SetEventBG();
+                multiAudio.SE2();
                 Set_Sentakusi_Words(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1,
                                     event_manage.eventDatas[event_manage.now_event_num].Sentakusi2,
                                     event_manage.eventDatas[event_manage.now_event_num].Cancel);
@@ -335,6 +336,7 @@ public class Sentakushi_Method : Event_Text
         //トゥルーエンド
         if(next_num_tnp / 1000 == 0)
         {
+
             Debug.Log("トゥルーエンド");
             SceneManager.LoadScene("TrueEnd");
         }
