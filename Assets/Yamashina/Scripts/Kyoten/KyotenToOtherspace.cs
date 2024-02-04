@@ -19,9 +19,20 @@ public class KyotenToOtherspace : CreditPanel1
     [SerializeField] GameObject takibi_button;
     [SerializeField] GameObject TansakuPanel;
     [SerializeField] GameObject Cooking_messagePanel;
+
+    [SerializeField] GameObject shadow1;
+    [SerializeField] GameObject shadow2;
+    [SerializeField] GameObject shadow3;
+    [SerializeField] GameObject shadow4;
     //public GameObject wakimizu_tabu;
     public float takibi = 0;
     public bool takibi_f;
+
+    //行先メニューでいけない場所を隠すイメージのフラグ
+    public bool shadow1_f = true;   //左下
+    public bool shadow2_f = true;   //右上
+    public bool shadow3_f = true;   //右中央
+    public bool shadow4_f = true;   //右下
 
     //  [SerializeField] public Text takibi_number; // 新しいUIパネルへの参照
 
@@ -51,7 +62,8 @@ public class KyotenToOtherspace : CreditPanel1
         sleeppingPanel.SetActive(false);
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false); 
-        Cooking_messagePanel.SetActive(false);  
+        Cooking_messagePanel.SetActive(false);
+
         //wakimizu_tabu.SetActive(false);
     }
 
@@ -249,7 +261,8 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
-
+        //どこに行けるかの確認
+        shadowCheck();
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(true);
         Cooking_messagePanel.SetActive(false);
@@ -317,6 +330,54 @@ public class KyotenToOtherspace : CreditPanel1
     //    }
     //}
 
+    
+    void allShadow()
+    {
+        shadow1.SetActive(true);
+        shadow2.SetActive(true);
+        shadow3.SetActive(true);
+        shadow4.SetActive(true);
+    }
+    void shadowCheck()
+    {
+        if (!shadow1_f)
+        {
+            shadow1.SetActive(false);
+        }
+        if (!shadow2_f)
+        {
+            shadow2.SetActive(false);
+        }
+        if (!shadow3_f)
+        {
+            shadow3.SetActive(false);
+        }
+        if (!shadow4_f)
+        {
+            shadow4.SetActive(false);
+        }
+        
+    }
+
+    public void deleteShadow(int field)
+    {
+        if(field == 1)
+        {
+            shadow1_f = false;
+        }
+        if(field == 2)
+        {
+            shadow2_f = false;
+        }
+        if(field == 3)
+        {
+            shadow3_f = false;
+        }
+        if(field == 4)
+        {
+            shadow4_f = false;
+        }
+    }
 }
 
 
