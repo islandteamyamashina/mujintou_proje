@@ -29,7 +29,7 @@ public class Sentakushi_Method : Event_Text
     public Event_BG_Disply event_BG_Disply;
     public Event_Text event_Text;
     public Event_Manage event_manage;
-    public multiAudio multiAudio;
+   // public multiAudio multiAudio;
     int[] Result_tam;
     int Result_Num;
     bool SceneContinue;
