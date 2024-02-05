@@ -7,7 +7,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     public int Day { get; set; }
     public Weather weather { get; set; }
 
-    [SerializeField] private int _Max_Poisoned_Damage = 5;
+    [SerializeField,Header("状態異常による影響値")]
+    private int _Max_Poisoned_Damage = 5;
     [SerializeField] private int _Min_Poisoned_Damage = 5;
 
     [SerializeField] private int _Max_Hungry_Effect = 5;
@@ -19,10 +20,11 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] private int _Max_HungryAndThirsty_Damage = 10;
     [SerializeField] private int _Min_HungryAndThirsty_Damage = 8;
 
-    [SerializeField] private Text status_text;
-    [SerializeField] private Text condition_text;
+    [Space]
 
-    [SerializeField] private int _Init_Player_Health = 50;
+    
+    [SerializeField,Header("ステータスの初期値最大値")]
+    private int _Init_Player_Health = 50;
     [SerializeField] private int _Init_Player_Hunger = 50;
     [SerializeField] private int _Init_Player_Thirst = 50;
 
@@ -32,12 +34,24 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] private int _Max_Player_Thirst = 100;
     [SerializeField] private int _Max_Player_Luck = 100;
 
+    [Space, Header("その他")]
+    [SerializeField, Tooltip("行動ごとに増える湧き水値")] private int water_gain = 5;
+
+    [Space]
+    [Header("テスト中")]
+    [SerializeField] private Text status_text;
+    [SerializeField] private Text condition_text;
+
+
     private int _player_Health;
     private int _player_Hunger;
     private int _player_Thirst;
     private int _player_Luck;
 
     private uint _player_condition = 0;
+    private int water_value = 0;
+
+    public int first_item = 0;
 
     public int Health
     {
@@ -75,6 +89,16 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         {
             _player_Luck = value;
             _player_Luck = Mathf.Clamp(_player_Luck, 0, _Max_Player_Luck);
+        }
+    }
+
+    public int Water
+    {
+        get { return water_value; }
+        set
+        {
+            water_value = value;
+            water_value = Mathf.Clamp(water_value, 0, 100);
         }
     }
 
@@ -128,6 +152,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     {
         Good, Poisoned, Thirsty, Hungry, ThirstyAndHungry, CONDIITON_MAX
     }
+
 
     public void AddPlayerCondition(Condition condition)
     {
@@ -209,5 +234,20 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     public uint GetConditionRawData()
     {
         return _player_condition;
+    }
+    
+    float GetStatusPercent(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                return (((float)Health / (float)_Max_Player_Health));
+            case 1:
+                return (((float)Hunger / (float)_Max_Player_Hunger));
+            case 2:
+                return (((float)Thirst / (float)_Max_Player_Thirst));
+            default:
+                return 0;
+        }
     }
 }
