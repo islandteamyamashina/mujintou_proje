@@ -51,7 +51,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     private uint _player_condition = 0;
     private int water_value = 0;
 
-    public int first_item = 0;
+    [SerializeField] private int first_item = 0;
 
     public int Health
     {
@@ -250,4 +250,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
                 return 0;
         }
     }
+
+    int GetFirstItem() { return first_item; }
+    void SetFirstItem(int item) { first_item = item; }
 }
