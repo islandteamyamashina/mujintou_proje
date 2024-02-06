@@ -236,16 +236,16 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         return _player_condition;
     }
     
-    float GetStatusPercent(int index)
+    public float GetStatusPercent(int index)
     {
         switch (index)
         {
             case 0:
-                return (((float)Health / (float)_Max_Player_Health));
+                return (float)Health / (float)_Max_Player_Health;
             case 1:
-                return (((float)Hunger / (float)_Max_Player_Hunger));
+                return (float)Hunger / (float)_Max_Player_Hunger;
             case 2:
-                return (((float)Thirst / (float)_Max_Player_Thirst));
+                return (float)Thirst / (float)_Max_Player_Thirst;
             default:
                 return 0;
         }
