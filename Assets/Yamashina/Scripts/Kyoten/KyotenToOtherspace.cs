@@ -7,14 +7,14 @@ using UnityEngine.UI;
 
 public class KyotenToOtherspace : CreditPanel1
 {
- [SerializeField]  GameObject InventoryPanel;
-    [SerializeField]  GameObject TakibiPanel;
+    [SerializeField] GameObject InventoryPanel;
+    [SerializeField] GameObject TakibiPanel;
     [SerializeField] GameObject WakimizuPanel;
-    [SerializeField]  GameObject cookingPanel;
+    [SerializeField] GameObject cookingPanel;
     [SerializeField] GameObject sleeppingPanel;
-   [SerializeField] GameObject prefab;
+    [SerializeField] GameObject prefab;
     [SerializeField] After_LocationSentaku1 after_LocationSentaku;
-    [SerializeField]multiAudio multiAudio;
+    [SerializeField] multiAudio multiAudio;
     [SerializeField] GameObject takibi_tabu;
     [SerializeField] GameObject takibi_button;
     [SerializeField] GameObject TansakuPanel;
@@ -33,7 +33,8 @@ public class KyotenToOtherspace : CreditPanel1
     public bool shadow2_f = true;   //右上
     public bool shadow3_f = true;   //右中央
     public bool shadow4_f = true;   //右下
-
+    private float TakibiTabu_timer = 0.0f;
+    public float takibiTabu_wait = 0.5f;
     //  [SerializeField] public Text takibi_number; // 新しいUIパネルへの参照
 
     //bool takibicheck = false;
@@ -43,7 +44,8 @@ public class KyotenToOtherspace : CreditPanel1
     // Start is called before the first frame update
     void Start()
     {
-        if(takibi <= 0)
+        TakibiTabu_timer = 0.0f;
+        if (takibi <= 0)
         {
             takibi_f = false;
         }
@@ -51,7 +53,7 @@ public class KyotenToOtherspace : CreditPanel1
         {
             takibi_f = true;
         }
-       // prehubdelete.deletePrehub();
+        // prehubdelete.deletePrehub();
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
@@ -61,7 +63,7 @@ public class KyotenToOtherspace : CreditPanel1
         cookingPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
         takibi_tabu.SetActive(false);
-        TansakuPanel.SetActive(false); 
+        TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
 
         //wakimizu_tabu.SetActive(false);
@@ -78,9 +80,9 @@ public class KyotenToOtherspace : CreditPanel1
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
-       takibi_tabu.SetActive(false);
-        TansakuPanel.SetActive (false); 
-        Cooking_messagePanel.SetActive (false); 
+        takibi_tabu.SetActive(false);
+        TansakuPanel.SetActive(false);
+        Cooking_messagePanel.SetActive(false);
         //wakimizu_tabu.SetActive (false);        
 
     }
@@ -112,7 +114,7 @@ public class KyotenToOtherspace : CreditPanel1
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
-       Cooking_messagePanel.SetActive(false) ;
+        Cooking_messagePanel.SetActive(false);
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         //wakimizu_tabu.SetActive(false);
@@ -130,10 +132,10 @@ public class KyotenToOtherspace : CreditPanel1
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
         Debug.Log("sleepingPanel消しました");
-        
+
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
-        Cooking_messagePanel.SetActive (false); 
+        Cooking_messagePanel.SetActive(false);
         //wakimizu_tabu.SetActive(false);
 
     }
@@ -147,7 +149,7 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(true);
         sleeppingPanel.SetActive(false);
-      
+
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
@@ -163,7 +165,7 @@ public class KyotenToOtherspace : CreditPanel1
         //{
         //if (Boolnumber())
         //{
-       //takibi_f = false;
+        //takibi_f = false;
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
@@ -172,9 +174,9 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(true);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
-       
-       
-            takibi_tabu.SetActive(false);
+
+
+        takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
 
@@ -198,8 +200,8 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
-      
-       
+
+
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
@@ -211,7 +213,7 @@ public class KyotenToOtherspace : CreditPanel1
     }
     public void sleepingView()
     {
-       Instantiate(prefab);
+        Instantiate(prefab);
 
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
@@ -221,9 +223,9 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(true);
-       
+
         takibi_tabu.SetActive(false);
-            TansakuPanel.SetActive(false);
+        TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
 
         //wakimizu_tabu.SetActive(false);
@@ -243,8 +245,25 @@ public class KyotenToOtherspace : CreditPanel1
         cookingPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
         takibi_tabu.SetActive(true);
-            TansakuPanel.SetActive(false);
+        TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
+
+       /* if (takibi_tabu == true)
+        {
+            TakibiTabu_timer += Time.deltaTime;
+            Debug.Log("takibitabu_timer"+TakibiTabu_timer);
+            if (TakibiTabu_timer >= takibiTabu_wait)
+                {
+
+                takibi_tabu.SetActive(false);
+            }
+        }
+        else if(!takibi_tabu)
+            {
+            TakibiTabu_timer = 0.0f;
+        }
+       */
+
 
         //wakimizu_tabu.SetActive(false);
         // takibi_number.text = "焚き火:" + takibi;
@@ -270,14 +289,14 @@ public class KyotenToOtherspace : CreditPanel1
     }
 
 
-    public  void takibiCheck()
+    public void takibiCheck()
     {
-        
-       if( takibi_f == false)
+
+        if (takibi_f == false)
         {
             TakibiView();
         }
-       else if (takibi_f ==true)
+        else if (takibi_f == true)
         {
             takibi_button.SetActive(false);
         }
@@ -306,12 +325,12 @@ public class KyotenToOtherspace : CreditPanel1
 
     public void Cookingflag()
     {
-      if(takibi_f == false) 
+        if (takibi_f == false)
         {
             multiAudio.SE3();
             cooking_tabu();
         }
-      else if(takibi_f == true)
+        else if (takibi_f == true)
         {
             CookingView();
         }
@@ -330,7 +349,7 @@ public class KyotenToOtherspace : CreditPanel1
     //    }
     //}
 
-    
+
     void allShadow()
     {
         shadow1.SetActive(true);
@@ -356,24 +375,24 @@ public class KyotenToOtherspace : CreditPanel1
         {
             shadow4.SetActive(false);
         }
-        
+
     }
 
     public void deleteShadow(int field)
     {
-        if(field == 1)
+        if (field == 1)
         {
             shadow1_f = false;
         }
-        if(field == 2)
+        if (field == 2)
         {
             shadow2_f = false;
         }
-        if(field == 3)
+        if (field == 3)
         {
             shadow3_f = false;
         }
-        if(field == 4)
+        if (field == 4)
         {
             shadow4_f = false;
         }
