@@ -11,7 +11,7 @@ public class Fade : MonoBehaviour
     [SerializeField] GameObject feadPanal;
     Color color;
     int fead_time;
-    bool feadout_f;
+    public bool feadout_f;
     [SerializeField]string scene_name;
     // Start is called before the first frame update
     void Start()
