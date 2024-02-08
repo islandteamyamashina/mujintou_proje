@@ -8,13 +8,16 @@ public class Wakimizu : MonoBehaviour
 {
     [SerializeField] public NewItem enptyBottle;
     [SerializeField] public NewItem waterBottle;
-    [SerializeField] Texture2D texture;
+    //[SerializeField] Texture2D texture;
+  //  [SerializeField] Image_Method image_Method;
+    [SerializeField]GameObject  image;
     [SerializeField] public Button button;
   //  [SerializeField] public GameObject wakimizuImage;
     public bool wakimizu_f;
     // Start is called before the first frame update
     void Start()
     {
+        image.SetActive(false); 
         wakimizu_f = true;
         Texture2D texture = Resources.Load("") as Texture2D;
 
@@ -31,6 +34,7 @@ public class Wakimizu : MonoBehaviour
         Debug.Log("飲む前の水分は" + PlayerInfo.Instance.Thirst);
         if (wakimizu_f)
         {
+            image.SetActive (true);
             PlayerInfo.Instance.Thirst += 20;
             wakimizu_f = false;
         }
@@ -57,8 +61,8 @@ public class Wakimizu : MonoBehaviour
                 // リソースから、texture2を取得
 
                 // texture2を使いSpriteを作って、反映させる
-   button.image.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
-
+                //button.image.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+                image.SetActive(true);
             }
             else
             {
