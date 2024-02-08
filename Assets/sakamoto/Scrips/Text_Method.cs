@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
+using System.Threading.Tasks;
 
 public class Text_Method : MonoBehaviour
 {
@@ -22,6 +23,6 @@ public class Text_Method : MonoBehaviour
     public void Text_Disply(string text)
     {
         string sentence = text;
-        textObject.text = sentence;
+        textObject.text = sentence;       
     }
 }

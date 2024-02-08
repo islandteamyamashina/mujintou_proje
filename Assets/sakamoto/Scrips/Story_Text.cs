@@ -9,13 +9,13 @@ using UnityEngine.SceneManagement;
 public class Story_Text : Text_Method
 {
     [SerializeField] StoryData storyData;
-    [SerializeField] string     sceneName;
+    [SerializeField] string sceneName;
     public multiAudio multiAudio;
     int line_num;
     // Start is called before the first frame update
     void Start()
     {
-        Invoke();
+        //Invoke();
         line_num = 1;
         Text_Disply(storyData.FarstLine);
     }
@@ -26,90 +26,104 @@ public class Story_Text : Text_Method
         if (Input.GetMouseButtonUp(0))
         {
             multiAudio.SE2();
-
-            line_num++;
-            if (line_num == 2)
+            Invoke("Next_Text", 1.0f);
+        }
+    }
+    void Next_Text()
+    {
+        line_num++;
+        if (line_num == 2)
+        {
+            if (storyData.ScondLine == "NULL")
             {
-                Text_Disply(storyData.ScondLine);
-                if (storyData.ScondLine == "NULL")
-                {
-                    SceneManager.LoadScene(sceneName);
-                }
-
+                SceneManager.LoadScene(sceneName);
             }
-            if (line_num == 3)
+            else
             {
-                Text_Disply(storyData.ThirdLine);
-                 
-                if(storyData.ThirdLine == "NULL")
-                {
-                    SceneManager.LoadScene(sceneName);
-                }
-            }
-            if (line_num == 4)
-            {
-                Text_Disply(storyData.FourthLine);
-                if (storyData.FourthLine == "NULL")
-                {
-                    SceneManager.LoadScene(sceneName);
-                }
+            Text_Disply(storyData.ScondLine);
 
             }
-            if (line_num == 5)
-            {
-                Text_Disply(storyData.FifthLine);
-                if (storyData.FifthLine == "NULL")
-                {
-                    SceneManager.LoadScene(sceneName);
-                }
-
-            }
-            if (line_num == 6)
-            {
-                Text_Disply(storyData.SixthLine);
-                if (storyData.SixthLine == "NULL")
-                {
-                    SceneManager.LoadScene(sceneName);
-                }
-
-            }
-            if (line_num == 7)
-            {
-                Text_Disply(storyData.SeventhLine);
-                if (storyData.SeventhLine == "NULL")
-                {
-                    SceneManager.LoadScene(sceneName);
-                }
-
-            }
-            if (line_num == 8)
-            {
-                Text_Disply(storyData.EightLine);
-                if (storyData.EightLine == "NULL")
-                {
-                    SceneManager.LoadScene(sceneName);
-                }
-
-            }
-            if (line_num == 9)
-            {
-                Text_Disply(storyData.NinethLine);
-                if (storyData.NinethLine == "NULL")
-                {
-                    SceneManager.LoadScene(sceneName);
-                }
-
-            }
-            if (line_num == 10)
-            {
-                Text_Disply(storyData.TenthLine);
-                    Debug.Log("タイトルに戻る");
-            }
-            
 
         }
+        if (line_num == 3)
+        {
+
+            if (storyData.ThirdLine == "NULL")
+            {
+                SceneManager.LoadScene(sceneName);
+            }
+            else
+            {
+            Text_Disply(storyData.ThirdLine);
+
+            }
+
+        }
+        if (line_num == 4)
+        {
+            if (storyData.FourthLine == "NULL")
+            {
+                SceneManager.LoadScene(sceneName);
+            }
+            Text_Disply(storyData.FourthLine);
+
+        }
+        if (line_num == 5)
+        {
+            if (storyData.FifthLine == "NULL")
+            {
+                SceneManager.LoadScene(sceneName);
+            }
+            Text_Disply(storyData.FifthLine);
+
+        }
+        if (line_num == 6)
+        {
+            if (storyData.SixthLine == "NULL")
+            {
+                SceneManager.LoadScene(sceneName);
+            }
+            Text_Disply(storyData.SixthLine);
+
+        }
+        if (line_num == 7)
+        {
+            if (storyData.SeventhLine == "NULL")
+            {
+                SceneManager.LoadScene(sceneName);
+            }
+            Text_Disply(storyData.SeventhLine);
+
+        }
+        if (line_num == 8)
+        {
+            if (storyData.EightLine == "NULL")
+            {
+                SceneManager.LoadScene(sceneName);
+            }
+            Text_Disply(storyData.EightLine);
+
+        }
+        if (line_num == 9)
+        {
+            if (storyData.NinethLine == "NULL")
+            {
+                SceneManager.LoadScene(sceneName);
+            }
+            Text_Disply(storyData.NinethLine);
+
+        }
+        if (line_num == 10)
+        {
+            Text_Disply(storyData.TenthLine);
+            Debug.Log("タイトルに戻る");
+        }
+
 
     }
+
+
+
     private void OnDestroy()
     {
         // Destroy時に登録したInvokeをすべてキャンセル

@@ -58,23 +58,23 @@ public class Sentakushi_Method : Event_Text
             if (Input.GetMouseButton(0))
             {
                 GoToEnding();
-                Event_num++;
-                event_Text.SetEventText();
-                event_Ilast_Disply.SetEventIlast();
-                event_BG_Disply.SetEventBG();
-                Set_Sentakusi_Words(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1,
-                                    event_manage.eventDatas[event_manage.now_event_num].Sentakusi2,
-                                    event_manage.eventDatas[event_manage.now_event_num].Cancel);
+                //Event_num++;
+                //event_Text.SetEventText();
+                //event_Ilast_Disply.SetEventIlast();
+                //event_BG_Disply.SetEventBG();
+                //Set_Sentakusi_Words(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1,
+                //                    event_manage.eventDatas[event_manage.now_event_num].Sentakusi2,
+                //                    event_manage.eventDatas[event_manage.now_event_num].Cancel);
 
-                _sentakusiSetActive(event_Manage.now_event_num);
-                _sentakusi1.SetActive(true);
-                _sentakusi2.SetActive(true);
-                _sentakusi3.SetActive(true);
-                GoToLoadScene = false;
-                if(Event_num == 5)
-                {
-                    SceneManager.LoadScene(scene_Name);
-                }    
+                //_sentakusiSetActive(event_Manage.now_event_num);
+                //_sentakusi1.SetActive(true);
+                //_sentakusi2.SetActive(true);
+                //_sentakusi3.SetActive(true);
+                //GoToLoadScene = false;
+                //if(Event_num == 5)
+                //{
+                //    SceneManager.LoadScene(scene_Name);
+                //}    
 
                 //PlayerInfo.Instance.Health
             }
@@ -341,15 +341,37 @@ public class Sentakushi_Method : Event_Text
             //SceneManager.LoadScene("TrueEnd");
         }
         //バッドエンド
-        if(PlayerInfo.Instance.Health == 0)
+        else if(PlayerInfo.Instance.Health == 0)
         {
             fade.scene_name = "BadEnd";
            fade.feadout_f = true;
             multiAudio.SE1();
             Debug.Log("バッドエンド");
             //SceneManager.LoadScene("BadEnd");
-        }    
+        }
+        else
+        {
+            Event_num++;
+            event_Text.SetEventText();
+            event_Ilast_Disply.SetEventIlast();
+            event_BG_Disply.SetEventBG();
+            Set_Sentakusi_Words(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1,
+                                event_manage.eventDatas[event_manage.now_event_num].Sentakusi2,
+                                event_manage.eventDatas[event_manage.now_event_num].Cancel);
 
+            _sentakusiSetActive(event_Manage.now_event_num);
+            _sentakusi1.SetActive(true);
+            _sentakusi2.SetActive(true);
+            _sentakusi3.SetActive(true);
+            GoToLoadScene = false;
+            if (Event_num == 5)
+            {
+                SceneManager.LoadScene(scene_Name);
+            }
+
+            //PlayerInfo.Instance.Health
+
+        }
     }
     protected
        void allShadow(bool check)
