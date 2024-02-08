@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Fade : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class Fade : MonoBehaviour
     Color color;
     int fead_time;
     bool feadout_f;
+    [SerializeField]string scene_name;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +31,7 @@ public class Fade : MonoBehaviour
         }
         if(feadout_f)
         {
-            FeadOut();
+            FeadOut(scene_name);
         }
         if(Input.GetKeyDown(KeyCode.A)) 
         {
@@ -53,13 +56,17 @@ public class Fade : MonoBehaviour
             
         }
     }
-    void FeadOut()
+    void FeadOut(string scene_name)
     {
         feadPanal.SetActive(true);
-        if((color.a <= 1))
+        if((color.a < 1))
         {
             color.a += 0.0015f;
             feadPanal.GetComponent<Image>().color = color;
+        }
+        if(color.a >= 1)
+        {
+            SceneManager.LoadScene(scene_name);
         }
     }
 }
