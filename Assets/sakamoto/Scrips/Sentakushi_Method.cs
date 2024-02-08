@@ -22,14 +22,14 @@ public class Sentakushi_Method : Event_Text
     [SerializeField] GameObject shadow1;
     [SerializeField] GameObject shadow2;
     [SerializeField] GameObject shadow3;
-
+    [SerializeField] Fade fade;
     [SerializeField] string scene_Name;
 
     public Event_Ilast_Disply event_Ilast_Disply;
     public Event_BG_Disply event_BG_Disply;
     public Event_Text event_Text;
     public Event_Manage event_manage;
-   // public multiAudio multiAudio;
+    public multiAudio multiAudio;
     int[] Result_tam;
     int Result_Num;
     bool SceneContinue;
@@ -335,15 +335,19 @@ public class Sentakushi_Method : Event_Text
         //トゥルーエンド
         if(next_num_tnp / 1000 == 0)
         {
-
+            fade.feadout_f = true;
+            multiAudio.SE1();
             Debug.Log("トゥルーエンド");
-            SceneManager.LoadScene("TrueEnd");
+            //SceneManager.LoadScene("TrueEnd");
         }
         //バッドエンド
         if(PlayerInfo.Instance.Health == 0)
         {
+            fade.scene_name = "BadEnd";
+           fade.feadout_f = true;
+            multiAudio.SE1();
             Debug.Log("バッドエンド");
-            SceneManager.LoadScene("BadEnd");
+            //SceneManager.LoadScene("BadEnd");
         }    
 
     }

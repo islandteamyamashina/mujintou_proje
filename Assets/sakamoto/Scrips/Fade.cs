@@ -12,7 +12,7 @@ public class Fade : MonoBehaviour
     Color color;
     int fead_time;
     public bool feadout_f;
-    [SerializeField]string scene_name;
+    [SerializeField] public string scene_name;
     // Start is called before the first frame update
     void Start()
     {

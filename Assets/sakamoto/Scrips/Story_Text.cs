@@ -25,12 +25,12 @@ public class Story_Text : Text_Method
     {
         if (Input.GetMouseButtonUp(0))
         {
-          
+            multiAudio.SE2();
+
             line_num++;
             if (line_num == 2)
             {
                 Text_Disply(storyData.ScondLine);
-                multiAudio.SE2();
                 if (storyData.ScondLine == "NULL")
                 {
                     SceneManager.LoadScene(sceneName);
@@ -40,7 +40,7 @@ public class Story_Text : Text_Method
             if (line_num == 3)
             {
                 Text_Disply(storyData.ThirdLine);
-                  multiAudio.SE2();
+                 
                 if(storyData.ThirdLine == "NULL")
                 {
                     SceneManager.LoadScene(sceneName);
