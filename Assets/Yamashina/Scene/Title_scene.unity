@@ -293,6 +293,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549828838}
   m_CullTransparentMesh: 1
+--- !u!1 &647410671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 647410674}
+  - component: {fileID: 647410673}
+  - component: {fileID: 647410672}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &647410672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647410671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &647410673
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647410671}
+  m_CullTransparentMesh: 1
+--- !u!224 &647410674
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647410671}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 905843538}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &705593282
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,6 +796,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Kyoten_hiru
+  sceneName1: Kyoten_hiru
+  fade: {fileID: 861566804}
 --- !u!114 &841567229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -766,8 +844,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 841567228}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
+        m_MethodName: Text_of_each_places
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -923,6 +1001,7 @@ GameObject:
   - component: {fileID: 861566801}
   - component: {fileID: 861566802}
   - component: {fileID: 861566803}
+  - component: {fileID: 861566804}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1148,6 +1227,21 @@ MonoBehaviour:
   b1: {fileID: 8300000, guid: 4e8383d00a4738949863ffab25175e3d, type: 3}
   b2: {fileID: 8300000, guid: 2c90e3a0f05e63c408c94741ebcffa83, type: 3}
   b3: {fileID: 0}
+--- !u!114 &861566804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861566794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80ac1b9fec47ec43a677a14a57f08ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feadPanal: {fileID: 647410671}
+  feadout_f: 0
+  scene_name: Kyoten_hiru
 --- !u!1 &875417240
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,6 +1356,7 @@ RectTransform:
   - {fileID: 1845246941}
   - {fileID: 1927729488}
   - {fileID: 464885817}
+  - {fileID: 647410674}
   m_Father: {fileID: 861566797}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2830,8 +2925,6 @@ MonoBehaviour:
   _Min_Thirsty_Effect: 3
   _Max_HungryAndThirsty_Damage: 10
   _Min_HungryAndThirsty_Damage: 8
-  status_text: {fileID: 0}
-  condition_text: {fileID: 0}
   _Init_Player_Health: 50
   _Init_Player_Hunger: 50
   _Init_Player_Thirst: 50
@@ -2839,6 +2932,10 @@ MonoBehaviour:
   _Max_Player_Hunger: 100
   _Max_Player_Thirst: 100
   _Max_Player_Luck: 100
+  water_gain: 5
+  status_text: {fileID: 0}
+  condition_text: {fileID: 0}
+  first_item: 0
 --- !u!4 &1744805289
 Transform:
   m_ObjectHideFlags: 0

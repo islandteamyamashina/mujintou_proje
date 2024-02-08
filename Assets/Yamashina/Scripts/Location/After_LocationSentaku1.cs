@@ -10,6 +10,7 @@ public class After_LocationSentaku1 : MonoBehaviour
    // public KyotenToOtherspace kyotenToOtherspace;
     [SerializeField]
     string sceneName;
+    [SerializeField] Fade fade;
 
 
     void Start()
@@ -37,7 +38,7 @@ public class After_LocationSentaku1 : MonoBehaviour
 
             case 1: //押されたボタンのUnity側で設定された引数が1のだったとき
                 Debug.Log("Aのボタンが押されたよ");
-                SceneManager.LoadScene(sceneName);
+                fade.feadout_f = true;
 
                 break;
             case 2: //押されたボタンのUnity側で設定された引数が2のだったとき

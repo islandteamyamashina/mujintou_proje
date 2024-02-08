@@ -11,6 +11,7 @@ public class Story_Text : Text_Method
     [SerializeField] StoryData storyData;
     [SerializeField] string sceneName;
     public multiAudio multiAudio;
+    [SerializeField] Fade fade;
     int line_num;
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,7 @@ public class Story_Text : Text_Method
         {
             if (storyData.ScondLine == "NULL")
             {
-                SceneManager.LoadScene(sceneName);
+                fade.feadout_f = true;
             }
             else
             {
@@ -45,12 +46,13 @@ public class Story_Text : Text_Method
             }
 
         }
-        if (line_num == 3)
+        if (line_num == 3) 
+            
         {
 
             if (storyData.ThirdLine == "NULL")
             {
-                SceneManager.LoadScene(sceneName);
+                fade.feadout_f = true;
             }
             else
             {
@@ -63,7 +65,7 @@ public class Story_Text : Text_Method
         {
             if (storyData.FourthLine == "NULL")
             {
-                SceneManager.LoadScene(sceneName);
+                fade.feadout_f = true;
             }
             Text_Disply(storyData.FourthLine);
 
@@ -72,7 +74,7 @@ public class Story_Text : Text_Method
         {
             if (storyData.FifthLine == "NULL")
             {
-                SceneManager.LoadScene(sceneName);
+                fade.feadout_f = true;
             }
             Text_Disply(storyData.FifthLine);
 
@@ -81,7 +83,7 @@ public class Story_Text : Text_Method
         {
             if (storyData.SixthLine == "NULL")
             {
-                SceneManager.LoadScene(sceneName);
+                fade.feadout_f = true;
             }
             Text_Disply(storyData.SixthLine);
 
@@ -90,7 +92,7 @@ public class Story_Text : Text_Method
         {
             if (storyData.SeventhLine == "NULL")
             {
-                SceneManager.LoadScene(sceneName);
+                fade.feadout_f = true;
             }
             Text_Disply(storyData.SeventhLine);
 
@@ -99,7 +101,7 @@ public class Story_Text : Text_Method
         {
             if (storyData.EightLine == "NULL")
             {
-                SceneManager.LoadScene(sceneName);
+                fade.feadout_f = true;
             }
             Text_Disply(storyData.EightLine);
 
@@ -108,7 +110,7 @@ public class Story_Text : Text_Method
         {
             if (storyData.NinethLine == "NULL")
             {
-                SceneManager.LoadScene(sceneName);
+                fade.feadout_f = true;
             }
             Text_Disply(storyData.NinethLine);
 

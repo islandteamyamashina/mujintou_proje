@@ -213,7 +213,7 @@ public class KyotenToOtherspace : CreditPanel1
     }
     public void sleepingView()
     {
-        Instantiate(prefab);
+       //Instantiate(prefab);
 
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
