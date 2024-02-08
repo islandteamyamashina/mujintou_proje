@@ -15,7 +15,7 @@ public class Story_Text : Text_Method
     // Start is called before the first frame update
     void Start()
     {
-        
+        Invoke();
         line_num = 1;
         Text_Disply(storyData.FarstLine);
     }
@@ -105,9 +105,24 @@ public class Story_Text : Text_Method
                 Text_Disply(storyData.TenthLine);
                     Debug.Log("ƒ^ƒCƒgƒ‹‚É–ß‚é");
             }
-
+            
 
         }
+
+    }
+    private void OnDestroy()
+    {
+        // DestroyŽž‚É“o˜^‚µ‚½Invoke‚ð‚·‚×‚ÄƒLƒƒƒ“ƒZƒ‹
+        CancelInvoke();
+    }
+    public void Invoke()
+    {
+        Invoke(nameof(LoadingScene), 2.5f);
+
+    }
+    public void LoadingScene()//Scene‚Ì‘JˆÚ
+    {
+        SceneManager.LoadScene(sceneName);
 
     }
 }
