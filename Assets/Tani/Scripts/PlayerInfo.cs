@@ -41,6 +41,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [Header("ƒeƒXƒg’†")]
     [SerializeField] private Text status_text;
     [SerializeField] private Text condition_text;
+    [SerializeField] private Text weather_text;
+    [SerializeField] private Text day_text;
 
 
     private int _player_Health;
@@ -105,6 +107,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     public enum Weather
     {
+        Sunny,Cloudy,Rainy,Snowy,Foggy,Windy,
         Weather_Max
     }
 
@@ -145,7 +148,16 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
                 str += $"{(Condition)i},";
             }
         }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            
+            Health = 100;
+            Hunger = 100;
+            Thirst = 100;
+        }
         condition_text.text = str;
+        weather_text.text = $"{weather}";
+        day_text.text = $"Day : {Day}";
     }
 
     public enum Condition
@@ -190,6 +202,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     public void DoAction()
     {
         Water += water_gain;
+        Day += 1;
+        weather = (Weather)((int)Random.Range(0, (int)Weather.Weather_Max));
         if(IsPlayerConditionEqualTo(Condition.Hungry) &&
             IsPlayerConditionEqualTo(Condition.Thirsty))
         {
