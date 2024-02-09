@@ -4,11 +4,11 @@ using UnityEngine.UI;
 
 public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 {
-    public int Day { get; set; }
+    public int Day { get; set; } = 0;
     public Weather weather { get; set; }
 
-    [SerializeField,Header("状態異常による影響値")]
-    private int _Max_Poisoned_Damage = 5;
+    [Header("状態異常による影響値")]
+    [SerializeField]private int _Max_Poisoned_Damage = 5;
     [SerializeField] private int _Min_Poisoned_Damage = 5;
 
     [SerializeField] private int _Max_Hungry_Effect = 5;
@@ -23,8 +23,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [Space]
 
     
-    [SerializeField,Header("ステータスの初期値最大値")]
-    private int _Init_Player_Health = 50;
+    [Header("ステータスの初期値最大値")]
+    [SerializeField]private int _Init_Player_Health = 50;
     [SerializeField] private int _Init_Player_Hunger = 50;
     [SerializeField] private int _Init_Player_Thirst = 50;
 
@@ -123,8 +123,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         _player_Thirst = _Init_Player_Thirst;
         _player_Luck = 0;
 
-        AddPlayerCondition(Condition.Good);
-        AddPlayerCondition(Condition.Poisoned);
+        AddPlayerCondition(Condition.Hungry);
+        AddPlayerCondition(Condition.Thirsty);
 
     }
     private void Update()
@@ -189,6 +189,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     public void DoAction()
     {
+        Water += water_gain;
         if(IsPlayerConditionEqualTo(Condition.Hungry) &&
             IsPlayerConditionEqualTo(Condition.Thirsty))
         {
@@ -218,7 +219,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
                         break;
                     case (int)Condition.Thirsty:
                         int decrease_hunger = Random.Range(_Min_Thirsty_Effect, _Max_Thirsty_Effect + 1);
-                        Thirst -= decrease_hunger;
+                        Hunger -= decrease_hunger;
                         break;
                     case (int)Condition.ThirstyAndHungry:
                         decrease_health = Random.Range(_Min_HungryAndThirsty_Damage, _Max_HungryAndThirsty_Damage + 1);
