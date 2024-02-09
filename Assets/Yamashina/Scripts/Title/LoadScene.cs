@@ -13,7 +13,7 @@ public class LoadScene : MonoBehaviour
 
     public void Start()
     {
-        fade.feadout_f = false;
+       // fade.feadout_f = false;
     }
     // Update is called once per frame
     public void Text_of_each_places(int num)
