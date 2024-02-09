@@ -17,27 +17,27 @@ public class Event_Panel_view : MonoBehaviour
         mainPanel.SetActive(true);
         OptionPanel.SetActive(false);
         subPanel.SetActive(false);
-        Opbutton.SetActive(true); 
-    Inbutton.SetActive(true);   
+        Opbutton.SetActive(true);
+        Inbutton.SetActive(true);
     }
 
-    public  void MainView()
+    public void MainView()
     {
         mainPanel.SetActive(true);
         OptionPanel.SetActive(false);
         subPanel.SetActive(false);
-       Opbutton.SetActive(true);
-        Inbutton.SetActive(true);   
+        Opbutton.SetActive(true);
+        Inbutton.SetActive(true);
     }
 
 
-    public  void OptionPanelView()
+    public void OptionPanelView()
     {
         mainPanel.SetActive(true);
         OptionPanel.SetActive(true);
         subPanel.SetActive(false);
         Opbutton.SetActive(false);
-        Inbutton.SetActive(false);  
+        Inbutton.SetActive(false);
 
     }
     public virtual void SubView()
@@ -46,8 +46,8 @@ public class Event_Panel_view : MonoBehaviour
         subPanel.SetActive(true);
         OptionPanel.SetActive(false);
         Opbutton.SetActive(false);
-                Inbutton.SetActive(false);
+        Inbutton.SetActive(false);
 
     }
-}   
+}
 
