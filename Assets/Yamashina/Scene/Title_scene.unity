@@ -797,7 +797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: Kyoten_hiru
   sceneName1: Kyoten_hiru
-  fade: {fileID: 861566804}
+  fade: {fileID: 0}
 --- !u!114 &841567229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1001,6 +1001,7 @@ GameObject:
   - component: {fileID: 861566801}
   - component: {fileID: 861566802}
   - component: {fileID: 861566803}
+  - component: {fileID: 861566805}
   - component: {fileID: 861566804}
   m_Layer: 0
   m_Name: Main Camera
@@ -1239,9 +1240,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80ac1b9fec47ec43a677a14a57f08ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feadPanal: {fileID: 647410671}
+  feadPanal: {fileID: 0}
   feadout_f: 0
-  scene_name: Kyoten_hiru
+  scene_name: 
+--- !u!114 &861566805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861566794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80ac1b9fec47ec43a677a14a57f08ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feadPanal: {fileID: 0}
+  feadout_f: 0
+  scene_name: 
 --- !u!1 &875417240
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,6 +2951,8 @@ MonoBehaviour:
   water_gain: 5
   status_text: {fileID: 0}
   condition_text: {fileID: 0}
+  weather_text: {fileID: 0}
+  day_text: {fileID: 0}
   first_item: 0
 --- !u!4 &1744805289
 Transform:

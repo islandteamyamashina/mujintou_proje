@@ -205,7 +205,7 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
-
+        
         //wakimizu_tabu.SetActive(false);
 
 
