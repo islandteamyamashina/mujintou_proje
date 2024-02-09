@@ -50,8 +50,11 @@ public class InventorySlotVer : MonoBehaviour
         if (cpInSlotItem != null)
             if (Input.GetMouseButtonDown(1) && isMouseOver)
             {
-                //  マウスが重なっている + マウスの右クリック押したときにマネージャーの関数呼び出し
-                cpInventoryManager.SetText(cpInSlotItem);
+                if (enMode == SlotMode.Storage)
+                {
+                    //  マウスが重なっている + マウスの右クリック押したときにマネージャーの関数呼び出し
+                    cpInventoryManager.SetWindowStat(cpInSlotItem);
+                }
             }
     }
     private void OnMouseEnter()
@@ -84,6 +87,16 @@ public class InventorySlotVer : MonoBehaviour
             cpOverlapItem = null;
             isSetItem = false;
         }
+    }
+    public void EnableSlot()
+    {
+        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+    }
+    public void DisableSlot()
+    {
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
     }
     public void SetItem(GameObject goItem)
     {

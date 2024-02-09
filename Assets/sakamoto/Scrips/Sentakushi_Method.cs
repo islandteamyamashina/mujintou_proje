@@ -333,7 +333,14 @@ public class Sentakushi_Method : Event_Text
         Debug.Log(next_num_tnp);
         Debug.Log(next_num_tnp / 1000);
         //バッドエンド
-         if(PlayerInfo.Instance.Health == 0)
+        if (next_num_tnp / 1000 == 0)
+        {
+            fade.feadout_f = true;
+            multiAudio.SE1();
+            Debug.Log("トゥルーエンド");
+            //SceneManager.LoadScene("TrueEnd");
+        }
+        else  if(PlayerInfo.Instance.Health == 0)
         {
             fade.scene_name = "BadEnd";
            fade.feadout_f = true;
@@ -342,13 +349,7 @@ public class Sentakushi_Method : Event_Text
             //SceneManager.LoadScene("BadEnd");
         }
         //トゥルーエンド
-        else if (next_num_tnp / 1000 == 0)
-        {
-            fade.feadout_f = true;
-            multiAudio.SE1();
-            Debug.Log("トゥルーエンド");
-            //SceneManager.LoadScene("TrueEnd");
-        }
+         
 
         else
         {

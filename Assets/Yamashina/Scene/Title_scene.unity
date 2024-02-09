@@ -797,7 +797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: Kyoten_hiru
   sceneName1: Kyoten_hiru
-  fade: {fileID: 0}
+  fade: {fileID: 861566805}
 --- !u!114 &841567229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1002,7 +1002,6 @@ GameObject:
   - component: {fileID: 861566802}
   - component: {fileID: 861566803}
   - component: {fileID: 861566805}
-  - component: {fileID: 861566804}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1228,21 +1227,6 @@ MonoBehaviour:
   b1: {fileID: 8300000, guid: 4e8383d00a4738949863ffab25175e3d, type: 3}
   b2: {fileID: 8300000, guid: 2c90e3a0f05e63c408c94741ebcffa83, type: 3}
   b3: {fileID: 0}
---- !u!114 &861566804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861566794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e80ac1b9fec47ec43a677a14a57f08ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  feadPanal: {fileID: 0}
-  feadout_f: 0
-  scene_name: 
 --- !u!114 &861566805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1255,9 +1239,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80ac1b9fec47ec43a677a14a57f08ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feadPanal: {fileID: 0}
+  feadPanal: {fileID: 647410671}
   feadout_f: 0
-  scene_name: 
+  scene_num: 0
+  scene_name: Kyoten_hiru
 --- !u!1 &875417240
 GameObject:
   m_ObjectHideFlags: 0

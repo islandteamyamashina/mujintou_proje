@@ -465,6 +465,7 @@ GameObject:
   - component: {fileID: 519420035}
   - component: {fileID: 519420034}
   - component: {fileID: 519420036}
+  - component: {fileID: 519420037}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -675,6 +676,22 @@ MonoBehaviour:
   Opbutton: {fileID: 1078143514}
   Inbutton: {fileID: 2139671649}
   OptionPanel: {fileID: 260018003}
+--- !u!114 &519420037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80ac1b9fec47ec43a677a14a57f08ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feadPanal: {fileID: 563692472}
+  feadout_f: 0
+  scene_num: 0
+  scene_name: TrueEnd
 --- !u!1 &563692472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,11 +1173,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3842188156150784168, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -277241.72
+      value: -314129.03
       objectReference: {fileID: 0}
     - target: {fileID: 3842188156150784168, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 270341.62
+      value: 306828.94
       objectReference: {fileID: 0}
     - target: {fileID: 4001055104082996519, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_SortingOrder
@@ -2324,7 +2341,7 @@ PrefabInstance:
     - target: {fileID: 5249148059981974246, guid: e432429a349a46843bc8606bf96b7b88, type: 3}
       propertyPath: fade
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 519420037}
     - target: {fileID: 5249148059981974246, guid: e432429a349a46843bc8606bf96b7b88, type: 3}
       propertyPath: eventData
       value: 

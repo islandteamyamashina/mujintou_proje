@@ -8,6 +8,10 @@ public class NewCraftList : MonoBehaviour
 
     public int fID, sID, tID;
 
+    /// <summary>
+    /// 受け取った引数3つの組み合わせで作成できるアイテムのIDを探します。
+    /// 返り値はクラフトできるものがあればそのアイテムIDを、何もクラフトできない場合は-1が返されます。
+    /// </summary>
     public int CraftItem(NewItem fItem, NewItem sItem, NewItem tItem)
     {
         for (int i = 0; i < 61; i++)
@@ -18,11 +22,32 @@ public class NewCraftList : MonoBehaviour
             {
                 Debug.Log(i + "回目");
                 if (fItem != null)
+                {
                     fID = fItem.ScriptalItem.itemID;
+                }
+                else
+                {
+                    fID = 0;
+                }
+
                 if (sItem != null)
+                {
                     sID = sItem.ScriptalItem.itemID;
+                }
+                else
+                {
+                    sID = 0;
+                }
+
                 if (tItem != null)
+                {
                     tID = tItem.ScriptalItem.itemID;
+                }
+                else
+                {
+                    tID = 0;
+                }
+
 
                 //  設定されているIDが1つの場合
                 if (fID != 0 && sID == 0 && tID == 0)
@@ -34,7 +59,7 @@ public class NewCraftList : MonoBehaviour
                         if (fItem.CurrentStackCount >= Items[i].fItemCount)
                         {
                             Debug.LogWarning("個数足りています。");
-                            fItem.CurrentStackCount -= Items[i].fItemCount;
+                            fItem.MinStack(Items[i].fItemCount);
                             return i;
                         }
                     }
@@ -51,8 +76,8 @@ public class NewCraftList : MonoBehaviour
                         if (fItem.CurrentStackCount >= Items[i].fItemCount && sItem.CurrentStackCount >= Items[i].sItemCount)
                         {
                             Debug.LogWarning("個数足りています。");
-                            fItem.CurrentStackCount -= Items[i].fItemCount;
-                            sItem.CurrentStackCount -= Items[i].sItemCount;
+                            fItem.MinStack(Items[i].fItemCount);
+                            sItem.MinStack(Items[i].sItemCount);
                             return i;
                         }
                     }
@@ -69,9 +94,9 @@ public class NewCraftList : MonoBehaviour
                         if (fItem.CurrentStackCount >= Items[i].fItemCount && sItem.CurrentStackCount >= Items[i].sItemCount && tItem.CurrentStackCount >= Items[i].tItemCount)
                         {
                             Debug.LogWarning("個数足りています。");
-                            fItem.CurrentStackCount -= Items[i].fItemCount;
-                            sItem.CurrentStackCount -= Items[i].sItemCount;
-                            tItem.CurrentStackCount -= Items[i].tItemCount;
+                            fItem.MinStack(Items[i].fItemCount);
+                            sItem.MinStack(Items[i].sItemCount);
+                            tItem.MinStack(Items[i].tItemCount);
                             return i;
                         }
                     }

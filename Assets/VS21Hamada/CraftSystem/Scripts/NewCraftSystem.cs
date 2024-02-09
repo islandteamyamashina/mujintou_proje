@@ -9,6 +9,10 @@ public class NewCraftSystem : MonoBehaviour
 
     public InventorySlotVer cpFirstItemSlot, cpSecondItemSlot, cpThirdItemSlot, cpCraftItemSpawnPos;
 
+    /// <summary>
+    /// 自身のリストから、現在アイテムスロットで取得しているアイテムの組み合わせでクラフトできるかを確認します。
+    /// リスト内にクラフト可能なものがあればそれに付随するプレハブをスポーンさせます。
+    /// </summary>
     public void CraftStart()
     {
         var _ItemNum = cpList.CraftItem(cpFirstItemSlot.GetItem(), cpSecondItemSlot.GetItem(), cpThirdItemSlot.GetItem());
@@ -18,6 +22,6 @@ public class NewCraftSystem : MonoBehaviour
         }
         else
             Debug.LogWarning("クラフトシステムから受け取った値が-1です。");
-    }
 
+    }
 }

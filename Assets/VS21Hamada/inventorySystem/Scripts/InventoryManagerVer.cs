@@ -7,11 +7,113 @@ public class InventoryManagerVer : MonoBehaviour
 {
     //  テキスト表示用
     public Text txName, txInfo;
+    [SerializeField] private Button btnUseButton, btnTrashButton;
+    private NewItem item;
+    private bool isClick, isItemFull;
+    [SerializeField] InventorySlotVer[] cpSlots;
+    [SerializeField] TrashItemSystem cpTrashSystem;
 
-    //  引数のアイテムの情報を表示する
-    public void SetText(NewItem ItemValue)
+    private void Start()
     {
-        txName.text = ItemValue.ScriptalItem.itemName;
-        txInfo.text = ItemValue.ScriptalItem.itemInfo;
+        cpSlots[cpSlots.Length - 1].DisableSlot();
+    }
+    private void Update()
+    {
+        if (cpSlots[cpSlots.Length - 1].GetItem() != null && !cpTrashSystem.GetTrashAreaisShow())
+        {
+            isItemFull = true;
+            cpTrashSystem.EnableTrashArea();
+        }
+        if (cpSlots[cpSlots.Length - 1].GetItem() == null)
+        {
+            isItemFull = false;
+        }
+    }
+    /// <summary>
+    /// 新しく手に入れたアイテムをスロットに格納する関数。
+    /// あふれる場合はどれかを捨てるウィンドウが出てくる。
+    /// </summary>
+    /// <param name="_ItemValue"></param>
+    public void SetNewGetItem(GameObject _ItemValue)
+    {
+        for (int i = 0; i < cpSlots.Length; i++)
+        {
+            if (i == cpSlots.Length - 1)
+            {
+                if (cpSlots[i].GetItem() != null)
+                {
+                    Destroy(_ItemValue);
+                    return;
+                }
+                    //  あふれる
+                    Debug.Log("あれた");
+                cpSlots[i].EnableSlot();
+                cpSlots[i].SetItem(_ItemValue);
+                cpTrashSystem.EnableTrashArea();
+                return;
+            }
+
+            if (cpSlots[i].GetItem() != null)
+            {
+                continue;
+            }
+            else
+            {
+                cpSlots[i].SetItem(_ItemValue);
+                return;
+            }
+        }
+    }
+    public bool GetIsItemFull()
+    {
+        return isItemFull;
+    }
+
+
+    /// <summary>
+    ///  引数のアイテムの情報を表示する
+    /// </summary>
+    public void SetWindowStat(NewItem ItemValue)
+    {
+        item = ItemValue;
+        txName.text = item.ScriptalItem.itemName;
+        txInfo.text = item.ScriptalItem.itemInfo;
+
+        if (!isClick)
+        {
+            btnTrashButton.gameObject.SetActive(true);
+            btnTrashButton.onClick.AddListener(delegate { SendTrash(item); });
+
+            if (item.ScriptalItem.isUseItem)
+            {
+                btnUseButton.gameObject.SetActive(true);
+                btnUseButton.onClick.AddListener(delegate { SetCurrentItemUse(item); });
+            }
+            else
+            {
+                btnUseButton.gameObject.SetActive(false);
+            }
+            isClick = true;
+        }
+    }
+    public void SetCurrentItemUse(NewItem _CurrentItem)
+    {
+        _CurrentItem.UseItem();
+    }
+    public void SendTrash(NewItem _CurrentItem)
+    {
+        _CurrentItem.TrashItem();
+    }
+    public void btnListReset()
+    {
+        if (item == null) return;
+
+        if (item.ScriptalItem.stackCount <= 0)
+        {
+            isClick = false;
+            btnUseButton.onClick.RemoveAllListeners();
+            btnTrashButton.onClick.RemoveAllListeners();
+            item = null;
+        }
     }
 }
