@@ -5,9 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    [SerializeField]
-    string sceneName;
-   [SerializeField] string sceneName1;
+    
+  
     [SerializeField] Fade fade;
 
 
@@ -16,20 +15,11 @@ public class LoadScene : MonoBehaviour
        // fade.feadout_f = false;
     }
     // Update is called once per frame
-    public void Text_of_each_places(int num)
+    public void Text_of_each_places(int num=0)
     {
-        switch (num)
-        {
-            case 0:
+        fade.scene_name_num = num;
                 fade.feadout_f = true;
-                SceneManager.LoadScene(sceneName);
-                break;
-            case 1:
-                fade.feadout_f = true;
-
-                SceneManager.LoadScene(sceneName1);
-                break;
-        }
+               
     }
 }
 

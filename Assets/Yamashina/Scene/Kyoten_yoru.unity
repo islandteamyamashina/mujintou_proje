@@ -149,17 +149,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2514763}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 100}
-  m_LocalScale: {x: 0.016666666, y: 0.016666666, z: 0.016666666}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1265888929}
+  m_Father: {fileID: 1273170411}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.02882792, y: 0.38799995}
-  m_SizeDelta: {x: 604.1715, y: 195.06}
+  m_AnchoredPosition: {x: 1.7279663, y: -1.4459839}
+  m_SizeDelta: {x: -2.9916992, y: -0.44104004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2514765
 MonoBehaviour:
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -679,7 +679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2753397258836180527, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2753397260140758297, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_Layer
@@ -787,15 +787,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3549081591002951509, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3549081591002951509, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3549081591002951509, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 3819237020134752722, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_IsActive
@@ -803,11 +803,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3842188156150784168, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -24372.938
+      value: -138113.16
       objectReference: {fileID: 0}
     - target: {fileID: 3842188156150784168, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 4794.581
+      value: 27581.873
       objectReference: {fileID: 0}
     - target: {fileID: 4001055104082996517, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_Layer
@@ -939,15 +939,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9032118517484126378, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9032118517484126378, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9032118517484126378, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.3625
       objectReference: {fileID: 0}
     - target: {fileID: 9059536316588591048, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_SortingOrder
@@ -1494,7 +1494,6 @@ Transform:
   m_Children:
   - {fileID: 44378200}
   - {fileID: 1273170411}
-  - {fileID: 2514764}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1662,8 +1661,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   feadPanal: {fileID: 2514763}
   feadout_f: 0
-  scene_num: 0
-  scene_name: Kyoten_hiru
+  scene_name_num: 0
+  Scenename_list:
+  - Kyoten_hiru
 --- !u!114 &1265888935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1722,6 +1722,7 @@ RectTransform:
   - {fileID: 1837880607}
   - {fileID: 2021572663}
   - {fileID: 1143349852}
+  - {fileID: 2514764}
   m_Father: {fileID: 1265888929}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4182,7 +4183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 377919645753724596, guid: fc722cdcb71c8e841ade281dee49f444, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 377919645839597707, guid: fc722cdcb71c8e841ade281dee49f444, type: 3}
       propertyPath: prefab
@@ -7358,7 +7359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8755225660491459424, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8755225660491459426, guid: 4b16f5c9d117a1347aac6c90e0eca64e, type: 3}
       propertyPath: m_Color.a

@@ -10,15 +10,17 @@ public class InventoryManagerVer : MonoBehaviour
     [SerializeField] private Button btnUseButton, btnTrashButton;
     private NewItem item;
     private bool isClick, isItemFull;
-    [SerializeField] InventorySlotVer[] cpSlots;
+    [SerializeField,Header("この配列の最後には必ず捨てる画面のスロットを入れてください")] InventorySlotVer[] cpSlots;
     [SerializeField] TrashItemSystem cpTrashSystem;
 
     private void Start()
     {
+        //  Slotの最後にあるスロットを非表示にする。
         cpSlots[cpSlots.Length - 1].DisableSlot();
     }
     private void Update()
     {
+        //  最後のスロットにアイテムがあるかどうか
         if (cpSlots[cpSlots.Length - 1].GetItem() != null && !cpTrashSystem.GetTrashAreaisShow())
         {
             isItemFull = true;
