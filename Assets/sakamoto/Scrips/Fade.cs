@@ -12,13 +12,16 @@ public class Fade : MonoBehaviour
     Color color;
     int fead_time;
     public bool feadout_f;
-    public int scene_num;
-    [SerializeField] public string scene_name;
+    public int scene_name_num;
+    [SerializeField] string[] Scenename_list;
     // Start is called before the first frame update
     void Start()
     {
+        scene_name_num = 0;
         feadout_f = false;
         fead_time = 300;
+        feadPanal.SetActive(true);
+        feadPanal.GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
         color = feadPanal.GetComponent<Image>().color;
         Debug.Log(feadPanal.GetComponent<Image>().color);
     }
@@ -32,7 +35,7 @@ public class Fade : MonoBehaviour
         }
         if(feadout_f)
         {
-            FeadOut(scene_name);
+            FeadOut(Scenename_list[scene_name_num]);
         }
         if(Input.GetKeyDown(KeyCode.A)) 
         {
@@ -45,7 +48,7 @@ public class Fade : MonoBehaviour
     {
         if(!(color.a <= 0))
         {
-            //Debug.Log(feadPanal.GetComponent<Image>().color);
+            Debug.Log(feadPanal.GetComponent<Image>().color);
             color.a -= 0.0015f;
             feadPanal.GetComponent<Image>().color = color;
             //Debug.Log(feadPanal.GetComponent<Image>().color);

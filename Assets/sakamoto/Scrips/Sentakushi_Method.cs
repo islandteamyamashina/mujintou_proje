@@ -331,44 +331,49 @@ public class Sentakushi_Method : Event_Text
     void GoToEnding()
     {
         Debug.Log(next_num_tnp);
-        Debug.Log(next_num_tnp / 1000);
+        Debug.Log(next_num_tnp / 1000); 
         //バッドエンド
-        if (next_num_tnp / 1000 == 0)
+        if(PlayerInfo.Instance.Health == 0)
+        {
+            fade.scene_name_num = 1;
+           fade.feadout_f = true;
+            multiAudio.SE1();
+            Debug.Log("バッドエンド");
+            //SceneManager.LoadScene("BadEnd");
+        }
+
+        //トゥルーエンド
+        else if (next_num_tnp / 1000 == 0)
         {
             fade.feadout_f = true;
             multiAudio.SE1();
             Debug.Log("トゥルーエンド");
             //SceneManager.LoadScene("TrueEnd");
         }
-        else  if(PlayerInfo.Instance.Health == 0)
-        {
-            fade.scene_name = "BadEnd";
-           fade.feadout_f = true;
-            multiAudio.SE1();
-            Debug.Log("バッドエンド");
-            //SceneManager.LoadScene("BadEnd");
-        }
-        //トゥルーエンド
-         
 
         else
         {
-            Event_num++;
-            event_Text.SetEventText();
-            event_Ilast_Disply.SetEventIlast();
-            event_BG_Disply.SetEventBG();
-            Set_Sentakusi_Words(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1,
-                                event_manage.eventDatas[event_manage.now_event_num].Sentakusi2,
-                                event_manage.eventDatas[event_manage.now_event_num].Cancel);
-
-            _sentakusiSetActive(event_Manage.now_event_num);
-            _sentakusi1.SetActive(true);
-            _sentakusi2.SetActive(true);
-            _sentakusi3.SetActive(true);
-            GoToLoadScene = false;
             if (Event_num == 5)
             {
-                SceneManager.LoadScene(scene_Name);
+                fade.scene_name_num = 2;
+                fade.feadout_f = true;
+            }
+            else
+            {
+                Event_num++;
+                event_Text.SetEventText();
+                event_Ilast_Disply.SetEventIlast();
+                event_BG_Disply.SetEventBG();
+                Set_Sentakusi_Words(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1,
+                                    event_manage.eventDatas[event_manage.now_event_num].Sentakusi2,
+                                    event_manage.eventDatas[event_manage.now_event_num].Cancel);
+
+                _sentakusiSetActive(event_Manage.now_event_num);
+                _sentakusi1.SetActive(true);
+                _sentakusi2.SetActive(true);
+                _sentakusi3.SetActive(true);
+                GoToLoadScene = false;
+
             }
 
             //PlayerInfo.Instance.Health
