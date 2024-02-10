@@ -169,7 +169,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4654331429391987432}
         m_TargetAssemblyTypeName: Audiovolume, Assembly-CSharp
-        m_MethodName: SetAudioMixerBGM
+        m_MethodName: SetBGM
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -821,8 +821,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 201275a464147634591467b51401d7de, type: 2}
-  bgmSlider: {fileID: 1696978078318026791}
-  seSlider: {fileID: 5743363428963535201}
+  bGMSlider: {fileID: 1696978078318026791}
+  sESlider: {fileID: 5743363428963535201}
 --- !u!1 &5743363428177442296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,7 +1406,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4654331429391987432}
         m_TargetAssemblyTypeName: Audiovolume, Assembly-CSharp
-        m_MethodName: SetAudioMixerSE
+        m_MethodName: SetSE
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

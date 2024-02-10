@@ -1086,7 +1086,7 @@ AudioSource:
   m_GameObject: {fileID: 861566794}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -5348777230172650974, guid: 201275a464147634591467b51401d7de, type: 2}
+  OutputAudioMixerGroup: {fileID: 5061296095101412106, guid: 201275a464147634591467b51401d7de, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4d2d655296859ce419b3a1d0ad97a8f0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1209,8 +1209,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 201275a464147634591467b51401d7de, type: 2}
-  bgmSlider: {fileID: 2019039271}
-  seSlider: {fileID: 1142765410}
+  bGMSlider: {fileID: 2019039271}
+  sESlider: {fileID: 1142765410}
 --- !u!114 &861566803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1781,7 +1781,7 @@ PrefabInstance:
       objectReference: {fileID: 861566802}
     - target: {fileID: 1696978078318026791, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetAudioMixerBGM
+      value: SetBGM
       objectReference: {fileID: 0}
     - target: {fileID: 1696978078318026791, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1791,6 +1791,14 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4654331429391987432, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: sESlider
+      value: 
+      objectReference: {fileID: 1142765410}
+    - target: {fileID: 4654331429391987432, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: bGMSlider
+      value: 
+      objectReference: {fileID: 2019039271}
     - target: {fileID: 4921092558575962782, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_SizeDelta.x
       value: 34.7884
@@ -2213,7 +2221,7 @@ PrefabInstance:
       objectReference: {fileID: 861566802}
     - target: {fileID: 5743363428963535201, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetAudioMixerSE
+      value: SetSE
       objectReference: {fileID: 0}
     - target: {fileID: 5743363428963535201, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

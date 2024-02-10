@@ -8,39 +8,30 @@ using UnityEngine.UI;
 public class Audiovolume : MonoBehaviour
 {
  
-    [SerializeField] AudioMixer audioMixer;
-    [SerializeField] Slider bgmSlider;
-    [SerializeField] Slider seSlider;
+ 
+    public AudioMixer audioMixer;
+    public Slider bGMSlider;
+    public Slider sESlider;
 
-    void Start()
+    private void Start()
     {
-        //スライダーを動かした時の処理を登録
-        bgmSlider.onValueChanged.AddListener(SetAudioMixerBGM);
-        seSlider.onValueChanged.AddListener(SetAudioMixerSE);
+
+        audioMixer.GetFloat("BGM", out float bgmVolume);
+        bGMSlider.value = bgmVolume;
+        audioMixer.GetFloat("SE", out float seVolume);
+        sESlider.value = seVolume;
     }
 
-    //BGM
-    public void SetAudioMixerBGM(float value)
+    public void SetBGM(float volume)
     {
-        //5段階補正
-        value /= 10;
-        //-80~0に変換
-        var volume = Mathf.Clamp(Mathf.Log10(value) * 20f, -80f, 0f);
-        //audioMixerに代入
         audioMixer.SetFloat("BGM", volume);
-        Debug.Log($"BGM:{volume}");
     }
 
-    //SE
-    public void SetAudioMixerSE(float value)
+    public void SetSE(float volume)
     {
-        //5段階補正
-        value /= 10;
-        //-80~0に変換
-        var volume = Mathf.Clamp(Mathf.Log10(value) * 20f, -80f, 0f);
-        //audioMixerに代入
         audioMixer.SetFloat("SE", volume);
-        Debug.Log($"SE:{volume}");
     }
+
+
 }
 
