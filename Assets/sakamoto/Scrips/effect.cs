@@ -30,15 +30,18 @@ public class effect : MonoBehaviour
     void Damage()
     {
         effectPanal.SetActive(true);
-        if ((color.a < 1))
+        if ((0 < color.a))
         {
-            color.a += 0.0015f;
+            color.a -= 0.0015f;
             effectPanal.GetComponent<Image>().color = color;
         }
-        if (color.a >= 1)
+        if (color.a <= 0)
         {
             effectPanal.SetActive(false);
             damage_f = false;
+            color.a = 0.0015f;
+            effectPanal.GetComponent<Image>().color = color;
+
         }
 
     }

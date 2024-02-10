@@ -23,6 +23,7 @@ public class Sentakushi_Method : Event_Text
     [SerializeField] GameObject shadow2;
     [SerializeField] GameObject shadow3;
     [SerializeField] Fade fade;
+    [SerializeField] effect effect;
     [SerializeField] string scene_Name;
 
     public Event_Ilast_Disply event_Ilast_Disply;
@@ -93,6 +94,11 @@ public class Sentakushi_Method : Event_Text
 
             GoToLoadScene = true;
 
+            if(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_health < 0)
+            {
+                Debug.Log("’Ê‚Á‚½");
+                effect.damage_f = true;
+            }
             Debug.Log("•ÏŠ·‘O‚Ì‘Ì—Í‚Í" + PlayerInfo.Instance.Health + "‹ó• “x‚Í" + PlayerInfo.Instance.Hunger + "…•ª‚Í" + PlayerInfo.Instance.Thirst + "‚Å‚·");
             PlayerInfo.Instance.Health += event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_health;
             PlayerInfo.Instance.Hunger += event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_hunger;

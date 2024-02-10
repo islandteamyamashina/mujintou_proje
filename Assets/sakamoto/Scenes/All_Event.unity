@@ -281,6 +281,7 @@ RectTransform:
   - {fileID: 206832079}
   - {fileID: 260018004}
   - {fileID: 811792662}
+  - {fileID: 1523528352}
   - {fileID: 563692473}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -466,6 +467,7 @@ GameObject:
   - component: {fileID: 519420034}
   - component: {fileID: 519420036}
   - component: {fileID: 519420037}
+  - component: {fileID: 519420038}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -695,6 +697,20 @@ MonoBehaviour:
   - TrueEnd
   - BadEnd
   - Kyoten_yoru
+--- !u!114 &519420038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b649c4435ea5804bad2dfc0074446a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectPanal: {fileID: 1523528351}
+  damage_f: 0
 --- !u!1 &563692472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,11 +1181,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3842188156150784168, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -305387.16
+      value: -277115.38
       objectReference: {fileID: 0}
     - target: {fileID: 3842188156150784168, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 312334.12
+      value: 327521.03
       objectReference: {fileID: 0}
     - target: {fileID: 4001055104082996519, guid: 07b35acffb9676d4dbf620b66b09c3d2, type: 3}
       propertyPath: m_SortingOrder
@@ -1320,6 +1336,82 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6417471457295597400, guid: e432429a349a46843bc8606bf96b7b88, type: 3}
   m_PrefabInstance: {fileID: 5249148059726347142}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1523528351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1523528352}
+  - component: {fileID: 1523528354}
+  - component: {fileID: 1523528353}
+  m_Layer: 5
+  m_Name: effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1523528352
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523528351}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 313915996}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1523528353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523528351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1523528354
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523528351}
+  m_CullTransparentMesh: 1
 --- !u!1 &1529899833 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9108204647842142160, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
@@ -2323,6 +2415,10 @@ PrefabInstance:
       propertyPath: fade
       value: 
       objectReference: {fileID: 519420037}
+    - target: {fileID: 5249148059981974246, guid: e432429a349a46843bc8606bf96b7b88, type: 3}
+      propertyPath: effect
+      value: 
+      objectReference: {fileID: 519420038}
     - target: {fileID: 5249148059981974246, guid: e432429a349a46843bc8606bf96b7b88, type: 3}
       propertyPath: eventData
       value: 
