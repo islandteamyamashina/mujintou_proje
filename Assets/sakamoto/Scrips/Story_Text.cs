@@ -24,10 +24,13 @@ public class Story_Text : Text_Method
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (!fade.feadout_f)
         {
-            multiAudio.SE2();
-            Invoke("Next_Text", 1.0f);
+            if (Input.GetMouseButtonUp(0))
+            {
+                multiAudio.SE2();
+                Invoke("Next_Text", 1.0f);
+            }
         }
     }
     void Next_Text()
