@@ -29,7 +29,15 @@ public class Story_Text : Text_Method
             if (Input.GetMouseButtonUp(0))
             {
                 multiAudio.SE2();
-                Invoke("Next_Text", 1.0f);
+                if (!fade.feadout_f)
+                {
+                    Invoke("Next_Text", 1.0f);
+                }
+                else
+                {
+                    Invoke("Next_Text", 0);
+                }
+
             }
         }
     }
