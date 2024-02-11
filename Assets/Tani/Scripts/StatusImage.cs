@@ -38,6 +38,8 @@ public class StatusImage : MonoBehaviour
         //Image‚ª“KØ‚Éí‚ç‚ê‚é‚æ‚¤’²®
         image_rect_transform.anchoredPosition = new Vector2(0,
             (init_mask_height - mask_rect_transform.rect.size.y) / 2);
-        
+
+
+       
     }
 }

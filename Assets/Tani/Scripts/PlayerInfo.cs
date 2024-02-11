@@ -36,6 +36,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     [Space, Header("その他")]
     [SerializeField, Tooltip("行動ごとに増える湧き水値")] private int water_gain = 5;
+    [SerializeField, Tooltip("行動ごとに減る焚火値")] private int fire_gain = 5;
 
     [Space]
     [Header("テスト中")]
@@ -52,6 +53,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     private uint _player_condition = 0;
     private int water_value = 0;
+    private int fire_value = 0;
 
     [SerializeField] private int first_item = 0;
 
@@ -103,7 +105,15 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
             water_value = Mathf.Clamp(water_value, 0, 100);
         }
     }
-
+    public int Fire
+    {
+        get { return fire_value; }
+        set
+        {
+            fire_value = value;
+            fire_value = Mathf.Clamp(fire_value, 0, 100);
+        }
+    }
 
     public enum Weather
     {
@@ -156,6 +166,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
             Thirst = 100;
         }
         condition_text.text = str;
+
         weather_text.text = $"{weather}";
         day_text.text = $"Day : {Day}";
     }
@@ -201,6 +212,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     public void DoAction()
     {
+        Fire += fire_gain;
         Water += water_gain;
         Day += 1;
         weather = (Weather)((int)Random.Range(0, (int)Weather.Weather_Max));
