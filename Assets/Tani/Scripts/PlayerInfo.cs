@@ -36,7 +36,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     [Space, Header("その他")]
     [SerializeField, Tooltip("行動ごとに増える湧き水値")] private int water_gain = 5;
-    [SerializeField, Tooltip("行動ごとに減る焚火値")] private int fire_gain = 5;
+    [SerializeField, Tooltip("行動ごとに減る焚火値")] private int fire_decrease = 5;
 
     [Space]
     [Header("テスト中")]
@@ -149,26 +149,36 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
             Debug.Log($"{saveData.player_health},{saveData.player_hunger},{saveData.player_thirst}");
            DataManager.Instance.Save(saveData);
         }
-        status_text.text = $"Health : {_player_Health},Hunger : {_player_Hunger},Thirst : {_player_Thirst},Luck : {_player_Luck}";
-        string str = "";
-        for(int i = 0; i < (int)Condition.CONDIITON_MAX; i++)
-        {
-            if (IsPlayerConditionEqualTo((Condition)i))
-            {
-                str += $"{(Condition)i},";
-            }
-        }
+
         if (Input.GetKeyDown(KeyCode.X))
         {
-            
+
             Health = 100;
             Hunger = 100;
             Thirst = 100;
         }
-        condition_text.text = str;
 
-        weather_text.text = $"{weather}";
-        day_text.text = $"Day : {Day}";
+        if (status_text && condition_text)
+        {
+            if(weather_text && day_text)
+            {
+                status_text.text = $"Health : {_player_Health},Hunger : {_player_Hunger},Thirst : {_player_Thirst},Luck : {_player_Luck}";
+                string str = "";
+                for (int i = 0; i < (int)Condition.CONDIITON_MAX; i++)
+                {
+                    if (IsPlayerConditionEqualTo((Condition)i))
+                    {
+                        str += $"{(Condition)i},";
+                    }
+                }
+               
+                condition_text.text = str;
+
+                weather_text.text = $"{weather}";
+                day_text.text = $"Day : {Day}";
+            }
+        }
+    
     }
 
     public enum Condition
@@ -212,7 +222,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     public void DoAction()
     {
-        Fire += fire_gain;
+        Fire -= fire_decrease;
         Water += water_gain;
         Day += 1;
         weather = (Weather)((int)Random.Range(0, (int)Weather.Weather_Max));
