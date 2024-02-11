@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7129106708775212206}
   - component: {fileID: 7129106708775212201}
   - component: {fileID: 7129106708775212200}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &7129106708775212201
 MonoBehaviour:
@@ -112,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7129106709274913765}
   - component: {fileID: 7129106709274913770}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.9339623, g: 0.12687784, b: 0.12687784, a: 1}
   m_FlipX: 0
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 7129106709641092868}
   - component: {fileID: 7129106709641092871}
   - component: {fileID: -1158497115083585605}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: item17_mat_mash
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ Transform:
   - {fileID: 7129106709274913765}
   - {fileID: 7129106708775212203}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7129106709641092868
 MonoBehaviour:
@@ -238,6 +238,7 @@ MonoBehaviour:
   CurrentStackCount: 0
   isOverMouse: 0
   isGetItem: 0
+  isOverSlot: 0
   txStack: {fileID: 7129106709847286310}
   OverlapItem: {fileID: 0}
 --- !u!61 &7129106709641092871
@@ -323,7 +324,7 @@ GameObject:
   - component: {fileID: 7129106709847286308}
   - component: {fileID: 7129106709847286311}
   - component: {fileID: 7129106709847286310}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
