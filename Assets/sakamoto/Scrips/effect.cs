@@ -13,7 +13,8 @@ public class effect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      //  damage_f = false;
+       
+         damage_f = false;
         effectPanal.GetComponent<Image>().color = new Color(1.0f, 0.0f, 0.0f, 0.5f);
         effectPanal.SetActive(false);
     }
@@ -21,29 +22,49 @@ public class effect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PlayerInfo.Instance.IsPlayerCondionEqualTo(PlayerInfo.Condition.Poisioned)==true)
+        if (PlayerInfo.Instance.IsPlayerConditionEqualTo(PlayerInfo.Condition.Poisoned) == true)
+
+        {
+            PlayerInfo.Instance.DoAction();
             
+           // damage_f = true;
+
+            //Damage();
+        }
+       else if (PlayerInfo.Instance.IsPlayerConditionEqualTo(PlayerInfo.Condition.ThirstyAndHungry) == true)
         {
-            Damage();
+            PlayerInfo.Instance.DoAction();
+
+           // damage_f = true;
+
+           // Damage();
+           
+        }
+        else
+        {
+          //  damage_f=false; 
         }
     }
-
-    void Damage()
-    {
-        effectPanal.SetActive(true);
-        if ((0 < color.a))
+        void Damage()
         {
-            color.a -= 0.0015f;
-            effectPanal.GetComponent<Image>().color = color;
-        }
-        if (color.a <= 0)
-        {
-            effectPanal.SetActive(false);
-            damage_f = false;
-            color.a = 0.0015f;
-            effectPanal.GetComponent<Image>().color = color;
+        Debug.Log(color.a);
+        Debug.Log(effectPanal.GetComponent<Image>().color);
+
+        damage_f = true;  
+            effectPanal.SetActive(true);
+            if (0 < color.a)
+            {
+                color.a -= 0.0015f;
+                effectPanal.GetComponent<Image>().color = color;
+            }
+            if (color.a <= 0)
+            {
+                effectPanal.SetActive(false);
+                damage_f = false;
+                color.a = 0.0015f;
+                effectPanal.GetComponent<Image>().color = color;
+
+            }
 
         }
-
     }
-}
