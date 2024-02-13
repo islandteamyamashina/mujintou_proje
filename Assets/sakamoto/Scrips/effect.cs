@@ -13,7 +13,7 @@ public class effect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        damage_f = false;
+      //  damage_f = false;
         effectPanal.GetComponent<Image>().color = new Color(1.0f, 0.0f, 0.0f, 0.5f);
         effectPanal.SetActive(false);
     }
@@ -21,7 +21,8 @@ public class effect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(damage_f) 
+        if(PlayerInfo.Instance.IsPlayerCondionEqualTo(PlayerInfo.Condition.Poisioned)==true)
+            
         {
             Damage();
         }
