@@ -25,7 +25,6 @@ public class KyotenToOtherspace : CreditPanel1
     [SerializeField] GameObject shadow3;
     [SerializeField] GameObject shadow4;
     //public GameObject wakimizu_tabu;
-    public float takibi = 0;
     public bool takibi_f;
 
     //行先メニューでいけない場所を隠すイメージのフラグ
@@ -33,8 +32,8 @@ public class KyotenToOtherspace : CreditPanel1
     public bool shadow2_f = true;   //右上
     public bool shadow3_f = true;   //右中央
     public bool shadow4_f = true;   //右下
-    private float TakibiTabu_timer = 0.0f;
-    public float takibiTabu_wait = 0.5f;
+    //private float TakibiTabu_timer = 0.0f;
+    //public float takibiTabu_wait = 0.5f;
     //  [SerializeField] public Text takibi_number; // 新しいUIパネルへの参照
 
     //bool takibicheck = false;
@@ -44,8 +43,8 @@ public class KyotenToOtherspace : CreditPanel1
     // Start is called before the first frame update
     void Start()
     {
-        TakibiTabu_timer = 0.0f;
-        if (takibi <= 0)
+        //TakibiTabu_timer = 0.0f;
+        if (PlayerInfo.Instance.Fire <= 0)
         {
             takibi_f = false;
         }

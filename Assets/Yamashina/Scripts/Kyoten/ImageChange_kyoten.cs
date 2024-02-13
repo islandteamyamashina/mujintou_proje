@@ -17,7 +17,7 @@ public class ImageChange_kyoten : Image_Method
     {
         
         image_num = 0;
-        if (kyotenToOtherspace.takibi <= 0)
+        if (PlayerInfo.Instance.Fire <= 0)
         {
             TakibiImage.sprite = Takibi_off;
         }
@@ -30,7 +30,7 @@ public class ImageChange_kyoten : Image_Method
     public void ImageChange()
     {
         Debug.Log("ƒ{ƒ^ƒ“‰Ÿ‚µ‚½");
-        Debug.Log(kyotenToOtherspace.takibi);
+     //   Debug.Log(kyotenToOtherspace.takibi);
         if (kyotenToOtherspace.takibi_f == false)
         {
             Debug.Log("ƒ{ƒ^ƒ“‰Ÿ‚µ‚½‚Q");
@@ -39,13 +39,13 @@ public class ImageChange_kyoten : Image_Method
             if (rand_num == 3) rand_num = 2;
             if (rand_num == 0)
             {
-                if (image_num == 0 && kyotenToOtherspace.takibi <= 0)
+                if (image_num == 0 && PlayerInfo.Instance.Fire <= 0)
                 {
                     TakibiImage.sprite = Takibi_on;
                     //PutImage(Image2);
                     //Remove_Image(image);
                     image_num = 1;
-                    kyotenToOtherspace.takibi = 100;
+                    PlayerInfo.Instance.Fire = 100;
                     kyotenToOtherspace.takibi_f = true;
                     Debug.Log("¬Œ÷");
 
@@ -59,7 +59,7 @@ public class ImageChange_kyoten : Image_Method
                     //PutImage(image);
                     //Remove_Image(Image2);
                     image_num = 0;
-                    Debug.Log(kyotenToOtherspace.takibi);
+                    Debug.Log(PlayerInfo.Instance.Fire);
                     Debug.Log("Ž¸”s");
 
                 //}
@@ -68,8 +68,8 @@ public class ImageChange_kyoten : Image_Method
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            kyotenToOtherspace.takibi = 0;
-            Debug.Log(kyotenToOtherspace.takibi);
+            PlayerInfo.Instance.Fire = 0;
+            Debug.Log(PlayerInfo.Instance.Fire);
         }
     }
 
