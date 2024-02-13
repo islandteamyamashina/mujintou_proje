@@ -17,8 +17,15 @@ public class Wakimizu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        image.SetActive(false); 
-        wakimizu_f = true;
+        image.SetActive(false);
+        if ( PlayerInfo.Instance.Water<= 0)
+        {
+            wakimizu_f = false;
+        }
+        else
+        {
+            wakimizu_f = true;
+        }
         Texture2D texture = Resources.Load("") as Texture2D;
 
     }
