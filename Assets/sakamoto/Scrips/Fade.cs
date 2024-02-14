@@ -10,7 +10,6 @@ public class Fade : MonoBehaviour
 {
     [SerializeField] GameObject feadPanal;
     Color color;
-    int fead_time;
     public bool feadout_f;
     public int scene_name_num;
     [SerializeField] string[] Scenename_list;
@@ -19,7 +18,6 @@ public class Fade : MonoBehaviour
     {
         scene_name_num = 0;
         feadout_f = false;
-        fead_time = 300;
         feadPanal.SetActive(true);
         feadPanal.GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
         color = feadPanal.GetComponent<Image>().color;

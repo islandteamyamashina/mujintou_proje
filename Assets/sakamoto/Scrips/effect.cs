@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,7 +15,7 @@ public class effect : MonoBehaviour
     void Start()
     {
         damage_f = false;
-        effectPanal.GetComponent<Image>().color = new Color(1.0f, 0.0f, 0.0f, 0.5f);
+        effectPanal.GetComponent<Image>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
         effectPanal.SetActive(false);
     }
 
@@ -38,10 +39,7 @@ public class effect : MonoBehaviour
         if (color.a <= 0)
         {
             effectPanal.SetActive(false);
-            damage_f = false;
-            color.a = 0.0015f;
-            effectPanal.GetComponent<Image>().color = color;
-
+            damage_f = false;            
         }
 
     }

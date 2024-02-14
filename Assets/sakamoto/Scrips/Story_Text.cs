@@ -9,13 +9,16 @@ using UnityEngine.SceneManagement;
 public class Story_Text : Text_Method
 {
     [SerializeField] StoryData storyData;
-    [SerializeField] string sceneName;
+    [SerializeField] string sceneName; 
     public multiAudio multiAudio;
     [SerializeField] Fade fade;
     int line_num;
+
+    public bool Botton_f;
     // Start is called before the first frame update
     void Start()
     {
+        Botton_f = true;
         //Invoke();
         line_num = 1;
         Text_Disply(storyData.FarstLine);
@@ -24,14 +27,21 @@ public class Story_Text : Text_Method
     // Update is called once per frame
     void Update()
     {
-        if (!fade.feadout_f)
+        if (Input.GetMouseButtonUp(0))
         {
-            if (Input.GetMouseButtonUp(0))
+            if (Botton_f)
             {
+
+                Botton_f = false;
                 multiAudio.SE2();
                 if (!fade.feadout_f)
                 {
                     Invoke("Next_Text", 1.0f);
+
+                    if (!fade.feadout_f)
+                    {
+                        Botton_f = true;
+                    }
                 }
                 else
                 {
