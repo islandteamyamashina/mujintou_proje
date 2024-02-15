@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ public class KyotenToOtherspace : CreditPanel1
     //private float TakibiTabu_timer = 0.0f;
     //public float takibiTabu_wait = 0.5f;
     //  [SerializeField] public Text takibi_number; // 新しいUIパネルへの参照
-
+    int takibi;
     //bool takibicheck = false;
 
 
@@ -44,7 +45,7 @@ public class KyotenToOtherspace : CreditPanel1
     void Start()
     {
         //TakibiTabu_timer = 0.0f;
-        if (PlayerInfo.Instance.Fire <= 0)
+        if (takibi <= 0)
         {
             takibi_f = false;
         }
@@ -68,6 +69,12 @@ public class KyotenToOtherspace : CreditPanel1
         //wakimizu_tabu.SetActive(false);
     }
 
+    //private void Update()
+    //{
+
+    //    quitPanel();
+
+    //}
     // Update is called once per frame
     public override void MainView()
     {
@@ -204,7 +211,7 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
-        
+
         //wakimizu_tabu.SetActive(false);
 
 
@@ -212,7 +219,7 @@ public class KyotenToOtherspace : CreditPanel1
     }
     public void sleepingView()
     {
-       //Instantiate(prefab);
+        //Instantiate(prefab);
 
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
@@ -247,21 +254,21 @@ public class KyotenToOtherspace : CreditPanel1
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
 
-       /* if (takibi_tabu == true)
-        {
-            TakibiTabu_timer += Time.deltaTime;
-            Debug.Log("takibitabu_timer"+TakibiTabu_timer);
-            if (TakibiTabu_timer >= takibiTabu_wait)
-                {
+        /* if (takibi_tabu == true)
+         {
+             TakibiTabu_timer += Time.deltaTime;
+             Debug.Log("takibitabu_timer"+TakibiTabu_timer);
+             if (TakibiTabu_timer >= takibiTabu_wait)
+                 {
 
-                takibi_tabu.SetActive(false);
-            }
-        }
-        else if(!takibi_tabu)
-            {
-            TakibiTabu_timer = 0.0f;
-        }
-       */
+                 takibi_tabu.SetActive(false);
+             }
+         }
+         else if(!takibi_tabu)
+             {
+             TakibiTabu_timer = 0.0f;
+         }
+        */
 
 
         //wakimizu_tabu.SetActive(false);
@@ -376,26 +383,28 @@ public class KyotenToOtherspace : CreditPanel1
         }
 
     }
+   
 
-    public void deleteShadow(int field)
+
+public void deleteShadow(int field)
+{
+    if (field == 1)
     {
-        if (field == 1)
-        {
-            shadow1_f = false;
-        }
-        if (field == 2)
-        {
-            shadow2_f = false;
-        }
-        if (field == 3)
-        {
-            shadow3_f = false;
-        }
-        if (field == 4)
-        {
-            shadow4_f = false;
-        }
+        shadow1_f = false;
     }
+    if (field == 2)
+    {
+        shadow2_f = false;
+    }
+    if (field == 3)
+    {
+        shadow3_f = false;
+    }
+    if (field == 4)
+    {
+        shadow4_f = false;
+    }
+}
 }
 
 

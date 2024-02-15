@@ -13,7 +13,7 @@ public class CreditPanel1 : MonoBehaviour
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
-
+        quitPanel();
     }
 
     public virtual void MainView()
@@ -36,5 +36,18 @@ public class CreditPanel1 : MonoBehaviour
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
         OptionPanel.SetActive(true);
+    }
+    public void quitPanel()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+
+
+            MainView();
+
+
+        }
+
     }
 }
