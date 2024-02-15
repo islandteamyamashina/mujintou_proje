@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wakibi_Botton : MonoBehaviour
+public class Takibi_Botton : MonoBehaviour
 {
     //‘I‘ðŽˆ‚ð‰B‚·‚â‚Â
     [SerializeField] GameObject shadow1;
