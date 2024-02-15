@@ -15,7 +15,8 @@ public class effect : MonoBehaviour
     void Start()
     {
         damage_f = false;
-        effectPanal.GetComponent<Image>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+        effectPanal.GetComponent<Image>().color = new Color(1.0f, 0.0f, 0.0f, 0.5f);
+        color = effectPanal.GetComponent<Image>().color;
         effectPanal.SetActive(false);
     }
 
@@ -30,17 +31,20 @@ public class effect : MonoBehaviour
 
     void Damage()
     {
+        
         effectPanal.SetActive(true);
         if ((0 < color.a))
         {
-            color.a -= 0.0015f;
+            color.a -= 0.0075f;
+            Debug.Log(effectPanal.GetComponent<Image>().color.a);
             effectPanal.GetComponent<Image>().color = color;
         }
         if (color.a <= 0)
         {
             effectPanal.SetActive(false);
-            damage_f = false;            
+            damage_f = false;
         }
+        Debug.Log("ダメージ判定終了");
 
     }
 }

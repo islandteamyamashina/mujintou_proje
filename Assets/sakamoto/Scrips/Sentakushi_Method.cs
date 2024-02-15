@@ -133,9 +133,9 @@ public class Sentakushi_Method : Event_Text
             GoToLoadScene = true;
 
             Debug.Log("•ÏŠ·‘O‚Ì‘Ì—Í‚Í" + PlayerInfo.Instance.Health + "‹ó• “x‚Í" + PlayerInfo.Instance.Hunger + "…•ª‚Í" + PlayerInfo.Instance.Thirst + "‚Å‚·");
-            PlayerInfo.Instance.Health -= event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_health;
-            PlayerInfo.Instance.Hunger -= event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_hunger;
-            PlayerInfo.Instance.Thirst -= event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_warter;
+            PlayerInfo.Instance.Health += event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_health;
+            PlayerInfo.Instance.Hunger += event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_hunger;
+            PlayerInfo.Instance.Thirst += event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_warter;
             Debug.Log("•ÏŠ·Œã‚Ì‘Ì—Í‚Í" + PlayerInfo.Instance.Health + "‹ó• “x‚Í" + PlayerInfo.Instance.Hunger + "…•ª‚Í" + PlayerInfo.Instance.Thirst + "‚Å‚·");
 
             next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Next_Ivent_ID;
