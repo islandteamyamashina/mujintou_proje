@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Cursol : MonoBehaviour
+public class Cursol : MonoBehaviour,IDragHandler
 {
     // Start is called before the first frame update
     
