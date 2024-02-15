@@ -1624,13 +1624,11 @@ MonoBehaviour:
   shadow2: {fileID: 0}
   shadow3: {fileID: 0}
   shadow4: {fileID: 0}
-  takibi: 0
   takibi_f: 1
   shadow1_f: 1
   shadow2_f: 1
   shadow3_f: 1
   shadow4_f: 1
-  takibiTabu_wait: 0.5
 --- !u!114 &1265888933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2469,11 +2467,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5200040391503576156, guid: 742f3bc1d24704f4c9e85159b7036d75, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -191.19006
+      value: -191.1901
       objectReference: {fileID: 0}
     - target: {fileID: 5200040391503576156, guid: 742f3bc1d24704f4c9e85159b7036d75, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -73.03998
+      value: -73.03999
       objectReference: {fileID: 0}
     - target: {fileID: 5200040391503576156, guid: 742f3bc1d24704f4c9e85159b7036d75, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5118,6 +5116,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc722cdcb71c8e841ade281dee49f444, type: 3}
+--- !u!114 &377919646139719464 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 377919644879198496, guid: fc722cdcb71c8e841ade281dee49f444, type: 3}
+  m_PrefabInstance: {fileID: 377919646139719463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111779359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2332585286194111168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5981,6 +5990,14 @@ PrefabInstance:
       propertyPath: hightlightImage
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7658727048011006078, guid: 4568460be2efafd45a8868fb5781fc54, type: 3}
+      propertyPath: TakibiImage
+      value: 
+      objectReference: {fileID: 377919646139719464}
+    - target: {fileID: 7658727048011006078, guid: 4568460be2efafd45a8868fb5781fc54, type: 3}
+      propertyPath: kyotenToOtherspace
+      value: 
+      objectReference: {fileID: 1265888932}
     - target: {fileID: 7829532094445734227, guid: 4568460be2efafd45a8868fb5781fc54, type: 3}
       propertyPath: m_SizeDelta.x
       value: 503.0042
