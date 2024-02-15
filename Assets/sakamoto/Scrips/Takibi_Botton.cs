@@ -18,16 +18,19 @@ public class Takibi_Botton : MonoBehaviour
     [SerializeField] int kakuritu1;
     [SerializeField] int kakuritu2;
     [SerializeField] int kakuritu3;
+
+    //各火おこしの体力減少値
+
     int[] kakuritu_tum;
     int Rondam_num_tum;
     // Start is called before the first frame update
 
     public void setShadow()
     {
-        if(!(item1.CurrentStackCount > 0))
-        {
-            shadow1.SetActive(true);
-        }
+        //if(!(item1.CurrentStackCount > 0))
+        //{
+        //    shadow1.SetActive(true);
+        //}
         if(!(item2.CurrentStackCount > 0))
         {
             shadow2.SetActive(true);
@@ -62,7 +65,9 @@ public class Takibi_Botton : MonoBehaviour
         {
             Debug.Log("点火失敗");
         }
-        Debug.Log("アイテム減少処理");
+        PlayerInfo.Instance.Health -= 15;
+        PlayerInfo.Instance.Hunger -= 15;
+        PlayerInfo.Instance.Thirst -= 15;
     }
 
     //ボタン2の処理
@@ -89,7 +94,10 @@ public class Takibi_Botton : MonoBehaviour
         {
             Debug.Log("点火失敗");
         }
-        Debug.Log("アイテム減少処理");
+        PlayerInfo.Instance.Health -= 5;
+        PlayerInfo.Instance.Hunger -= 5;
+        PlayerInfo.Instance.Thirst -= 5;
+
     }
 
     //ボタン3の処理
