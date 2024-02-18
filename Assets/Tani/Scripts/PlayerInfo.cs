@@ -168,7 +168,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
                 condition_text.text = str;
 
                 weather_text.text = $"{weather}";
-                day_text.text = $"Day : {Day}";
+                day_text.text = $"{Day}";
             }
         }
 
