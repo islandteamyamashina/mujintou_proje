@@ -7,7 +7,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     public int Day { get; set; } = 0;
     public Weather weather { get; set; }
 
-    [Header("ó‘ÔˆÙí‚É‚æ‚é‰e‹¿’l")]
+    [Header("ï¿½ï¿½ÔˆÙï¿½É‚ï¿½ï¿½eï¿½ï¿½ï¿½l")]
     [SerializeField]private int _Max_Poisoned_Damage = 5;
     [SerializeField] private int _Min_Poisoned_Damage = 5;
 
@@ -23,7 +23,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [Space]
 
     
-    [Header("ƒXƒe[ƒ^ƒX‚Ì‰Šú’lÅ‘å’l")]
+    [Header("ï¿½Xï¿½eï¿½[ï¿½^ï¿½Xï¿½Ìï¿½ï¿½ï¿½ï¿½lï¿½Å‘ï¿½l")]
     [SerializeField]private int _Init_Player_Health = 50;
     [SerializeField] private int _Init_Player_Hunger = 50;
     [SerializeField] private int _Init_Player_Thirst = 50;
@@ -34,11 +34,12 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] private int _Max_Player_Thirst = 100;
     [SerializeField] private int _Max_Player_Luck = 100;
 
-    [Space, Header("‚»‚Ì‘¼")]
-    [SerializeField, Tooltip("s“®‚²‚Æ‚É‘‚¦‚é—N‚«…’l")] private int water_gain = 5;
+    [Space, Header("ï¿½ï¿½ï¿½Ì‘ï¿½")]
+    [SerializeField, Tooltip("ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½Æ‚É‘ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½l")] private int water_gain = 5;
+    [SerializeField, Tooltip("ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ÉŒï¿½ï¿½é•°ï¿½Î’l")] private int fire_gain = 5;
 
     [Space]
-    [Header("ƒeƒXƒg’†")]
+    [Header("ï¿½eï¿½Xï¿½gï¿½ï¿½")]
     [SerializeField] private Text status_text;
     [SerializeField] private Text condition_text;
     [SerializeField] private Text weather_text;
@@ -200,7 +201,9 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     }
 
     public void DoAction()
-    {
+    
+        Fire += fire_gain;
+
         Water += water_gain;
         Day += 1;
         weather = (Weather)((int)Random.Range(0, (int)Weather.Weather_Max));
