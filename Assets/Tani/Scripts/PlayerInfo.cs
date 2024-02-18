@@ -201,6 +201,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     }
 
     public void DoAction()
+    { 
     
         Fire += fire_gain;
 
