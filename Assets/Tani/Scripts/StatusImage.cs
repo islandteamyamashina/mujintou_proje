@@ -5,12 +5,9 @@ using UnityEngine.UI;
 
 public class StatusImage : MonoBehaviour
 {
-    [SerializeField] Image status_image;
+    Image image;
     [SerializeField] Status_Type status_type = Status_Type.Health;
-    [SerializeField] int init_mask_height = 100;
-    RectTransform mask_rect_transform;
-    RectTransform image_rect_transform;
-    Vector2 init_mask_position;
+    PlayerInfo info;
 
 
     public enum Status_Type
@@ -20,24 +17,43 @@ public class StatusImage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mask_rect_transform = GetComponent<RectTransform>();
-        image_rect_transform = status_image.GetComponent<RectTransform>();
-        init_mask_position = mask_rect_transform.anchoredPosition;
+        info = PlayerInfo.Instance;
+        image = GetComponent<Image>();
+        image.type = Image.Type.Filled;
+        
+        switch (status_type)
+        {
+            case Status_Type.Health:
+                image.fillMethod = Image.FillMethod.Radial360;
+                image.fillOrigin = 2;
+                image.fillClockwise = false;
+                
+                break;
+            case Status_Type.Hunger:
+                image.fillMethod = Image.FillMethod.Vertical;
+                break;
+            case Status_Type.Thirst:
+                image.fillMethod = Image.FillMethod.Vertical;
+                break;
+        }
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        //ステータスに元付いてmaskのsizeを変更
-        mask_rect_transform.sizeDelta 
-            = new Vector2(mask_rect_transform.rect.size.x, init_mask_height * PlayerInfo.Instance.GetStatusPercent((int)status_type));
-        //maskの下部が一致するように移動
-        mask_rect_transform.anchoredPosition = new Vector2(init_mask_position.x,
-           init_mask_position.y - (init_mask_height - mask_rect_transform.rect.size.y) / 2);
-        //Imageが適切に削られるよう調整
-        image_rect_transform.anchoredPosition = new Vector2(0,
-            (init_mask_height - mask_rect_transform.rect.size.y) / 2);
+
+        image.fillAmount = info.GetStatusPercent((int)status_type);
+        switch (status_type)
+        {
+            case Status_Type.Health:
+                
+                break;
+            case Status_Type.Hunger:
+                break;
+            case Status_Type.Thirst:
+                break;
+        }
         
     }
 }
