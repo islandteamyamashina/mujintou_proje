@@ -36,7 +36,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     [Space, Header("���̑�")]
     [SerializeField, Tooltip("�s�����Ƃɑ�����N�����l")] private int water_gain = 5;
-    [SerializeField, Tooltip("�s�����ƂɌ��镰�Βl")] private int fire_gain = 5;
+    [SerializeField, Tooltip("�s�����ƂɌ��镰�Βl")] private int fire_decrease = 5;
 
     [Space]
     [Header("�e�X�g��")]
@@ -53,6 +53,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     private uint _player_condition = 0;
     private int water_value = 0;
+    private int fire_value = 0;
 
     [SerializeField] private int first_item = 0;
 
@@ -105,6 +106,16 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         }
     }
 
+    public int Fire
+    {
+        get { return fire_value; }
+        set
+        {
+            fire_value = value;
+            fire_value = Mathf.Clamp(fire_value, 0, 100);
+        }
+    }
+
 
     public enum Weather
     {
@@ -140,25 +151,35 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
             Debug.Log($"{saveData.player_health},{saveData.player_hunger},{saveData.player_thirst}");
            DataManager.Instance.Save(saveData);
         }
-        status_text.text = $"Health : {_player_Health},Hunger : {_player_Hunger},Thirst : {_player_Thirst},Luck : {_player_Luck}";
-        string str = "";
-        for(int i = 0; i < (int)Condition.CONDIITON_MAX; i++)
+        if (status_text && condition_text)
         {
-            if (IsPlayerConditionEqualTo((Condition)i))
+            if (weather_text && day_text)
             {
-                str += $"{(Condition)i},";
+                status_text.text = $"Health : {_player_Health},Hunger : {_player_Hunger},Thirst : {_player_Thirst},Luck : {_player_Luck}";
+                string str = "";
+                for (int i = 0; i < (int)Condition.CONDIITON_MAX; i++)
+                {
+                    if (IsPlayerConditionEqualTo((Condition)i))
+                    {
+                        str += $"{(Condition)i},";
+                    }
+                }
+
+                condition_text.text = str;
+
+                weather_text.text = $"{weather}";
+                day_text.text = $"Day : {Day}";
             }
         }
+
+
         if (Input.GetKeyDown(KeyCode.X))
         {
-            
+
             Health = 100;
             Hunger = 100;
             Thirst = 100;
         }
-        condition_text.text = str;
-        weather_text.text = $"{weather}";
-        day_text.text = $"Day : {Day}";
     }
 
     public enum Condition
@@ -203,7 +224,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     public void DoAction()
     { 
     
-        Fire += fire_gain;
+        Fire -= fire_decrease;
 
         Water += water_gain;
         Day += 1;
