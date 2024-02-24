@@ -4,21 +4,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(EventTrigger))]
 public class TextControl : MonoBehaviour
 {
-    [SerializeField, Header("テキストを表示するオブジェクト")]
-    GameObject TextObject;
-    Text text;
-    
+
+
+
 
     [SerializeField,Header("文字の増やす間隔")]
     float interval = 0.15f;
 
-    [SerializeField]List<string> strs;
-    int str_Count = 0;
+    [SerializeField]
+    protected List<string> strs;
+
+    Text text;
+    int str_range = 0;
     int str_page = 0;
     float time_sum = 0;
-    void Start()
+    bool is_text_end = false;
+
+    virtual protected void Start()
     {
         text = GetComponent<Text>();
         EventTrigger eventTrigger = GetComponent<EventTrigger>();
@@ -26,34 +31,63 @@ public class TextControl : MonoBehaviour
         entry.eventID = EventTriggerType.PointerClick;
         entry.callback.AddListener((data) => { OnClick(); });
         eventTrigger.triggers.Add(entry);
+
+
+
     }
 
-    // Update is called once per frame
-    void Update()
+
+    virtual protected void Update()
     {
         time_sum += Time.deltaTime;
         if(time_sum > interval)
         {
             time_sum = 0;
-            str_Count++;
+            if(str_range < strs[str_page].Length)
+            {
+                str_range++;
+                UpdateText(str_page, str_range);
+            }
+            else
+            {
+                is_text_end = true;
+            }
         }
-        text.text = strs[str_page][..str_Count];
+    }
 
+    void UpdateText(int page,int count)
+    {
+        text.text = strs[page][..count];
 
     }
     void OnClick()
     {
-        
-        str_page++;
-        if(str_page != strs.Count)
+        //文章が終わっていないときは文章を全て表示
+        if (!is_text_end)
         {
-            str_Count = 0;
-            time_sum = 0;
+            str_range = strs[str_page].Length;
+            UpdateText(str_page, str_range);
         }
         else
         {
-            str_page = strs.Count - 1;
+            //文章が終わっているときは次のページ
+            is_text_end = false;
+            str_page++;
+            if (str_page != strs.Count)
+            {
+                str_range = 0;
+                time_sum = 0;
+
+            }
+            else//次のページがなければ文章はそのまま、OnTextEndを発火
+            {
+                str_page = strs.Count - 1;
+                OnTextEnd();
+            }
         }
-        
+    }
+    virtual protected void OnTextEnd()
+    {
+        Debug.Log("文章の終わり");
     }
 }
