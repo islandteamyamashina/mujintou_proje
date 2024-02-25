@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FirstSceneController : MonoBehaviour
 {
-    [SerializeField] GameObject log1;
-    [SerializeField] GameObject log2;
-    [SerializeField] GameObject text1;
-    [SerializeField] GameObject text2;
+
+
+    [SerializeField] SceneObject nextScene;
 
     void Start()
     {
@@ -18,5 +18,10 @@ public class FirstSceneController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void NextScene()
+    {
+        SceneManager.LoadScene(nextScene);
     }
 }

@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 176486743}
+  - component: {fileID: 176486744}
   m_Layer: 0
   m_Name: SceneController
   m_TagString: Untagged
@@ -154,6 +155,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &176486744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176486742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2917e17ced5c4c048a32aba3a7a68ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene:
+    m_SceneName: UI_Test
 --- !u!1001 &285542000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -250,10 +265,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3796256248448840932, guid: c02220876cb5b1f4c8c08bd68605a652, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3796256248448840920, guid: c02220876cb5b1f4c8c08bd68605a652, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 549439367}
   m_SourcePrefab: {fileID: 100100000, guid: c02220876cb5b1f4c8c08bd68605a652, type: 3}
 --- !u!1 &372171974
 GameObject:
@@ -331,6 +350,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372171974}
   m_CullTransparentMesh: 1
+--- !u!1 &549439361 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3796256248448840920, guid: c02220876cb5b1f4c8c08bd68605a652, type: 3}
+  m_PrefabInstance: {fileID: 285542000}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &549439367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549439361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18f5081109e351f4ab87a7ca7ca51f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interval: 0.15
+  strs: []
+  EndEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 176486744}
+        m_TargetAssemblyTypeName: FirstSceneController, Assembly-CSharp
+        m_MethodName: NextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  textAsset: {fileID: 4900000, guid: 875b38fbab1c7f044a71d8c9ef4a9323, type: 3}
 --- !u!224 &640255134 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8946713291679699064, guid: 9f7a7d0c3ed689443a5f20a48e3394f5, type: 3}

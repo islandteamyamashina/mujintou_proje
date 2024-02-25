@@ -1,21 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using System.IO;
 
 public class StoryTextUsedText : TextControl
 {
-    [SerializeField] StoryTextData data;
+    [SerializeField] UnityEvent EndEvent;
+
     
+    [SerializeField] TextAsset textAsset;
+
+    string load_text;
+    string[] split_text;
 
     protected override void Start()
     {
-        strs.Clear();
-        foreach (var n in data.Texts)
+        base.Start();
+        load_text = textAsset.text;
+        split_text = load_text.Split(char.Parse("\n"));
+        foreach(var n in split_text)
         {
-            Debug.Log(n);
+            if (n == "") continue;
             strs.Add(n);
         }
-        base.Start();
+
+        
     }
 
 
@@ -26,6 +36,6 @@ public class StoryTextUsedText : TextControl
 
     protected override void OnTextEnd()
     {
-        //gameObject.SetActive(false);
+        EndEvent.Invoke();
     }
 }

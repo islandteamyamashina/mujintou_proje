@@ -15,11 +15,11 @@ public class TextControl : MonoBehaviour
     float interval = 0.15f;
 
     [SerializeField]
-    protected List<string> strs;
+    protected List<string> strs;//このリストに含まれた文字列が画面に出力されます
 
     Text text;
-    int str_range = 0;
-    int str_page = 0;
+    int str_range = 0;//何文字目まで表示するか
+    int str_page = 0;//strsのindex
     float time_sum = 0;
     bool is_text_end = false;
 
@@ -39,6 +39,7 @@ public class TextControl : MonoBehaviour
 
     virtual protected void Update()
     {
+        if (strs.Count == 0) return;
         time_sum += Time.deltaTime;
         if(time_sum > interval)
         {
