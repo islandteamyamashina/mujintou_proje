@@ -5,9 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class FirstSceneController : MonoBehaviour
 {
-
-
-    [SerializeField] SceneObject nextScene;
+    [SerializeField] GameObject o1;
+    [SerializeField] GameObject o2;
 
     void Start()
     {
@@ -20,8 +19,15 @@ public class FirstSceneController : MonoBehaviour
         
     }
 
-    public void NextScene()
+    public void Break()
     {
-        SceneManager.LoadScene(nextScene);
+        Destroy(o1);
     }
+    public void Make()
+    {
+        Instantiate(o2);
+        o2.transform.SetParent(GameObject.Find("Canvas").transform);
+        o2.transform.localPosition = Vector3.zero;
+    }
+
 }

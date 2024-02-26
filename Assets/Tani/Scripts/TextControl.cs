@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(EventTrigger))]
@@ -19,26 +20,35 @@ public class TextControl : MonoBehaviour
     int min_font_size = 80;
     [SerializeField]
     int Partition_Num = 8;
+    [Space,SerializeField,Header("ここに登録した関数がテキスト終了時に一回呼ばれます")] 
+    UnityEvent EndEvent;
+
 
     Text text;
-    TextGenerator generator = new TextGenerator();
+    TextGenerator generator;
+
     int str_range = 0;//何文字目まで表示するか
     int str_page = 0;//strsのindex
+    int default_font_size;
     float time_sum = 0;
     bool is_text_end = false;
-    int defaul_font_size;
     bool is_first_font_updated = false;
+    Vector2 text_size;
     
     virtual protected void Start()
     {
         text = GetComponent<Text>();
-        defaul_font_size = text.fontSize;
-        if(defaul_font_size < min_font_size)
+        generator = new TextGenerator();
+
+        default_font_size = text.fontSize;
+        text_size = new Vector2(text.rectTransform.rect.width, text.rectTransform.rect.height);
+        if(default_font_size < min_font_size)
         {
             //デフォルト値がminより小さい場合デフォルトをminにminをデフォルトに
-            (defaul_font_size, min_font_size) = (min_font_size, defaul_font_size);
+            (default_font_size, min_font_size) = (min_font_size, default_font_size);
         }
 
+        //テキストをクリックしたときにOnClick関数が呼ばれるようにする設定
         EventTrigger eventTrigger = GetComponent<EventTrigger>();
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerClick;
@@ -52,9 +62,9 @@ public class TextControl : MonoBehaviour
 
     virtual protected void Update()
     {
-        if (!is_first_font_updated)
+        if (!is_first_font_updated && auto_font_size )
         {
-            UpdateFontSize(0,defaul_font_size);//初回フォントサイズの決定、以後はページ変わるごと
+            UpdateFontSize(0,default_font_size);//初回フォントサイズの決定、以後はページ変わるごと
             is_first_font_updated = true;
         }
         if (strs.Count == 0) return;
@@ -79,24 +89,22 @@ public class TextControl : MonoBehaviour
     void UpdateText(int count)
     {
         text.text = strs[str_page][..count];
-        
-
     }
 
     void UpdateFontSize(int page,int newSize)
     {
+        if (!auto_font_size) return;
+
         generator.Invalidate();
         text.fontSize = newSize;
         text.text = strs[str_page];
-        TextGenerationSettings settings = text.GetGenerationSettings(
-            new Vector2(text.rectTransform.rect.width, text.rectTransform.rect.height));
-        
+
+        TextGenerationSettings settings 
+            = text.GetGenerationSettings(text_size);
         generator.Populate(text.text, settings);
-        Debug.Log(text.text);
-        Debug.Log(generator.characterCount + ":" +newSize);
 
 
-        if (generator.characterCount != strs[page].Length)
+        if (generator.characterCountVisible != strs[page].Length)
         {
             if(newSize < min_font_size)
             {
@@ -104,12 +112,13 @@ public class TextControl : MonoBehaviour
                 Debug.LogError("text Overflow");
                 return;
             } 
-            UpdateFontSize(page, newSize - (defaul_font_size - min_font_size) / Partition_Num);
+            //再帰関数としての使用
+            UpdateFontSize(page, newSize - (default_font_size - min_font_size) / Partition_Num);
         }
         else
         {
             text.text = "";
-            return;//テキストすべて表示
+            return;//テキストすべて表示可能なFontサイズ
             
         }
 
@@ -133,7 +142,7 @@ public class TextControl : MonoBehaviour
                 is_text_end = false;
                 str_range = 0;
                 time_sum = 0;
-                UpdateFontSize(str_page,defaul_font_size);
+                UpdateFontSize(str_page,default_font_size);
 
             }
             else//次のページがなければ文章はそのまま、OnTextEndを発火
@@ -145,6 +154,8 @@ public class TextControl : MonoBehaviour
     }
     virtual protected void OnTextEnd()
     {
-        Debug.Log("文章の終わり");
+        EndEvent.Invoke();
+        EventTrigger eventTrigger = GetComponent<EventTrigger>();
+        eventTrigger.triggers.Clear();
     }
 }
