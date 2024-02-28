@@ -14,7 +14,7 @@ public class StoryTextUsedText : TextControl
     {
         base.Start();
 
-
+        if (!textAsset) return;
         load_text = textAsset.text;
         split_text = load_text.Split(char.Parse("\n"));
         foreach(var n in split_text)

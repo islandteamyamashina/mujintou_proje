@@ -20,13 +20,24 @@ public class TextControl : MonoBehaviour
     int min_font_size = 80;
     [SerializeField]
     int Partition_Num = 8;
+    [SerializeField]
+    bool use_default_text = false;
     [Space,SerializeField,Header("ここに登録した関数がテキスト終了時に一回呼ばれます")] 
     UnityEvent EndEvent;
 
 
+
+    
+
+
     Text text;
     TextGenerator generator;
-
+    BackLog backLog;
+    enum TextInputType
+    {
+        DefaultText,DirectList,TextAsset,EventData
+    }
+    /*TextInputTypeでEditorの入力を分岐、継承なし、UseBackLog*/
     int str_range = 0;//何文字目まで表示するか
     int str_page = 0;//strsのindex
     int default_font_size;
@@ -39,6 +50,8 @@ public class TextControl : MonoBehaviour
     {
         text = GetComponent<Text>();
         generator = new TextGenerator();
+        //backLog = BackLogPrefab.GetComponent<BackLog>();
+        //BackLogPrefab.SetActive(false);
 
         default_font_size = text.fontSize;
         text_size = new Vector2(text.rectTransform.rect.width, text.rectTransform.rect.height);
@@ -55,19 +68,29 @@ public class TextControl : MonoBehaviour
         entry.callback.AddListener((data) => { OnClick(); });
         eventTrigger.triggers.Add(entry);
 
+        //
+        //if (BackLogButton)
+        //{
+        //    Button.ButtonClickedEvent clickedEvent = new Button.ButtonClickedEvent();
+        //    clickedEvent.AddListener(OnBackLogButtonDown);
+        //    BackLogButton.onClick = clickedEvent;
+        //}
 
+        if (use_default_text) strs.Add(text.text);
+        
+        
         
     }
 
 
     virtual protected void Update()
     {
+        if (strs.Count == 0) return;
         if (!is_first_font_updated && auto_font_size )
         {
             UpdateFontSize(0,default_font_size);//初回フォントサイズの決定、以後はページ変わるごと
             is_first_font_updated = true;
         }
-        if (strs.Count == 0) return;
 
 
         time_sum += Time.deltaTime;
@@ -135,7 +158,7 @@ public class TextControl : MonoBehaviour
         else
         {
             //文章が終わっているときは次のページ
-
+            backLog.AddTextToBackLog(strs[str_page]);
             str_page++;
             if (str_page != strs.Count)
             {
@@ -158,4 +181,6 @@ public class TextControl : MonoBehaviour
         EventTrigger eventTrigger = GetComponent<EventTrigger>();
         eventTrigger.triggers.Clear();
     }
+
+
 }
