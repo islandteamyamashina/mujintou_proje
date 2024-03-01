@@ -162,7 +162,7 @@ public class TextControl : MonoBehaviour
         else
         {
             //文章が終わっているときは次のページ
-            backLog.AddTextToBackLog(strs[str_page]);
+            backLog.AddTextToBackLog(strs[str_page]);//バックログに追加
             str_page++;
             if (str_page != strs.Count)
             {

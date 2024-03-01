@@ -17,11 +17,7 @@ public class BackLog : MonoBehaviour
         BackLogText.text = "";
 
 
-        //EventTrigger eventTrigger = GetComponent<EventTrigger>();
-        //EventTrigger.Entry entry = new EventTrigger.Entry();
-        //entry.eventID = EventTriggerType.Deselect;
-        //entry.callback.AddListener((data) => { OnCancel(); });
-        //eventTrigger.triggers.Add(entry);
+        BackLogMain.SetActive(false);
 
 
         if (BackLogButton)
@@ -41,7 +37,7 @@ public class BackLog : MonoBehaviour
 
     public void  AddTextToBackLog(string   str)
     {
-        BackLogText.text += str + "\n";
+        BackLogText.text += str + "\n\n";
     }
 
     public Text GetBackLogText()
