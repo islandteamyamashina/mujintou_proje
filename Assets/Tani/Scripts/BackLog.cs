@@ -48,16 +48,20 @@ public class BackLog : MonoBehaviour
     {
         return BackLogText;
     }
-    void OnCancel()
-    {
-        Debug.Log("Canceled");
-        gameObject.SetActive(false);
-    }
-
 
     public void OnBackLogButtonDown()
     {
        
         BackLogMain.SetActive(!BackLogMain.activeSelf);
     }
+
+    void ShowBackLog(bool b)
+    {
+        BackLogMain.SetActive(b);
+    }
+    void SwitchBackLogEnabled()
+    {
+        BackLogMain.SetActive(!BackLogMain.activeSelf);
+    }
+
 }

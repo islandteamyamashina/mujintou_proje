@@ -24,6 +24,10 @@ public class TextControl : MonoBehaviour
     bool use_default_text = false;
     [Space,SerializeField,Header("ここに登録した関数がテキスト終了時に一回呼ばれます")] 
     UnityEvent EndEvent;
+    [SerializeField]
+    bool use_back_log_text = true;
+    [SerializeField]
+    GameObject backLogPrefab;
 
 
 
@@ -50,8 +54,8 @@ public class TextControl : MonoBehaviour
     {
         text = GetComponent<Text>();
         generator = new TextGenerator();
-        //backLog = BackLogPrefab.GetComponent<BackLog>();
-        //BackLogPrefab.SetActive(false);
+        if (use_back_log_text) { BackLogValidiate(); }
+        
 
         default_font_size = text.fontSize;
         text_size = new Vector2(text.rectTransform.rect.width, text.rectTransform.rect.height);
@@ -182,5 +186,17 @@ public class TextControl : MonoBehaviour
         eventTrigger.triggers.Clear();
     }
 
+    void BackLogValidiate()
+    {
+        if (!backLogPrefab)
+        {
+            Debug.LogError("BackLogPrefab is not set");
+        }
+        if(!backLogPrefab.TryGetComponent<BackLog>(out backLog))
+        {
+            backLogPrefab = null;
+            Debug.LogError("BackLogPrefab has no BackLogComponent");
+        }
+    }
 
 }
