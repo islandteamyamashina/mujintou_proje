@@ -4,35 +4,30 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Cursol : MonoBehaviour, IDragHandler
+public class Cursol : MonoBehaviour
 {
     // Start is called before the first frame update
    
-    void Update()
-    {
-        
-            if (Input.GetMouseButtonDown(0))
-            {
-                Cursor.SetCursor(handCursor, Vector2.zero, CursorMode.Auto);
-            }
-       
 
-    }
+    
+        public Texture2D cursor;
 
-    public Texture2D handCursor;
+        public void OnMouseEnter()
+        {
+            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.ForceSoftware);
+        }
 
-    public void OnPointerEnter(PointerEventData eventData)
+        public void OnMouseExit()
+        {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
+        }
+    
+    public void OnDrag()
     {
-        Cursor.SetCursor(handCursor, new Vector2(handCursor.width / 2, handCursor.height / 2), CursorMode.Auto);
-    }
+        Vector3 objectScreenPoint =
+           new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-    }
-    public void OnDrag(PointerEventData eventData)
-    {
-        Vector3 TargetPos = Camera.main.ScreenToWorldPoint(eventData.position);
+        Vector3 TargetPos = Camera.main.ScreenToWorldPoint(objectScreenPoint);
         TargetPos.z = 0;
         transform.position = TargetPos;
     }
