@@ -25,6 +25,7 @@ public class KyotenToOtherspace : CreditPanel1
     [SerializeField] GameObject shadow2;
     [SerializeField] GameObject shadow3;
     [SerializeField] GameObject shadow4;
+    [SerializeField] GameObject recipePanel;
     //public GameObject wakimizu_tabu;
     public bool takibi_f;
 
@@ -65,7 +66,7 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
-
+        recipePanel.SetActive(false);   
         //wakimizu_tabu.SetActive(false);
     }
 
@@ -90,7 +91,7 @@ public class KyotenToOtherspace : CreditPanel1
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
         //wakimizu_tabu.SetActive (false);        
-
+          recipePanel.SetActive(false);
     }
 
     public override void SubView()
@@ -107,7 +108,7 @@ public class KyotenToOtherspace : CreditPanel1
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
         //wakimizu_tabu.SetActive(false);
-
+        recipePanel.SetActive (false);
 
     }
     public override void CreditView()
@@ -124,7 +125,7 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         //wakimizu_tabu.SetActive(false);
-
+        recipePanel.SetActive(false);   
     }
 
     public void InventoryView()
@@ -143,7 +144,7 @@ public class KyotenToOtherspace : CreditPanel1
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
         //wakimizu_tabu.SetActive(false);
-
+        recipePanel.SetActive(false);
     }
     public void WakimizuView()
     {
@@ -159,7 +160,7 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
-
+        recipePanel.SetActive (false);  
         //wakimizu_tabu.SetActive(false);
 
     }
@@ -185,7 +186,7 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
-
+        recipePanel.SetActive(false);   
         //    wakimizu_tabu.SetActive(false);
         //}
         //  }
@@ -211,7 +212,7 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
-
+        recipePanel.SetActive (false);  
         //wakimizu_tabu.SetActive(false);
 
 
@@ -229,7 +230,7 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(true);
-
+        recipePanel.SetActive(false);
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
@@ -253,7 +254,7 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(true);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
-
+        recipePanel.SetActive(false) ;
         /* if (takibi_tabu == true)
          {
              TakibiTabu_timer += Time.deltaTime;
@@ -291,7 +292,7 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(true);
         Cooking_messagePanel.SetActive(false);
-
+        recipePanel.SetActive (false);  
     }
 
 
@@ -319,7 +320,7 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
-
+        recipePanel.SetActive(false);
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(true);
