@@ -4,11 +4,20 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Cursol : MonoBehaviour,IDragHandler
+public class Cursol : MonoBehaviour, IDragHandler
 {
     // Start is called before the first frame update
-    
+   
+    void Update()
+    {
+        
+            if (Input.GetMouseButtonDown(0))
+            {
+                Cursor.SetCursor(handCursor, Vector2.zero, CursorMode.Auto);
+            }
+       
 
+    }
 
     public Texture2D handCursor;
 
