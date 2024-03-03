@@ -4,40 +4,50 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [RequireComponent(typeof(EventTrigger))]
 public class TextControl : MonoBehaviour
 {
 
 
-    [SerializeField,Header("文字の増やす間隔")]
+    [SerializeField]
     float interval = 0.15f;
-    [SerializeField,Header("このリストに含まれた文字列が画面に出力されます")]
+    [SerializeField]
     protected List<string> strs;
-    [SerializeField,Header("文字列の長さに応じて自動でフォントサイズを変更します")]
+    [SerializeField]
     bool auto_font_size = true;
     [SerializeField]
     int min_font_size = 80;
     [SerializeField]
     int Partition_Num = 8;
+    
+    
     [SerializeField]
-    bool use_default_text = false;
-    [Space,SerializeField,Header("ここに登録した関数がテキスト終了時に一回呼ばれます")] 
+    TextInputType inputType = TextInputType.DefaultText;
+    [SerializeField]
+    TextAsset textAsset;
+    [SerializeField]
+    EventData eventData;
+
+    [SerializeField]
     UnityEvent EndEvent;
+
     [SerializeField]
     bool use_back_log_text = true;
     [SerializeField]
-    GameObject backLogPrefab;
+    GameObject backLogObject;
 
 
 
-    
 
 
     Text text;
     TextGenerator generator;
     BackLog backLog;
-    enum TextInputType
+    public  enum TextInputType
     {
         DefaultText,DirectList,TextAsset,EventData
     }
@@ -72,15 +82,32 @@ public class TextControl : MonoBehaviour
         entry.callback.AddListener((data) => { OnClick(); });
         eventTrigger.triggers.Add(entry);
 
-        //
-        //if (BackLogButton)
-        //{
-        //    Button.ButtonClickedEvent clickedEvent = new Button.ButtonClickedEvent();
-        //    clickedEvent.AddListener(OnBackLogButtonDown);
-        //    BackLogButton.onClick = clickedEvent;
-        //}
 
-        if (use_default_text) strs.Add(text.text);
+        switch (inputType)
+        {
+            case TextInputType.DefaultText:
+                strs.Clear();
+                strs.Add(text.text);
+                break;
+            case TextInputType.TextAsset:
+                strs.Clear();
+                string load_text;
+                string[] split_text;
+
+                if (!textAsset) return;
+                load_text = textAsset.text;
+                split_text = load_text.Split(char.Parse("\n"));
+                foreach (var n in split_text)
+                {
+                    if (n == "") continue;
+                    strs.Add(n);
+                }
+                break;
+            case TextInputType.EventData:
+                strs.Clear();
+                strs.Add(eventData.Main_Text);
+                break;
+        }
         
         
         
@@ -162,7 +189,7 @@ public class TextControl : MonoBehaviour
         else
         {
             //文章が終わっているときは次のページ
-            backLog.AddTextToBackLog(strs[str_page]);//バックログに追加
+            if(use_back_log_text)backLog.AddTextToBackLog(strs[str_page]);//バックログに追加
             str_page++;
             if (str_page != strs.Count)
             {
@@ -186,17 +213,118 @@ public class TextControl : MonoBehaviour
         eventTrigger.triggers.Clear();
     }
 
-    void BackLogValidiate()
+    public void BackLogValidiate()
     {
-        if (!backLogPrefab)
+        if (!backLogObject)
         {
-            Debug.LogError("BackLogPrefab is not set");
+            Debug.LogError("BackLogObject is not set");
         }
-        if(!backLogPrefab.TryGetComponent<BackLog>(out backLog))
+        if(!backLogObject.TryGetComponent<BackLog>(out backLog))
         {
-            backLogPrefab = null;
-            Debug.LogError("BackLogPrefab has no BackLogComponent");
+            backLogObject = null;
+            Debug.LogError("BackLogObject has no BackLogComponent");
         }
     }
 
 }
+
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(TextControl))]
+class TextControlInspector : Editor
+{
+    SerializedProperty property_auto_font_size;
+    SerializedProperty property_inputType;
+    SerializedProperty property_use_back_log_text;
+
+
+    private void OnEnable()
+    {
+        property_auto_font_size = serializedObject.FindProperty("auto_font_size");
+        property_inputType = serializedObject.FindProperty("inputType");
+        property_use_back_log_text = serializedObject.FindProperty("use_back_log_text");
+    }
+
+
+    public override void OnInspectorGUI()
+    {
+       // base.OnInspectorGUI();
+        serializedObject.Update();
+
+
+        EditorGUILayout.LabelField(new GUIContent("文字送りの間隔"), EditorStyles.boldLabel);
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("interval"));
+
+
+        GUILayout.Space(5);
+        EditorGUILayout.LabelField("フォントサイズ関連", EditorStyles.boldLabel);
+        EditorGUILayout.PropertyField(property_auto_font_size,new GUIContent("自動調整の使用"));
+        if (property_auto_font_size.boolValue)
+        {
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("min_font_size"), new GUIContent("最小文字サイズ"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("Partition_Num"), new GUIContent("サイズ幅の分割数", "大きいほど処理は重い"));
+        }
+        else
+        {
+            GUILayout.Space(40);
+        }
+
+
+        GUILayout.Space(10);
+        EditorGUILayout.LabelField(new GUIContent("文字送りする文字列"), EditorStyles.boldLabel);
+        //EditorGUILayout.PropertyField(serializedObject.FindProperty("use_default_text"), new GUIContent("デフォルトテキストの使用","テキストコンポーネントのテキスト"));
+        EditorGUILayout.PropertyField(property_inputType, new GUIContent("入力形式"));
+        switch (property_inputType.enumValueIndex)
+        {
+            case (int)TextControl.TextInputType.DefaultText:
+                EditorGUILayout.LabelField(new GUIContent("Textコンポーネントのテキストのみを使用"), EditorStyles.boldLabel);
+                break;
+            case (int)TextControl.TextInputType.DirectList:
+                EditorGUILayout.LabelField(new GUIContent("リストに直接文字列を入力"), EditorStyles.boldLabel);
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("strs"), new GUIContent("リスト"));
+                break;
+            case (int)TextControl.TextInputType.TextAsset:
+                EditorGUILayout.LabelField(new GUIContent("テキストアセットの使用"), EditorStyles.boldLabel);
+                EditorGUILayout.LabelField(new GUIContent("文字列は改行で区切られる"), EditorStyles.boldLabel);
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("textAsset"));
+                break;
+            case (int)TextControl.TextInputType.EventData:
+                EditorGUILayout.LabelField(new GUIContent("EventData(ScriptableObject)の使用"), EditorStyles.boldLabel);
+                EditorGUILayout.LabelField(new GUIContent("テキスト本文が使われる"), EditorStyles.boldLabel);
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("eventData"));
+                break;
+        }
+
+
+        GUILayout.Space(10);
+        GUILayout.Box("", GUILayout.Height(2), GUILayout.ExpandWidth(true));
+        GUILayout.Space(5);
+        EditorGUILayout.LabelField(new GUIContent("ここに登録された関数がテキスト終了時に一回呼ばれます"), EditorStyles.boldLabel);
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("EndEvent"));
+
+
+        EditorGUILayout.LabelField(new GUIContent("バックログ"), EditorStyles.boldLabel);
+        EditorGUILayout.PropertyField(property_use_back_log_text, new GUIContent("バックログを使用する"));
+        if (property_use_back_log_text.boolValue)
+        {
+            var control = target as TextControl;
+            using (var check = new EditorGUI.ChangeCheckScope())
+            {
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("backLogObject"),new GUIContent("シーン上のバックログ"));
+                if (check.changed)
+                {
+                    // 一旦反映させて、無効なバックログでないかチェック
+                    serializedObject.ApplyModifiedProperties();
+                    control.BackLogValidiate();
+                    serializedObject.Update();
+                }
+            }
+        }
+        
+
+
+        serializedObject.ApplyModifiedProperties();
+    }
+}
+
+#endif
