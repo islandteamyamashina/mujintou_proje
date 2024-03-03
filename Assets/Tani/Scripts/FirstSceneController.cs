@@ -21,7 +21,7 @@ public class FirstSceneController : MonoBehaviour
 
     public void Break()
     {
-        Destroy(o1);
+        Debug.Log("•¶Í‚ÌI‚í‚è");
     }
     public void Make()
     {

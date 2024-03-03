@@ -4,10 +4,10 @@ using UnityEngine.UI   ;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class BackLog : MonoBehaviour
 {
     [SerializeField] Text BackLogText;
-    [SerializeField] Image BackLogBG;
     [SerializeField] GameObject BackLogMain;
     [SerializeField] Button BackLogButton;
 
@@ -17,7 +17,7 @@ public class BackLog : MonoBehaviour
         BackLogText.text = "";
 
 
-        BackLogMain.SetActive(false);
+        ShowBackLog(false);
 
 
         if (BackLogButton)
@@ -47,8 +47,8 @@ public class BackLog : MonoBehaviour
 
     public void OnBackLogButtonDown()
     {
-       
-        BackLogMain.SetActive(!BackLogMain.activeSelf);
+
+        SwitchBackLogEnabled();
     }
 
     void ShowBackLog(bool b)
@@ -61,3 +61,4 @@ public class BackLog : MonoBehaviour
     }
 
 }
+
