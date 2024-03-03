@@ -37,7 +37,7 @@ public class KyotenToOtherspace : CreditPanel1
     //private float TakibiTabu_timer = 0.0f;
     //public float takibiTabu_wait = 0.5f;
     //  [SerializeField] public Text takibi_number; // 新しいUIパネルへの参照
-    int takibi;
+  
     //bool takibicheck = false;
 
 
@@ -46,7 +46,7 @@ public class KyotenToOtherspace : CreditPanel1
     void Start()
     {
         //TakibiTabu_timer = 0.0f;
-        if (takibi <= 0)
+        if (PlayerInfo.Instance.Fire <= 0)
         {
             takibi_f = false;
         }
