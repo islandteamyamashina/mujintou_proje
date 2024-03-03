@@ -21,7 +21,7 @@ public class Fade : MonoBehaviour
         feadPanal.SetActive(true);
         feadPanal.GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
         color = feadPanal.GetComponent<Image>().color;
-        Debug.Log(feadPanal.GetComponent<Image>().color);
+        //Debug.Log(feadPanal.GetComponent<Image>().color);
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class Fade : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.A)) 
         {
             feadout_f = true;
-            Debug.Log(feadout_f);
+            //Debug.Log(feadout_f);
         }
         
     }
@@ -46,7 +46,7 @@ public class Fade : MonoBehaviour
     {
         if(!(color.a <= 0))
         {
-            Debug.Log(feadPanal.GetComponent<Image>().color);
+            //Debug.Log(feadPanal.GetComponent<Image>().color);
             color.a -= 0.0015f;
             feadPanal.GetComponent<Image>().color = color;
             //Debug.Log(feadPanal.GetComponent<Image>().color);
