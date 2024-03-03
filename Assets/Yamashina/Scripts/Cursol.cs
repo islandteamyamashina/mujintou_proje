@@ -9,12 +9,15 @@ public class Cursol : MonoBehaviour
     // Start is called before the first frame update
     public Texture2D cursor;
 
-    
+    //private void Update()
+    //{
+    //    Cursor.SetCursor(cursor, Vector2.zero, CursorMode.ForceSoftware);
+    //}
     public void OnPointerUp()
     {
         Destroy(gameObject);
     }
-        public void OnPointerDown()
+    public void OnPointerDown()
     {
         Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
     }
