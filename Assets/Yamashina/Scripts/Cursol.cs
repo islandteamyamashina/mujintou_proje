@@ -7,28 +7,27 @@ using UnityEngine.EventSystems;
 public class Cursol : MonoBehaviour
 {
     // Start is called before the first frame update
+    public Texture2D cursor;
 
-    void Update()
-    {
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
-        }
-
-        }
-        public Texture2D cursor;
-
-        public void OnMouseEnter()
-        {
-            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.ForceSoftware);
-        }
-
-        public void OnMouseExit()
-        {
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
-        }
     
+    public void OnPointerUp()
+    {
+        Destroy(gameObject);
+    }
+        public void OnPointerDown()
+    {
+        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+    }
+    public void OnMouseEnter()
+    {
+        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.ForceSoftware);
+    }
+
+    public void OnMouseExit()
+    {
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
+    }
+
     public void OnDrag()
     {
         Vector3 objectScreenPoint =
@@ -38,9 +37,6 @@ public class Cursol : MonoBehaviour
         TargetPos.z = 0;
         transform.position = TargetPos;
     }
-    public void OnDrop()
-    {
-        Destroy(gameObject);
-    }
+    
 }
 
