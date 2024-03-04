@@ -23,17 +23,15 @@ public class Wakimizu : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 
     public void DrinkWater()
     {
         Debug.Log("ˆù‚Ş‘O‚Ì…•ª‚Í" + PlayerInfo.Instance.Thirst);
         if (wakimizu_f)
         {
+            PlayerInfo.Instance.Water--;
+
             image.SetActive (true);
             PlayerInfo.Instance.Thirst += 20;
             wakimizu_f = false;
@@ -54,6 +52,8 @@ public class Wakimizu : MonoBehaviour
             if (enptyBottle.CurrentStackCount >= 1)
             {
                 waterBottle.CurrentStackCount++;
+                PlayerInfo.Instance.Water--;
+
                 Debug.Log("…‚Ìƒ{ƒgƒ‹‚ğ1‚Â‘‚â‚µ‚Ü‚µ‚½");
 
                 enptyBottle.CurrentStackCount--;
