@@ -6,23 +6,46 @@ using UnityEngine.EventSystems;
 
 public class Cursol : MonoBehaviour
 {
-  
-    public void OnmouseEnter()
+    private void Update()
     {
-        Debug.Log("カーソル通った");
-        PlayerInfo.Instance.OnHover(1);
-        Debug.Log("カーソル通った");
+        if (Input.GetMouseButtonDown(0))
+        {
+            PlayerInfo.Instance.OnHover(0);
 
+
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            PlayerInfo.Instance.OnUnhover();
+        }
     }
 
-    public void OnmouseExit()
-    {
-        Debug.Log("カーソル通った");
+    //public void OnmouseEnter()
+    //{
+    //    Debug.Log("カーソル通った");
 
-        PlayerInfo.Instance.OnUnhover();
-        Debug.Log("カーソル通った");
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        PlayerInfo.Instance.OnHover(0);
+    //    }
+    //    else
+    //        return;
+    //        Debug.Log("カーソル通った");
 
-    }
+    //}
+
+    //public void OnmouseExit()
+    //{
+    //    Debug.Log("カーソル通った");
+
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        PlayerInfo.Instance.OnUnhover();
+    //    }
+    //    else return;
+    //    Debug.Log("カーソル通った");
+
+    //}
 
     public void OnDrag()
     {
