@@ -159,8 +159,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         _player_Thirst = _Init_Player_Thirst;
         _player_Luck = 0;
 
-        AddPlayerCondition(Condition.Hungry);
-        AddPlayerCondition(Condition.Thirsty);
+        LoadData();
 
         cursor_textures = new List<Texture2D>();
         foreach (var n in textureDatas)
@@ -211,6 +210,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
             Hunger = 100;
             Thirst = 100;
             SetMouseCursor(null);
+            ResetCondition();
         }
     }
 
@@ -355,6 +355,21 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
  
     void SetFirstItem(int item) { first_item = item; }
 
+
+    void LoadData()
+    {
+        SaveData data = DataManager.Instance.Load();
+        _player_Health = data.player_health;
+        _player_Hunger = data.player_hunger;
+        _player_Thirst = data.player_thirst;
+        _player_Luck = data.player_luck;
+        _player_condition = data.player_condition;
+        day = data.day;
+        weather = (Weather)data.weather;
+        water_value = data.water;
+        fire_value = data.fire;
+    }
+
     private int i = 0;
     public IEnumerator enumerator()
     {
@@ -367,13 +382,20 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         }
     }
 
-    public void OnHover()
+
+
+    public void OnHover(int i)
     {
         SetMouseCursor(0);
     }
     public void OnUnhover()
     {
         SetMouseCursor(null);
+    }
+
+    public void AddCondition(int i)
+    {
+        AddPlayerCondition((Condition)i);
     }
 
 }

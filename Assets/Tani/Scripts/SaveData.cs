@@ -16,6 +16,10 @@ public class SaveData
             player_thirst = info.Thirst;
             player_luck = info.Luck;
             player_condition = info.GetConditionRawData();
+            day = info.Day.Item2 ? info.Day.Item1 * 2 : (info.Day.Item1 * 2) + 1;
+            weather = (int)info.weather;
+            fire = info.Fire;
+            water = info.Water;
         }
         else
         {
@@ -27,4 +31,8 @@ public class SaveData
     public int player_thirst;
     public int player_luck;
     public uint player_condition;
+    public int day;
+    public int weather;
+    public int fire;
+    public int water;
 }

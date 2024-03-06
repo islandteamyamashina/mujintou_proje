@@ -12,12 +12,12 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     protected override void Awake()
     {
         base.Awake();
-
+        // パス名取得
+        filepath = Application.dataPath + "/Tani/Saves/" + fileName;
     }
     private void Start()
     {
-        // パス名取得
-        filepath = Application.dataPath + "/Tani/Saves/" + fileName;
+        
 
         //// ファイルがないとき、ファイル作成
         //if (!File.Exists(filepath))
@@ -39,9 +39,9 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     }
 
     // jsonファイル読み込み
-    SaveData Load(string path)
+    public SaveData Load()
     {
-        StreamReader rd = new StreamReader(path);               // ファイル読み込み指定
+        StreamReader rd = new StreamReader(filepath);               // ファイル読み込み指定
         string json = rd.ReadToEnd();                           // ファイル内容全て読み込む
         rd.Close();                                             // ファイル閉じる
 
