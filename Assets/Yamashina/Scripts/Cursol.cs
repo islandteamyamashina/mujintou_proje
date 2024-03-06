@@ -1,23 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Cursol : MonoBehaviour
 {
+    [SerializeField] NewItem NewItem;
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            PlayerInfo.Instance.OnHover(0);
+        //if (NewItem.isGetItem==true&&Input.GetMouseButtonDown(0))
+        //{
+        //    PlayerInfo.Instance.OnHover(0);
 
 
-        }
-        else if (Input.GetMouseButtonUp(0))
+        //}
+       /* else */if (NewItem.isGetItem==false&& Input.GetMouseButtonUp(0)) 
         {
             PlayerInfo.Instance.OnUnhover();
         }
+        else if(NewItem.isGetItem==true&& Input.GetMouseButton(0)){
+            PlayerInfo.Instance.OnHover(0);
+
+        }
+
+
     }
 
     //public void OnmouseEnter()
