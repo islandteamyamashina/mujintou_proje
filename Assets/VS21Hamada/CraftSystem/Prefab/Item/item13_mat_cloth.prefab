@@ -200,7 +200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c34c6f83187ca5849bad05f0fa804eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursor: {fileID: 2800000, guid: 38a516ee97cf60144acbe3733645517d, type: 3}
 --- !u!114 &6992858993773165408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,8 +219,8 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 4713185700446605080}
           m_TargetAssemblyTypeName: Cursol, Assembly-CSharp
-          m_MethodName: OnMouseEnter
-          m_Mode: 1
+          m_MethodName: OnmouseEnter
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -236,7 +235,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 4713185700446605080}
           m_TargetAssemblyTypeName: Cursol, Assembly-CSharp
-          m_MethodName: OnMouseExit
+          m_MethodName: OnmouseExit
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -253,38 +252,6 @@ MonoBehaviour:
         - m_Target: {fileID: 4713185700446605080}
           m_TargetAssemblyTypeName: Cursol, Assembly-CSharp
           m_MethodName: OnDrag
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4713185700446605080}
-          m_TargetAssemblyTypeName: Cursol, Assembly-CSharp
-          m_MethodName: OnPointerDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4713185700446605080}
-          m_TargetAssemblyTypeName: Cursol, Assembly-CSharp
-          m_MethodName: OnPointerUp
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
