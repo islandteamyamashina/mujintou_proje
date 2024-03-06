@@ -5,8 +5,9 @@ public class Cursol : MonoBehaviour
     [SerializeField] NewItem NewItem;
     private void Update()
     {
+        //マウスオーバー時のみマウスの画像を変更する場合
         //if (NewItem.isGetItem==true&&Input.GetMouseButtonDown(0))
-        //{
+        //{ 
         //    PlayerInfo.Instance.OnHover(0);
 
 
@@ -15,7 +16,9 @@ public class Cursol : MonoBehaviour
         {
             PlayerInfo.Instance.OnUnhover();
         }
-        else if(NewItem.isGetItem==true&& Input.GetMouseButton(0)){
+        //マウスオーバー時とクリック時マウスの画像を変更する場合
+
+        else if (NewItem.isGetItem==true&& Input.GetMouseButton(0)){
             PlayerInfo.Instance.OnHover(0);
 
         }
