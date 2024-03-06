@@ -1,9 +1,12 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 {
+
     public (int,bool) Day
     {
         get
@@ -14,7 +17,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
         private set
         {
-            day += value.Item1;
+            day = value.Item1;
         }
 
 
@@ -58,6 +61,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] private Text condition_text;
     [SerializeField] private Text weather_text;
     [SerializeField] private Text day_text;
+    [SerializeField] private Texture2D mouseTex;
+    [SerializeField] private List<TextureData> textureDatas;
 
 
     private int _player_Health;
@@ -69,6 +74,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     private int water_value = 0;
     private int fire_value = 0;
     private int day = 2;
+    private List<Texture2D> cursor_textures;
 
     [SerializeField] private int first_item = 0;
 
@@ -156,6 +162,16 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         AddPlayerCondition(Condition.Hungry);
         AddPlayerCondition(Condition.Thirsty);
 
+        cursor_textures = new List<Texture2D>();
+        foreach (var n in textureDatas)
+        {
+
+            cursor_textures.Add(ResizeTexture(n.width, n.height, n.cursor));
+
+        }
+
+      //  Cursor.SetCursor(mouseTex, Vector2.zero, CursorMode.ForceSoftware);
+      //  StartCoroutine("enumerator");
     }
     private void Update()
     {
@@ -194,6 +210,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
             Health = 100;
             Hunger = 100;
             Thirst = 100;
+            SetMouseCursor(null);
         }
     }
 
@@ -242,7 +259,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         Fire -= fire_decrease;
 
         Water += water_gain;
-        Day = (1,true);
+        Day = (day + 1,true);
         weather = (Weather)((int)Random.Range(0, (int)Weather.Weather_Max));
         if(IsPlayerConditionEqualTo(Condition.Hungry) &&
             IsPlayerConditionEqualTo(Condition.Thirsty))
@@ -306,6 +323,65 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         }
     }
 
+
+    static public Texture2D ResizeTexture(int new_x, int new_y, Texture2D src)
+    {
+        Texture2D resizedTexture = new Texture2D(new_x, new_y, TextureFormat.RGBA32, false);
+        Graphics.ConvertTexture(src, resizedTexture);
+        return resizedTexture;
+
+    }
+
+    public void SetMouseCursor(int? index)
+    {
+        if (index.HasValue)
+        {
+            if ((int)index >= 0 && (int)index < cursor_textures.Count)
+            {
+                Cursor.SetCursor(cursor_textures[(int)index], Vector2.zero, CursorMode.ForceSoftware);
+            }
+            else Debug.LogError("Index OutOfRange");
+
+        }
+        else
+        {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        }
+    }
+
+    
+
     int GetFirstItem() { return first_item; }
+ 
     void SetFirstItem(int item) { first_item = item; }
+
+    private int i = 0;
+    public IEnumerator enumerator()
+    {
+        while (true)
+        {
+            SetMouseCursor(i);
+            i++;
+            i %= cursor_textures.Count;
+            yield return new WaitForSeconds(2);
+        }
+    }
+
+    public void OnHover()
+    {
+        SetMouseCursor(0);
+    }
+    public void OnUnhover()
+    {
+        SetMouseCursor(null);
+    }
+
+}
+
+[System.Serializable]
+public class TextureData
+{
+    public Texture2D cursor;
+    public int width;
+    public int height;
 }

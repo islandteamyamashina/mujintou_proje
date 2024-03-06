@@ -44,7 +44,7 @@ public class StatusScale : MonoBehaviour
         while (true)
         {
             scale += scale_per_flame;
-            Debug.Log($"{scale}");
+            //Debug.Log($"{scale}");
             transform.localScale = new Vector3(scale, scale, 1);
             if(scale > scaler)
             {
