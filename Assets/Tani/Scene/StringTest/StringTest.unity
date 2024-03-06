@@ -168,8 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2917e17ced5c4c048a32aba3a7a68ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  o1: {fileID: 835574722}
-  o2: {fileID: 8946713291679699067, guid: 9f7a7d0c3ed689443a5f20a48e3394f5, type: 3}
+  textControl: {fileID: 990077959}
 --- !u!114 &176486745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,11 +464,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &835574722 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3796256248709307723, guid: c02220876cb5b1f4c8c08bd68605a652, type: 3}
-  m_PrefabInstance: {fileID: 285542000}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &889948189
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,12 +686,13 @@ MonoBehaviour:
   inputType: 0
   textAsset: {fileID: 4900000, guid: 875b38fbab1c7f044a71d8c9ef4a9323, type: 3}
   eventData: {fileID: 11400000, guid: ba112a5a3f107b54b91675a305129f60, type: 2}
+  use_end_event: 1
   EndEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 176486744}
         m_TargetAssemblyTypeName: FirstSceneController, Assembly-CSharp
-        m_MethodName: Break
+        m_MethodName: NextPage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -706,7 +701,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
   use_back_log_text: 0
   backLogObject: {fileID: 730311531}
 --- !u!224 &1527009824 stripped

@@ -23,8 +23,8 @@ public class TextControl : MonoBehaviour
     int min_font_size = 80;
     [SerializeField]
     int Partition_Num = 8;
-    
-    
+
+
     [SerializeField]
     TextInputType inputType = TextInputType.DefaultText;
     [SerializeField]
@@ -32,6 +32,8 @@ public class TextControl : MonoBehaviour
     [SerializeField]
     EventData eventData;
 
+    [SerializeField]
+    bool use_end_event = false;
     [SerializeField]
     UnityEvent EndEvent;
 
@@ -49,7 +51,7 @@ public class TextControl : MonoBehaviour
     BackLog backLog;
     public  enum TextInputType
     {
-        DefaultText,DirectList,TextAsset,EventData
+        None,DefaultText,DirectList,TextAsset,EventData
     }
     /*TextInputTypeでEditorの入力を分岐、継承なし、UseBackLog*/
     int str_range = 0;//何文字目まで表示するか
@@ -85,6 +87,11 @@ public class TextControl : MonoBehaviour
 
         switch (inputType)
         {
+            case TextInputType.None:
+                strs.Clear();
+                text.text = "";
+                is_text_end = true;
+                break;
             case TextInputType.DefaultText:
                 strs.Clear();
                 strs.Add(text.text);
@@ -180,6 +187,13 @@ public class TextControl : MonoBehaviour
     }
     void OnClick()
     {
+        //そもそも表示する文章がないとき
+        //FI,ResetTextDataを使ってからClickしたときなど
+        if(strs.Count == 0)
+        {
+            if (use_end_event) OnTextEnd();
+            return;
+        }
         //文章が終わっていないときは文章を全て表示
         if (!is_text_end)
         {
@@ -188,8 +202,11 @@ public class TextControl : MonoBehaviour
         }
         else
         {
+            
+
+            
             //文章が終わっているときは次のページ
-            if(use_back_log_text)backLog.AddTextToBackLog(strs[str_page]);//バックログに追加
+            if (use_back_log_text)backLog.AddTextToBackLog(strs[str_page]);//バックログに追加
             str_page++;
             if (str_page != strs.Count)
             {
@@ -201,16 +218,16 @@ public class TextControl : MonoBehaviour
             }
             else//次のページがなければ文章はそのまま、OnTextEndを発火
             {
+
                 str_page = strs.Count - 1;
-                OnTextEnd();
+            
+                if (use_end_event) OnTextEnd();
             }
         }
     }
     virtual protected void OnTextEnd()
     {
         EndEvent.Invoke();
-        EventTrigger eventTrigger = GetComponent<EventTrigger>();
-        eventTrigger.triggers.Clear();
     }
 
     public void BackLogValidiate()
@@ -226,6 +243,19 @@ public class TextControl : MonoBehaviour
         }
     }
 
+    public void ResetTextData()
+    {
+        strs.Clear();
+        str_range = 0;
+        str_page = 0;
+        is_first_font_updated = false;
+        is_text_end = false;
+    }
+    public void AddTextData(string add_text)
+    {
+        strs.Add(add_text);
+    }
+
 }
 
 
@@ -236,6 +266,7 @@ class TextControlInspector : Editor
     SerializedProperty property_auto_font_size;
     SerializedProperty property_inputType;
     SerializedProperty property_use_back_log_text;
+    SerializedProperty property_use_end_event;
 
 
     private void OnEnable()
@@ -243,6 +274,7 @@ class TextControlInspector : Editor
         property_auto_font_size = serializedObject.FindProperty("auto_font_size");
         property_inputType = serializedObject.FindProperty("inputType");
         property_use_back_log_text = serializedObject.FindProperty("use_back_log_text");
+        property_use_end_event = serializedObject.FindProperty("use_end_event");
     }
 
 
@@ -299,8 +331,13 @@ class TextControlInspector : Editor
         GUILayout.Space(10);
         GUILayout.Box("", GUILayout.Height(2), GUILayout.ExpandWidth(true));
         GUILayout.Space(5);
-        EditorGUILayout.LabelField(new GUIContent("ここに登録された関数がテキスト終了時に一回呼ばれます"), EditorStyles.boldLabel);
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("EndEvent"));
+        EditorGUILayout.PropertyField(property_use_end_event, new GUIContent("エンドイベントの使用"));
+        if (property_use_end_event.boolValue)
+        {
+            EditorGUILayout.LabelField(new GUIContent("ここに登録された関数がテキスト終了時に一回呼ばれます"), EditorStyles.boldLabel);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("EndEvent"));
+
+        }
 
 
         EditorGUILayout.LabelField(new GUIContent("バックログ"), EditorStyles.boldLabel);

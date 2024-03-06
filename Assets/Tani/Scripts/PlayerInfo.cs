@@ -4,7 +4,21 @@ using UnityEngine.UI;
 
 public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 {
-    public int Day { get; set; } = 0;
+    public (int,bool) Day
+    {
+        get
+        {
+            if (day % 2 == 0) return (day / 2, true);
+            else return (day / 2, false);
+        }
+
+        private set
+        {
+            day += value.Item1;
+        }
+
+
+    }
     public Weather weather { get; set; }
 
     [Header("��Ԉُ�ɂ��e���l")]
@@ -54,6 +68,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     private uint _player_condition = 0;
     private int water_value = 0;
     private int fire_value = 0;
+    private int day = 2;
 
     [SerializeField] private int first_item = 0;
 
@@ -168,7 +183,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
                 condition_text.text = str;
 
                 weather_text.text = $"{weather}";
-                day_text.text = $"{Day}";
+                day_text.text = $"{Day.Item1}";
             }
         }
 
@@ -227,7 +242,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         Fire -= fire_decrease;
 
         Water += water_gain;
-        Day += 1;
+        Day = (1,true);
         weather = (Weather)((int)Random.Range(0, (int)Weather.Weather_Max));
         if(IsPlayerConditionEqualTo(Condition.Hungry) &&
             IsPlayerConditionEqualTo(Condition.Thirsty))

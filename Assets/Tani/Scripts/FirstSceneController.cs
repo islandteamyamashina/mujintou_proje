@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class FirstSceneController : MonoBehaviour
 {
-    [SerializeField] GameObject o1;
-    [SerializeField] GameObject o2;
+    int page = 0;
+    string[] strings ;
+    [SerializeField]
+    TextControl textControl;
 
     void Start()
     {
-        
+        strings = new string[]
+            { "これは二千年前", "神々や魔族、人間が戦争をしていた時代", "暴虐の魔王として恐れられていた一人の男がいた", "その名もアノス　ヴォルディゴード" };
     }
 
     // Update is called once per frame
@@ -19,15 +22,11 @@ public class FirstSceneController : MonoBehaviour
         
     }
 
-    public void Break()
+    public void NextPage()
     {
-        Debug.Log("文章の終わり");
-    }
-    public void Make()
-    {
-        Instantiate(o2);
-        o2.transform.SetParent(GameObject.Find("Canvas").transform);
-        o2.transform.localPosition = Vector3.zero;
+        page++;
+        textControl.ResetTextData();
+        textControl.AddTextData(strings[page]);
     }
 
 }
