@@ -22,6 +22,12 @@ public class Sentakushi_Method : Event_Text
     [SerializeField] GameObject shadow1;
     [SerializeField] GameObject shadow2;
     [SerializeField] GameObject shadow3;
+
+    [SerializeField] GameObject continueButton;
+    [SerializeField] GameObject backHomeButton;
+
+    [SerializeField] GameObject roadImage;
+
     [SerializeField] Fade fade;
     [SerializeField] effect effect;
     [SerializeField] string scene_Name;
@@ -58,7 +64,20 @@ public class Sentakushi_Method : Event_Text
 
             if (Input.GetMouseButton(0))
             {
-                GoToEnding();
+                if (!(PlayerInfo.Instance.Health == 0 || next_num_tnp / 1000 == 0))
+                {
+                    Text_Disply("íTçıÇë±ÇØÇ‹Ç∑Ç©ÅH");
+                    _sentakusi1.SetActive(false);
+                    _sentakusi2.SetActive(false);
+                    _sentakusi3.SetActive(false);
+
+                    continueButton.SetActive(true);
+                    backHomeButton.SetActive(true);
+                }
+                else
+                {
+                    GoToEnding();
+                }
                 //Event_num++;
                 //event_Text.SetEventText();
                 //event_Ilast_Disply.SetEventIlast();
@@ -252,6 +271,7 @@ public class Sentakushi_Method : Event_Text
                         for (int j = 0; j < event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1_num; j++)
                         {
                             Debug.Log("get");
+                            event_manage.newItem[i].CurrentStackCount++;
                         }
                     }
                 }
@@ -266,6 +286,7 @@ public class Sentakushi_Method : Event_Text
                         for (int j = 0; j < event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward2_num; j++)
                         {
                             Debug.Log("get");
+                            event_manage.newItem[i].CurrentStackCount++;
                         }
                     }
                 }
@@ -280,6 +301,7 @@ public class Sentakushi_Method : Event_Text
                         for (int j = 0; j < event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward3_num; j++)
                         {
                             Debug.Log("get");
+                            //event_manage.newItem[i].CurrentStackCount++;
                         }
                     }
                 }
@@ -334,7 +356,7 @@ public class Sentakushi_Method : Event_Text
 
     }
 
-    void GoToEnding()
+    public void GoToEnding()
     {
         Debug.Log(next_num_tnp);
         Debug.Log(next_num_tnp / 1000); 
@@ -375,9 +397,15 @@ public class Sentakushi_Method : Event_Text
                                     event_manage.eventDatas[event_manage.now_event_num].Cancel);
 
                 _sentakusiSetActive(event_Manage.now_event_num);
+
+                roadImage.SetActive(false);
+
                 _sentakusi1.SetActive(true);
                 _sentakusi2.SetActive(true);
                 _sentakusi3.SetActive(true);
+
+                continueButton.SetActive(false);
+                backHomeButton.SetActive(false);
                 GoToLoadScene = false;
 
             }
