@@ -31,7 +31,8 @@ public class Sentakushi_Method : Event_Text
     [SerializeField] Fade fade;
     [SerializeField] effect effect;
     [SerializeField] string scene_Name;
-
+    [SerializeField, Header("inventoryマネージャー取得してね")] InventoryManagerVer cpInventoryManager;
+    [SerializeField] GetItemManager GetItemManager;
     public Event_Ilast_Disply event_Ilast_Disply;
     public Event_BG_Disply event_BG_Disply;
     public Event_Text event_Text;
@@ -257,6 +258,7 @@ public class Sentakushi_Method : Event_Text
         }
         shadow3.SetActive(false);
     }
+
     void getItem(string Sentakusi)
     {
         if (Sentakusi == "Sentakusi1")
@@ -272,6 +274,12 @@ public class Sentakushi_Method : Event_Text
                         {
                             Debug.Log("get");
                             event_manage.newItem[i].CurrentStackCount++;
+                            if (!cpInventoryManager.GetIsItemFull())
+                            {
+                                GetItemManager.GetNewItem(event_manage.newItem[i].ScriptalItem.itemID);
+                            }
+
+
                         }
                     }
                 }
@@ -287,6 +295,10 @@ public class Sentakushi_Method : Event_Text
                         {
                             Debug.Log("get");
                             event_manage.newItem[i].CurrentStackCount++;
+                            if (!cpInventoryManager.GetIsItemFull())
+                            {
+                                GetItemManager.GetNewItem(event_manage.newItem[i].ScriptalItem.itemID);
+                            }
                         }
                     }
                 }
