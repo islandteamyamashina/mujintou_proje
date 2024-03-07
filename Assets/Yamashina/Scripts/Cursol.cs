@@ -6,22 +6,24 @@ public class Cursol : MonoBehaviour
     private void Update()
     {
         //マウスオーバー時のみマウスの画像を変更する場合
-        //if (NewItem.isGetItem==true&&Input.GetMouseButtonDown(0))
-        //{ 
-        //    PlayerInfo.Instance.OnHover(0);
+        if (NewItem.isGetItem == true && Input.GetMouseButtonDown(0))
+        {
+            PlayerInfo.Instance.OnHover(0);
 
 
-        //}
-       /* else */if (NewItem.isGetItem==false&& Input.GetMouseButtonUp(0)) 
+        }
+        else
+        if (NewItem.isGetItem==false&& Input.GetMouseButtonUp(0)) 
         {
             PlayerInfo.Instance.OnUnhover();
         }
         //マウスオーバー時とクリック時マウスの画像を変更する場合
 
-        else if (NewItem.isGetItem==true&& Input.GetMouseButton(0)){
-            PlayerInfo.Instance.OnHover(0);
+        //else if (NewItem.isGetItem == true && Input.GetMouseButton(0))
+        //{
+        //    PlayerInfo.Instance.OnHover(0);
 
-        }
+        //}
 
 
     }
