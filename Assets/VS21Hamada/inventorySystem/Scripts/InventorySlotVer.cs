@@ -26,7 +26,7 @@ public class InventorySlotVer : MonoBehaviour
     [SerializeField] private int iSlotID;
 
     //  各種状態管理bool
-    public bool isSetItem, isMouseOver;
+    public  bool isSetItem, isMouseOver;
 
     private void Start()
     {
@@ -61,11 +61,18 @@ public class InventorySlotVer : MonoBehaviour
     {
         //  マウスが重なったら呼ばれる関数　※RigidBody2D必須
         isMouseOver = true;
+        Debug.Log("通った");
+        if (isSetItem == true)
+        {
+            PlayerInfo.Instance.OnHover(0);
+        }
+       
     }
     private void OnMouseExit()
     {
         //  マウスが重ならなくなったら呼ばれる関数　※RigidBody2D必須
         isMouseOver = false;
+        PlayerInfo.Instance.OnUnhover();
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -119,4 +126,5 @@ public class InventorySlotVer : MonoBehaviour
     {
         return iSlotID;
     }
+   
 }
