@@ -45,6 +45,7 @@ public class CreditPanel1 : MonoBehaviour
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
+        ContinueButtonStopImage.SetActive(false);
 
         AllButtonStopImage.SetActive(true);
     }
@@ -55,6 +56,7 @@ public class CreditPanel1 : MonoBehaviour
         OptionPanel.SetActive(true);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
+        ContinueButtonStopImage.SetActive(false);
 
         AllButtonStopImage.SetActive(true);
     }
@@ -65,6 +67,7 @@ public class CreditPanel1 : MonoBehaviour
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(true);
         startPanel.SetActive(false);
+        ContinueButtonStopImage.SetActive(false);
 
         AllButtonStopImage.SetActive(true);
 
@@ -76,6 +79,7 @@ public class CreditPanel1 : MonoBehaviour
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(true);
+        ContinueButtonStopImage.SetActive(false);
 
         AllButtonStopImage.SetActive(true);
     }
@@ -88,9 +92,17 @@ public class CreditPanel1 : MonoBehaviour
             subPanel.SetActive(false);
             QuitPanel.SetActive(false);
             startPanel.SetActive(false);
+            ContinueButtonStopImage.SetActive(false);
 
             AllButtonStopImage.SetActive(false);
         }
+
+
+    }
+   
+    public void ContinueNoLoad()
+    {
+        //if (!DataManager.Instance.)
 
 
     }
