@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CreditPanel1 : MonoBehaviour
 {
-    public GameObject Image;
+    public GameObject AllButtonStopImage;
+    public GameObject ContinueButtonStopImage;
+
     public GameObject mainPanel;
     public GameObject subPanel;
     public GameObject OptionPanel;
@@ -17,9 +19,9 @@ public class CreditPanel1 : MonoBehaviour
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
-        Image.SetActive(false);
+        AllButtonStopImage.SetActive(false);
         startPanel.SetActive(false);
-        GameObject.Find("InventoryPanel").transform.position = new Vector3(262.0f, 703.0f, 0.0f);
+        GameObject.Find("InventoryPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
     }
 
@@ -30,7 +32,7 @@ public class CreditPanel1 : MonoBehaviour
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
-        Image.SetActive(true);
+        AllButtonStopImage.SetActive(false);
     }
 
     public virtual void SubView()
@@ -41,7 +43,7 @@ public class CreditPanel1 : MonoBehaviour
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
 
-        Image.SetActive(true);
+        AllButtonStopImage.SetActive(true);
     }
     public virtual void CreditView() 
     {
@@ -51,7 +53,7 @@ public class CreditPanel1 : MonoBehaviour
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
 
-        Image.SetActive(true);
+        AllButtonStopImage.SetActive(true);
     }
     public void QuitView()
     {
@@ -61,7 +63,7 @@ public class CreditPanel1 : MonoBehaviour
         QuitPanel.SetActive(true);
         startPanel.SetActive(false);
 
-        Image.SetActive(true);
+        AllButtonStopImage.SetActive(true);
 
     }
     public void startView() 
@@ -72,7 +74,7 @@ public class CreditPanel1 : MonoBehaviour
         QuitPanel.SetActive(false);
         startPanel.SetActive(true);
 
-        Image.SetActive(true);
+        AllButtonStopImage.SetActive(true);
     }
     void Update()
     {
@@ -84,7 +86,7 @@ public class CreditPanel1 : MonoBehaviour
             QuitPanel.SetActive(false);
             startPanel.SetActive(false);
 
-            Image.SetActive(false);
+            AllButtonStopImage.SetActive(false);
         }
 
 
