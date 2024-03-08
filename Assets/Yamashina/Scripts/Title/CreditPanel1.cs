@@ -22,7 +22,7 @@ public class CreditPanel1 : MonoBehaviour
         AllButtonStopImage.SetActive(false);
         startPanel.SetActive(false);
         GameObject.Find("InventoryPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-
+        ContinueButtonStopImage.SetActive(false);   
     }
 
     public virtual void MainView()
@@ -33,6 +33,9 @@ public class CreditPanel1 : MonoBehaviour
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
         AllButtonStopImage.SetActive(false);
+        ContinueButtonStopImage.SetActive(false);
+
+
     }
 
     public virtual void SubView()
