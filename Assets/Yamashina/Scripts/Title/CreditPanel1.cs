@@ -10,6 +10,7 @@ public class CreditPanel1 : MonoBehaviour
     public GameObject OptionPanel;
     public GameObject QuitPanel;
     public GameObject startPanel;
+
     void Start()
     {
         mainPanel.SetActive(true);
@@ -17,7 +18,9 @@ public class CreditPanel1 : MonoBehaviour
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         Image.SetActive(false);
-        startPanel.SetActive(false);    
+        startPanel.SetActive(false);
+        GameObject.Find("InventoryPanel").transform.position = new Vector3(262.0f, 703.0f, 0.0f);
+
     }
 
     public virtual void MainView()
