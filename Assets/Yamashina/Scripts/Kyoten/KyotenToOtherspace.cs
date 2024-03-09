@@ -66,7 +66,7 @@ public class KyotenToOtherspace : CreditPanel1
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
         recipePanel.SetActive(false);
-        GameObject.Find("InventoryPanel").SetActive(true);
+        InventoryMove();
        
 
         //wakimizu_tabu.SetActive(false);
@@ -110,7 +110,7 @@ public class KyotenToOtherspace : CreditPanel1
         Cooking_messagePanel.SetActive(false);
         //wakimizu_tabu.SetActive(false);
         recipePanel.SetActive(false);
-        GameObject.Find("InventoryPanel").transform.position = Vector3.zero;
+        GameObject.Find("Inventory").transform.position = Vector3.zero;
 
     }
     public override void CreditView()
@@ -138,7 +138,7 @@ public class KyotenToOtherspace : CreditPanel1
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
         cookingPanel.SetActive(false);
-        GameObject.Find("InventoryPanel").transform.position = Vector3.zero;
+        GameObject.Find("Inventory").transform.position = Vector3.zero;
 
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
@@ -209,7 +209,7 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
-        GameObject.Find("InventoryPanel").transform.position = Vector3.zero;
+        GameObject.Find("Inventory").transform.position = Vector3.zero;
 
 
         takibi_tabu.SetActive(false);
@@ -408,7 +408,7 @@ public class KyotenToOtherspace : CreditPanel1
     public void InventoryMove()
     {
        
-        GameObject.Find("InventoryPanel").transform.position = new Vector3(262.0f, 703.0f, 0.0f);
+        GameObject.Find("Inventory").transform.position = new Vector3(262.0f, 703.0f, 0.0f);
     }
     
 }

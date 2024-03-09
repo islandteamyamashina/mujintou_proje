@@ -274,10 +274,11 @@ public class Sentakushi_Method : Event_Text
                         {
                             Debug.Log("get");
                             event_manage.newItem[i].CurrentStackCount++;
-                            if (!cpInventoryManager.GetIsItemFull())
-                            {
-                                GetItemManager.GetNewItem(event_manage.newItem[i].ScriptalItem.itemID);
-                            }
+                            //if (!cpInventoryManager.GetIsItemFull())
+                            //{
+                            //    GetItemManager.GetNewItem(event_manage.newItem[i].ScriptalItem.itemID);
+                            //}
+                            //if(Inventory.Instance.
 
 
                         }

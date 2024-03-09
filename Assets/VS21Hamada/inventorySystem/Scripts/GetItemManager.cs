@@ -22,7 +22,9 @@ public class GetItemManager : MonoBehaviour
     /// <param name="_ItemID"></param>
     public void GetNewItem(int _ItemID)
     {
-        var item = Instantiate(goAllItemPrefabs[_ItemID]);
+        Transform parent = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Transform>();
+
+        var item = Instantiate(goAllItemPrefabs[_ItemID],parent);
         cpInventoryManager.SetNewGetItem(item);
     }
 }
