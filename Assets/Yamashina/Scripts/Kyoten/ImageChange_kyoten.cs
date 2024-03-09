@@ -12,6 +12,7 @@ public class ImageChange_kyoten : Image_Method
     public Image TakibiImage;
     [SerializeField] public Sprite Takibi_off;
     [SerializeField] public Sprite Takibi_on;
+
     void Start()
     {
         
