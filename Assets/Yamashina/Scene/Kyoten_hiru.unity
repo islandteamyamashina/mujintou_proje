@@ -446,13 +446,25 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7497832770444871668, guid: 93a05a67319af0645a4a62597c259e5e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497832770444871668, guid: 93a05a67319af0645a4a62597c259e5e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497832770444871668, guid: 93a05a67319af0645a4a62597c259e5e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7791025112499161097, guid: 93a05a67319af0645a4a62597c259e5e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 63516.53
+      value: 83556.65
       objectReference: {fileID: 0}
     - target: {fileID: 7791025112499161097, guid: 93a05a67319af0645a4a62597c259e5e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 111181.94
+      value: 136113.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -462,11 +474,6 @@ PrefabInstance:
 --- !u!224 &461567974 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1905317338537703151, guid: 93a05a67319af0645a4a62597c259e5e, type: 3}
-  m_PrefabInstance: {fileID: 461567973}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &461567975 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1905317338537703150, guid: 93a05a67319af0645a4a62597c259e5e, type: 3}
   m_PrefabInstance: {fileID: 461567973}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &465715846 stripped
@@ -1403,14 +1410,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a9177cd76f3d348afc81f55b1632ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Image: {fileID: 0}
+  AllButtonStopImage: {fileID: 0}
+  ContinueButtonStopImage: {fileID: 0}
   mainPanel: {fileID: 721834387}
   subPanel: {fileID: 1142344809}
   OptionPanel: {fileID: 1771439869}
   QuitPanel: {fileID: 0}
   startPanel: {fileID: 0}
-  InventoryPanel: {fileID: 461567975}
-  InventoryPanel: {fileID: 461567975}
   TakibiPanel: {fileID: 534959892}
   WakimizuPanel: {fileID: 439741819}
   cookingPanel: {fileID: 1502442091}
@@ -5264,27 +5270,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4017962095381516050, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4017962095381516050, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4017962095381516050, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4017962095381516050, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4017962095381516050, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 856.81
       objectReference: {fileID: 0}
     - target: {fileID: 4017962095381516050, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 406.91
       objectReference: {fileID: 0}
     - target: {fileID: 4017962095381516050, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5316,11 +5322,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4017962095381516050, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -27.716
       objectReference: {fileID: 0}
     - target: {fileID: 4017962095381516050, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 25.745
       objectReference: {fileID: 0}
     - target: {fileID: 4017962095381516050, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5340,7 +5346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4017962095381516055, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4267460671358734968, guid: e0f5071b417ac6f4781068639608e6ef, type: 3}
       propertyPath: enptyBottle
