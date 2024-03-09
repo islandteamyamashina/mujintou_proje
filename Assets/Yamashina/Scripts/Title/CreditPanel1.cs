@@ -6,7 +6,7 @@ public class CreditPanel1 : MonoBehaviour
 {
     public GameObject AllButtonStopImage;
     public GameObject ContinueButtonStopImage;
-
+    //public GameObject UICanvas;
     public GameObject mainPanel;
     public GameObject subPanel;
     public GameObject OptionPanel;
@@ -22,7 +22,8 @@ public class CreditPanel1 : MonoBehaviour
         AllButtonStopImage.SetActive(false);
         startPanel.SetActive(false);
         GameObject.Find("InventoryManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-        ContinueButtonStopImage.SetActive(false);   
+        ContinueButtonStopImage.SetActive(false);
+        //UICanvas.SetActive(false);
     }
 
     public virtual void MainView()
