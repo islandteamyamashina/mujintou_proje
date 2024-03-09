@@ -6,10 +6,11 @@ public class Inventory :SingletonMonoBehaviour<Inventory>
 {
     protected override void Awake()
     {
-        base.Awake();
+        base.Awake(); 
 
         DontDestroyOnLoad(gameObject);
 
+
     }
-   
+
 }

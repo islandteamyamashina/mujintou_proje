@@ -24,7 +24,6 @@ public class KyotenToOtherspace : CreditPanel1
     [SerializeField] GameObject shadow2;
     [SerializeField] GameObject shadow3;
     [SerializeField] GameObject shadow4;
-    [SerializeField] GameObject recipePanel;
     //public GameObject wakimizu_tabu;
     public bool takibi_f;
 
@@ -65,9 +64,7 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
-        recipePanel.SetActive(false);
-        InventoryMove();
-       
+        InventoryMove();       
 
         //wakimizu_tabu.SetActive(false);
     }
@@ -92,7 +89,6 @@ public class KyotenToOtherspace : CreditPanel1
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
         //wakimizu_tabu.SetActive (false);        
-        recipePanel.SetActive(false);
         InventoryMove();
     }
 
@@ -109,7 +105,6 @@ public class KyotenToOtherspace : CreditPanel1
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
         //wakimizu_tabu.SetActive(false);
-        recipePanel.SetActive(false);
         GameObject.Find("Inventory").transform.position = Vector3.zero;
 
     }
@@ -126,7 +121,6 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         //wakimizu_tabu.SetActive(false);
-        recipePanel.SetActive(false);
         InventoryMove();
 
 
@@ -149,7 +143,6 @@ public class KyotenToOtherspace : CreditPanel1
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
         //wakimizu_tabu.SetActive(false);
-        recipePanel.SetActive(false);
     }
     public void WakimizuView()
     {
@@ -164,7 +157,6 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
-        recipePanel.SetActive(false);
         //wakimizu_tabu.SetActive(false);
 
     }
@@ -189,7 +181,6 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
-        recipePanel.SetActive(false);
         //    wakimizu_tabu.SetActive(false);
         //}
         //  }
@@ -215,7 +206,6 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
-        recipePanel.SetActive(false);
         //wakimizu_tabu.SetActive(false);
 
 
@@ -232,7 +222,6 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(true);
-        recipePanel.SetActive(false);
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
@@ -255,7 +244,6 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(true);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
-        recipePanel.SetActive(false);
         /* if (takibi_tabu == true)
          {
              TakibiTabu_timer += Time.deltaTime;
@@ -292,7 +280,6 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(true);
         Cooking_messagePanel.SetActive(false);
-        recipePanel.SetActive(false);
     }
 
 
@@ -319,7 +306,6 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
-        recipePanel.SetActive(false);
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(true);
@@ -408,7 +394,7 @@ public class KyotenToOtherspace : CreditPanel1
     public void InventoryMove()
     {
        
-        GameObject.Find("Inventory").transform.position = new Vector3(262.0f, 703.0f, 0.0f);
+        GameObject.Find("InventoryManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
     }
     
 }

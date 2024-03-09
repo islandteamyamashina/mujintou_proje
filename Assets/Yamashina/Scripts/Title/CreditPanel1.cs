@@ -21,7 +21,7 @@ public class CreditPanel1 : MonoBehaviour
         QuitPanel.SetActive(false);
         AllButtonStopImage.SetActive(false);
         startPanel.SetActive(false);
-        GameObject.Find("Inventory").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        GameObject.Find("InventoryManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         ContinueButtonStopImage.SetActive(false);   
     }
 
@@ -80,6 +80,7 @@ public class CreditPanel1 : MonoBehaviour
         QuitPanel.SetActive(false);
         startPanel.SetActive(true);
         ContinueButtonStopImage.SetActive(false);
+        GameObject.Find("InventoryManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
         AllButtonStopImage.SetActive(true);
     }
