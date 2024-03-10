@@ -15,9 +15,9 @@ public class Takibi_Botton : MonoBehaviour
     [SerializeField] NewItem item3;
 
     //各条件の確率
-    [SerializeField] int kakuritu1;
-    [SerializeField] int kakuritu2;
-    [SerializeField] int kakuritu3;
+    [SerializeField] public  static int kakuritu1;
+    [SerializeField]  public static int kakuritu2;
+    [SerializeField] public static int kakuritu3;
 
     //各火おこしの体力減少値
 
