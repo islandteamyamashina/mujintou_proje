@@ -37,11 +37,11 @@ public class KyotenToOtherspace : CreditPanel1
                                     //private float TakibiTabu_timer = 0.0f;
                                     //public float takibiTabu_wait = 0.5f;
                                     //  [SerializeField] public Text takibi_number; // 新しいUIパネルへの参照
-    //[SerializeField]Text yesbutton;
-    //[SerializeField] Text nobutton;
-    //[SerializeField] Text CookingButton;
-    //[SerializeField] GameObject newbutton;
-    //bool takibicheck = false;
+                                    //[SerializeField]Text yesbutton;
+                                    //[SerializeField] Text nobutton;
+                                    //[SerializeField] Text CookingButton;
+                                    //[SerializeField] GameObject newbutton;
+                                    //bool takibicheck = false;
 
 
 
@@ -69,11 +69,12 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
-        InventoryMove();
-        Takibi_3PattonPanel.SetActive(false);   
+        //InventoryMove();
+        Takibi_3PattonPanel.SetActive(false);
         //newbutton.SetActive(false); 
+    
 
-       
+
 
         //wakimizu_tabu.SetActive(false);
     }
@@ -135,6 +136,7 @@ public class KyotenToOtherspace : CreditPanel1
         InventoryMove();
         //newbutton.SetActive(false); 
 
+        GameObject.FindGameObjectWithTag("InventoryManager").SetActive(false) ;
 
     }
 
@@ -144,7 +146,7 @@ public class KyotenToOtherspace : CreditPanel1
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
         cookingPanel.SetActive(false);
-        GameObject.Find("Inventory").transform.position = Vector3.zero;
+        GameObject.FindGameObjectWithTag("InventoryManager").SetActive(true);
 
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
@@ -216,7 +218,7 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
-        GameObject.Find("Inventory").transform.position = Vector3.zero;
+        GameObject.FindGameObjectWithTag("InventoryManager").SetActive(true);
 
 
         takibi_tabu.SetActive(false);
