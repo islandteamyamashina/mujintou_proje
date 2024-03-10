@@ -169,8 +169,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
         }
 
-      //  Cursor.SetCursor(mouseTex, Vector2.zero, CursorMode.ForceSoftware);
-      //  StartCoroutine("enumerator");
+      //Cursor.SetCursor(mouseTex, Vector2.zero, CursorMode.ForceSoftware);
+      // StartCoroutine("enumerator");
     }
     private void Update()
     {
@@ -386,7 +386,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     public void OnHover(int i)
     {
-        SetMouseCursor(0);
+        SetMouseCursor(i);
     }
     public void OnUnhover()
     {

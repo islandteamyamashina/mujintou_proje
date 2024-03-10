@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 176486743}
   - component: {fileID: 176486744}
   - component: {fileID: 176486745}
+  - component: {fileID: 176486747}
   m_Layer: 0
   m_Name: SceneController
   m_TagString: Untagged
@@ -182,6 +183,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+--- !u!114 &176486747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176486742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ccc9a33cee11e143813b58a2f65b718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    player_health: 0
+    player_hunger: 0
+    player_thirst: 0
+    player_luck: 0
+    player_condition: 0
+    day: 0
+    weather: 0
+    fire: 0
+    water: 0
 --- !u!1001 &285542000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -686,7 +709,7 @@ MonoBehaviour:
   inputType: 0
   textAsset: {fileID: 4900000, guid: 875b38fbab1c7f044a71d8c9ef4a9323, type: 3}
   eventData: {fileID: 11400000, guid: ba112a5a3f107b54b91675a305129f60, type: 2}
-  use_end_event: 1
+  use_end_event: 0
   EndEvent:
     m_PersistentCalls:
       m_Calls:
@@ -875,7 +898,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7601058904453568935, guid: bdc4965170e351b47b92c834a8fab1c9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -12,6 +12,7 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     protected override void Awake()
     {
         base.Awake();
+        DontDestroyOnLoad(gameObject);
         // ƒpƒX–¼Žæ“¾
         filepath = Application.dataPath + "/Tani/Saves/" + fileName;
     }

@@ -5,21 +5,39 @@ using UnityEngine.SceneManagement;
 
 public class FirstSceneController : MonoBehaviour
 {
-    int page = 0;
+    int page = -1;
     string[] strings ;
+
     [SerializeField]
     TextControl textControl;
+
+    bool isFirst = true;
 
     void Start()
     {
         strings = new string[]
-            { "これは二千年前", "神々や魔族、人間が戦争をしていた時代", "暴虐の魔王として恐れられていた一人の男がいた", "その名もアノス　ヴォルディゴード" };
+            { "muzinntou", "無人島無人島無人島無人島無人島", "aaaaaaaaaaaaaaaaaaaaaaaa", "ありがとうございました。" };
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //if (isFirst)
+        //{
+        //    textControl.AddTextData("hell0");
+        //    isFirst = false;
+        //}
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            NextPage();
+        }
+
+
+      
+
     }
 
     public void NextPage()
@@ -29,4 +47,8 @@ public class FirstSceneController : MonoBehaviour
         textControl.AddTextData(strings[page]);
     }
 
+    public void Onhover()
+    {
+        PlayerInfo.Instance.SetMouseCursor(0);
+    }
 }
