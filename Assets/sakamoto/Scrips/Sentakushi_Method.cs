@@ -33,6 +33,8 @@ public class Sentakushi_Method : Event_Text
     [SerializeField] string scene_Name;
     [SerializeField, Header("inventoryマネージャー取得してね")] InventoryManagerVer cpInventoryManager;
     [SerializeField] GetItemManager GetItemManager;
+    [SerializeField, Header("一回の探索で何回までイベントを回せるか")] int MaxCanEvent;
+    public int DoEvent;//何回イベントをしたか
     public Event_Ilast_Disply event_Ilast_Disply;
     public Event_BG_Disply event_BG_Disply;
     public Event_Text event_Text;
@@ -50,6 +52,7 @@ public class Sentakushi_Method : Event_Text
     private void Start()
     {
         Event_num = 0;
+        DoEvent = 0;
         Debug.Log(event_manage.start_event_num);
         Set_Sentakusi_Words(event_manage.eventDatas[event_manage.start_event_num].Sentakusi1, 
                             event_manage.eventDatas[event_manage.start_event_num].Sentakusi2, 
@@ -74,6 +77,11 @@ public class Sentakushi_Method : Event_Text
 
                     continueButton.SetActive(true);
                     backHomeButton.SetActive(true);
+
+                    //if(DoEvent >= MaxCanEvent) 
+                    //{
+                    //    shadow1.SetActive(true);
+                    //}
                 }
                 else
                 {
