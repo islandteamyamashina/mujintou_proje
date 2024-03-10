@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class cameraChanger : MonoBehaviour
 {
-   
-        void Start()
-        {
-            SceneManager.sceneLoaded += OnSceneLoaded;  //sceneLoaded‚ÉŠÖ”‚ğ’Ç‰Á
-        }
+
+    void Start()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;  //sceneLoaded‚ÉŠÖ”‚ğ’Ç‰Á
+    }
     //ŠÖ”‚Ì’è‹`
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -20,4 +20,5 @@ public class cameraChanger : MonoBehaviour
             this.GetComponent<Canvas>().worldCamera = camera;
         }
     }
+ 
 }
