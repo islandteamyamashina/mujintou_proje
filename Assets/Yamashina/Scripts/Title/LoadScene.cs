@@ -22,16 +22,16 @@ public class LoadScene : MonoBehaviour
         fade.feadout_f = true;
         //if (num == 0&& fade.feadout_f==false)
         //{
-        OnLoadSceneAdditive();
+        //OnLoadSceneAdditive();
 
         //}
         //OnLoadSceneSingle();
     }
-    public void OnLoadSceneAdditive()
-    {
-        //SceneBを加算ロード。現在のシーンは残ったままで、シーンBが追加される
-        SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
-    }
+    //public void OnLoadSceneAdditive()
+    //{
+    //    //SceneBを加算ロード。現在のシーンは残ったままで、シーンBが追加される
+    //    SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
+    //}
     //public void OnLoadSceneSingle()
     //{
     //    //SceneBをロード。現在のシーンは自動的に削除されて、シーンBだけになる
