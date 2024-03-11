@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 {
 
-    public (int,bool) Day
+    public (int day,bool isDayTime) Day
     {
         get
         {
@@ -195,7 +195,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
                 condition_text.text = str;
 
                 weather_text.text = $"{weather}";
-                day_text.text = $"{Day.Item1}";
+                day_text.text = $"{Day.day}";
             }
         }
 
