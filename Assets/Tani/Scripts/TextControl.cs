@@ -232,6 +232,8 @@ public class TextControl : MonoBehaviour
 
     public void BackLogValidiate()
     {
+       
+
         if (!backLogObject)
         {
             Debug.LogError("BackLogObject is not set");
@@ -357,8 +359,7 @@ class TextControlInspector : Editor
                 }
             }
         }
-        
-
+      
 
         serializedObject.ApplyModifiedProperties();
     }

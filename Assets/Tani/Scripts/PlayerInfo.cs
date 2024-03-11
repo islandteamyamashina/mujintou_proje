@@ -61,7 +61,6 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] private Text condition_text;
     [SerializeField] private Text weather_text;
     [SerializeField] private Text day_text;
-    [SerializeField] private Texture2D mouseTex;
     [SerializeField] private List<TextureData> textureDatas;
 
 
@@ -169,8 +168,6 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
         }
 
-      //Cursor.SetCursor(mouseTex, Vector2.zero, CursorMode.ForceSoftware);
-      // StartCoroutine("enumerator");
     }
     private void Update()
     {
@@ -370,17 +367,6 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         fire_value = data.fire;
     }
 
-    private int i = 0;
-    public IEnumerator enumerator()
-    {
-        while (true)
-        {
-            SetMouseCursor(i);
-            i++;
-            i %= cursor_textures.Count;
-            yield return new WaitForSeconds(2);
-        }
-    }
 
 
 
@@ -397,6 +383,18 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     {
         AddPlayerCondition((Condition)i);
     }
+
+    public void OnStartDrag()
+    {
+        print("drag");
+    }
+
+    public void OnDrop()
+    {
+        print("drop");
+        
+    }
+
 
 }
 

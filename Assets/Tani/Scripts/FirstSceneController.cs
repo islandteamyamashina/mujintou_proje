@@ -5,50 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class FirstSceneController : MonoBehaviour
 {
-    int page = -1;
-    string[] strings ;
-
     [SerializeField]
-    TextControl textControl;
-
-    bool isFirst = true;
-
+    GameObject gm;
+    [SerializeField]
+    int i = 0;
     void Start()
     {
-        strings = new string[]
-            { "muzinntou", "無人島無人島無人島無人島無人島", "aaaaaaaaaaaaaaaaaaaaaaaa", "ありがとうございました。" };
-        
-        
+        if(i == 0)
+            print((int)(i - (5 / 2.0f)));
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (isFirst)
-        //{
-        //    textControl.AddTextData("hell0");
-        //    isFirst = false;
-        //}
-
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            NextPage();
+            gm.transform.Translate(100 * Time.deltaTime, 0, 0);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            gm.transform.Translate( -100 * Time.deltaTime, 0, 0);
         }
 
 
-      
-
     }
 
-    public void NextPage()
-    {
-        page++;
-        textControl.ResetTextData();
-        textControl.AddTextData(strings[page]);
-    }
-
-    public void Onhover()
-    {
-        PlayerInfo.Instance.SetMouseCursor(0);
-    }
+    
 }

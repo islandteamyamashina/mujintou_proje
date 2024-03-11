@@ -385,11 +385,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372171974}
   m_CullTransparentMesh: 1
---- !u!1 &730311531 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7601058904453568935, guid: bdc4965170e351b47b92c834a8fab1c9, type: 3}
-  m_PrefabInstance: {fileID: 7601058903824134860}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &730311532 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7601058904453568928, guid: bdc4965170e351b47b92c834a8fab1c9, type: 3}
@@ -725,8 +720,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  use_back_log_text: 0
-  backLogObject: {fileID: 730311531}
+  use_back_log_text: 1
+  backLogObject: {fileID: 0}
 --- !u!224 &1527009824 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3796256248709307732, guid: c02220876cb5b1f4c8c08bd68605a652, type: 3}
@@ -898,7 +893,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7601058904453568935, guid: bdc4965170e351b47b92c834a8fab1c9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
