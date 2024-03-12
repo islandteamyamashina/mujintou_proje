@@ -21,7 +21,6 @@ public class CreditPanel1 : MonoBehaviour
         QuitPanel.SetActive(false);
         AllButtonStopImage.SetActive(false);
         startPanel.SetActive(false);
-        GameObject.Find("InventoryManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         ContinueButtonStopImage.SetActive(false);
         //UICanvas.SetActive(false);
     }
