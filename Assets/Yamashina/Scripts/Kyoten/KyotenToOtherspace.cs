@@ -48,6 +48,8 @@ public class KyotenToOtherspace : CreditPanel1
     // Start is called before the first frame update
     void Start()
     {
+        inventory = GameObject.Find("Inventory");
+        //inventory.SetActive(false);
         //TakibiTabu_timer = 0.0f;
         if (PlayerInfo.Instance.Fire <= 0)
         {
@@ -70,14 +72,15 @@ public class KyotenToOtherspace : CreditPanel1
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
         //InventoryMove();
-        Takibi_3PattonPanel.SetActive(false);   
+        Takibi_3PattonPanel.SetActive(false);
         //newbutton.SetActive(false); 
+        
+        inventory.SetActive(true);
 
-       
 
         //wakimizu_tabu.SetActive(false);
     }
-
+   
     //private void Update()
     //{
 

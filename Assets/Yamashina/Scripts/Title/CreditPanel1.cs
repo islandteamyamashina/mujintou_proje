@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class CreditPanel1 : MonoBehaviour
@@ -12,6 +14,7 @@ public class CreditPanel1 : MonoBehaviour
     public GameObject OptionPanel;
     public GameObject QuitPanel;
     public GameObject startPanel;
+    public GameObject inventory;
 
     void Start()
     {
@@ -22,6 +25,8 @@ public class CreditPanel1 : MonoBehaviour
         AllButtonStopImage.SetActive(false);
         startPanel.SetActive(false);
         ContinueButtonStopImage.SetActive(false);
+        //inventory = GameObject.Find("Inventory");
+        //inventory.SetActive(false);
         //UICanvas.SetActive(false);
     }
 
@@ -80,7 +85,7 @@ public class CreditPanel1 : MonoBehaviour
         QuitPanel.SetActive(false);
         startPanel.SetActive(true);
         ContinueButtonStopImage.SetActive(false);
-        GameObject.Find("InventoryManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        //GameObject.Find("InventoryManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
         AllButtonStopImage.SetActive(true);
     }
@@ -100,7 +105,7 @@ public class CreditPanel1 : MonoBehaviour
 
 
     }
-   
-   
+  
+
 }
 

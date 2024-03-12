@@ -23,7 +23,7 @@ public class InventorySlotVer : MonoBehaviour
     private NewItem cpOverlapItem;
 
     //  自身のスロットのID(現在は使っていません)
-    [SerializeField] private int iSlotID;
+    [SerializeField] public  int iSlotID;
 
     //  各種状態管理bool
     public  bool isSetItem, isMouseOver;
@@ -105,7 +105,7 @@ public class InventorySlotVer : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
     }
-    public void SetItem(GameObject goItem)
+    public  void SetItem(GameObject goItem)
     {
         //  引数のオブジェクトからアイテムスクリプトを取得して場所を設定する
         cpInSlotItem = goItem.GetComponent<NewItem>();
@@ -114,7 +114,7 @@ public class InventorySlotVer : MonoBehaviour
     }
 
     //  ↓↓↓getter　setter↓↓↓
-    public void SetItemSlot(NewItem _ValueItem)
+    public  void SetItemSlot(NewItem _ValueItem)
     {
         cpInSlotItem = _ValueItem;
     }
