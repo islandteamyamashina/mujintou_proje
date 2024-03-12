@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [System.Serializable]
 public class SlotsInfo
@@ -42,7 +45,7 @@ public class SlotManager : MonoBehaviour
     }
 
 
-    private void SlotReconstruct()
+    public void SlotReconstruct()
     {
         #region エラー処理
         if (!data.slot_prefab)
@@ -59,7 +62,7 @@ public class SlotManager : MonoBehaviour
         {
             for(int i = 0;i < _Slots.Length; i++)
             {
-                Destroy(_Slots[i]);
+                DestroyImmediate(_Slots[i]);
                 _Slots[i] = null;
             }
         }
@@ -156,6 +159,12 @@ public class SlotManager : MonoBehaviour
     public void ClearSlot(int slot_index)
     {
         item_list[slot_index] = (Items.Item_ID.EmptyObject, 0);
+        _Slots[slot_index].SetIcon(null);
+    }
+
+    public (Items.Item_ID id, int amount) GetSlotItem(int index)
+    {
+        return item_list[index];
     }
 
     static private GameObject[] SearchActiveSlotsInScene()
@@ -168,7 +177,7 @@ public class SlotManager : MonoBehaviour
     /// </summary>
     /// <param name="pos"></param>
     /// <returns></returns>
-    static protected Slot GetNearestSlot(Vector3 pos)
+    static public Slot GetNearestSlot(Vector3 pos)
     {
         float nearest_dis = float.MaxValue;
         GameObject nearest_slot = null;
@@ -231,3 +240,34 @@ public class SlotManager : MonoBehaviour
         
     }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(SlotManager))]
+class SlotManagerInspector : Editor
+{
+    private void OnEnable()
+    {
+        
+    }
+
+    public override void OnInspectorGUI()
+    {
+        //base.OnInspectorGUI();
+
+        var manager = target as SlotManager;
+        using (var check = new EditorGUI.ChangeCheckScope())
+        {
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("data"), new GUIContent("スロット群のデータ"));
+            if (check.changed)
+            {
+                // 一旦反映させて、無効なバックログでないかチェック
+                serializedObject.ApplyModifiedProperties();
+                manager.SlotReconstruct();
+                serializedObject.Update();
+            }
+        }
+    }
+}
+
+
+#endif

@@ -1465,7 +1465,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1949432919}
   - {fileID: 880567045}
   m_Father: {fileID: 10268393}
   m_RootOrder: -1
@@ -1921,10 +1920,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    slot_horizontal_num: 2
-    slot_vertical_num: 2
-    margin_horizontal: 20
-    margin_vertical: 20
+    slot_horizontal_num: 5
+    slot_vertical_num: 4
+    margin_horizontal: 34
+    margin_vertical: 30
     slot_prefab: {fileID: 5438226600571072804, guid: 2c008efd35210ae479f826a4ab0f2a60, type: 3}
     slot_parent: {fileID: 0}
 --- !u!1 &1077194333
@@ -3417,62 +3416,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907586584}
   m_CullTransparentMesh: 1
---- !u!1 &1949432918
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1949432919}
-  - component: {fileID: 1949432920}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1949432919
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1949432918}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 621874010}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1949432920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1949432918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42c58b1d3fd4f8c49b757a524cbb1c31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data:
-    slot_horizontal_num: 4
-    slot_vertical_num: 4
-    margin_horizontal: 20
-    margin_vertical: 20
-    slot_prefab: {fileID: 5438226600571072804, guid: 2c008efd35210ae479f826a4ab0f2a60, type: 3}
-    slot_parent: {fileID: 0}
 --- !u!1 &2036393966
 GameObject:
   m_ObjectHideFlags: 0
