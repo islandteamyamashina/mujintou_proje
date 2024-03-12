@@ -16,6 +16,7 @@ public class SlotsInfo
     public int margin_vertical = 20;
     public Slot slot_prefab = null;
     public GameObject slot_parent = null;
+    public List<int> index_igonored;
 }
 
 public class SlotManager : MonoBehaviour
@@ -55,6 +56,10 @@ public class SlotManager : MonoBehaviour
         }
         #endregion 
 
+
+        
+
+
         var rectTransform = data.slot_prefab.gameObject.GetComponent<RectTransform>();
         slot_rect = new Vector2Int((int)rectTransform.rect.width,(int)rectTransform.rect.height);
     
@@ -62,10 +67,30 @@ public class SlotManager : MonoBehaviour
         {
             for(int i = 0;i < _Slots.Length; i++)
             {
-                DestroyImmediate(_Slots[i]);
+                if (_Slots[i])
+                {
+                    DestroyImmediate(_Slots[i].gameObject);
+                }
                 _Slots[i] = null;
             }
         }
+
+        if (data.slot_parent)
+        {
+            for (int i = 0; i < data.slot_parent.transform.childCount; i++)
+            {
+                DestroyImmediate(data.slot_parent.transform.GetChild(i).gameObject);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                DestroyImmediate(gameObject.transform.GetChild(i).gameObject);
+            }
+        }
+
+
 
         _Slots = new Slot[data.slot_horizontal_num * data.slot_vertical_num];
         item_list = new (Items.Item_ID id, int amount)[data.slot_horizontal_num * data.slot_vertical_num];
@@ -73,17 +98,20 @@ public class SlotManager : MonoBehaviour
 
         for (int i = 0; i < _Slots.Length; i++)
         {
-
-            _Slots[i] = Instantiate(data.slot_prefab.gameObject).GetComponent<Slot>();
-            _Slots[i].transform.SetParent(
-                data.slot_parent ? data.slot_parent.transform : gameObject.transform);
-            _Slots[i].Slot_index = i;
-            _Slots[i].Affiliation = this;
-            _Slots[i].SetIcon(null);
+            if (!data.index_igonored.Contains(i))
+            {
+                _Slots[i] = Instantiate(data.slot_prefab.gameObject).GetComponent<Slot>();
+                _Slots[i].transform.SetParent(
+                    data.slot_parent ? data.slot_parent.transform : gameObject.transform);
+                _Slots[i].Slot_index = i;
+                _Slots[i].Affiliation = this;
+                _Slots[i].SetIcon(null);
+            }
+            
 
             int h_index = i % data.slot_horizontal_num;
             int v_index = i / data.slot_horizontal_num;
-            // print(new Vector2(h_index, v_index));
+
             //0 , 1 , 2 , 3
             //4 , 5 , 6 , 7
             //8 , 9 , 10 , 11
@@ -91,16 +119,17 @@ public class SlotManager : MonoBehaviour
 
             //↓↓↓↓↓↓↓↓
             float temp_x = h_index - ((data.slot_horizontal_num - 1) / 2.0f);
-            float temp_y = (data.slot_horizontal_num - 1 - v_index) - ((data.slot_vertical_num  - 1)/ 2.0f);
+            float temp_y = (data.slot_vertical_num - 1 - v_index) - ((data.slot_vertical_num  - 1)/ 2.0f);
             Vector2Int local_index = new Vector2Int(
                   temp_x >= 0 ? Mathf.CeilToInt(temp_x) : Mathf.FloorToInt(temp_x),
                   temp_y >= 0 ? Mathf.CeilToInt(temp_y) : Mathf.FloorToInt(temp_y)
                 );
-            
+
             //(-2,2),(-1,2) , (1,2) , (2,2)
             //(-2,1),(-1,1) , (1,1) , (2,1)
             //(-2,-1),(-1,-1) , (1,-1) , (2,-1)
             //(-2,-2),(-1,-2) , (1,-2) , (2,-2)
+            
 
             //define horizontal position
             int local_x = 0;
@@ -136,8 +165,11 @@ public class SlotManager : MonoBehaviour
 
             }
 
-
-            _Slots[i].gameObject.transform.localPosition = new Vector3(local_x, local_y, 0);
+            if (!data.index_igonored.Contains(i))
+            {
+                _Slots[i].gameObject.transform.localPosition = new Vector3(local_x, local_y, 0);
+            }
+            
 
 
         }
@@ -234,38 +266,64 @@ public class SlotManager : MonoBehaviour
 
             return true;
         }
-
-
-
-        
     }
+
+
+
+
+#if UNITY_EDITOR
+    [SerializeField]
+    bool slot_data_editable = false;
+
+
+#endif
 }
 
 #if UNITY_EDITOR
 [CustomEditor(typeof(SlotManager))]
 class SlotManagerInspector : Editor
 {
+    SerializedProperty property_slot_editable;
+
     private void OnEnable()
     {
-        
+        var manager = target as SlotManager;
+        property_slot_editable = serializedObject.FindProperty("slot_data_editable");
+
     }
 
     public override void OnInspectorGUI()
     {
-        //base.OnInspectorGUI();
-
+        //  base.OnInspectorGUI();
+        serializedObject.Update();
+        
         var manager = target as SlotManager;
         using (var check = new EditorGUI.ChangeCheckScope())
         {
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("data"), new GUIContent("スロット群のデータ"));
+            EditorGUILayout.PropertyField(property_slot_editable, new GUIContent("データを編集"));
             if (check.changed)
             {
-                // 一旦反映させて、無効なバックログでないかチェック
                 serializedObject.ApplyModifiedProperties();
-                manager.SlotReconstruct();
+                if (!property_slot_editable.boolValue)
+                {
+                    manager.SlotReconstruct();
+                }
                 serializedObject.Update();
+
             }
+
         }
+
+        
+
+        EditorGUI.BeginDisabledGroup(!property_slot_editable.boolValue);
+
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("data"), new GUIContent("スロット群のデータ"));
+
+        EditorGUI.EndDisabledGroup();
+
+        serializedObject.ApplyModifiedProperties();
+
     }
 }
 
