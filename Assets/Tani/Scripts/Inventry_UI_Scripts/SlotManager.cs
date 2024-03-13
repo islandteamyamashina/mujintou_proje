@@ -17,13 +17,15 @@ public class SlotsInfo
     public Slot slot_prefab = null;
     public GameObject slot_parent = null;
     public List<int> index_igonored;
+    public List<Slot> extra_slots;
 }
 
 public class SlotManager : MonoBehaviour
 {
     [SerializeField]
     SlotsInfo data;
-   
+    [SerializeField]
+    GameObject Slots_Main;
 
 
 
@@ -31,12 +33,14 @@ public class SlotManager : MonoBehaviour
     private Vector2Int slot_rect = new Vector2Int(0, 0);
     private Slot[] _Slots = null;
     private (Items.Item_ID id, int amount)[] item_list = null;
+    private float active_range = 0;
 
     
 
     private void Awake()
     {
         SlotReconstruct();
+        active_range = data.slot_prefab.GetComponent<RectTransform>().rect.width * 2;
         
     }
 
@@ -65,7 +69,7 @@ public class SlotManager : MonoBehaviour
     
         if (_Slots != null && _Slots.Length != 0  )
         {
-            for(int i = 0;i < _Slots.Length; i++)
+            for(int i = 0;i < _Slots.Length - data.extra_slots.Count; i++)
             {
                 if (_Slots[i])
                 {
@@ -77,26 +81,26 @@ public class SlotManager : MonoBehaviour
 
         if (data.slot_parent)
         {
-            for (int i = 0; i < data.slot_parent.transform.childCount; i++)
-            {
-                DestroyImmediate(data.slot_parent.transform.GetChild(i).gameObject);
-            }
+           while(data.slot_parent.transform.childCount != 0)
+           {
+                DestroyImmediate(data.slot_parent.transform.GetChild(0).gameObject);
+           }
         }
         else
         {
-            for (int i = 0; i < gameObject.transform.childCount; i++)
+            while (gameObject.transform.childCount != 0)
             {
-                DestroyImmediate(gameObject.transform.GetChild(i).gameObject);
+                DestroyImmediate(gameObject.transform.GetChild(0).gameObject);
             }
         }
 
 
 
-        _Slots = new Slot[data.slot_horizontal_num * data.slot_vertical_num];
-        item_list = new (Items.Item_ID id, int amount)[data.slot_horizontal_num * data.slot_vertical_num];
+        _Slots = new Slot[data.slot_horizontal_num * data.slot_vertical_num + data.extra_slots.Count];
+        item_list = new (Items.Item_ID id, int amount)[data.slot_horizontal_num * data.slot_vertical_num + data.extra_slots.Count];
         for (int i = 0; i < item_list.Length; i++) item_list[i] = (Items.Item_ID.EmptyObject, 0);
 
-        for (int i = 0; i < _Slots.Length; i++)
+        for (int i = 0; i < _Slots.Length - data.extra_slots.Count; i++)
         {
             if (!data.index_igonored.Contains(i))
             {
@@ -170,32 +174,50 @@ public class SlotManager : MonoBehaviour
                 _Slots[i].gameObject.transform.localPosition = new Vector3(local_x, local_y, 0);
             }
             
-
-
+        }
+        if(data.extra_slots.Count != 0)
+        {
+            for(int i = data.slot_horizontal_num * data.slot_vertical_num; i < _Slots.Length;i++)
+            {
+                _Slots[i] = data.extra_slots[i - data.slot_horizontal_num * data.slot_vertical_num];
+                _Slots[i].Slot_index = i;
+                _Slots[i].Affiliation = this;
+                _Slots[i].SetIcon(null);
+            }
         }
 
     }
 
-    public void SetItemToSlot(Items.Item_ID item_ID, int num, int slot_index)
+    /// <summary>
+    /// Return false if slot_index is included in index_ignored 
+    /// </summary>
+    public bool SetItemToSlot(Items.Item_ID item_ID, int num, int slot_index)
     {
+        if (!_Slots[slot_index]) return false;
         item_list[slot_index] = (item_ID, num);
         var n = Resources.Load($"{item_ID}") as Items;
         if (n == null)
         {
             Debug.LogError($"Couldn't find Item Data : {item_ID} in Resources");
-            return;
+            return false;
         }
         _Slots[slot_index].SetIcon(n.icon);
+        return true;
     }
 
     public void ClearSlot(int slot_index)
     {
+        if (!_Slots[slot_index]) return;
         item_list[slot_index] = (Items.Item_ID.EmptyObject, 0);
         _Slots[slot_index].SetIcon(null);
     }
 
-    public (Items.Item_ID id, int amount) GetSlotItem(int index)
+    /// <summary>
+    /// Return null if slot_index is included in index_ignored 
+    /// </summary>
+    public (Items.Item_ID id, int amount)? GetSlotItem(int index)
     {
+        if (!_Slots[index]) return null;
         return item_list[index];
     }
 
@@ -209,7 +231,7 @@ public class SlotManager : MonoBehaviour
     /// </summary>
     /// <param name="pos"></param>
     /// <returns></returns>
-    static public Slot GetNearestSlot(Vector3 pos)
+     public Slot GetNearestSlot(Vector3 pos)
     {
         float nearest_dis = float.MaxValue;
         GameObject nearest_slot = null;
@@ -223,7 +245,7 @@ public class SlotManager : MonoBehaviour
             }
         }
 
-        if(nearest_dis <= 150)
+        if(nearest_dis <= active_range)
         {
             return nearest_slot.GetComponent<Slot>();
         }
@@ -268,7 +290,28 @@ public class SlotManager : MonoBehaviour
         }
     }
 
-
+    public void SetVisible(bool visible)
+    {
+        if (Slots_Main)
+        {
+            Slots_Main.SetActive(visible);
+        }
+        else
+        {
+            gameObject.SetActive(visible);
+        }
+    }
+    public void SwitchVisible()
+    {
+        if (Slots_Main)
+        {
+            Slots_Main.SetActive(!Slots_Main.activeSelf);
+        }
+        else
+        {
+            gameObject.SetActive(!gameObject.activeSelf);
+        }
+    }
 
 
 #if UNITY_EDITOR
@@ -321,6 +364,8 @@ class SlotManagerInspector : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty("data"), new GUIContent("スロット群のデータ"));
 
         EditorGUI.EndDisabledGroup();
+
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("Slots_Main"), new GUIContent("表示の切り替え元"));
 
         serializedObject.ApplyModifiedProperties();
 

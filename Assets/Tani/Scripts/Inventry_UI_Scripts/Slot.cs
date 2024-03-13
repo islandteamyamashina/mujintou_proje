@@ -74,7 +74,7 @@ public class Slot : MonoBehaviour
     void OnSlotSelected()
     {
         
-        print($"slotIndex : {Slot_index},Item : {Affiliation.GetSlotItem(Slot_index).id}");
+        print($"slotIndex : {Slot_index},Item : {Affiliation.GetSlotItem(Slot_index).Value.id}");
         
 
     }
@@ -82,7 +82,7 @@ public class Slot : MonoBehaviour
     void OnSlotStartDrag()
     {
         Debug.Log($"Begin Drag : {Slot_index}");
-        if(Affiliation.GetSlotItem(Slot_index).id != Items.Item_ID.EmptyObject)
+        if(Affiliation.GetSlotItem(Slot_index).Value.id != Items.Item_ID.EmptyObject)
         {
             dragging_item_exist = true;
         }
@@ -109,7 +109,7 @@ public class Slot : MonoBehaviour
         if (dragging_item_exist)
         {
             dragging_item_exist = false;
-            Slot near = SlotManager.GetNearestSlot(item_icon_object.gameObject.transform.position);
+            Slot near = Affiliation.GetNearestSlot(item_icon_object.gameObject.transform.position);
             if (near)
             {
                 SlotManager.MoveItem(this, near);
