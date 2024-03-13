@@ -9,7 +9,7 @@ public class Event_Text : Text_Method
      public EventData eventData;
     [SerializeField] Text titleObject;
     public Event_Manage event_Manage;
-
+    [SerializeField] public TextControl textControl;
 
     
     // Start is called before the first frame update
@@ -34,7 +34,8 @@ public class Event_Text : Text_Method
     {       
         //Debug.Log("eventData‚Í" + event_Manage.start_event_num + "‚Å‚·");
         eventData = event_Manage.eventDatas[event_Manage.now_event_num];
-        Text_Disply(eventData.Main_Text);
+        textControl.ResetTextData();
+        textControl.AddTextData(eventData.Main_Text);
         //Debug.Log("eventData‚Í" + event_Manage.start_event_num + "‚Å‚·");
         //Debug.Log(eventData.Main_Text);
         Title_Disply(eventData.Event_Title);

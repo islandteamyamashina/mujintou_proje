@@ -34,6 +34,9 @@ public class Sentakushi_Method : Event_Text
     [SerializeField, Header("inventoryマネージャー取得してね")] InventoryManagerVer cpInventoryManager;
     [SerializeField] GetItemManager GetItemManager;
     [SerializeField, Header("一回の探索で何回までイベントを回せるか")] int MaxCanEvent;
+
+    //[SerializeField] TextControl textControl;
+
     public int DoEvent;//何回イベントをしたか
     public Event_Ilast_Disply event_Ilast_Disply;
     public Event_BG_Disply event_BG_Disply;
@@ -70,7 +73,8 @@ public class Sentakushi_Method : Event_Text
             {
                 if (!(PlayerInfo.Instance.Health == 0 || next_num_tnp / 1000 == 0))
                 {
-                    Text_Disply("探索を続けますか？");
+                    textControl.ResetTextData();
+                    textControl.AddTextData("探索を続けますか？");
                     _sentakusi1.SetActive(false);
                     _sentakusi2.SetActive(false);
                     _sentakusi3.SetActive(false);
@@ -113,7 +117,9 @@ public class Sentakushi_Method : Event_Text
     {
         if (GoToLoadScene == false)
         {
-            Text_Disply(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Result1);
+            textControl.ResetTextData();
+            textControl.AddTextData
+                /*Text_Disply*/(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Result1);
             getItem("Sentakusi1");
             //_sentakusi1.SetActive(false);
             _sentakusi2.SetActive(false);
@@ -152,7 +158,8 @@ public class Sentakushi_Method : Event_Text
     {
         if (GoToLoadScene == false)
         {
-            Text_Disply(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Result1);
+            textControl.ResetTextData();
+            textControl.AddTextData(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Result1);
             getItem("Sentakusi2");
             _sentakusi1.SetActive(false);
             _sentakusi3.SetActive(false);
@@ -186,7 +193,8 @@ public class Sentakushi_Method : Event_Text
     {
         if (GoToLoadScene == false)
         {
-            Text_Disply(event_manage.eventDatas[event_manage.now_event_num].Cancel_Result);
+            textControl.ResetTextData();
+            textControl.AddTextData(event_manage.eventDatas[event_manage.now_event_num].Cancel_Result);
             _sentakusi1.SetActive(false);
             _sentakusi2.SetActive(false);
             allShadow(false);
