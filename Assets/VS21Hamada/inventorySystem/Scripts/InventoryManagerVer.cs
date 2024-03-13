@@ -10,7 +10,7 @@ public class InventoryManagerVer : MonoBehaviour
     [SerializeField] private Button btnUseButton, btnTrashButton;
     private NewItem item;
     private bool isClick, isItemFull;
-    [SerializeField,Header("この配列の最後には必ず捨てる画面のスロットを入れてください")] public static InventorySlotVer[]  cpSlots;
+    [SerializeField,Header("この配列の最後には必ず捨てる画面のスロットを入れてください")] InventorySlotVer[]  cpSlots;
     [SerializeField] TrashItemSystem cpTrashSystem;
 
     private void Start()
