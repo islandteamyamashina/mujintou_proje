@@ -72,7 +72,6 @@ public class EventData : ScriptableObject
     public int Sentakusi2_hunger;
     [Header("水分")]
     public int Sentakusi2_warter;
-
     [Header("次のイベントID")]
     public int Sentakusi2_Next_Ivent_ID;
     [Header("キャンセル結果")]
@@ -80,6 +79,7 @@ public class EventData : ScriptableObject
     [Header("次のイベントID")]
     public int Cancel_Next_Ivent_ID;
 
+   
 #if UNITY_EDITOR
     public void SetEventData(int eventID, string eventTitle, string mainText, string sentakushi1, string sentakussi2, string cansel,
                             string sentakusi1Result1,  
