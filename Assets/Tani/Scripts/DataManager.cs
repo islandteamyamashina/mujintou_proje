@@ -55,4 +55,9 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
        // Save(new SaveData());
     }
 
+    public bool DoesSaveExist()
+    {
+        return File.Exists(filepath);
+    }
+
 }
