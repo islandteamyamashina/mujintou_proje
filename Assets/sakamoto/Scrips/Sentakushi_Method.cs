@@ -37,7 +37,7 @@ public class Sentakushi_Method : Event_Text
 
     //[SerializeField] TextControl textControl;
 
-    public int DoEvent;//何回イベントをしたか
+    //public int DoEvent;//何回イベントをしたか
     public Event_Ilast_Disply event_Ilast_Disply;
     public Event_BG_Disply event_BG_Disply;
     public Event_Text event_Text;
@@ -55,7 +55,7 @@ public class Sentakushi_Method : Event_Text
     private void Start()
     {
         Event_num = 0;
-        DoEvent = 0;
+        //DoEvent = 0;
         Debug.Log(event_manage.start_event_num);
         Set_Sentakusi_Words(event_manage.eventDatas[event_manage.start_event_num].Sentakusi1, 
                             event_manage.eventDatas[event_manage.start_event_num].Sentakusi2, 
@@ -82,10 +82,11 @@ public class Sentakushi_Method : Event_Text
                     continueButton.SetActive(true);
                     backHomeButton.SetActive(true);
 
-                    //if(DoEvent >= MaxCanEvent) 
-                    //{
-                    //    shadow1.SetActive(true);
-                    //}
+
+                    if (Event_num >= MaxCanEvent)
+                    {
+                        shadow1.SetActive(true);
+                    }
                 }
                 else
                 {
@@ -385,6 +386,18 @@ public class Sentakushi_Method : Event_Text
 
     }
 
+    public int Day_Branch(int day)
+    {
+        if(PlayerInfo.Instance.Day.day == day)
+        {
+            return event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Next_Ivent_ID;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
     public void GoToEnding()
     {
         Debug.Log(next_num_tnp);
@@ -410,12 +423,12 @@ public class Sentakushi_Method : Event_Text
 
         else
         {
-            if (Event_num == 5)
-            {
-                fade.scene_name_num = 2;
-                fade.feadout_f = true;
-            }
-            else
+            //if (Event_num == 5)
+            //{
+            //    fade.scene_name_num = 2;
+            //    fade.feadout_f = true;
+            //}
+            //else
             {
                 Event_num++;
                 event_Text.SetEventText();
