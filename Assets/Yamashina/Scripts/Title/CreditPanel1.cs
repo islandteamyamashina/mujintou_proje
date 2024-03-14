@@ -45,6 +45,8 @@ public class CreditPanel1 : MonoBehaviour
         startPanel.SetActive(false);
         AllButtonStopImage.SetActive(false);
         ContinueButtonStopImage.SetActive(false);
+        GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
 
     }
@@ -104,7 +106,7 @@ public class CreditPanel1 : MonoBehaviour
         //GameObject.Find("Inventory").transform.position = Vector3.zero;
         GameObject.Find("InventorySlotManager").transform.position = Vector3.zero;
         GameObject.Find("InventoryUIPanel").transform.position = Vector3.zero;
-        GameObject.Find("MaintoInventoryPanel").transform.position = Vector3.zero;
+        GameObject.Find("MainToInventoryButton").transform.position = new Vector3((float)805.2, (float)396.705, 0);
         //inventory = GameObject.Find("Inventory");
 
         //newbutton.SetActive(false); 

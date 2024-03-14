@@ -48,7 +48,7 @@ public class KyotenToOtherspace : CreditPanel1
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Find("MaintoInventoryPanel").transform.position = Vector3.zero;
+        GameObject.Find("MaintoInventoryPanel").transform.position = new Vector3((float)805.2, (float)396.705, 0);
 
         //inventory.SetActive(false);
         //TakibiTabu_timer = 0.0f;
