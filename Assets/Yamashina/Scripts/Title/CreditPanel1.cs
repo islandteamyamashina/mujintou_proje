@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreditPanel1 : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class CreditPanel1 : MonoBehaviour
     public GameObject OptionPanel;
     public GameObject QuitPanel;
     public GameObject startPanel;
+    public Button start;
+    public Button Continue;
+    public Button quit;
+    public Button Credit;
+    public Button option;
    
     void Start()
     {
@@ -28,6 +34,7 @@ public class CreditPanel1 : MonoBehaviour
         GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("MaintoInventoryPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+     
         //GameObject.Find("MaintoInventoryPanel").transform.position = Vector3.zero;
 
         //inventory = GameObject.Find("Inventory");
@@ -47,6 +54,11 @@ public class CreditPanel1 : MonoBehaviour
         ContinueButtonStopImage.SetActive(false);
         GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        start.interactable = true;
+        Continue.interactable = true;
+        Credit.interactable = true;
+        quit.interactable = true;   
+        option.interactable = true;
 
 
     }
@@ -85,17 +97,21 @@ public class CreditPanel1 : MonoBehaviour
         AllButtonStopImage.SetActive(true);
 
     }
-    public void startView() 
+    public  void startView() 
     {
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(true);
-        ContinueButtonStopImage.SetActive(false);
         GameObject.Find("InventoryManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        start.interactable = false;
+        Continue.interactable = false;
+        Credit.interactable= false; 
+        option.interactable = false;   
+        quit.interactable = false;  
 
-        AllButtonStopImage.SetActive(true);
+
     }
     public  virtual void InventoryView()
     {
