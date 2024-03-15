@@ -115,6 +115,7 @@ public class SlotManager : MonoBehaviour
                 _Slots[i].Slot_index = i;
                 _Slots[i].Affiliation = this;
                 _Slots[i].SetIcon(null);
+                _Slots[i].SetAmoutText(null);
             }
             
 
@@ -188,6 +189,7 @@ public class SlotManager : MonoBehaviour
                 _Slots[i].Slot_index = i;
                 _Slots[i].Affiliation = this;
                 _Slots[i].SetIcon(null);
+                _Slots[i].SetAmoutText(null);
             }
         }
 
@@ -207,6 +209,7 @@ public class SlotManager : MonoBehaviour
             return false;
         }
         _Slots[slot_index].SetIcon(n.icon);
+        _Slots[slot_index].SetAmoutText(num);
         return true;
     }
 
@@ -215,6 +218,7 @@ public class SlotManager : MonoBehaviour
         if (!_Slots[slot_index]) return;
         item_list[slot_index] = (Items.Item_ID.EmptyObject, 0);
         _Slots[slot_index].SetIcon(null);
+        _Slots[slot_index].SetAmoutText(null);
     }
 
     /// <summary>

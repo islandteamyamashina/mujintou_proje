@@ -18,6 +18,8 @@ public class Slot : MonoBehaviour
 
     [SerializeField]
     GameObject right_click_popup;
+    [SerializeField]
+    Text amout_text;
 
     //Slotクラスは所属先であるSlotManagerへの参照と自身を表すインデックスのみを保持し
     //、アイテムのデータは所属先のManagerが持つ
@@ -71,10 +73,12 @@ public class Slot : MonoBehaviour
             item_icon_object.sprite = null;
             item_icon_object.color = new Color(255, 255, 255, 0);
         }
-
-        
     }
     
+    public void SetAmoutText(int? amount)
+    {
+        amout_text.text = amount.HasValue ? $"{amount.Value}" : "";
+    }
 
     void OnSlotSelected()
     {
@@ -102,6 +106,7 @@ public class Slot : MonoBehaviour
             dragging_item_exist = true;
         }
         item_icon_object.canvas.sortingOrder = dragging_icon_canvas_sortinglayer;
+        amout_text.gameObject.SetActive(false);
     }
 
     void OnSlotDragging()
@@ -133,6 +138,7 @@ public class Slot : MonoBehaviour
         
 
         item_icon_object.transform.localPosition = Vector3.zero;
+        amout_text.gameObject.SetActive(true);
 
     }
 
