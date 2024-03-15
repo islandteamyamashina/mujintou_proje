@@ -13,6 +13,11 @@ public class Slot : MonoBehaviour
     public SlotManager Affiliation { get; set; } = null;
     [SerializeField]
     Image item_icon_object = null;
+    [SerializeField]
+    public bool can_place_item = true;
+
+    [SerializeField]
+    GameObject right_click_popup;
 
     //Slotクラスは所属先であるSlotManagerへの参照と自身を表すインデックスのみを保持し
     //、アイテムのデータは所属先のManagerが持つ
@@ -24,7 +29,7 @@ public class Slot : MonoBehaviour
     private void Awake()
     {
         
-
+        
     }
     void Start()
     {
@@ -75,6 +80,16 @@ public class Slot : MonoBehaviour
     {
         
         print($"slotIndex : {Slot_index},Item : {Affiliation.GetSlotItem(Slot_index).Value.id}");
+        
+        if (Input.GetMouseButtonUp(1) && Affiliation.GetSlotItem(Slot_index).Value.id != Items.Item_ID.EmptyObject)
+        {
+            if (right_click_popup)
+            {
+                var popup = Instantiate(right_click_popup, Input.mousePosition + new Vector3(100,130,0), transform.rotation);
+                popup.transform.SetParent(item_icon_object.canvas.gameObject.transform);
+                popup.GetComponent<PopupImage>().spawned_slot = this;
+            }
+        }
         
 
     }

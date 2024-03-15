@@ -31,22 +31,27 @@ public class SlotManager : MonoBehaviour
 
 
     private Vector2Int slot_rect = new Vector2Int(0, 0);
-    private Slot[] _Slots = null;
-    private (Items.Item_ID id, int amount)[] item_list = null;
+    protected Slot[] _Slots = null;
+    protected (Items.Item_ID id, int amount)[] item_list = null;
     private float active_range = 0;
 
     
 
-    private void Awake()
+    virtual protected void Awake()
     {
         SlotReconstruct();
         active_range = data.slot_prefab.GetComponent<RectTransform>().rect.width * 2;
         
     }
 
-    private void Start()
+    virtual protected void Start()
     {
         SetItemToSlot(Items.Item_ID.Fish, 1, 0);
+    }
+
+    virtual protected void Update()
+    {
+
     }
 
 
@@ -238,7 +243,7 @@ public class SlotManager : MonoBehaviour
         foreach(var n in SearchActiveSlotsInScene())
         {
             float distant = (n.transform.position - pos).magnitude;
-            if(distant < nearest_dis)
+            if(distant < nearest_dis && n.GetComponent<Slot>().can_place_item)
             {
                 nearest_dis = distant;
                 nearest_slot = n;
@@ -264,12 +269,18 @@ public class SlotManager : MonoBehaviour
     /// <returns></returns>
     static public bool MoveItem(Slot src ,Slot dis)
     {
-        if(src == null|| dis == null)
+        #region ó·äOèàóù
+        if (src == null|| dis == null)
         {
             return false;
         }
 
-        if(dis.Affiliation.item_list[dis.Slot_index].id != Items.Item_ID.EmptyObject)
+        if(!src.can_place_item && dis.Affiliation.GetSlotItem(dis.Slot_index).Value.id != Items.Item_ID.EmptyObject)
+        {
+            return false;
+        }
+        #endregion
+        if (dis.Affiliation.item_list[dis.Slot_index].id != Items.Item_ID.EmptyObject)
         {
             var temp_src = src.Affiliation.item_list[src.Slot_index];
             var temp_dis = dis.Affiliation.item_list[dis.Slot_index];
