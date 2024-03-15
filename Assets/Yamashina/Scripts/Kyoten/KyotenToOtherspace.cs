@@ -428,6 +428,7 @@ public class KyotenToOtherspace : CreditPanel1
         //newbutton.SetActive(false); 
         //wakimizu_tabu.SetActive(false);
     }
+   
 
 
     // }
