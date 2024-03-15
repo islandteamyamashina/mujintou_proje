@@ -258,6 +258,11 @@ public class TextControl : MonoBehaviour
         strs.Add(add_text);
     }
 
+    public bool GetIsTextEnd()
+    {
+        return is_text_end;
+    }
+
 }
 
 

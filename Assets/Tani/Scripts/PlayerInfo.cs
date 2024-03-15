@@ -158,7 +158,16 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         _player_Thirst = _Init_Player_Thirst;
         _player_Luck = 0;
 
-        LoadData();
+        if (DataManager.Instance.DoesSaveExist())
+        {
+            LoadData();
+            print("save exist");
+
+        }
+        else
+        {
+            print("save not exist");
+        }
 
         cursor_textures = new List<Texture2D>();
         foreach (var n in textureDatas)
