@@ -23,7 +23,7 @@ public class SlotsInfo
 public class SlotManager : MonoBehaviour
 {
     [SerializeField]
-    SlotsInfo data;
+    protected SlotsInfo data;
     [SerializeField]
     GameObject Slots_Main;
 
@@ -46,7 +46,8 @@ public class SlotManager : MonoBehaviour
 
     virtual protected void Start()
     {
-        SetItemToSlot(Items.Item_ID.Fish, 1, 0);
+        SetItemToSlot(Items.Item_ID.Fish, 2, 0);
+        SetItemToSlot(Items.Item_ID.Fish, 50, 1);
     }
 
     virtual protected void Update()
@@ -55,7 +56,7 @@ public class SlotManager : MonoBehaviour
     }
 
 
-    public void SlotReconstruct()
+    public virtual void SlotReconstruct()
     {
         #region エラー処理
         if (!data.slot_prefab)
@@ -198,7 +199,7 @@ public class SlotManager : MonoBehaviour
     /// <summary>
     /// Return false if slot_index is included in index_ignored 
     /// </summary>
-    public bool SetItemToSlot(Items.Item_ID item_ID, int num, int slot_index)
+    public virtual bool SetItemToSlot(Items.Item_ID item_ID, int num, int slot_index)
     {
         if (!_Slots[slot_index]) return false;
         item_list[slot_index] = (item_ID, num);
@@ -213,7 +214,19 @@ public class SlotManager : MonoBehaviour
         return true;
     }
 
-    public void ClearSlot(int slot_index)
+    public void ChangeSlotItemAmount(int new_Amount,int slot_index)
+    {
+        if (!_Slots[slot_index]) return;
+        if(new_Amount < 1)
+        {
+            ClearSlot(slot_index);
+            return;
+        }
+        item_list[slot_index] = (item_list[slot_index].id,new_Amount);
+        _Slots[slot_index].SetAmoutText(new_Amount);
+    }
+
+    public virtual void ClearSlot(int slot_index)
     {
         if (!_Slots[slot_index]) return;
         item_list[slot_index] = (Items.Item_ID.EmptyObject, 0);
@@ -265,6 +278,29 @@ public class SlotManager : MonoBehaviour
         
     }
 
+    
+    public Slot GetNullSlot()
+    {
+        for(int i = 0;i < _Slots.Length; i++)
+        {
+            if (data.index_igonored.Contains(i)) continue;
+            if(item_list[i].id == Items.Item_ID.EmptyObject && _Slots[i].can_place_item)
+            {
+                return _Slots[i];
+            }
+        }
+        return null;
+    }
+
+    public bool CanSlotOverlapItem(int slot_index,Items.Item_ID id,int num)
+    {
+        if(item_list[slot_index].id != id)
+        {
+            return false;
+        }
+        return true;
+    }
+
     /// <summary>
     /// Return move success or not
     /// </summary>
@@ -274,6 +310,11 @@ public class SlotManager : MonoBehaviour
     static public bool MoveItem(Slot src ,Slot dis)
     {
         #region 例外処理
+        if(src == dis)
+        {
+            return false;
+        }
+
         if (src == null|| dis == null)
         {
             return false;
@@ -284,8 +325,22 @@ public class SlotManager : MonoBehaviour
             return false;
         }
         #endregion
+
+
+        //移動先にアイテムが存在するか否か
         if (dis.Affiliation.item_list[dis.Slot_index].id != Items.Item_ID.EmptyObject)
         {
+            //移動先のスロットにアイテムをスタックできるか
+            if(dis.Affiliation.CanSlotOverlapItem(dis.Slot_index,src.Affiliation.item_list[src.Slot_index].id, src.Affiliation.item_list[src.Slot_index].amount))
+            {
+                dis.Affiliation.ChangeSlotItemAmount(
+                    dis.Affiliation.item_list[dis.Slot_index].amount + src.Affiliation.item_list[src.Slot_index].amount
+                    , dis.Slot_index);
+                src.Affiliation.ClearSlot(src.Slot_index);
+                return true;
+            }
+
+
             var temp_src = src.Affiliation.item_list[src.Slot_index];
             var temp_dis = dis.Affiliation.item_list[dis.Slot_index];
 
@@ -303,6 +358,19 @@ public class SlotManager : MonoBehaviour
 
             return true;
         }
+    }
+
+    public bool SlotPartition(int slot_index)
+    {
+        var target_slot = GetNullSlot();
+        if (target_slot)
+        {
+            int move_amount = item_list[slot_index].amount / 2;
+            SetItemToSlot(item_list[slot_index].id, move_amount, target_slot.Slot_index);
+            ChangeSlotItemAmount(item_list[slot_index].amount - move_amount, slot_index);
+            return true;
+        }
+        return false;
     }
 
     public void SetVisible(bool visible)

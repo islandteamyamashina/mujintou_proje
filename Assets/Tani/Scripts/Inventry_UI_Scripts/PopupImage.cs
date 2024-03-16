@@ -16,6 +16,9 @@ public class PopupImage : MonoBehaviour,IDeselectHandler
     [SerializeField]
     Button DeleteButton;
 
+    int normal_layer = 2;
+    int popup_layer = 3;
+
     void Start()
     {
         selectable = GetComponent<Selectable>();
@@ -24,6 +27,7 @@ public class PopupImage : MonoBehaviour,IDeselectHandler
         {
             PartitionButton.gameObject.SetActive(false);
         }
+        ReturnButton.GetComponent<Image>().canvas.sortingOrder = popup_layer;
     }
 
     // Update is called once per frame
@@ -36,7 +40,9 @@ public class PopupImage : MonoBehaviour,IDeselectHandler
     public void OnDeselect(BaseEventData data)
     {
         Debug.Log("Deselected");
+        
         Destroy(gameObject, 0.2f);
+        ReturnButton.GetComponent<Image>().canvas.sortingOrder = normal_layer;
     }
 
     public void RetutnButtonDown()
@@ -47,6 +53,7 @@ public class PopupImage : MonoBehaviour,IDeselectHandler
     public void PartitionButtonDown()
     {
         print("Partition");
+        spawned_slot.Affiliation.SlotPartition(spawned_slot.Slot_index);
     }
 
     public void DeleteButtonDown()

@@ -61,12 +61,12 @@ public class Slot : MonoBehaviour
         gameObject.tag = slot_tag_name;
     }
 
-    public void SetIcon(Sprite icon)
+    public void SetIcon(Sprite icon , int alpha = 255)
     {
         if (icon)
         {
             item_icon_object.sprite = icon;
-            item_icon_object.color = new Color(255, 255, 255, 255);
+            item_icon_object.color = new Color(255, 255, 255, alpha / 255.0f);
         }
         else
         {
@@ -83,7 +83,7 @@ public class Slot : MonoBehaviour
     void OnSlotSelected()
     {
         
-        print($"slotIndex : {Slot_index},Item : {Affiliation.GetSlotItem(Slot_index).Value.id}");
+        print($"slotIndex : {Slot_index},Item : {Affiliation.GetSlotItem(Slot_index).Value.id},Count : {Affiliation.GetSlotItem(Slot_index).Value.amount}");
         
         if (Input.GetMouseButtonUp(1) && Affiliation.GetSlotItem(Slot_index).Value.id != Items.Item_ID.EmptyObject)
         {
@@ -92,6 +92,7 @@ public class Slot : MonoBehaviour
                 var popup = Instantiate(right_click_popup, Input.mousePosition + new Vector3(100,130,0), transform.rotation);
                 popup.transform.SetParent(item_icon_object.canvas.gameObject.transform);
                 popup.GetComponent<PopupImage>().spawned_slot = this;
+
             }
         }
         
@@ -100,7 +101,7 @@ public class Slot : MonoBehaviour
     
     void OnSlotStartDrag()
     {
-        Debug.Log($"Begin Drag : {Slot_index}");
+
         if(Affiliation.GetSlotItem(Slot_index).Value.id != Items.Item_ID.EmptyObject)
         {
             dragging_item_exist = true;
@@ -122,7 +123,7 @@ public class Slot : MonoBehaviour
 
     void OnSlotEndDrag()
     {
-        print($"End Drag : {Slot_index}");
+
         
         item_icon_object.canvas.sortingOrder = default_icon_canvas_sortinglayer;
 
