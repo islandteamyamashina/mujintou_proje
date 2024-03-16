@@ -6,9 +6,7 @@ using UnityEngine.UI;
 public class Event_Panel_view : MonoBehaviour
 {
     public GameObject mainPanel;
-    public GameObject subPanel;
     public GameObject Opbutton;
-    public GameObject Inbutton;
 
     public GameObject OptionPanel;
 
@@ -16,18 +14,17 @@ public class Event_Panel_view : MonoBehaviour
     {
         mainPanel.SetActive(true);
         OptionPanel.SetActive(false);
-        subPanel.SetActive(false);
         Opbutton.SetActive(true);
-        Inbutton.SetActive(true);
+        GameObject.Find("MaintoInventoryPanel").transform.position = Vector3.zero;
+
     }
 
     public void MainView()
     {
         mainPanel.SetActive(true);
         OptionPanel.SetActive(false);
-        subPanel.SetActive(false);
         Opbutton.SetActive(true);
-        Inbutton.SetActive(true);
+        
     }
 
 
@@ -35,19 +32,16 @@ public class Event_Panel_view : MonoBehaviour
     {
         mainPanel.SetActive(true);
         OptionPanel.SetActive(true);
-        subPanel.SetActive(false);
         Opbutton.SetActive(false);
-        Inbutton.SetActive(false);
 
     }
     public virtual void SubView()
     {
         mainPanel.SetActive(true);
-        subPanel.SetActive(true);
         OptionPanel.SetActive(false);
         Opbutton.SetActive(false);
-        Inbutton.SetActive(false);
-
+        GameObject.Find("InventorySlotManager").transform.position = Vector3.zero;
+        GameObject.Find("InventoryUIPanel").transform.position = Vector3.zero;
     }
 }
 

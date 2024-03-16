@@ -21,6 +21,8 @@ public class CreditPanel1 : MonoBehaviour
     public Button quit;
     public Button Credit;
     public Button option;
+    public Button invenntory;
+    public Button ExitInventory;
    
     void Start()
     {
@@ -34,7 +36,9 @@ public class CreditPanel1 : MonoBehaviour
         GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("MaintoInventoryPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-     
+        ExitInventory.interactable = false;
+        invenntory.interactable = true;
+
         //GameObject.Find("MaintoInventoryPanel").transform.position = Vector3.zero;
 
         //inventory = GameObject.Find("Inventory");
@@ -54,11 +58,13 @@ public class CreditPanel1 : MonoBehaviour
         ContinueButtonStopImage.SetActive(false);
         GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        GameObject.Find("MaintoInventoryPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         start.interactable = true;
         Continue.interactable = true;
         Credit.interactable = true;
         quit.interactable = true;   
         option.interactable = true;
+        
 
 
     }
@@ -122,11 +128,21 @@ public class CreditPanel1 : MonoBehaviour
         //GameObject.Find("Inventory").transform.position = Vector3.zero;
         GameObject.Find("InventorySlotManager").transform.position = Vector3.zero;
         GameObject.Find("InventoryUIPanel").transform.position = Vector3.zero;
-        GameObject.Find("MainToInventoryButton").transform.position = new Vector3((float)805.2, (float)396.705, 0);
+        GameObject.Find("MaintoInventoryPanel").transform.position = new Vector3((float)805.2, (float)396.705, 0);
+        invenntory.interactable = false;
+        ExitInventory.interactable = true;
         //inventory = GameObject.Find("Inventory");
 
         //newbutton.SetActive(false); 
         //wakimizu_tabu.SetActive(false);
+    }
+    public void ToMainView()
+    {
+        GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        GameObject.Find("MaintoInventoryPanel").transform.position = Vector3.zero;
+        ExitInventory.interactable = false;
+        invenntory.interactable = true;
     }
     void Update()
     {
