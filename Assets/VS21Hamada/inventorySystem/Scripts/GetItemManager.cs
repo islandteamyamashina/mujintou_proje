@@ -25,6 +25,7 @@ public class GetItemManager : MonoBehaviour
         Transform parent = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Transform>();
 
         var item = Instantiate(goAllItemPrefabs[_ItemID],parent);
+        item.transform.localScale *= 20;
         cpInventoryManager.SetNewGetItem(item);
     }
 }
