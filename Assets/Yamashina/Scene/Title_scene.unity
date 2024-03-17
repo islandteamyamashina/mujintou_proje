@@ -128,17 +128,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1666113765895982029, guid: 97a1c2add0b808c419d6f1ba0d49458c, type: 3}
   m_PrefabInstance: {fileID: 1643445395}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &84666012 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1332734845575974330, guid: 84f3236fa8c5b554abadb3a015690446, type: 3}
-  m_PrefabInstance: {fileID: 7134224320461267685}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &139280228 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8498405990681297499, guid: 84f3236fa8c5b554abadb3a015690446, type: 3}
@@ -190,8 +179,6 @@ MonoBehaviour:
   quit: {fileID: 1692206615}
   Credit: {fileID: 715620116}
   option: {fileID: 2048449478}
-  invenntory: {fileID: 527645783}
-  ExitInventory: {fileID: 84666012}
 --- !u!114 &358719122 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4987687112458006919, guid: 84f3236fa8c5b554abadb3a015690446, type: 3}
@@ -305,17 +292,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 933599012062129963, guid: 84f3236fa8c5b554abadb3a015690446, type: 3}
   m_PrefabInstance: {fileID: 7134224320461267685}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &527645783 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9085462433289768222, guid: 84f3236fa8c5b554abadb3a015690446, type: 3}
-  m_PrefabInstance: {fileID: 7134224320461267685}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &631849680 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6789442039076692608, guid: 84f3236fa8c5b554abadb3a015690446, type: 3}
@@ -3671,6 +3647,10 @@ PrefabInstance:
     - target: {fileID: 6548064013366157829, guid: 84f3236fa8c5b554abadb3a015690446, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -228.33997
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590424310270405119, guid: 84f3236fa8c5b554abadb3a015690446, type: 3}
+      propertyPath: m_Name
+      value: MaintoInventory
       objectReference: {fileID: 0}
     - target: {fileID: 6888443895738575275, guid: 84f3236fa8c5b554abadb3a015690446, type: 3}
       propertyPath: m_Name

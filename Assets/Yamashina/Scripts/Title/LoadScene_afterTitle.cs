@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LoadScene_afterTitle : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class LoadScene_afterTitle : MonoBehaviour
 
         fade.scene_name_num = num;
         fade.feadout_f = true;
+        //GameObject.Find("MaintoInventory").
 
     }
 }
