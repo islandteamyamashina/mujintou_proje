@@ -90,7 +90,12 @@ public class NewItem : MonoBehaviour
     public void MinStack(int _Value)
     {
         CurrentStackCount -= _Value;
+        if (CurrentStackCount <= 0)
+        {
+            GameObject.Find("InventoryManager").GetComponent<InventoryManagerVer>().btnListReset();
+        }
         txStack.text = CurrentStackCount.ToString();
+        
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

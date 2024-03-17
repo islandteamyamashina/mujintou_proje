@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class InventoryManagerVer : MonoBehaviour
 {
+
     //  テキスト表示用
     public Text txName, txInfo;
     [SerializeField] private Button btnUseButton, btnTrashButton;
+    [SerializeField] NewItem dummy;
     private NewItem item;
     private bool isClick, isItemFull;
-    [SerializeField,Header("この配列の最後には必ず捨てる画面のスロットを入れてください")] InventorySlotVer[]  cpSlots;
+    [SerializeField, Header("この配列の最後には必ず捨てる画面のスロットを入れてください")] InventorySlotVer[] cpSlots;
     [SerializeField] TrashItemSystem cpTrashSystem;
 
     private void Start()
@@ -47,8 +48,8 @@ public class InventoryManagerVer : MonoBehaviour
                     Destroy(_ItemValue);
                     return;
                 }
-                    //  あふれる
-                    Debug.Log("あれた");
+                //  あふれる
+                Debug.Log("あれた");
                 cpSlots[i].EnableSlot();
                 cpSlots[i].SetItem(_ItemValue);
                 cpTrashSystem.EnableTrashArea();
@@ -105,17 +106,16 @@ public class InventoryManagerVer : MonoBehaviour
     public void SendTrash(NewItem _CurrentItem)
     {
         _CurrentItem.TrashItem();
-    }
+        btnListReset();    }
     public void btnListReset()
     {
         if (item == null) return;
 
-        if (item.ScriptalItem.stackCount <= 0)
-        {
             isClick = false;
             btnUseButton.onClick.RemoveAllListeners();
             btnTrashButton.onClick.RemoveAllListeners();
             item = null;
-        }
+        
     }
+
 }

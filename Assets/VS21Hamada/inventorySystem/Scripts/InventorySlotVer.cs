@@ -50,6 +50,7 @@ public class InventorySlotVer : MonoBehaviour
         if (cpInSlotItem != null)
             if (Input.GetMouseButtonDown(1) && isMouseOver)
             {
+                cpInventoryManager.btnListReset();
                 if (enMode == SlotMode.Storage)
                 {
                     //  マウスが重なっている + マウスの右クリック押したときにマネージャーの関数呼び出し
