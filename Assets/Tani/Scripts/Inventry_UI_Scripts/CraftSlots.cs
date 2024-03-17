@@ -30,15 +30,21 @@ public class CraftSlots : SlotManager
     TextAsset recipe_book;
     [SerializeField]
     List<CraftRecipe> recipes;
+    [SerializeField]
+    string recipe_save_fileName;
 
 
     int input_slot_num = 0;
 
     int? recipe_index = null;
     bool isCraftable = false;
-
+    string recipe_data_save_folder = Application.dataPath + "/Tani/Saves/";
+    string default_save_name = "default_recipe_save";
     protected override void Awake()
     {
+        recipe_data_save_folder = Application.dataPath + "/Tani/Saves/";
+
+
         data.index_igonored.Clear();
         var n = data.extra_slots[0];
         data.extra_slots.Clear();
@@ -47,14 +53,16 @@ public class CraftSlots : SlotManager
         
         base.Awake();
         
-        recipes.Clear();
+
         
     }
     protected override void Start()
     {
         SetItemToSlot(Items.Item_ID.Plank, 1, 3);
+
+        Save();
+
         
-        LoadRecipeData();
     }
 
     public override void SlotReconstruct()
@@ -262,9 +270,10 @@ public class CraftSlots : SlotManager
         return null;
     }
 
-    void LoadRecipeData()
+    public  void LoadRecipeData()
     {
         if (!recipe_book) return;
+        recipes.Clear();
         string raw_text = recipe_book.text;
         var str_per_line = raw_text.Split("\n");
         foreach(var line in str_per_line)
@@ -286,9 +295,41 @@ public class CraftSlots : SlotManager
         }
     }
 
-    void SaveRecipeData()
+    private void SaveRecipeData(string fileName)
     {
-        if (!recipe_book) return;
+        var path = recipe_data_save_folder + fileName + ".txt";
+        print(path);
+        
+        LinkedList<string> strs = new LinkedList<string>();
+        foreach(var n in recipes)
+        {
+            string line = "";
+            foreach(var value in n.input_items)
+            {
+                line += ((int)value).ToString() + ",";
+            }
+            line += ((int)n.crafted_item).ToString() + ",";
+            line += n.craft_num.ToString();
+            strs.AddLast(line);
+        }
+        File.WriteAllLines(path, strs.ToArray());
+
+
+    }
+
+    public void Save()
+    {
+        
+        if (recipe_save_fileName.Trim().Length == 0)
+        {
+           
+            SaveRecipeData(default_save_name);
+        }
+        else
+        {
+             print("save defualt recipe");
+            SaveRecipeData(recipe_save_fileName);
+        }
     }
 
 }
@@ -312,7 +353,7 @@ class CraftSlotsInspector : Editor
         //  base.OnInspectorGUI();
         serializedObject.Update();
 
-        var manager = target as SlotManager;
+        var manager = target as CraftSlots;
         using (var check = new EditorGUI.ChangeCheckScope())
         {
             EditorGUILayout.PropertyField(property_slot_editable, new GUIContent("データを編集"));
@@ -339,11 +380,40 @@ class CraftSlotsInspector : Editor
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("Slots_Main"), new GUIContent("表示の切り替え元"));
 
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("craft_output_slot"), new GUIContent("output slot"));
 
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("recipe_book"), new GUIContent("参照先レシピ"));
 
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("recipes"), new GUIContent("クラフトレシピ"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("craft_output_slot"), new GUIContent("出力先スロット"));
+
+
+     
+
+
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("recipe_save_fileName"), new GUIContent("レシピ保存先の名前"));
+
+        using (var check = new EditorGUI.ChangeCheckScope())
+        {
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("recipe_book"), new GUIContent("参照先レシピ"));
+            if (check.changed)
+            {
+                serializedObject.ApplyModifiedProperties();
+                manager.LoadRecipeData();
+                serializedObject.Update();
+
+            }
+
+        }
+        using (var check = new EditorGUI.ChangeCheckScope())
+        {
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("recipes"), new GUIContent("クラフトレシピ"));
+            if (check.changed)
+            {
+                serializedObject.ApplyModifiedProperties();
+                manager.Save();
+                serializedObject.Update();
+
+            }
+
+        }
 
 
         serializedObject.ApplyModifiedProperties();

@@ -322,6 +322,17 @@ public class SlotManager : MonoBehaviour
 
         if(!src.can_place_item && dis.Affiliation.GetSlotItem(dis.Slot_index).Value.id != Items.Item_ID.EmptyObject)
         {
+            //移動先のスロットにアイテムをスタックできるか
+            if (dis.Affiliation.CanSlotOverlapItem(dis.Slot_index, src.Affiliation.item_list[src.Slot_index].id, src.Affiliation.item_list[src.Slot_index].amount))
+            {
+                dis.Affiliation.ChangeSlotItemAmount(
+                    dis.Affiliation.item_list[dis.Slot_index].amount + src.Affiliation.item_list[src.Slot_index].amount
+                    , dis.Slot_index);
+                src.Affiliation.ClearSlot(src.Slot_index);
+                return true;
+            }
+
+
             return false;
         }
         #endregion
