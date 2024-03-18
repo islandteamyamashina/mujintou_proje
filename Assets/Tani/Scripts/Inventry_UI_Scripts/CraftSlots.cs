@@ -42,7 +42,6 @@ public class CraftSlots : SlotManager
     string default_save_name = "default_recipe_save";
     protected override void Awake()
     {
-        recipe_data_save_folder = Application.dataPath + "/Tani/Saves/";
 
 
         data.index_igonored.Clear();
@@ -272,7 +271,13 @@ public class CraftSlots : SlotManager
 
     public  void LoadRecipeData()
     {
-        if (!recipe_book) return;
+        #region error回避
+        if (!recipe_book)
+        {
+            Debug.LogError("参照先レシピが登録されていません");
+            return;
+        }
+        #endregion
         recipes.Clear();
         string raw_text = recipe_book.text;
         var str_per_line = raw_text.Split("\n");
@@ -284,8 +289,15 @@ public class CraftSlots : SlotManager
             recipe.input_items = new List<Items.Item_ID>();
             for (int i = 0;i < data_per_slot.Length - 2; i++)
             {
-                
-                recipe.input_items.Add((Items.Item_ID)int.Parse(data_per_slot[i]));
+                int int_data = 0;
+                #region TryParseのエラー回避
+                if (!int.TryParse(data_per_slot[i],out int_data))
+                {
+                    Debug.LogError("参照先レシピの読み込みに失敗\n形式が正しいか確認してください");
+                    return;
+                }
+                #endregion
+                recipe.input_items.Add((Items.Item_ID)int_data);
             }
             recipe.crafted_item = (Items.Item_ID)int.Parse(data_per_slot[data_per_slot.Length - 2]);
             recipe.craft_num = int.Parse(data_per_slot[data_per_slot.Length - 1]);
@@ -298,7 +310,6 @@ public class CraftSlots : SlotManager
     private void SaveRecipeData(string fileName)
     {
         var path = recipe_data_save_folder + fileName + ".txt";
-        print(path);
         
         LinkedList<string> strs = new LinkedList<string>();
         foreach(var n in recipes)
@@ -327,11 +338,11 @@ public class CraftSlots : SlotManager
         }
         else
         {
-             print("save defualt recipe");
             SaveRecipeData(recipe_save_fileName);
         }
     }
 
+    
 }
 
 
@@ -340,20 +351,26 @@ public class CraftSlots : SlotManager
 class CraftSlotsInspector : Editor
 {
     SerializedProperty property_slot_editable;
+    CraftSlots manager;
 
+    bool bShowLoadAction = false;
+    bool bShowSaveAction = false;
     private void OnEnable()
     {
-        var manager = target as SlotManager;
+        manager = target as CraftSlots;
         property_slot_editable = serializedObject.FindProperty("slot_data_editable");
 
     }
 
+    
     public override void OnInspectorGUI()
     {
         //  base.OnInspectorGUI();
         serializedObject.Update();
 
-        var manager = target as CraftSlots;
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("Slots_Main"), new GUIContent("表示の切り替え元"));
+
+
         using (var check = new EditorGUI.ChangeCheckScope())
         {
             EditorGUILayout.PropertyField(property_slot_editable, new GUIContent("データを編集"));
@@ -378,33 +395,67 @@ class CraftSlotsInspector : Editor
 
         EditorGUI.EndDisabledGroup();
 
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("Slots_Main"), new GUIContent("表示の切り替え元"));
 
 
 
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("craft_output_slot"), new GUIContent("出力先スロット"));
 
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("craft_output_slot"), new GUIContent("出力先スロット","extra_slotsに指定したものと同じものを入れてください"));
 
-     
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("recipes"), new GUIContent("クラフトレシピ"));
 
-
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("recipe_save_fileName"), new GUIContent("レシピ保存先の名前"));
-
-        using (var check = new EditorGUI.ChangeCheckScope())
+        bShowLoadAction = EditorGUILayout.BeginFoldoutHeaderGroup(bShowLoadAction, "レシピの読み込み");
+        if (bShowLoadAction)
         {
+
             EditorGUILayout.PropertyField(serializedObject.FindProperty("recipe_book"), new GUIContent("参照先レシピ"));
-            if (check.changed)
+            EditorGUILayout.LabelField("現在のクラフトレシピは上書きされます", EditorStyles.boldLabel);
+            GUILayout.BeginHorizontal();
+         
+            var loadButtonDown =  GUILayout.Button("読み込み", GUILayout.ExpandWidth(true), GUILayout.Height(30));
+            GUILayout.EndHorizontal();
+            if (loadButtonDown)
             {
+                Debug.Log("レシピを読み込み");
                 serializedObject.ApplyModifiedProperties();
                 manager.LoadRecipeData();
                 serializedObject.Update();
 
             }
+         
+        }
+        EditorGUILayout.EndFoldoutHeaderGroup();
+
+        bShowSaveAction = EditorGUILayout.BeginFoldoutHeaderGroup(bShowSaveAction, "レシピの書き出し");
+        if (bShowSaveAction)
+        {
+
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("recipe_save_fileName"), new GUIContent("レシピ保存先の名前"));
+            EditorGUILayout.LabelField(new GUIContent("Asset/Tani/Saves/レシピ保存先の名前.txtに保存されます"
+                ,"名前がないときはDefault_recipe_saveとして保存されます"), EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("同名が存在するとき上書きされます", EditorStyles.boldLabel);
+
+            var saveButtonDown = GUILayout.Button("書き出し", GUILayout.ExpandWidth(true), GUILayout.Height(30));
+            if (saveButtonDown)
+            {
+                Debug.Log("レシピを書き出し");
+                serializedObject.ApplyModifiedProperties();
+                manager.Save();
+                serializedObject.Update();
+
+            }
 
         }
+        EditorGUILayout.EndFoldoutHeaderGroup();
+
+
+
+
+        
+
+      
         using (var check = new EditorGUI.ChangeCheckScope())
         {
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("recipes"), new GUIContent("クラフトレシピ"));
+           
             if (check.changed)
             {
                 serializedObject.ApplyModifiedProperties();
