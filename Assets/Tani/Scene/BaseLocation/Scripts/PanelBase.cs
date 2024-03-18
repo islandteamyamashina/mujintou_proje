@@ -6,16 +6,25 @@ public class PanelBase : MonoBehaviour
 {
     [SerializeField]
     GameObject parent;
+    [SerializeField]
+    Canvas ownedMainCanvas;
 
+    public int SortOrder { get; protected set; } = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    virtual protected void Awake()
     {
-        transform.SetParent(parent.transform);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    virtual protected void Start()
+    {
+        transform.SetParent(parent.transform);
+        ownedMainCanvas.overrideSorting = true;
+        ownedMainCanvas.sortingOrder = SortOrder;
+    }
+
+
+    virtual protected void Update()
     {
         
     }
