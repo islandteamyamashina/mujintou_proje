@@ -49,6 +49,7 @@ public class KyotenToOtherspace : CreditPanel1
     void Start()
     {
         GameObject.Find("MaintoInventoryPanel").transform.position = Vector3.zero;
+        GameObject.Find("SozaibakoPanel").transform.position = Vector3.zero;
 
         //inventory.SetActive(false);
         //TakibiTabu_timer = 0.0f;
@@ -110,7 +111,7 @@ public class KyotenToOtherspace : CreditPanel1
     public override void SubView()
     {
         mainPanel.SetActive(false);
-        subPanel.SetActive(true);
+        //subPanel.SetActive(true);
         OptionPanel.SetActive(false);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
@@ -119,6 +120,10 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
+        GameObject.Find("SozaibakoSlotManager").transform.position = Vector3.zero;
+        GameObject.Find("MaintoInventoryPanel").transform.position = Vector3.zero;
+
+
         //wakimizu_tabu.SetActive(false);
         //GameObject.Find("Inventory").transform.position = Vector3.zero;
         //newbutton.SetActive(false); 
@@ -296,6 +301,8 @@ public class KyotenToOtherspace : CreditPanel1
         GameObject.Find("MaintoInventoryPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+
     }
 
 
@@ -387,6 +394,24 @@ public class KyotenToOtherspace : CreditPanel1
         }
 
     }
+    public override void SozaibakoView()
+    {
+        mainPanel.SetActive(false);
+        //subPanel.SetActive(true);
+        OptionPanel.SetActive(false);
+        TakibiPanel.SetActive(false);
+        WakimizuPanel.SetActive(false);
+        cookingPanel.SetActive(false);
+        sleeppingPanel.SetActive(false);
+        takibi_tabu.SetActive(false);
+        TansakuPanel.SetActive(false);
+        Cooking_messagePanel.SetActive(false);
+        GameObject.Find("SozaibakoSlotManager").transform.position = Vector3.zero;
+        GameObject.Find("MaintoInventoryPanel").transform.position = Vector3.zero;
+        GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+
+
+    }
 
 
 
@@ -427,13 +452,14 @@ public class KyotenToOtherspace : CreditPanel1
         //GameObject.Find("Inventory").transform.position = Vector3.zero;
         GameObject.Find("InventorySlotManager").transform.position = Vector3.zero;
         GameObject.Find("InventoryUIPanel").transform.position = Vector3.zero;
+        GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
         //inventory = GameObject.Find("Inventory");
 
         //newbutton.SetActive(false); 
         //wakimizu_tabu.SetActive(false);
     }
-   
+
 
 
     // }
