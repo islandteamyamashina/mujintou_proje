@@ -31,6 +31,10 @@ public class FirstSceneController : MonoBehaviour
 
 
     }
+    public void NextScene()
+    {
+        SceneManager.LoadScene(7);
+    }
 
     
 }
