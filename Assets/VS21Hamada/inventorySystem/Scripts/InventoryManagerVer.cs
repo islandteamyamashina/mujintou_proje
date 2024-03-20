@@ -67,7 +67,7 @@ public class InventoryManagerVer : MonoBehaviour
             }
         }
     }
-    public bool GetIsItemFull()
+    public  bool GetIsItemFull()
     {
         return isItemFull;
     }

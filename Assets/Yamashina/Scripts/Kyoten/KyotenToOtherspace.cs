@@ -49,7 +49,7 @@ public class KyotenToOtherspace : CreditPanel1
     void Start()
     {
         GameObject.Find("MaintoInventoryPanel").transform.position = Vector3.zero;
-        GameObject.Find("SozaibakoPanel").transform.position = Vector3.zero;
+        //GameObject.Find("SozaibakoPanel").transform.position = Vector3.zero;
 
         //inventory.SetActive(false);
         //TakibiTabu_timer = 0.0f;

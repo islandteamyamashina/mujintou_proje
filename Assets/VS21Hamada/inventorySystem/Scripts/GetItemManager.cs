@@ -6,6 +6,7 @@ public class GetItemManager : MonoBehaviour
 {
     [SerializeField,Header("全アイテム格納必須")] GameObject[] goAllItemPrefabs;
     [SerializeField, Header("inventoryマネージャー取得してね")] InventoryManagerVer cpInventoryManager;
+
     private void Update()
     {
         //  debug用。Update内はコメントアウトしてね
@@ -22,7 +23,7 @@ public class GetItemManager : MonoBehaviour
     /// <param name="_ItemID"></param>
     public void GetNewItem(int _ItemID)
     {
-        Transform parent = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Transform>();
+         Transform parent = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Transform>();
 
         var item = Instantiate(goAllItemPrefabs[_ItemID],parent);
         item.transform.localScale *= 20;
