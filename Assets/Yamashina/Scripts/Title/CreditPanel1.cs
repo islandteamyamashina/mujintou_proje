@@ -40,8 +40,9 @@ public class CreditPanel1 : MonoBehaviour
 
         //ExitInventory.interactable = false;
         //invenntory.interactable = true;
+        GameObject.Find("PlayerPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
-        GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        //GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
         //inventory = GameObject.Find("Inventory");
         //inventory.SetActive(false);
@@ -136,7 +137,7 @@ public class CreditPanel1 : MonoBehaviour
         GameObject.Find("InventoryUIPanel").transform.position = Vector3.zero;
         GameObject.Find("MaintoInventoryPanel").transform.position = new Vector3((float)805.2, (float)396.705, 0);
         GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-        GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        //GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
 
         //inventory = GameObject.Find("Inventory");
@@ -150,7 +151,7 @@ public class CreditPanel1 : MonoBehaviour
         GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("MaintoInventoryPanel").transform.position = Vector3.zero;
         GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-        GameObject.Find("SozaibakoPanel").transform.position = Vector3.zero;
+        //GameObject.Find("SozaibakoPanel").transform.position = Vector3.zero;
 
 
         //ExitInventory.interactable = false;
@@ -178,7 +179,7 @@ public class CreditPanel1 : MonoBehaviour
         
         GameObject.Find("SozaibakoSlotManager").transform.position = Vector3.zero;
         GameObject.Find("MaintoInventoryPanel").transform.position = Vector3.zero;
-        GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        //GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
 
 

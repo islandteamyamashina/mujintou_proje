@@ -54,7 +54,8 @@ public class Sentakushi_Method : Event_Text
 
     private void Start()
     {
-        Event_num = 0;
+        cpInventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManagerVer>();
+        GetItemManager = GameObject.Find("AllItemSpawnSystem").GetComponent<GetItemManager>();
         //DoEvent = 0;
         Debug.Log(event_manage.start_event_num);
         Set_Sentakusi_Words(event_manage.eventDatas[event_manage.start_event_num].Sentakusi1, 
@@ -313,7 +314,7 @@ public class Sentakushi_Method : Event_Text
                         {
                             Debug.Log("get");
                             event_manage.newItem[i].CurrentStackCount++;
-                            if (!cpInventoryManager.GetIsItemFull())
+                 if (!cpInventoryManager.GetIsItemFull())
                             {
                                 GetItemManager.GetNewItem(event_manage.newItem[i].ScriptalItem.itemID);
                             }
