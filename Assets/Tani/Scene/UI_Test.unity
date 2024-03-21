@@ -2210,6 +2210,7 @@ RectTransform:
   m_Children:
   - {fileID: 880567045}
   - {fileID: 2070163322}
+  - {fileID: 1886803084}
   m_Father: {fileID: 10268393}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4985,6 +4986,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860006423}
   m_CullTransparentMesh: 1
+--- !u!1 &1886803083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1886803084}
+  - component: {fileID: 1886803085}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1886803084
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886803083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 621874010}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1886803085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886803083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15cf78290df8d8445a209304fc789c05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    slot_horizontal_num: 3
+    slot_vertical_num: 0
+    margin_horizontal: 20
+    margin_vertical: 20
+    slot_prefab: {fileID: 0}
+    slot_parent: {fileID: 0}
+    index_igonored: 
+    extra_slots: []
+  Slots_Main: {fileID: 0}
+  slot_data_editable: 0
+  craft_output_slot: {fileID: 0}
+  recipe_book: {fileID: 4900000, guid: 810ac8d115909074193a61e2fff201ba, type: 3}
+  recipes:
+  - input_items: 020000000000000000000000
+    crafted_item: 1
+    craft_num: 1
+  - input_items: 020000000400000000000000
+    crafted_item: 3
+    craft_num: 1
+  - input_items: 04000000
+    crafted_item: 2
+    craft_num: 23
+  - input_items: 02000000020000000200000002000000
+    crafted_item: 3
+    craft_num: 1
+  - input_items: 04000000040000000400000003000000
+    crafted_item: 2
+    craft_num: 2
+  recipe_save_fileName: 
 --- !u!1 &1922485215
 GameObject:
   m_ObjectHideFlags: 0

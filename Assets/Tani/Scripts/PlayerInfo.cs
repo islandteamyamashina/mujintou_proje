@@ -136,6 +136,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         }
     }
 
+    public int StartArea { get; set; } = 0;
+
 
     public enum Weather
     {
