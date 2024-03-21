@@ -121,7 +121,7 @@ public class Sentakushi_Method : Event_Text
             textControl.ResetTextData();
             textControl.AddTextData
                 /*Text_Disply*/(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Result1);
-            getItem("Sentakusi1");
+            getItem(2);
             //_sentakusi1.SetActive(false);
             _sentakusi2.SetActive(false);
             _sentakusi3.SetActive(false);
@@ -161,7 +161,7 @@ public class Sentakushi_Method : Event_Text
         {
             textControl.ResetTextData();
             textControl.AddTextData(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Result1);
-            getItem("Sentakusi2");
+            getItem(1);
             _sentakusi1.SetActive(false);
             _sentakusi3.SetActive(false);
             allShadow(false);
@@ -276,9 +276,9 @@ public class Sentakushi_Method : Event_Text
         shadow3.SetActive(false);
     }
 
-    void getItem(string Sentakusi)
+    void getItem(int Sentakusi)
     {
-        if (Sentakusi == "Sentakusi1")
+        if (Sentakusi == 0)
         {
             if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1 != 0)
             {
@@ -332,13 +332,18 @@ public class Sentakushi_Method : Event_Text
                         {
                             Debug.Log("get");
                             //event_manage.newItem[i].CurrentStackCount++;
+                            event_manage.newItem[i].CurrentStackCount++;
+                            if (!cpInventoryManager.GetIsItemFull())
+                            {
+                                GetItemManager.GetNewItem(event_manage.newItem[i].ScriptalItem.itemID);
+                            }
                         }
                     }
                 }
             }
             
         }
-        if (Sentakusi == "Sentakusi2")
+        if (Sentakusi == 1)
         {
             if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1 != 0)
             {
@@ -350,6 +355,11 @@ public class Sentakushi_Method : Event_Text
                         for (int j = 0; j < event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1_num; j++)
                         {
                             Debug.Log("get");
+                            event_manage.newItem[i].CurrentStackCount++;
+                            if (!cpInventoryManager.GetIsItemFull())
+                            {
+                                GetItemManager.GetNewItem(event_manage.newItem[i].ScriptalItem.itemID);
+                            }
                         }
                     }
                 }
@@ -364,6 +374,11 @@ public class Sentakushi_Method : Event_Text
                         for (int j = 0; j < event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward2_num; j++)
                         {
                             Debug.Log("get");
+                            event_manage.newItem[i].CurrentStackCount++;
+                            if (!cpInventoryManager.GetIsItemFull())
+                            {
+                                GetItemManager.GetNewItem(event_manage.newItem[i].ScriptalItem.itemID);
+                            }
                         }
                     }
                 }
@@ -378,6 +393,11 @@ public class Sentakushi_Method : Event_Text
                         for (int j = 0; j < event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward3_num; j++)
                         {
                             Debug.Log("get");
+                            event_manage.newItem[i].CurrentStackCount++;
+                            if (!cpInventoryManager.GetIsItemFull())
+                            {
+                                GetItemManager.GetNewItem(event_manage.newItem[i].ScriptalItem.itemID);
+                            }
                         }
                     }
                 }
