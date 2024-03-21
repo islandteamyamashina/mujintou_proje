@@ -23,11 +23,11 @@ public class Event_Manage : MonoBehaviour
         }
         if (start_area == 1)
         {
-            start_event_num = Random.Range(6, 9) + 1;
+            start_event_num = Random.Range(13, 16) + 1;
             //Debug.Log("start_num‚Í" + start_event_num + "‚Å‚·");
-            if (start_event_num > 9)
+            if (start_event_num > 16)
             {
-                start_event_num = 9;
+                start_event_num = 16;
             }
         }
         now_event_num = start_event_num;

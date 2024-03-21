@@ -17,7 +17,9 @@ public class Keizoku_Botton : MonoBehaviour
     public void onBackHome()
     {
         fade.scene_name_num = 2;
-        fade.feadout_f = true;
+        PlayerInfo.Instance.DoAction();
+        fade.feadout_f = true;        
+
     }
 
     private void BackIvent()

@@ -83,7 +83,7 @@ public class Sentakushi_Method : Event_Text
                     backHomeButton.SetActive(true);
 
 
-                    if (Event_num >= MaxCanEvent)
+                    if (Event_num >= MaxCanEvent || next_num_tnp / 1000 >= 10)
                     {
                         shadow1.SetActive(true);
                     }
