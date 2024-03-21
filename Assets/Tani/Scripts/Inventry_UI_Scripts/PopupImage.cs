@@ -16,8 +16,8 @@ public class PopupImage : MonoBehaviour,IDeselectHandler
     [SerializeField]
     Button DeleteButton;
 
-    int normal_layer = 2;
-    int popup_layer = 3;
+    int normal_layer = 3;
+    int popup_layer = 4;
 
     void Start()
     {
