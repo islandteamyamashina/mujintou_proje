@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class PanelBase : MonoBehaviour
 {
-    [SerializeField]
-    GameObject parent;
+
     [SerializeField]
     Canvas ownedMainCanvas;
 
-    public int SortOrder { get; protected set; } = 0;
 
     virtual protected void Awake()
     {
@@ -18,9 +16,7 @@ public class PanelBase : MonoBehaviour
 
     virtual protected void Start()
     {
-        transform.SetParent(parent.transform);
-        ownedMainCanvas.overrideSorting = true;
-        ownedMainCanvas.sortingOrder = SortOrder;
+
     }
 
 
@@ -37,5 +33,20 @@ public class PanelBase : MonoBehaviour
     public void SwitchEnabaled()
     {
         gameObject.SetActive(!gameObject.activeSelf);
+    }
+
+    protected void SetSortOrder(OrderOfUI order)
+    {
+        ownedMainCanvas.overrideSorting = true;
+        ownedMainCanvas.sortingOrder = (int)order;
+    }
+
+    protected enum OrderOfUI
+    {
+        MainPanel,
+        NormalPanel,
+        Inventry,
+        PlayerStatus,
+        Option,
     }
 }

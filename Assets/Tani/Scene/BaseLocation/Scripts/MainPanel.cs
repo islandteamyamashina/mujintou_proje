@@ -14,12 +14,12 @@ public class MainPanel : PanelBase
 
     protected override void Awake()
     {
-        SortOrder = 0;
+        
     }
 
     protected override void Start()
     {
-        
+        SetSortOrder(OrderOfUI.MainPanel);
     }
 
     // Update is called once per frame
