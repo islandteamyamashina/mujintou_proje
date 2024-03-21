@@ -31,6 +31,7 @@ public class Event_Manage : MonoBehaviour
             }
         }
         now_event_num = start_event_num;
+        now_event_num = 18;
         Debug.Log(eventDatas[start_event_num].Main_Text);
     }
 
