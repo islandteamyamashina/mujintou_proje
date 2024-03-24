@@ -123,7 +123,7 @@ public class Sentakushi_Method : Event_Text
             textControl.ResetTextData();
             textControl.AddTextData
                 /*Text_Disply*/(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Result1);
-            getItem(2);
+            getItem(0);
             //_sentakusi1.SetActive(false);
             _sentakusi2.SetActive(false);
             _sentakusi3.SetActive(false);
