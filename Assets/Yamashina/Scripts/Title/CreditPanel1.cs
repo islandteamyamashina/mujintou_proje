@@ -60,10 +60,10 @@ public class CreditPanel1 : MonoBehaviour
         AllButtonStopImage.SetActive(false);
         ContinueButtonStopImage.SetActive(false);
         GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-        GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        //GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("MaintoInventoryPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-        GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        //GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
 
         start.interactable = true;
@@ -175,10 +175,12 @@ public class CreditPanel1 : MonoBehaviour
     }
     public virtual void SozaibakoView()
     {
-       
-        
+        GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+
+
         GameObject.Find("SozaibakoSlotManager").transform.position = Vector3.zero;
-        GameObject.Find("MaintoInventoryPanel").transform.position = Vector3.zero;
+        GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+
         //GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
 
