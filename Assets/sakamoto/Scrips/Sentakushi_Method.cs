@@ -54,7 +54,7 @@ public class Sentakushi_Method : Event_Text
 
     private void Start()
     {
-        cpInventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManagerVer>();
+        cpInventoryManager = GameObject.Find("InventorySlotManager").GetComponent<InventoryManagerVer>();
         GetItemManager = GameObject.Find("AllItemSpawnSystem").GetComponent<GetItemManager>();
         Event_num = 0;
         //DoEvent = 0;

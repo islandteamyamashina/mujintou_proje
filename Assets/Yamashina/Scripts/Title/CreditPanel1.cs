@@ -36,7 +36,7 @@ public class CreditPanel1 : MonoBehaviour
         GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("MaintoInventoryPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-        GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
 
         //ExitInventory.interactable = false;
         //invenntory.interactable = true;
@@ -62,7 +62,7 @@ public class CreditPanel1 : MonoBehaviour
         GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         //GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("MaintoInventoryPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-        GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
         //GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
 
@@ -136,7 +136,7 @@ public class CreditPanel1 : MonoBehaviour
         GameObject.Find("InventorySlotManager").transform.position = Vector3.zero;
         GameObject.Find("InventoryUIPanel").transform.position = Vector3.zero;
         GameObject.Find("MaintoInventoryPanel").transform.position = new Vector3((float)805.2, (float)396.705, 0);
-        GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
         //GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
 
@@ -150,7 +150,7 @@ public class CreditPanel1 : MonoBehaviour
         GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("MaintoInventoryPanel").transform.position = Vector3.zero;
-        GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
         //GameObject.Find("SozaibakoPanel").transform.position = Vector3.zero;
 
 

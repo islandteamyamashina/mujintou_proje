@@ -7,13 +7,17 @@ using UnityEngine.UI;
 
 public class LoadScene : MonoBehaviour
 {
-    
-  
+
+    private void Start()
+    {
+        image.SetActive(false); 
+    }
     [SerializeField] Fade fade;
     [SerializeField] Text Text;
 
     [SerializeField]Button continueButton;
     [SerializeField] CreditPanel1 CreditPanel1;
+    [SerializeField] GameObject image;
     // Update is called once per frame
     public void Text_of_each_places(int num=0)
     {
@@ -43,17 +47,21 @@ public class LoadScene : MonoBehaviour
     {
         if (!DataManager.Instance.DoesSaveExist())
         {
-            continueButton.interactable = false;
-            string colorString = "#4D4D4D"; // 赤色の16進数文字列
+            image.SetActive(true);
+
+            string colorString = "#999999"; // 赤色の16進数文字列
             Color newColor;
             ColorUtility.TryParseHtmlString(colorString, out newColor); // 新しくColorを作成
             Text.color = newColor;
+
         }
         else
         {
             DataManager.Instance.Load();
             fade.scene_name_num = num;
             fade.feadout_f = true;
+            image.SetActive(false);
+
 
         }
     }
