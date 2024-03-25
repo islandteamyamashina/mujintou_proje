@@ -132,8 +132,7 @@ public class EventPanelBase : MonoBehaviour
         //テキストが終わるまでボタンを非表示に
         buttons_prefab_parent.gameObject.SetActive(false);
 
-        event_text_control.EndEvent.RemoveAllListeners();
-        event_text_control.EndEvent.AddListener(GameObject.FindWithTag("GameController").GetComponent<EventSceneControllerBase>().OnEndEvent);
+
     }
 
     public void ShowButtons()
@@ -199,8 +198,7 @@ public class EventPanelBase : MonoBehaviour
         }
         event_text_control.AddTextData(result_text);
 
-        event_text_control.EndEvent.RemoveAllListeners();
-        event_text_control.EndEvent.AddListener(GameObject.FindWithTag("GameController").GetComponent<EventSceneControllerBase>().OnEndEvent);
+
 
     }
 

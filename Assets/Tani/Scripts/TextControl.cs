@@ -35,7 +35,7 @@ public class TextControl : MonoBehaviour
     [SerializeField]
     bool use_end_event = false;
     [SerializeField]
-    public UnityEvent EndEvent;
+     UnityEvent EndEvent;
 
     [SerializeField]
     bool use_back_log_text = true;

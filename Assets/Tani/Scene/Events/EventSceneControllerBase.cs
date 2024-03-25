@@ -15,12 +15,12 @@ public class EventSceneControllerBase : MonoBehaviour
     }
     void Start()
     {
-        eventPanel.StartEvent(1);
+        eventPanel.SetRandomEvent();
     }
 
     public void OnEndEvent()
     {
-        eventPanel.StartEvent(1);
+       
     }
     public void RestartEvent()
     {
