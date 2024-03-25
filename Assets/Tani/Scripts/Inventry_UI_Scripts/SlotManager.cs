@@ -41,13 +41,17 @@ public class SlotManager : MonoBehaviour
     {
         SlotReconstruct();
         active_range = data.slot_prefab.GetComponent<RectTransform>().rect.width * 2;
-        
+
+        SetItemToSlot(Items.Item_ID.Fish, 2, 0);
+        SetItemToSlot(Items.Item_ID.Fish, 50, 1);
+        SetItemToSlot(Items.Item_ID.item_special_medicine, 10, 2);
+        SetItemToSlot(Items.Item_ID.item_mat_bottle, 10, 3);
+
     }
 
     virtual protected void Start()
     {
-        SetItemToSlot(Items.Item_ID.Fish, 2, 0);
-        SetItemToSlot(Items.Item_ID.Fish, 50, 1);
+
     }
 
     virtual protected void Update()
@@ -212,6 +216,17 @@ public class SlotManager : MonoBehaviour
         _Slots[slot_index].SetIcon(n.icon);
         _Slots[slot_index].SetAmoutText(num);
         return true;
+    }
+
+    public string GetItemName(Items.Item_ID item_ID)
+    {
+        var n = Resources.Load($"{item_ID}") as Items;
+        if (n == null)
+        {
+            Debug.LogError($"Couldn't find Item Data : {item_ID} in Resources");
+            return string.Empty;
+        }
+        return n.item_name;
     }
 
     public void ChangeSlotItemAmount(int new_Amount,int slot_index)
@@ -382,6 +397,32 @@ public class SlotManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public bool GetItem(Items.Item_ID id,int num)
+    {
+        
+        for (int i = 0; i < item_list.Length; i++)
+        {
+            if(item_list[i].id == id)
+            {
+                if (CanSlotOverlapItem(i, id, num))
+                {
+                    ChangeSlotItemAmount(item_list[i].amount + num, i);
+                    return true;
+                }
+            }
+        }
+
+        var slot = GetNullSlot();
+        if (slot)
+        {
+            SetItemToSlot(id, num, slot.Slot_index);
+            return true;
+        }else
+        {
+            return false;
+        }
     }
 
     public void SetVisible(bool visible)

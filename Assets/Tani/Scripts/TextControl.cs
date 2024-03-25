@@ -35,7 +35,7 @@ public class TextControl : MonoBehaviour
     [SerializeField]
     bool use_end_event = false;
     [SerializeField]
-    UnityEvent EndEvent;
+     UnityEvent EndEvent;
 
     [SerializeField]
     bool use_back_log_text = true;
@@ -132,10 +132,12 @@ public class TextControl : MonoBehaviour
 
 
         time_sum += Time.deltaTime;
-        if(time_sum > interval)
+         
+        if (time_sum > interval)
         {
+            
             time_sum = 0;
-            if(str_range < strs[str_page].Length)
+            if (str_range < strs[str_page].Length)
             {
                 str_range++;
                 UpdateText(str_range);
@@ -143,6 +145,22 @@ public class TextControl : MonoBehaviour
             else
             {
                 is_text_end = true;
+                OnTextEnd();
+            }
+        } else if (interval == 0){
+            while (!is_text_end)
+            {
+                time_sum = 0;
+                if (str_range < strs[str_page].Length)
+                {
+                    str_range++;
+                    UpdateText(str_range);
+                }
+                else
+                {
+                    is_text_end = true;
+                    OnTextEnd();
+                }
             }
         }
     }

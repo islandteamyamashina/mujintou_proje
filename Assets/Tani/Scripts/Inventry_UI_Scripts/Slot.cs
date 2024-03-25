@@ -25,12 +25,14 @@ public class Slot : MonoBehaviour
     //、アイテムのデータは所属先のManagerが持つ
 
     bool dragging_item_exist = false;
+    [SerializeField]
     int default_icon_canvas_sortinglayer = 3;
+    [SerializeField]
     int dragging_icon_canvas_sortinglayer = 4;
 
     private void Awake()
     {
-        item_icon_object.canvas.sortingOrder = default_icon_canvas_sortinglayer;
+        item_icon_object.canvas.sortingOrder =  default_icon_canvas_sortinglayer;
 
     }
     void Start()

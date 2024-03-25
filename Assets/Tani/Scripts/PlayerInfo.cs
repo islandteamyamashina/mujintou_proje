@@ -62,6 +62,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] private Text weather_text;
     [SerializeField] private Text day_text;
     [SerializeField] private List<TextureData> textureDatas;
+    [SerializeField] private SlotManager inventry;
 
 
     private int _player_Health;
@@ -138,6 +139,14 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     public int StartArea { get; set; } = 0;
 
+    public SlotManager Inventry
+    {
+        get
+        {
+            return inventry;
+        }
+
+    }
 
     public enum Weather
     {
@@ -148,6 +157,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     protected override void Awake()
     {
         base.Awake();
+        this.Inventry.SwitchVisible();
+        this.Inventry.SwitchVisible();
 
         DontDestroyOnLoad(gameObject);
 
@@ -159,6 +170,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         _player_Hunger = _Init_Player_Hunger;
         _player_Thirst = _Init_Player_Thirst;
         _player_Luck = 0;
+        
 
         if (DataManager.Instance.DoesSaveExist())
         {
