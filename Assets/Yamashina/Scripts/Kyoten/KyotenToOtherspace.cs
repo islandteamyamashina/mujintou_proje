@@ -14,6 +14,7 @@ public class KyotenToOtherspace : CreditPanel1
     [SerializeField] GameObject cookingPanel;
     [SerializeField] GameObject sleeppingPanel;
     [SerializeField] GameObject prefab;
+    [SerializeField]  GameObject InventoryPanel;
     [SerializeField] After_LocationSentaku1 after_LocationSentaku;
     [SerializeField] multiAudio multiAudio;
     [SerializeField] GameObject takibi_tabu;
@@ -21,6 +22,7 @@ public class KyotenToOtherspace : CreditPanel1
     [SerializeField] GameObject TansakuPanel;
     [SerializeField] GameObject Cooking_messagePanel;
     [SerializeField] GameObject Takibi_3PattonPanel;
+    [SerializeField] GameObject craftPanel;
 
     [SerializeField] GameObject shadow1;
     [SerializeField] GameObject shadow2;
@@ -37,18 +39,17 @@ public class KyotenToOtherspace : CreditPanel1
                                     //private float TakibiTabu_timer = 0.0f;
                                     //public float takibiTabu_wait = 0.5f;
                                     //  [SerializeField] public Text takibi_number; // 新しいUIパネルへの参照
-    //[SerializeField]Text yesbutton;
-    //[SerializeField] Text nobutton;
-    //[SerializeField] Text CookingButton;
-    //[SerializeField] GameObject newbutton;
-    //bool takibicheck = false;
+                                    //[SerializeField]Text yesbutton;
+                                    //[SerializeField] Text nobutton;
+                                    //[SerializeField] Text CookingButton;
+                                    //[SerializeField] GameObject newbutton;
+                                    //bool takibicheck = false;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Find("MaintoInventoryPanel").transform.position = Vector3.zero;
 
         //inventory.SetActive(false);
         //TakibiTabu_timer = 0.0f;
@@ -64,7 +65,7 @@ public class KyotenToOtherspace : CreditPanel1
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
-        //InventoryPanel.SetActive(true);
+        InventoryPanel.SetActive(false);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);
@@ -74,15 +75,16 @@ public class KyotenToOtherspace : CreditPanel1
         Cooking_messagePanel.SetActive(false);
         //InventoryMove();
         Takibi_3PattonPanel.SetActive(false);
+        craftPanel.SetActive(false);
         //newbutton.SetActive(false); 
-        
+
         //inventory.SetActive(true);
         //InventorySlot.SetActive(true);
 
 
         //wakimizu_tabu.SetActive(false);
     }
-   
+
     //private void Update()
     //{
 
@@ -102,6 +104,7 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
+        craftPanel.SetActive(false);
         //wakimizu_tabu.SetActive (false);        
         //InventoryMove()/*;*/
         //newbutton.SetActive(false);
@@ -110,7 +113,7 @@ public class KyotenToOtherspace : CreditPanel1
     public override void SubView()
     {
         mainPanel.SetActive(false);
-        //subPanel.SetActive(true);
+        subPanel.SetActive(true);
         OptionPanel.SetActive(false);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
@@ -120,7 +123,7 @@ public class KyotenToOtherspace : CreditPanel1
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
         GameObject.Find("SozaibakoSlotManager").transform.position = Vector3.zero;
-        GameObject.Find("MaintoInventoryPanel").transform.position = Vector3.zero;
+        craftPanel.SetActive(false);
 
 
         //wakimizu_tabu.SetActive(false);
@@ -140,6 +143,7 @@ public class KyotenToOtherspace : CreditPanel1
         Cooking_messagePanel.SetActive(false);
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
+        craftPanel.SetActive (false);   
         //wakimizu_tabu.SetActive(false);
         //InventoryMove();
         //newbutton.SetActive(false); 
@@ -147,7 +151,7 @@ public class KyotenToOtherspace : CreditPanel1
 
     }
 
-  
+
     public void WakimizuView()
     {
         mainPanel.SetActive(false);
@@ -161,6 +165,7 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
+        craftPanel.SetActive(false);
         //newbutton.SetActive(false);
         //wakimizu_tabu.SetActive(false);
 
@@ -181,6 +186,8 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(true);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
+        craftPanel.SetActive(false);
+
         //newbutton.SetActive(false);
 
 
@@ -207,6 +214,7 @@ public class KyotenToOtherspace : CreditPanel1
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
+        craftPanel.SetActive(false);
         //GameObject.Find("Inventory").transform.position = Vector3.zero;
 
 
@@ -234,10 +242,10 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
+        craftPanel.SetActive(false);
+
         //newbutton.SetActive(false);
-        GameObject.Find("MaintoInventoryPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-        GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
         //wakimizu_tabu.SetActive(false);
 
@@ -257,6 +265,8 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(true);
         TansakuPanel.SetActive(false);
         //newbutton.SetActive(false);
+        craftPanel.SetActive(false);
+
 
         Cooking_messagePanel.SetActive(false);
         /* if (takibi_tabu == true)
@@ -291,15 +301,15 @@ public class KyotenToOtherspace : CreditPanel1
         WakimizuPanel.SetActive(false);
         sleeppingPanel.SetActive(false);
         //newbutton.SetActive(false);
+        craftPanel.SetActive(false);
 
         //どこに行けるかの確認
         shadowCheck();
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(true);
         Cooking_messagePanel.SetActive(false);
-        GameObject.Find("MaintoInventoryPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+
         GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-        GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
 
     }
@@ -331,6 +341,8 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(true);
+        craftPanel.SetActive(false);
+
         //newbutton.SetActive(false);
 
 
@@ -393,10 +405,10 @@ public class KyotenToOtherspace : CreditPanel1
         }
 
     }
-    public override void SozaibakoView()
+    public  void SozaibakoView()
     {
         mainPanel.SetActive(false);
-        //subPanel.SetActive(true);
+        subPanel.SetActive(true);
         OptionPanel.SetActive(false);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
@@ -405,7 +417,7 @@ public class KyotenToOtherspace : CreditPanel1
         takibi_tabu.SetActive(false);
         TansakuPanel.SetActive(false);
         Cooking_messagePanel.SetActive(false);
-        GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        craftPanel.SetActive(false);
 
 
         GameObject.Find("SozaibakoSlotManager").transform.position = Vector3.zero;
@@ -446,12 +458,11 @@ public class KyotenToOtherspace : CreditPanel1
     //     //yesbutton.text = "ライター";
     //     //nobutton.text = "弓式";
     //     //CookingButton.text = "きりもみ";
-    public  override void InventoryView()
+    public  void InventoryView()
     {
-       
+        InventoryPanel.SetActive(true);
         //GameObject.Find("Inventory").transform.position = Vector3.zero;
         GameObject.Find("InventorySlotManager").transform.position = Vector3.zero;
-        GameObject.Find("InventoryUIPanel").transform.position = Vector3.zero;
         GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
 
         //inventory = GameObject.Find("Inventory");
@@ -459,7 +470,20 @@ public class KyotenToOtherspace : CreditPanel1
         //newbutton.SetActive(false); 
         //wakimizu_tabu.SetActive(false);
     }
-
+    public void CraftPanelView()
+    {
+        mainPanel.SetActive(false);
+        subPanel.SetActive(false);
+        OptionPanel.SetActive(false);
+        TakibiPanel.SetActive(false);
+        WakimizuPanel.SetActive(false);
+        cookingPanel.SetActive(false);
+        sleeppingPanel.SetActive(false);
+        takibi_tabu.SetActive(false);
+        TansakuPanel.SetActive(false);
+        Cooking_messagePanel.SetActive(false);
+        craftPanel.SetActive(true);
+    }
 
 
     // }
