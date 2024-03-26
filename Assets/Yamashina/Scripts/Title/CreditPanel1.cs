@@ -34,7 +34,6 @@ public class CreditPanel1 : MonoBehaviour
     void Start()
     {
         GameObject.Find("PlayerPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-        GameObject.Find("InventryPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
