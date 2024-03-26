@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CreditPanel1 : MonoBehaviour
 {
-    public GameObject AllButtonStopImage;
-    public GameObject ContinueButtonStopImage;
+   
     //public GameObject UICanvas;
     public GameObject mainPanel;
     public GameObject subPanel;
@@ -21,25 +21,38 @@ public class CreditPanel1 : MonoBehaviour
     public Button quit;
     public Button Credit;
     public Button option;
+    [SerializeField] EventTrigger eventTrigger_start;
+    [SerializeField] EventTrigger eventTrigger_quit;
+    [SerializeField] EventTrigger eventTrigger_Credit;
+    [SerializeField] EventTrigger eventTrigger_option;
+    [SerializeField] EventTrigger eventTrigger_Continue_;
+
+
     //public Button invenntory;
     //public Button ExitInventory;
 
     void Start()
     {
+        GameObject.Find("PlayerPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        GameObject.Find("InventryPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
-        AllButtonStopImage.SetActive(false);
         startPanel.SetActive(false);
-        ContinueButtonStopImage.SetActive(false);
-        GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-       
-        GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
+        start.interactable = true;
+        Continue.interactable = true;
+        Credit.interactable = true;
+        quit.interactable = true;
+        option.interactable = true;
+        eventTrigger_start.enabled = true;
+        eventTrigger_quit.enabled = true;   
+        eventTrigger_option.enabled = true;     
+        eventTrigger_Credit.enabled = true;
+        eventTrigger_Continue_.enabled = true;  
 
         //ExitInventory.interactable = false;
         //invenntory.interactable = true;
-        GameObject.Find("PlayerPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
         //GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
@@ -56,11 +69,9 @@ public class CreditPanel1 : MonoBehaviour
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
-        AllButtonStopImage.SetActive(false);
-        ContinueButtonStopImage.SetActive(false);
-        GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        
+       
         //GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-        GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
         //GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
 
@@ -69,7 +80,11 @@ public class CreditPanel1 : MonoBehaviour
         Credit.interactable = true;
         quit.interactable = true;
         option.interactable = true;
-
+        eventTrigger_start.enabled = true;
+        eventTrigger_quit.enabled = true;
+        eventTrigger_option.enabled = true;
+        eventTrigger_Credit.enabled = true;
+        eventTrigger_Continue_.enabled = true;
 
 
     }
@@ -81,9 +96,17 @@ public class CreditPanel1 : MonoBehaviour
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
-        ContinueButtonStopImage.SetActive(false);
+        start.interactable = false;
+        Continue.interactable = false;
+        Credit.interactable = false;
+        quit.interactable = false;
+        option.interactable = false;
+        eventTrigger_start.enabled = false;
+        eventTrigger_quit.enabled = false;
+        eventTrigger_option.enabled = false;
+        eventTrigger_Credit.enabled = false;
+        eventTrigger_Continue_.enabled = false;
 
-        AllButtonStopImage.SetActive(true);
     }
     public virtual void CreditView()
     {
@@ -92,9 +115,17 @@ public class CreditPanel1 : MonoBehaviour
         OptionPanel.SetActive(true);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
-        ContinueButtonStopImage.SetActive(false);
+        start.interactable = false;
+        Continue.interactable = false;
+        Credit.interactable = false;
+        quit.interactable = false;
+        option.interactable = false;
+        eventTrigger_start.enabled = false;
+        eventTrigger_quit.enabled = false;
+        eventTrigger_option.enabled = false;
+        eventTrigger_Credit.enabled = false;
+        eventTrigger_Continue_.enabled = false;
 
-        AllButtonStopImage.SetActive(true);
     }
     public void QuitView()
     {
@@ -103,9 +134,16 @@ public class CreditPanel1 : MonoBehaviour
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(true);
         startPanel.SetActive(false);
-        ContinueButtonStopImage.SetActive(false);
-
-        AllButtonStopImage.SetActive(true);
+        start.interactable = false;
+        Continue.interactable = false;
+        Credit.interactable = false;
+        quit.interactable = false;
+        option.interactable = false;
+        eventTrigger_start.enabled = false;
+        eventTrigger_quit.enabled = false;
+        eventTrigger_option.enabled = false;
+        eventTrigger_Credit.enabled = false;
+        eventTrigger_Continue_.enabled = false;
 
     }
     public void startView()
@@ -120,7 +158,11 @@ public class CreditPanel1 : MonoBehaviour
         Credit.interactable = false;
         option.interactable = false;
         quit.interactable = false;
-
+        eventTrigger_start.enabled = false;
+        eventTrigger_quit.enabled = false;
+        eventTrigger_option.enabled = false;
+        eventTrigger_Credit.enabled = false;
+        eventTrigger_Continue_.enabled = false;
 
     }
     //public virtual void InventoryView()
@@ -161,9 +203,17 @@ public class CreditPanel1 : MonoBehaviour
             subPanel.SetActive(false);
             QuitPanel.SetActive(false);
             startPanel.SetActive(false);
-            ContinueButtonStopImage.SetActive(false);
+            start.interactable = true;
+            Continue.interactable = true;
+            Credit.interactable = true;
+            quit.interactable = true;
+            option.interactable = true;
+            eventTrigger_start.enabled = true;
+            eventTrigger_quit.enabled = true;
+            eventTrigger_option.enabled = true;
+            eventTrigger_Credit.enabled = true;
+            eventTrigger_Continue_.enabled = true;
 
-            AllButtonStopImage.SetActive(false);
         }
 
 

@@ -43,8 +43,8 @@ public class Event_Panel_view :MonoBehaviour
         Opbutton.SetActive(false);
         InventoryPanel.SetActive(true);
         //GameObject.Find("Inventory").transform.position = Vector3.zero;
-        GameObject.Find("InventorySlotManager").transform.position = Vector3.zero;
-        GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
+        //GameObject.Find("InventorySlotManager").transform.position = Vector3.zero;
+        //GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
 
     }
    
