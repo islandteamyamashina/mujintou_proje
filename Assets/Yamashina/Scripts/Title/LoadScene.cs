@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -10,30 +11,32 @@ public class LoadScene : MonoBehaviour
 
     private void Start()
     {
-        image.SetActive(false); 
+        eventTrigger.enabled = true;    
+        image.SetActive(false);
     }
     [SerializeField] Fade fade;
     [SerializeField] Text Text;
-
-    [SerializeField]Button continueButton;
+    [SerializeField] EventTrigger eventTrigger;
+    [SerializeField] Button continueButton;
     [SerializeField] CreditPanel1 CreditPanel1;
     [SerializeField] GameObject image;
     // Update is called once per frame
-    public void Text_of_each_places(int num=0)
+    public void Text_of_each_places(int num = 0)
     {
         if (!DataManager.Instance.DoesSaveExist())
         {
             AfterStart();
-            
+
         }
         else
         {
-          CreditPanel1.startView();      }
+            CreditPanel1.startView();
+        }
 
-        
-               
+
+
     }
-    public void AfterStart(int num=0)
+    public void AfterStart(int num = 0)
     {
         SaveData saveData = new SaveData();
         saveData.MakeSaveData();
@@ -53,6 +56,7 @@ public class LoadScene : MonoBehaviour
             Color newColor;
             ColorUtility.TryParseHtmlString(colorString, out newColor); // êVÇµÇ≠ColorÇçÏê¨
             Text.color = newColor;
+            eventTrigger.enabled = false;
 
         }
         else
@@ -65,6 +69,7 @@ public class LoadScene : MonoBehaviour
 
         }
     }
+
 
 }
 
