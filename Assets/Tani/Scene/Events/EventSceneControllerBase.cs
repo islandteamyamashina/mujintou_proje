@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EventSceneControllerBase : MonoBehaviour
 {
     [SerializeField]
     EventPanelBase eventPanel;
     [SerializeField]
-
-
+    SceneObject sceneToGetBack;
+    [SerializeField]
+    EventDatas datas;
     private void Awake()
     {
         
@@ -18,17 +20,16 @@ public class EventSceneControllerBase : MonoBehaviour
         eventPanel.SetRandomEvent();
     }
 
-    public void OnEndEvent()
-    {
-       
-    }
+
     public void RestartEvent()
     {
         print("restart");
+        eventPanel.SetRandomEvent();
     }
 
     public void BackHome()
     {
         print("back home");
+        SceneManager.LoadScene(sceneToGetBack);
     }
 }

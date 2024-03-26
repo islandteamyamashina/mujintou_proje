@@ -17,6 +17,7 @@ public class GetItemData
 [System.Serializable]
 public class ChoiseResult
 {
+    public string choise_text = string.Empty;
     public List<GetItemData> Gain_Items;
     public string result_text = null;
     public int health_change = 0;
@@ -34,18 +35,11 @@ public class EventDatas : ScriptableObject
     public Sprite event_view_sprite;
     public int probability = 1;
     public string main_text = null;
-
+    public EventPanelBase.EventCallBackType callBackType = EventPanelBase.EventCallBackType.Normal;
     public GameObject buttons_prefab;
-    
+
     [Space(20)]
-    public string choise_text_1 = null;
-    public ChoiseResult choise_result_1;
-    [Space(20)]
-    public string choise_text_2 = null;
-    public ChoiseResult choise_result_2;
-    [Space(20)]
-    public string choise_text_3 = "–³Ž‹‚·‚é";
-    public ChoiseResult choise_result_3;
+    public List<ChoiseResult> results;
 
 
 }

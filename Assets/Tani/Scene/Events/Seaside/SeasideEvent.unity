@@ -186,19 +186,7 @@ MonoBehaviour:
   use_end_event: 1
   EndEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1721667513}
-        m_TargetAssemblyTypeName: EventPanelBase, Assembly-CSharp
-        m_MethodName: ShowButtons
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   use_back_log_text: 0
   backLogObject: {fileID: 0}
 --- !u!114 &186781741
@@ -812,8 +800,10 @@ MonoBehaviour:
   event_title: {fileID: 1658571443}
   event_text: {fileID: 186781742}
   EventList:
+  - {fileID: 11400000, guid: cc0945a2dd7e46a499d88623d3ed0277, type: 2}
   - {fileID: 11400000, guid: 13d29602a38c55242beca701b6a9a299, type: 2}
   buttons_prefab_parent: {fileID: 839095153}
+  endEventData: {fileID: 11400000, guid: 365be53dabee2b14ea1371cd81a275ae, type: 2}
 --- !u!114 &1721667514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1031,6 +1021,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventPanel: {fileID: 1721667513}
+  sceneToGetBack:
+    m_SceneName: BaseLocationDaytime
+  datas: {fileID: 0}
 --- !u!1 &2099667834
 GameObject:
   m_ObjectHideFlags: 0

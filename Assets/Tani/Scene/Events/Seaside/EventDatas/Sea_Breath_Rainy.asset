@@ -10,40 +10,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 050302beb80aafa4a81bafe0a4641693, type: 3}
-  m_Name: Sea_Breath
+  m_Name: Sea_Breath_Rainy
   m_EditorClassIdentifier: 
   event_title: "\u6D77\u306E\u6075\u307F"
-  scene_id: 1000
-  event_view_sprite: {fileID: 21300000, guid: 139a9414977c89941a6b121003cdeb9e, type: 3}
+  scene_id: 1100
+  event_view_sprite: {fileID: 21300000, guid: b46f861625ea90b4ca9fc5e042c72084, type: 3}
   probability: 2
   main_text: "\u6D77\u5CB8\u3078\u3084\u3063\u3066\u304D\u305F\u3002 \u307E\u305A\u306F\u3069\u3093\u306A\u3082\u306E\u3092\u63A2\u305D\u3046\u304B\u2026\uFF1F"
   buttons_prefab: {fileID: 7029110843412465754, guid: 1066121386c2d0942bc581fcf8485926, type: 3}
-  choise_text_1: "\u98DF\u3079\u7269\u3092\u63A2\u3059"
-  choise_result_1:
+  results:
+  - choise_text: "\u98DF\u6599\u3092\u63A2\u3059"
     Gain_Items:
-    - id: 9
+    - id: 12
       probability: 1
       range_min: 1
       range_max: 2
-    - id: 67
-      probability: 0.217
+    - id: 32
+      probability: 0.5
       range_min: 1
       range_max: 2
-    result_text: "\u3044\u3044\u5929\u6C17\u3060\uFF01\u98DF\u6599\u3092\u63A2\u305D\u3046"
+    result_text: "\u98DF\u6599\u3092\u63A2\u305D\u3046!"
+    health_change: -20
+    hunger_change: -20
+    thirst_change: -20
+  - choise_text: "\u5E83\u7BC4\u56F2\u3092\u63A2\u3059"
+    Gain_Items:
+    - id: 7
+      probability: 1
+      range_min: 2
+      range_max: 3
+    result_text: "\u5E83\u7BC4\u56F2\u3092\u63A2\u305D\u3046"
+    health_change: -50
+    hunger_change: -50
+    thirst_change: -52
+  - choise_text: "\u7121\u8996\u3059\u308B"
+    Gain_Items: []
+    result_text: "\u6765\u305F\u9053\u3092\u5E30\u308D\u3046"
     health_change: -5
     hunger_change: -5
     thirst_change: -5
-  choise_text_2: "\u7D20\u6750\u3092\u63A2\u3059"
-  choise_result_2:
-    Gain_Items: []
-    result_text: 
-    health_change: 0
-    hunger_change: 0
-    thirst_change: 0
-  choise_text_3: "\u7121\u8996\u3059\u308B"
-  choise_result_3:
-    Gain_Items: []
-    result_text: 
-    health_change: 0
-    hunger_change: 0
-    thirst_change: 0
