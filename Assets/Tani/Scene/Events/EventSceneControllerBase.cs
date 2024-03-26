@@ -9,8 +9,7 @@ public class EventSceneControllerBase : MonoBehaviour
     EventPanelBase eventPanel;
     [SerializeField]
     SceneObject sceneToGetBack;
-    [SerializeField]
-    EventDatas datas;
+
     private void Awake()
     {
         
@@ -23,13 +22,11 @@ public class EventSceneControllerBase : MonoBehaviour
 
     public void RestartEvent()
     {
-        print("restart");
         eventPanel.SetRandomEvent();
     }
 
     public void BackHome()
     {
-        print("back home");
         SceneManager.LoadScene(sceneToGetBack);
     }
 }

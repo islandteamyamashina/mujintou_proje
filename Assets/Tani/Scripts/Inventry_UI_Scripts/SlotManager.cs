@@ -42,10 +42,10 @@ public class SlotManager : MonoBehaviour
         SlotReconstruct();
         active_range = data.slot_prefab.GetComponent<RectTransform>().rect.width * 2;
 
-        SetItemToSlot(Items.Item_ID.Fish, 2, 0);
-        SetItemToSlot(Items.Item_ID.Fish, 50, 1);
-        SetItemToSlot(Items.Item_ID.item_special_medicine, 10, 2);
-        SetItemToSlot(Items.Item_ID.item_mat_bottle, 10, 3);
+        //SetItemToSlot(Items.Item_ID.Fish, 2, 0);
+        //SetItemToSlot(Items.Item_ID.Fish, 50, 1);
+        //SetItemToSlot(Items.Item_ID.item_special_medicine, 10, 2);
+        //SetItemToSlot(Items.Item_ID.item_mat_bottle, 10, 3);
 
     }
 
@@ -401,6 +401,7 @@ public class SlotManager : MonoBehaviour
 
     public bool GetItem(Items.Item_ID id,int num)
     {
+        if (num == 0) return true;
         
         for (int i = 0; i < item_list.Length; i++)
         {

@@ -57,7 +57,7 @@ public class CraftSlots : SlotManager
     }
     protected override void Start()
     {
-        SetItemToSlot(Items.Item_ID.Plank, 1, 3);
+        //SetItemToSlot(Items.Item_ID.Plank, 1, 3);
 
         Save();
 
