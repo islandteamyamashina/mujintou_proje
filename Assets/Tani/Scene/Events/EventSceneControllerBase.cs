@@ -27,6 +27,7 @@ public class EventSceneControllerBase : MonoBehaviour
 
     public void BackHome()
     {
+        PlayerInfo.Instance.DoAction();
         SceneManager.LoadScene(sceneToGetBack);
     }
 }

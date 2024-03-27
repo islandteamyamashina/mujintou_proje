@@ -5,11 +5,15 @@ using UnityEngine.UI;
 
 public class RestPanel : PanelBase
 {
-
+    [SerializeField]
+    Button rest_button;
+    [SerializeField]
+    bool isDayTime = true;
     protected override void Start()
     {
 
         SetSortOrder(OrderOfUI.NormalPanel);
+        rest_button.onClick.AddListener(Rest);
     }
 
 
@@ -17,4 +21,23 @@ public class RestPanel : PanelBase
     {
 
     }
+
+    void Rest()
+    {
+
+        PlayerInfo.Instance.DoAction();
+        PlayerInfo.Instance.Health += 30;
+        PlayerInfo.Instance.Hunger -= 30;
+        PlayerInfo.Instance.Thirst -= 40;
+        if (isDayTime)
+        {
+            GameObject.FindWithTag("GameController").GetComponent<BaseLocationDaytimeController>().ChangeBaseLocation();
+        }
+        else
+        {
+            GameObject.FindWithTag("GameController").GetComponent<BaseLocationNightController>().ChangeBaseLocation();
+        }
+        
+    }
+
 }
