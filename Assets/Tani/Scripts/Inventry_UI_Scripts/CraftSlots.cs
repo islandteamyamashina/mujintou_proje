@@ -342,7 +342,6 @@ public class CraftSlots : SlotManager
         }
     }
 
-    
 }
 
 
@@ -369,7 +368,7 @@ class CraftSlotsInspector : Editor
         serializedObject.Update();
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("Slots_Main"), new GUIContent("表示の切り替え元"));
-
+        bool use_slotdata_maintaining = true;
 
         using (var check = new EditorGUI.ChangeCheckScope())
         {
@@ -448,7 +447,15 @@ class CraftSlotsInspector : Editor
         EditorGUILayout.EndFoldoutHeaderGroup();
 
 
+        use_slotdata_maintaining = EditorGUILayout.Toggle("アイテムデータを保持する", use_slotdata_maintaining);
+        if (use_slotdata_maintaining)
+        {
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("fileName"), new GUIContent("データ保存先"));
 
+        }
+
+
+       
 
 
 

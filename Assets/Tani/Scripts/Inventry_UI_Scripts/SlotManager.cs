@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.IO;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -26,6 +27,8 @@ public class SlotManager : MonoBehaviour
     protected SlotsInfo data;
     [SerializeField]
     GameObject Slots_Main;
+    [SerializeField]
+    string fileName = "";
 
 
 
@@ -41,6 +44,7 @@ public class SlotManager : MonoBehaviour
     {
         SlotReconstruct();
         active_range = data.slot_prefab.GetComponent<RectTransform>().rect.width * 2;
+        LoadSlotDatas(fileName);
 
         //SetItemToSlot(Items.Item_ID.Fish, 2, 0);
         //SetItemToSlot(Items.Item_ID.Fish, 50, 1);
@@ -449,6 +453,47 @@ public class SlotManager : MonoBehaviour
         }
     }
 
+    protected void SaveSlotDatas(string fileName)
+    {
+        if(fileName.Trim().Length == 0)
+        {
+            Debug.LogWarning("File name not assigned");
+            return;
+        }
+        string path = Application.dataPath + "/Tani/Saves/" + fileName + ".txt";
+        string[] texts = new string[item_list.Length];
+        for (int i = 0; i < texts.Length; i++)
+        {
+            texts[i] = ((int)item_list[i].id).ToString() +"," + item_list[i].amount.ToString();
+        }
+        File.WriteAllLines(path, texts);
+    }
+
+    protected void LoadSlotDatas(string fileName)
+    {
+        if (fileName.Trim().Length == 0)
+        {
+            Debug.LogWarning("File name not assigned");
+            return;
+        }
+        string path = Application.dataPath + "/Tani/Saves/" + fileName + ".txt";
+        var datas = File.ReadAllLines(path);
+        for (int i = 0; i < datas.Length; i++)
+        {
+            if (i >= item_list.Length) break;
+            var line = datas[i].Split(",");
+            if (int.Parse(line[0]) == (int)Items.Item_ID.EmptyObject) continue;
+            SetItemToSlot((Items.Item_ID)int.Parse(line[0]), int.Parse(line[1]), i);
+        }
+
+
+    }
+
+    protected void OnDestroy()
+    {
+        SaveSlotDatas(fileName);
+    }
+
 
 #if UNITY_EDITOR
     [SerializeField]
@@ -464,6 +509,7 @@ class SlotManagerInspector : Editor
 {
     SerializedProperty property_slot_editable;
 
+    bool use_slotdata_maintaining = true;
     private void OnEnable()
     {
         var manager = target as SlotManager;
@@ -502,6 +548,14 @@ class SlotManagerInspector : Editor
         EditorGUI.EndDisabledGroup();
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("Slots_Main"), new GUIContent("表示の切り替え元"));
+
+        use_slotdata_maintaining = EditorGUILayout.Toggle("アイテムデータを保持する", use_slotdata_maintaining);
+        if (use_slotdata_maintaining)
+        {
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("fileName"), new GUIContent("データ保存先"));
+
+        }
+
 
         serializedObject.ApplyModifiedProperties();
 
