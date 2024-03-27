@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Threading.Tasks;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(ButtonControlMethods))]
+//[RequireComponent(typeof(ButtonControlMethods))]
 public class EventPanelBase : MonoBehaviour
 {   
     //inspector field
@@ -173,18 +172,22 @@ public class EventPanelBase : MonoBehaviour
 
 
         PlayerInfo info = PlayerInfo.Instance;
-        if (result.health_change + result.hunger_change + result.thirst_change != 0)
+        if (Mathf.Abs(result.health_change) + Mathf.Abs(result.hunger_change) + Mathf.Abs(result.thirst_change) != 0)
         {
             //ステータスの増減を表すもじれる
-           
+
+            var prev_health = info.Health;
+            var prev_hunger = info.Hunger;
+            var prev_thirst = info.Thirst;
+
             info.Health += result.health_change;
             info.Hunger += result.hunger_change;
             info.Thirst += result.thirst_change;
 
             string status_change =
-                $"体力 : {info.Health - result.health_change} ⇒ {info.Health}\n" +
-                $"水分 : {info.Thirst - result.thirst_change} ⇒ {info.Thirst}\n" +
-                $"空腹 : {info.Hunger - result.hunger_change} ⇒ {info.Hunger}";
+                $"体力 : {prev_health} ⇒ {info.Health}\n" +
+                $"水分 : {prev_thirst} ⇒ {info.Thirst}\n" +
+                $"空腹 : {prev_hunger} ⇒ {info.Hunger}";
             event_text_control.AddTextData(status_change);
         }
         
@@ -221,7 +224,7 @@ public class EventPanelBase : MonoBehaviour
 
     void ONEndEvent()
     {
-        print("envent end");
+        print("event end");
         event_text_control.ClickEventAfterTextsEnd.RemoveListener(ONEndEvent);
        
         StartEvent(endEventData);

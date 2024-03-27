@@ -450,21 +450,6 @@ class CraftSlotsInspector : Editor
 
 
 
-        
-
-      
-        using (var check = new EditorGUI.ChangeCheckScope())
-        {
-           
-            if (check.changed)
-            {
-                serializedObject.ApplyModifiedProperties();
-                manager.Save();
-                serializedObject.Update();
-
-            }
-
-        }
 
 
         serializedObject.ApplyModifiedProperties();
