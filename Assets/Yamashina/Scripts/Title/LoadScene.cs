@@ -41,7 +41,6 @@ public class LoadScene : MonoBehaviour
         SaveData saveData = new SaveData();
         saveData.MakeSaveData();
         DataManager.Instance.Save(saveData);
-
         fade.scene_name_num = num;
         fade.feadout_f = true;
 

@@ -245,7 +245,6 @@ public class KyotenToOtherspace : CreditPanel1
         craftPanel.SetActive(false);
 
         //newbutton.SetActive(false);
-        GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
         //wakimizu_tabu.SetActive(false);
 
@@ -309,8 +308,8 @@ public class KyotenToOtherspace : CreditPanel1
         TansakuPanel.SetActive(true);
         Cooking_messagePanel.SetActive(false);
 
-        GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-        GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
+        //GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+        //GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
 
     }
 

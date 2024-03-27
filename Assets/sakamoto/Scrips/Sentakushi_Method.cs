@@ -54,8 +54,8 @@ public class Sentakushi_Method : Event_Text
 
     private void Start()
     {
-        cpInventoryManager = GameObject.Find("InventorySlotManager").GetComponent<InventoryManagerVer>();
-        GetItemManager = GameObject.Find("AllItemSpawnSystem").GetComponent<GetItemManager>();
+        //cpInventoryManager = GameObject.Find("InventorySlotManager").GetComponent<InventoryManagerVer>();
+        //GetItemManager = GameObject.Find("AllItemSpawnSystem").GetComponent<GetItemManager>();
         Event_num = 0;
         //DoEvent = 0;
         Debug.Log(event_manage.start_event_num);
@@ -65,6 +65,8 @@ public class Sentakushi_Method : Event_Text
         _sentakusiSetActive(event_manage.start_event_num);
         SceneContinue = false;
         GoToLoadScene = false;
+        allShadow(false);
+
     }
     private void Update()
     {
@@ -293,10 +295,7 @@ public class Sentakushi_Method : Event_Text
                         {
                             Debug.Log("get");
                             event_manage.newItem[i].CurrentStackCount++;
-                            if (!cpInventoryManager.GetIsItemFull())
-                            {
-                                GetItemManager.GetNewItem(event_manage.newItem[i].ScriptalItem.itemID);
-                            }
+                           
                             //if(Inventory.Instance.
 
 
