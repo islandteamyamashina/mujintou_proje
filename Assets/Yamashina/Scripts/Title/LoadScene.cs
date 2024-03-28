@@ -71,8 +71,12 @@ public class LoadScene : MonoBehaviour
             fade.scene_name_num = num;
             fade.feadout_f = true;
             image.SetActive(false);
-            
-          
+            if (fade.feadout_f == false)
+            {
+                PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+
+            }
+
         }
     }
 
