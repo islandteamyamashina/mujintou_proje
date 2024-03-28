@@ -42,5 +42,5 @@ public class EventDatas : ScriptableObject
     [Space(20)]
     public List<ChoiseResult> results;
 
-
+    
 }
