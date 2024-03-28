@@ -123,7 +123,7 @@ public class CreditPanel1 : MonoBehaviour
         //start.interactable = false;
         startButton.SetActive(false);
         ContinueButton.SetActive(false);
-        optionButton.SetActive(false);
+        optionButton.SetActive(true);
         quitButton.SetActive(false);
         CreditButton.SetActive(false);
         //Continue.interactable = false;
@@ -168,7 +168,7 @@ public class CreditPanel1 : MonoBehaviour
         //Credit.interactable = false;
         //option.interactable = false;
         //quit.interactable = false;
-        startButton.SetActive(false);
+        startButton.SetActive(true);
         ContinueButton.SetActive(false);
         optionButton.SetActive(false);
         quitButton.SetActive(false);
