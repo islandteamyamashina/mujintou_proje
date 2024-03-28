@@ -16,11 +16,17 @@ public class CreditPanel1 : MonoBehaviour
     public GameObject OptionPanel;
     public GameObject QuitPanel;
     public GameObject startPanel;
-    public Button start;
-    public Button Continue;
-    public Button quit;
-    public Button Credit;
-    public Button option;
+    //public Button start;
+    //public Button Continue;
+    //public Button quit;
+    //public Button Credit;
+    //public Button option;
+    [SerializeField] GameObject startButton;
+    [SerializeField] GameObject ContinueButton;
+    [SerializeField] GameObject quitButton;
+    [SerializeField] GameObject CreditButton;
+    [SerializeField] GameObject optionButton;
+
     [SerializeField] EventTrigger eventTrigger_start;
     [SerializeField] EventTrigger eventTrigger_quit;
     [SerializeField] EventTrigger eventTrigger_Credit;
@@ -38,11 +44,12 @@ public class CreditPanel1 : MonoBehaviour
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
-        start.interactable = true;
-        Continue.interactable = true;
-        Credit.interactable = true;
-        quit.interactable = true;
-        option.interactable = true;
+        startButton.SetActive(true);   
+        ContinueButton.SetActive(true);
+        optionButton.SetActive(true);
+        quitButton.SetActive(true); 
+        CreditButton.SetActive(true);   
+        
         eventTrigger_start.enabled = true;
         eventTrigger_quit.enabled = true;   
         eventTrigger_option.enabled = true;     
@@ -67,17 +74,17 @@ public class CreditPanel1 : MonoBehaviour
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
-        
-       
+
+        startButton.SetActive(true);
+        ContinueButton.SetActive(true);
+        optionButton.SetActive(true);
+        quitButton.SetActive(true);
+        CreditButton.SetActive(true);
         //GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
         //GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
 
-        start.interactable = true;
-        Continue.interactable = true;
-        Credit.interactable = true;
-        quit.interactable = true;
-        option.interactable = true;
+       
         eventTrigger_start.enabled = true;
         eventTrigger_quit.enabled = true;
         eventTrigger_option.enabled = true;
@@ -94,11 +101,11 @@ public class CreditPanel1 : MonoBehaviour
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
-        start.interactable = false;
-        Continue.interactable = false;
-        Credit.interactable = false;
-        quit.interactable = false;
-        option.interactable = false;
+        startButton.SetActive(false);
+        ContinueButton.SetActive(false);
+        optionButton.SetActive(false);
+        quitButton.SetActive(false);
+        CreditButton.SetActive(false);
         eventTrigger_start.enabled = false;
         eventTrigger_quit.enabled = false;
         eventTrigger_option.enabled = false;
@@ -113,11 +120,12 @@ public class CreditPanel1 : MonoBehaviour
         OptionPanel.SetActive(true);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
-        start.interactable = false;
-        Continue.interactable = false;
-        Credit.interactable = false;
-        quit.interactable = false;
-        option.interactable = false;
+        //start.interactable = false;
+        
+        //Continue.interactable = false;
+        //Credit.interactable = false;
+        //quit.interactable = false;
+        //option.interactable = false;
         eventTrigger_start.enabled = false;
         eventTrigger_quit.enabled = false;
         eventTrigger_option.enabled = false;
@@ -132,11 +140,11 @@ public class CreditPanel1 : MonoBehaviour
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(true);
         startPanel.SetActive(false);
-        start.interactable = false;
-        Continue.interactable = false;
-        Credit.interactable = false;
-        quit.interactable = false;
-        option.interactable = false;
+        //start.interactable = false;
+        //Continue.interactable = false;
+        //Credit.interactable = false;
+        //quit.interactable = false;
+        //option.interactable = false;
         eventTrigger_start.enabled = false;
         eventTrigger_quit.enabled = false;
         eventTrigger_option.enabled = false;
@@ -151,11 +159,11 @@ public class CreditPanel1 : MonoBehaviour
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(true);
-        start.interactable = false;
-        Continue.interactable = false;
-        Credit.interactable = false;
-        option.interactable = false;
-        quit.interactable = false;
+        //start.interactable = false;
+        //Continue.interactable = false;
+        //Credit.interactable = false;
+        //option.interactable = false;
+        //quit.interactable = false;
         eventTrigger_start.enabled = false;
         eventTrigger_quit.enabled = false;
         eventTrigger_option.enabled = false;
@@ -201,11 +209,11 @@ public class CreditPanel1 : MonoBehaviour
             subPanel.SetActive(false);
             QuitPanel.SetActive(false);
             startPanel.SetActive(false);
-            start.interactable = true;
-            Continue.interactable = true;
-            Credit.interactable = true;
-            quit.interactable = true;
-            option.interactable = true;
+            //start.interactable = true;
+            //Continue.interactable = true;
+            //Credit.interactable = true;
+            //quit.interactable = true;
+            //option.interactable = true;
             eventTrigger_start.enabled = true;
             eventTrigger_quit.enabled = true;
             eventTrigger_option.enabled = true;
