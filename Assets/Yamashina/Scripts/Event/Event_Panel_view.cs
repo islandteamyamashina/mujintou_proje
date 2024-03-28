@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Event_Panel_view : MonoBehaviour
+public class Event_Panel_view :MonoBehaviour
 {
     public GameObject mainPanel;
     public GameObject Opbutton;
-
+    [SerializeField]GameObject InventoryPanel;
     public GameObject OptionPanel;
 
     void Start()
@@ -15,8 +15,7 @@ public class Event_Panel_view : MonoBehaviour
         mainPanel.SetActive(true);
         OptionPanel.SetActive(false);
         Opbutton.SetActive(true);
-        GameObject.Find("MaintoInventoryPanel").transform.position = Vector3.zero;
-
+        InventoryPanel.SetActive(false);
     }
 
     public void MainView()
@@ -24,24 +23,30 @@ public class Event_Panel_view : MonoBehaviour
         mainPanel.SetActive(true);
         OptionPanel.SetActive(false);
         Opbutton.SetActive(true);
-        
+        InventoryPanel.SetActive(false);
     }
 
 
     public void OptionPanelView()
     {
+
         mainPanel.SetActive(true);
         OptionPanel.SetActive(true);
         Opbutton.SetActive(false);
+        InventoryPanel.SetActive(false);
 
     }
-    public virtual void SubView()
+    public void SubView()
     {
         mainPanel.SetActive(true);
         OptionPanel.SetActive(false);
         Opbutton.SetActive(false);
-        GameObject.Find("InventorySlotManager").transform.position = Vector3.zero;
-        GameObject.Find("InventoryUIPanel").transform.position = Vector3.zero;
+        InventoryPanel.SetActive(true);
+        //GameObject.Find("Inventory").transform.position = Vector3.zero;
+        //GameObject.Find("InventorySlotManager").transform.position = Vector3.zero;
+        //GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
+
     }
+   
 }
 

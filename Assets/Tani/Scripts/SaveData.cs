@@ -20,6 +20,8 @@ public class SaveData
             weather = (int)info.weather;
             fire = info.Fire;
             water = info.Water;
+            action = info.ActionValue;
+            max_action = info.MaxActionValue;
         }
         else
         {
@@ -35,4 +37,6 @@ public class SaveData
     public int weather;
     public int fire;
     public int water;
+    public int action;
+    public int max_action;
 }

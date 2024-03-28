@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 
 public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
@@ -61,13 +62,17 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] private Text condition_text;
     [SerializeField] private Text weather_text;
     [SerializeField] private Text day_text;
+    [SerializeField] private Text action_value_text;
     [SerializeField] private List<TextureData> textureDatas;
+    [SerializeField] private SlotManager inventry;
 
 
     private int _player_Health;
     private int _player_Hunger;
     private int _player_Thirst;
     private int _player_Luck;
+    private int _player_current_action_value = 5;
+    private int _player_max_action_value = 5;
 
     private uint _player_condition = 0;
     private int water_value = 0;
@@ -138,6 +143,44 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     public int StartArea { get; set; } = 0;
 
+    public SlotManager Inventry
+    {
+        get
+        {
+            return inventry;
+        }
+
+    }
+
+    public int ActionValue
+    {
+        get
+        {
+            return _player_current_action_value;
+        }
+        set
+        {
+            _player_current_action_value = Mathf.Clamp(value,0,_player_max_action_value);
+            OnActionValueChange.Invoke();
+        }
+    }
+
+    public int MaxActionValue
+    {
+        get { return _player_max_action_value; }
+        set
+        {
+            if(value > _player_current_action_value)
+            {
+                _player_max_action_value = value;
+                OnMaxActionValueChange.Invoke();
+            }
+        }
+    }
+
+    public UnityEvent OnActionValueChange { get; } = new UnityEvent();
+
+    public UnityEvent OnMaxActionValueChange { get; } = new UnityEvent();
 
     public enum Weather
     {
@@ -148,6 +191,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     protected override void Awake()
     {
         base.Awake();
+        this.Inventry.SwitchVisible();
+        this.Inventry.SwitchVisible();
 
         DontDestroyOnLoad(gameObject);
 
@@ -159,6 +204,9 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         _player_Hunger = _Init_Player_Hunger;
         _player_Thirst = _Init_Player_Thirst;
         _player_Luck = 0;
+
+        OnActionValueChange.AddListener(() => { action_value_text.text = $"{ActionValue} / {MaxActionValue}"; });
+        OnMaxActionValueChange.AddListener(() => { action_value_text.text = $"{ActionValue} / {MaxActionValue}"; });
 
         if (DataManager.Instance.DoesSaveExist())
         {
@@ -179,7 +227,11 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
         }
 
+
+
     }
+
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
@@ -261,6 +313,10 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         _player_condition &= ~((uint)1 << (int)condition);
     }
 
+    //実行は行動値が減る毎にするか
+    //行動値を残して休息した場合、マイナスの効果は受けず(体調不良による体力減少など)
+    //プラスの効果湧き水が増えるなどは行動値分実行される
+    //焚火値の減少は例外として
     public void DoAction()
     { 
     
@@ -376,6 +432,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         weather = (Weather)data.weather;
         water_value = data.water;
         fire_value = data.fire;
+        ActionValue = data.action;
+        MaxActionValue = data.max_action;
     }
 
 

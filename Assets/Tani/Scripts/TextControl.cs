@@ -35,7 +35,7 @@ public class TextControl : MonoBehaviour
     [SerializeField]
     bool use_end_event = false;
     [SerializeField]
-    UnityEvent EndEvent;
+    public  UnityEvent EndEvent;
 
     [SerializeField]
     bool use_back_log_text = true;
@@ -44,7 +44,7 @@ public class TextControl : MonoBehaviour
 
 
 
-
+    public UnityEvent ClickEventAfterTextsEnd { get; private set; } = new UnityEvent();
 
     Text text;
     TextGenerator generator;
@@ -53,12 +53,12 @@ public class TextControl : MonoBehaviour
     {
         None,DefaultText,DirectList,TextAsset,EventData
     }
-    /*TextInputTypeでEditorの入力を分岐、継承なし、UseBackLog*/
     int str_range = 0;//何文字目まで表示するか
     int str_page = 0;//strsのindex
     int default_font_size;
     float time_sum = 0;
-    bool is_text_end = false;
+    bool is_one_sentence_end = false;
+    bool is_all_texts_end = false;
     bool is_first_font_updated = false;
     Vector2 text_size;
     
@@ -90,7 +90,7 @@ public class TextControl : MonoBehaviour
             case TextInputType.None:
                 strs.Clear();
                 text.text = "";
-                is_text_end = true;
+                is_one_sentence_end = true;
                 break;
             case TextInputType.DefaultText:
                 strs.Clear();
@@ -131,25 +131,32 @@ public class TextControl : MonoBehaviour
         }
 
 
+        if (is_one_sentence_end) return;
+
         time_sum += Time.deltaTime;
-        if(time_sum > interval)
+        if (time_sum > interval)
         {
+
             time_sum = 0;
-            if(str_range < strs[str_page].Length)
-            {
-                str_range++;
-                UpdateText(str_range);
-            }
-            else
-            {
-                is_text_end = true;
-            }
+            str_range++;
+            UpdateText(str_range);
+
         }
     }
 
     void UpdateText(int count)
     {
         text.text = strs[str_page][..count];
+        if(str_range >= strs[str_page].Length)
+        {
+            is_one_sentence_end = true;
+            OnOneSentenceEnd();
+            if(str_page >= strs.Count - 1)
+            {
+                is_all_texts_end = true;
+                OnAllTextsEnd();
+            }
+        }
     }
 
     void UpdateFontSize(int page,int newSize)
@@ -187,15 +194,11 @@ public class TextControl : MonoBehaviour
     }
     void OnClick()
     {
-        //そもそも表示する文章がないとき
-        //FI,ResetTextDataを使ってからClickしたときなど
-        if(strs.Count == 0)
-        {
-            if (use_end_event) OnTextEnd();
-            return;
-        }
+        // Resetした後にClick
+        if (strs.Count == 0) return;
+
         //文章が終わっていないときは文章を全て表示
-        if (!is_text_end)
+        if (!is_one_sentence_end)
         {
             str_range = strs[str_page].Length;
             UpdateText(str_range);
@@ -208,28 +211,37 @@ public class TextControl : MonoBehaviour
             //文章が終わっているときは次のページ
             if (use_back_log_text)backLog.AddTextToBackLog(strs[str_page]);//バックログに追加
             str_page++;
-            if (str_page != strs.Count)
+            if (str_page < strs.Count)
             {
-                is_text_end = false;
+                is_one_sentence_end = false;
                 str_range = 0;
                 time_sum = 0;
                 UpdateFontSize(str_page,default_font_size);
 
             }
-            else//次のページがなければ文章はそのまま、OnTextEndを発火
+            else//次のページがなければ文章はそのまま、
             {
 
                 str_page = strs.Count - 1;
+                OnClickedAfterAllTextsEnd();
             
-                if (use_end_event) OnTextEnd();
+                //if (use_end_event) OnTextEnd();
             }
         }
     }
-    virtual protected void OnTextEnd()
+    virtual protected void OnAllTextsEnd()
     {
-        EndEvent.Invoke();
+        if(use_end_event)EndEvent.Invoke();
     }
 
+    virtual protected void OnOneSentenceEnd()
+    {
+
+    }
+    virtual protected void OnClickedAfterAllTextsEnd()
+    {
+        ClickEventAfterTextsEnd.Invoke();
+    }
     public void BackLogValidiate()
     {
        
@@ -251,7 +263,8 @@ public class TextControl : MonoBehaviour
         str_range = 0;
         str_page = 0;
         is_first_font_updated = false;
-        is_text_end = false;
+        is_one_sentence_end = false;
+        is_all_texts_end = false;
     }
     public void AddTextData(string add_text)
     {
@@ -260,7 +273,7 @@ public class TextControl : MonoBehaviour
 
     public bool GetIsTextEnd()
     {
-        return is_text_end;
+        return is_all_texts_end;
     }
 
 }

@@ -13,6 +13,7 @@ public class DoActionButtonUI : MonoBehaviour
         button_event = new Button.ButtonClickedEvent();
         button_event.AddListener(ONCLICKED);
         button.onClick = button_event;
+        print(button.onClick.GetPersistentEventCount());
     }
 
     // Update is called once per frame
@@ -23,6 +24,6 @@ public class DoActionButtonUI : MonoBehaviour
 
     public void ONCLICKED()
     {
-        PlayerInfo.Instance.DoAction();
+        print("click");
     }
 }
