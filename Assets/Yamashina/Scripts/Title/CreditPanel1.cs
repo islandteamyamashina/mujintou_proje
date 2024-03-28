@@ -49,7 +49,7 @@ public class CreditPanel1 : MonoBehaviour
         optionButton.SetActive(true);
         quitButton.SetActive(true); 
         CreditButton.SetActive(true);   
-        
+        PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         //eventTrigger_start.enabled = true;
         //eventTrigger_quit.enabled = true;   
         //eventTrigger_option.enabled = true;     

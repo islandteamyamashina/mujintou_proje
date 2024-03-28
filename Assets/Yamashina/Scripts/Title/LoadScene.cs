@@ -13,6 +13,7 @@ public class LoadScene : MonoBehaviour
     {
         eventTrigger.enabled = true;    
         image.SetActive(false);
+        
     }
     [SerializeField] Fade fade;
     [SerializeField] Text Text;
@@ -43,6 +44,12 @@ public class LoadScene : MonoBehaviour
         DataManager.Instance.Save(saveData);
         fade.scene_name_num = num;
         fade.feadout_f = true;
+        if(fade.feadout_f == false)
+        {
+            PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+
+        }
+
 
     }
     public void Continue(int num)
@@ -64,8 +71,8 @@ public class LoadScene : MonoBehaviour
             fade.scene_name_num = num;
             fade.feadout_f = true;
             image.SetActive(false);
-
-
+            
+          
         }
     }
 
