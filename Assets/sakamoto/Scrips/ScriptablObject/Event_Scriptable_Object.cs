@@ -46,8 +46,12 @@ public class EventData : ScriptableObject
     public int Sentakusi1_hunger;
     [Header("水分")]
     public int Sentakusi1_warter;
+    [Header("選択肢1の日付条件")]
+    public int Sentakusi1_day;
     [Header("次のイベントID")]
     public int Sentakusi1_Next_Ivent_ID;
+    [Header("次のイベントID")]
+    public int Sentakusi1_Next_Ivent_ID_2;
     [Header("選択肢2結果1")]
     public string Sentakusi2_Result1;
     [Header("選択肢2条件ID")]
@@ -72,8 +76,12 @@ public class EventData : ScriptableObject
     public int Sentakusi2_hunger;
     [Header("水分")]
     public int Sentakusi2_warter;
+    [Header("選択肢2の日付条件")]
+    public int Sentakusi2_day;
     [Header("次のイベントID")]
     public int Sentakusi2_Next_Ivent_ID;
+    [Header("次のイベントID")]
+    public int Sentakusi2_Next_Ivent_ID_2;
     [Header("キャンセル結果")]
     public string Cancel_Result;
     [Header("次のイベントID")]
