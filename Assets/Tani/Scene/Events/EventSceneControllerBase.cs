@@ -30,4 +30,7 @@ public class EventSceneControllerBase : MonoBehaviour
         PlayerInfo.Instance.DoAction();
         SceneManager.LoadScene(sceneToGetBack);
     }
+
+    
+
 }

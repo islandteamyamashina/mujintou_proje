@@ -209,6 +209,8 @@ public class SlotManager : MonoBehaviour
     /// </summary>
     public virtual bool SetItemToSlot(Items.Item_ID item_ID, int num, int slot_index)
     {
+        
+
         if (!_Slots[slot_index]) return false;
         item_list[slot_index] = (item_ID, num);
         var n = Resources.Load($"{item_ID}") as Items;

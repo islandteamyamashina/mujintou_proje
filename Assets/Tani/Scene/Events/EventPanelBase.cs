@@ -28,11 +28,9 @@ public class EventPanelBase : MonoBehaviour
 
 
     TextControl event_text_control;
-    ButtonControlMethods button_methods;
     UnityAction[] actions;
     private void Awake()
     {
-        button_methods = GetComponent<ButtonControlMethods>();
         event_text_control = event_text.gameObject.GetComponent<TextControl>();
 
       
@@ -178,7 +176,7 @@ public class EventPanelBase : MonoBehaviour
         PlayerInfo info = PlayerInfo.Instance;
         if (Mathf.Abs(result.health_change) + Mathf.Abs(result.hunger_change) + Mathf.Abs(result.thirst_change) != 0)
         {
-            //ステータスの増減を表すもじれる
+            //ステータスの増減を表す文字列
 
             var prev_health = info.Health;
             var prev_hunger = info.Hunger;
@@ -225,7 +223,7 @@ public class EventPanelBase : MonoBehaviour
         }
         
        event_text_control.ClickEventAfterTextsEnd.AddListener(ONEndEvent);
-
+       
 
     }
 
@@ -234,6 +232,8 @@ public class EventPanelBase : MonoBehaviour
         print("event end");
         event_text_control.ClickEventAfterTextsEnd.RemoveListener(ONEndEvent);
        
+
+
         StartEvent(endEventData);
     }
 
