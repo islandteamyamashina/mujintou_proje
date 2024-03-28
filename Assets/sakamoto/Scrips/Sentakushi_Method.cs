@@ -144,15 +144,36 @@ public class Sentakushi_Method : Event_Text
             PlayerInfo.Instance.Thirst += event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_warter;
             Debug.Log("•ÏŠ·Œã‚Ì‘Ì—Í‚Í" + PlayerInfo.Instance.Health + "‹ó• “x‚Í" + PlayerInfo.Instance.Hunger + "…•ª‚Í" + PlayerInfo.Instance.Thirst + "‚Å‚·");
 
-            next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Next_Ivent_ID;
+            if (PlayerInfo.Instance.Day.day <= event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_day || event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_day == 0)
+            {
+                next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Next_Ivent_ID;
+            }
+            else 
+            {
+                next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Next_Ivent_ID_2;
+            }
+
             for (int i = 0; i < event_manage.eventDatas.Length; i++)
             {
-                if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Next_Ivent_ID == event_manage.eventDatas[i].Event_ID)
+                if (PlayerInfo.Instance.Day.day <= event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_day || event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_day == 0)
                 {
-                    Debug.Log(event_manage.eventDatas[i].Event_ID);
-                    event_manage.now_event_num = i;
-                    Debug.Log(event_manage.eventDatas[event_manage.now_event_num].Event_ID);
-                    break;
+                    if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Next_Ivent_ID == event_manage.eventDatas[i].Event_ID)
+                    {
+                        Debug.Log(event_manage.eventDatas[i].Event_ID);
+                        event_manage.now_event_num = i;
+                        Debug.Log(event_manage.eventDatas[event_manage.now_event_num].Event_ID);
+                        break;
+                    }
+                }
+                else 
+                {
+                    if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Next_Ivent_ID_2 == event_manage.eventDatas[i].Event_ID)
+                    {
+                        Debug.Log(event_manage.eventDatas[i].Event_ID);
+                        event_manage.now_event_num = i;
+                        Debug.Log(event_manage.eventDatas[event_manage.now_event_num].Event_ID);
+                        break;
+                    }
                 }
             }
 
@@ -178,16 +199,36 @@ public class Sentakushi_Method : Event_Text
             PlayerInfo.Instance.Thirst += event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_warter;
             Debug.Log("•ÏŠ·Œã‚Ì‘Ì—Í‚Í" + PlayerInfo.Instance.Health + "‹ó• “x‚Í" + PlayerInfo.Instance.Hunger + "…•ª‚Í" + PlayerInfo.Instance.Thirst + "‚Å‚·");
 
-            next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Next_Ivent_ID;
+            if (PlayerInfo.Instance.Day.day <= event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_day || event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_day == 0)
+            {
+                next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Next_Ivent_ID;
+            }
+            else
+            {
+                next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Next_Ivent_ID_2;
+            }
 
             for (int i = 0; i < event_manage.eventDatas.Length; i++)
             {
-                if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Next_Ivent_ID == event_manage.eventDatas[i].Event_ID)
+                if (PlayerInfo.Instance.Day.day <= event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_day || event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_day == 0)
                 {
-                    Debug.Log(event_manage.eventDatas[i].Event_ID);
-                    event_manage.now_event_num = i;
-                    Debug.Log(event_manage.eventDatas[event_manage.now_event_num].Event_ID);
-                    break;
+                    if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Next_Ivent_ID == event_manage.eventDatas[i].Event_ID)
+                    {
+                        Debug.Log(event_manage.eventDatas[i].Event_ID);
+                        event_manage.now_event_num = i;
+                        Debug.Log(event_manage.eventDatas[event_manage.now_event_num].Event_ID);
+                        break;
+                    }
+                }
+                else
+                {
+                    if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Next_Ivent_ID_2 == event_manage.eventDatas[i].Event_ID)
+                    {
+                        Debug.Log(event_manage.eventDatas[i].Event_ID);
+                        event_manage.now_event_num = i;
+                        Debug.Log(event_manage.eventDatas[event_manage.now_event_num].Event_ID);
+                        break;
+                    }
                 }
             }
 
