@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-//[RequireComponent(typeof(ButtonControlMethods))]
+
 public class EventPanelBase : MonoBehaviour
 {   
     //inspector field
@@ -130,6 +130,10 @@ public class EventPanelBase : MonoBehaviour
             {
 
             }
+
+            print($"PLayerAction :{PlayerInfo.Instance.ActionValue  },required: {data.results[i].required_action_value}");
+            buttons.transform.GetChild(i).GetComponent<Button>().interactable =
+                    PlayerInfo.Instance.ActionValue >= data.results[i].required_action_value;
         }
 
 
@@ -179,15 +183,18 @@ public class EventPanelBase : MonoBehaviour
             var prev_health = info.Health;
             var prev_hunger = info.Hunger;
             var prev_thirst = info.Thirst;
+            var prev_action = info.ActionValue;
 
             info.Health += result.health_change;
             info.Hunger += result.hunger_change;
             info.Thirst += result.thirst_change;
+            info.ActionValue -= result.required_action_value;
 
             string status_change =
                 $"‘Ì—Í : {prev_health} Ë {info.Health}\n" +
                 $"…•ª : {prev_thirst} Ë {info.Thirst}\n" +
-                $"‹ó•  : {prev_hunger} Ë {info.Hunger}";
+                $"‹ó•  : {prev_hunger} Ë {info.Hunger}\n"+
+                $"s“®’l : {prev_action} Ë {info.ActionValue}";
             event_text_control.AddTextData(status_change);
         }
         

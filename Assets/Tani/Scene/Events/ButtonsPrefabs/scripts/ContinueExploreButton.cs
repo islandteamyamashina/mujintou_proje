@@ -15,6 +15,7 @@ public class ContinueExploreButton : MonoBehaviour
             Debug.LogError("GameController doesn't have EventSceneControllerBase");
         }
         //print("Continue explore");
+        GetComponent<Button>().interactable = PlayerInfo.Instance.ActionValue >= 1;
         GetComponent<Button>().onClick.AddListener(event_controller.RestartEvent);
     }
 

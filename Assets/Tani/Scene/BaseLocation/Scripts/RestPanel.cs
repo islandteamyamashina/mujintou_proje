@@ -29,6 +29,7 @@ public class RestPanel : PanelBase
         PlayerInfo.Instance.Health += 30;
         PlayerInfo.Instance.Hunger -= 30;
         PlayerInfo.Instance.Thirst -= 40;
+        PlayerInfo.Instance.ActionValue = PlayerInfo.Instance.MaxActionValue;
         if (isDayTime)
         {
             GameObject.FindWithTag("GameController").GetComponent<BaseLocationDaytimeController>().ChangeBaseLocation();

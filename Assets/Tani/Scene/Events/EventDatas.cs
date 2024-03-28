@@ -23,6 +23,7 @@ public class ChoiseResult
     public int health_change = 0;
     public int hunger_change = 0;
     public int thirst_change = 0;
+    public int required_action_value = 1;
 
 }
 
