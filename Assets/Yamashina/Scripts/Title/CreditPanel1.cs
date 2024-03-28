@@ -27,11 +27,11 @@ public class CreditPanel1 : MonoBehaviour
     [SerializeField] GameObject CreditButton;
     [SerializeField] GameObject optionButton;
 
-    [SerializeField] EventTrigger eventTrigger_start;
-    [SerializeField] EventTrigger eventTrigger_quit;
-    [SerializeField] EventTrigger eventTrigger_Credit;
-    [SerializeField] EventTrigger eventTrigger_option;
-    [SerializeField] EventTrigger eventTrigger_Continue_;
+    //[SerializeField] EventTrigger eventTrigger_start;
+    //[SerializeField] EventTrigger eventTrigger_quit;
+    //[SerializeField] EventTrigger eventTrigger_Credit;
+    //[SerializeField] EventTrigger eventTrigger_option;
+    //[SerializeField] EventTrigger eventTrigger_Continue_;
 
 
     //public Button invenntory;
@@ -50,11 +50,11 @@ public class CreditPanel1 : MonoBehaviour
         quitButton.SetActive(true); 
         CreditButton.SetActive(true);   
         
-        eventTrigger_start.enabled = true;
-        eventTrigger_quit.enabled = true;   
-        eventTrigger_option.enabled = true;     
-        eventTrigger_Credit.enabled = true;
-        eventTrigger_Continue_.enabled = true;  
+        //eventTrigger_start.enabled = true;
+        //eventTrigger_quit.enabled = true;   
+        //eventTrigger_option.enabled = true;     
+        //eventTrigger_Credit.enabled = true;
+        //eventTrigger_Continue_.enabled = true;  
 
         //ExitInventory.interactable = false;
         //invenntory.interactable = true;
@@ -85,11 +85,11 @@ public class CreditPanel1 : MonoBehaviour
 
 
        
-        eventTrigger_start.enabled = true;
-        eventTrigger_quit.enabled = true;
-        eventTrigger_option.enabled = true;
-        eventTrigger_Credit.enabled = true;
-        eventTrigger_Continue_.enabled = true;
+        //eventTrigger_start.enabled = true;
+        //eventTrigger_quit.enabled = true;
+        //eventTrigger_option.enabled = true;
+        //eventTrigger_Credit.enabled = true;
+        //eventTrigger_Continue_.enabled = true;
 
 
     }
@@ -106,11 +106,11 @@ public class CreditPanel1 : MonoBehaviour
         optionButton.SetActive(false);
         quitButton.SetActive(false);
         CreditButton.SetActive(false);
-        eventTrigger_start.enabled = false;
-        eventTrigger_quit.enabled = false;
-        eventTrigger_option.enabled = false;
-        eventTrigger_Credit.enabled = false;
-        eventTrigger_Continue_.enabled = false;
+        //eventTrigger_start.enabled = false;
+        //eventTrigger_quit.enabled = false;
+        //eventTrigger_option.enabled = false;
+        //eventTrigger_Credit.enabled = false;
+        //eventTrigger_Continue_.enabled = false;
 
     }
     public virtual void CreditView()
@@ -121,16 +121,20 @@ public class CreditPanel1 : MonoBehaviour
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
         //start.interactable = false;
-        
+        startButton.SetActive(false);
+        ContinueButton.SetActive(false);
+        optionButton.SetActive(false);
+        quitButton.SetActive(false);
+        CreditButton.SetActive(false);
         //Continue.interactable = false;
         //Credit.interactable = false;
         //quit.interactable = false;
         //option.interactable = false;
-        eventTrigger_start.enabled = false;
-        eventTrigger_quit.enabled = false;
-        eventTrigger_option.enabled = false;
-        eventTrigger_Credit.enabled = false;
-        eventTrigger_Continue_.enabled = false;
+        //eventTrigger_start.enabled = false;
+        //eventTrigger_quit.enabled = false;
+        //eventTrigger_option.enabled = false;
+        //eventTrigger_Credit.enabled = false;
+        //eventTrigger_Continue_.enabled = false;
 
     }
     public void QuitView()
@@ -145,11 +149,11 @@ public class CreditPanel1 : MonoBehaviour
         //Credit.interactable = false;
         //quit.interactable = false;
         //option.interactable = false;
-        eventTrigger_start.enabled = false;
-        eventTrigger_quit.enabled = false;
-        eventTrigger_option.enabled = false;
-        eventTrigger_Credit.enabled = false;
-        eventTrigger_Continue_.enabled = false;
+        startButton.SetActive(false);
+        ContinueButton.SetActive(false);
+        optionButton.SetActive(false);
+        quitButton.SetActive(false);
+        CreditButton.SetActive(false);
 
     }
     public void startView()
@@ -164,11 +168,11 @@ public class CreditPanel1 : MonoBehaviour
         //Credit.interactable = false;
         //option.interactable = false;
         //quit.interactable = false;
-        eventTrigger_start.enabled = false;
-        eventTrigger_quit.enabled = false;
-        eventTrigger_option.enabled = false;
-        eventTrigger_Credit.enabled = false;
-        eventTrigger_Continue_.enabled = false;
+        startButton.SetActive(false);
+        ContinueButton.SetActive(false);
+        optionButton.SetActive(false);
+        quitButton.SetActive(false);
+        CreditButton.SetActive(false);
 
     }
     //public virtual void InventoryView()
@@ -214,11 +218,11 @@ public class CreditPanel1 : MonoBehaviour
             //Credit.interactable = true;
             //quit.interactable = true;
             //option.interactable = true;
-            eventTrigger_start.enabled = true;
-            eventTrigger_quit.enabled = true;
-            eventTrigger_option.enabled = true;
-            eventTrigger_Credit.enabled = true;
-            eventTrigger_Continue_.enabled = true;
+            startButton.SetActive(true);
+            ContinueButton.SetActive(true);
+            optionButton.SetActive(true);
+            quitButton.SetActive(true);
+            CreditButton.SetActive(true);
 
         }
 
