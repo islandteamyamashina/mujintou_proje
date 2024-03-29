@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class CreditPanel1 : MonoBehaviour
 {
-   
+
     //public GameObject UICanvas;
     public GameObject mainPanel;
     public GameObject subPanel;
@@ -44,11 +44,11 @@ public class CreditPanel1 : MonoBehaviour
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
-        startButton.SetActive(true);   
+        startButton.SetActive(true);
         ContinueButton.SetActive(true);
         optionButton.SetActive(true);
-        quitButton.SetActive(true); 
-        CreditButton.SetActive(true);   
+        quitButton.SetActive(true);
+        CreditButton.SetActive(true);
         PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         //eventTrigger_start.enabled = true;
         //eventTrigger_quit.enabled = true;   
@@ -84,7 +84,7 @@ public class CreditPanel1 : MonoBehaviour
         //GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
 
-       
+
         //eventTrigger_start.enabled = true;
         //eventTrigger_quit.enabled = true;
         //eventTrigger_option.enabled = true;
@@ -111,7 +111,7 @@ public class CreditPanel1 : MonoBehaviour
         //eventTrigger_option.enabled = false;
         //eventTrigger_Credit.enabled = false;
         //eventTrigger_Continue_.enabled = false;
-
+       
     }
     public virtual void CreditView()
     {
@@ -126,6 +126,12 @@ public class CreditPanel1 : MonoBehaviour
         optionButton.SetActive(true);
         quitButton.SetActive(false);
         CreditButton.SetActive(false);
+        if (OptionPanel.activeSelf)
+        {
+            OptionPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            StartSlidein();
+
+        }
         //Continue.interactable = false;
         //Credit.interactable = false;
         //quit.interactable = false;
@@ -173,8 +179,53 @@ public class CreditPanel1 : MonoBehaviour
         optionButton.SetActive(false);
         quitButton.SetActive(false);
         CreditButton.SetActive(false);
+        if (startPanel.activeSelf)
+        {
+            startPanel.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            StartSlidein();
+        }
 
     }
+    public void StartSlidein()
+    {
+        StartCoroutine(ChangePaneltoBigSize());
+    }
+
+
+    public IEnumerator ChangePaneltoBigSize()
+    {
+        var size = 0f;
+        var speed = 0.05f;
+        var size2 = 0f;
+
+        while (size <= 1.0f && startPanel.activeSelf)
+        {
+            startPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(1.5f, 1.5f, 1.5f), size);
+            size += speed;
+
+            yield return null;
+        }
+
+        while (size2 <= 1.0f && OptionPanel.activeSelf)
+        {
+            OptionPanel.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), new Vector3(1.0f, 1.0f, 1.0f), size2);
+            size2 += speed;
+
+            yield return null;
+        }
+
+    }
+
+    //    private IEnumerator StartSlidePanel()
+    //    {
+
+    //        while (true)
+    //        {
+    //            startPanel.transform.localScale+=new Vector3(0, 0, 0);
+    //.
+    //            yield return null;        // 1フレーム後、再開
+    //        }
+    //    }
     //public virtual void InventoryView()
     //{
     //    //mainPanel.SetActive(false);
@@ -183,7 +234,7 @@ public class CreditPanel1 : MonoBehaviour
 
     //    //GameObject.Find("Inventory").transform.position = Vector3.zero;
     //    GameObject.Find("InventorySlotManager").transform.position = Vector3.zero;
-       
+
     //    GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
     //    //GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
@@ -196,7 +247,7 @@ public class CreditPanel1 : MonoBehaviour
     //public void ToMainView()
     //{
     //    GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-      
+
     //    GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
     //    //GameObject.Find("SozaibakoPanel").transform.position = Vector3.zero;
 
