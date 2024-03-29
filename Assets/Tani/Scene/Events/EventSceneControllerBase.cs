@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class EventSceneControllerBase : MonoBehaviour
@@ -9,6 +10,10 @@ public class EventSceneControllerBase : MonoBehaviour
     EventPanelBase eventPanel;
     [SerializeField]
     SceneObject sceneToGetBack;
+    [SerializeField]
+    Fading fading;
+    [SerializeField]
+    GameObject imageInMoveing;
 
     private void Awake()
     {
@@ -22,6 +27,22 @@ public class EventSceneControllerBase : MonoBehaviour
 
     public void RestartEvent()
     {
+        //フェード終了時に呼ばれる
+        fading.OnFadeEnd.AddListener(() =>
+        {
+            imageInMoveing.SetActive(true);
+            StartCoroutine("HideMovingImage");
+            
+        });
+        fading.Fade(Fading.type.FadeOut);
+
+        
+    }
+    IEnumerator HideMovingImage()
+    {
+        yield return new WaitForSeconds(3);
+        imageInMoveing.SetActive(false);
+        fading.Fade(Fading.type.FadeIn);
         eventPanel.SetRandomEvent();
     }
 
@@ -30,6 +51,8 @@ public class EventSceneControllerBase : MonoBehaviour
         PlayerInfo.Instance.DoAction();
         SceneManager.LoadScene(sceneToGetBack);
     }
+
+    
 
     
 

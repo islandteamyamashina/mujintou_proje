@@ -25,7 +25,7 @@ public class FirePanel : PanelBase
         fire_value_text.text = "•°‰Î’l : " + PlayerInfo.Instance.Fire.ToString();
         
         AddFireButton.interactable = PlayerInfo.Instance.Fire != 100 && PlayerInfo.Instance.Fire != 0;
-        MakeFireButton.interactable = PlayerInfo.Instance.Fire == 0;
+        MakeFireButton.interactable = PlayerInfo.Instance.Fire == 0 && PlayerInfo.Instance.ActionValue >= 3;
         ToCookingButton.interactable = PlayerInfo.Instance.Fire != 0;
     }
 
@@ -43,5 +43,6 @@ public class FirePanel : PanelBase
         info.Thirst -= 10;
         info.Hunger -= 10;
         info.Fire = 30;
+        info.ActionValue -= 3;
     }
 }
