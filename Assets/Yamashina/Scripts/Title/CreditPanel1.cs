@@ -173,38 +173,73 @@ public class CreditPanel1 : MonoBehaviour
         optionButton.SetActive(false);
         quitButton.SetActive(false);
         CreditButton.SetActive(false);
+        if (startPanel.activeSelf)
+        {
+            startPanel.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            StartSlidein();
+        }
 
     }
-    //public virtual void InventoryView()
-    //{
-    //    //mainPanel.SetActive(false);
-    //    //subPanel.SetActive(false);
-    //    //OptionPanel.SetActive(false);
-
-    //    //GameObject.Find("Inventory").transform.position = Vector3.zero;
-    //    GameObject.Find("InventorySlotManager").transform.position = Vector3.zero;
-       
-    //    GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
-    //    //GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+    public void StartSlidein()
+    {
+        StartCoroutine(ChangePaneltoBigSize());
+    }
 
 
-    //    //inventory = GameObject.Find("Inventory");
+    public IEnumerator ChangePaneltoBigSize()
+    {
+        var size = 0f;
+        var speed = 0.05f;
 
-    //    //newbutton.SetActive(false); 
-    //    //wakimizu_tabu.SetActive(false);
-    //}
-    //public void ToMainView()
-    //{
-    //    GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-      
-    //    GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
-    //    //GameObject.Find("SozaibakoPanel").transform.position = Vector3.zero;
+        while (size <= 1.0f)
+        {
+            startPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(3, 3, 3), size);
+            size += speed;
+
+            yield return null;
+        }
+    }
+
+//    private IEnumerator StartSlidePanel()
+//    {
+
+//        while (true)
+//        {
+//            startPanel.transform.localScale+=new Vector3(0, 0, 0);
+//.
+//            yield return null;        // 1フレーム後、再開
+//        }
+//    }
+//public virtual void InventoryView()
+//{
+//    //mainPanel.SetActive(false);
+//    //subPanel.SetActive(false);
+//    //OptionPanel.SetActive(false);
+
+//    //GameObject.Find("Inventory").transform.position = Vector3.zero;
+//    GameObject.Find("InventorySlotManager").transform.position = Vector3.zero;
+
+//    GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
+//    //GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
 
 
-    //    //ExitInventory.interactable = false;
-    //    //invenntory.interactable = true;
-    //}
-    void Update()
+//    //inventory = GameObject.Find("Inventory");
+
+//    //newbutton.SetActive(false); 
+//    //wakimizu_tabu.SetActive(false);
+//}
+//public void ToMainView()
+//{
+//    GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
+
+//    GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
+//    //GameObject.Find("SozaibakoPanel").transform.position = Vector3.zero;
+
+
+//    //ExitInventory.interactable = false;
+//    //invenntory.interactable = true;
+//}
+void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {

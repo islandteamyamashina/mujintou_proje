@@ -44,11 +44,12 @@ public class LoadScene : MonoBehaviour
         DataManager.Instance.Save(saveData);
         fade.scene_name_num = num;
         fade.feadout_f = true;
-        if(fade.feadout_f == false)
+        if (fade.feadout_f == false)
         {
             PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
 
         }
+
 
 
     }
