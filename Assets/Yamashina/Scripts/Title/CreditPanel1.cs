@@ -128,7 +128,7 @@ public class CreditPanel1 : MonoBehaviour
         CreditButton.SetActive(false);
         if (OptionPanel.activeSelf)
         {
-            OptionPanel.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            OptionPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             StartSlidein();
 
         }
@@ -208,7 +208,7 @@ public class CreditPanel1 : MonoBehaviour
 
         while (size2 <= 1.0f && OptionPanel.activeSelf)
         {
-            OptionPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(1.5f, 1.5f, 1.5f), size2);
+            OptionPanel.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), new Vector3(1.0f, 1.0f, 1.0f), size2);
             size2 += speed;
 
             yield return null;
