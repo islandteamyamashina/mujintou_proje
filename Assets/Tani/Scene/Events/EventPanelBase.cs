@@ -120,6 +120,7 @@ public class EventPanelBase : MonoBehaviour
         for (int i = 0; i < buttons.transform.childCount; i++)
         {
             buttons.transform.GetChild(i).GetChild(0).gameObject.GetComponent<Text>().text = data.results[i].choise_text;
+            buttons.transform.GetChild(i).GetChild(1).gameObject.GetComponent<Text>().text = $"çsìÆíl : {data.results[i].required_action_value}";
             if (data.callBackType == EventCallBackType.Normal)
             {
                 buttons.transform.GetChild(i).gameObject.GetComponent<Button>().onClick.AddListener(actions[i]);

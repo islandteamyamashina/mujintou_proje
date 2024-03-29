@@ -89,13 +89,13 @@ public class Slot : MonoBehaviour
         
         if (Input.GetMouseButtonUp(1) && Affiliation.GetSlotItem(Slot_index).Value.id != Items.Item_ID.EmptyObject)
         {
-            if (right_click_popup)
-            {
-                var popup = Instantiate(right_click_popup, Input.mousePosition + new Vector3(100,130,0), transform.rotation);
-                popup.transform.SetParent(item_icon_object.canvas.gameObject.transform);
-                popup.GetComponent<PopupImage>().spawned_slot = this;
+            //if (right_click_popup)
+            //{
+            //    var popup = Instantiate(right_click_popup, Input.mousePosition + new Vector3(100,130,0), transform.rotation);
+            //    popup.transform.SetParent(item_icon_object.canvas.gameObject.transform);
+            //    popup.GetComponent<PopupImage>().spawned_slot = this;
 
-            }
+            //}
         }
         
 

@@ -63,7 +63,10 @@ public class BaseLocationDaytimeController : MonoBehaviour
 
     public void NextScene()
     {
-        SceneManager.LoadScene(scene);
+        var fade = ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
+        fade.Fade(Fading.type.FadeOut);
+        fade.OnFadeEnd.AddListener(() => { SceneManager.LoadScene(scene); });
+        
     }
 
     public void ChangeBaseLocation()
