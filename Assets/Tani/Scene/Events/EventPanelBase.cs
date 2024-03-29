@@ -77,18 +77,26 @@ public class EventPanelBase : MonoBehaviour
     public enum EventCallBackType { Normal,Custom};
     public void StartEvent(EventDatas data)
     {
-        print("StartEvent");
+        if (!data)
+        {
+            Debug.LogError("Event data is null");
+            return;
+        }
+        if (!CanEventExcute(data.scene_id))
+        {
+            SetRandomEvent();
+            return;
+        }
+        
+
+
         event_text_control.EndEvent.RemoveAllListeners();
         event_text_control.ClickEventAfterTextsEnd.RemoveAllListeners();
 
      
 
         
-        if (!data)
-        {
-            Debug.LogError("Event data is null");
-            return;
-        }
+        
 
 
 
@@ -120,7 +128,8 @@ public class EventPanelBase : MonoBehaviour
         for (int i = 0; i < buttons.transform.childCount; i++)
         {
             buttons.transform.GetChild(i).GetChild(0).gameObject.GetComponent<Text>().text = data.results[i].choise_text;
-            buttons.transform.GetChild(i).GetChild(1).gameObject.GetComponent<Text>().text = $"行動値 : {data.results[i].required_action_value}";
+            if(buttons.transform.GetChild(i).childCount >=2)
+              buttons.transform.GetChild(i).GetChild(1).gameObject.GetComponent<Text>().text = $"行動値 : {data.results[i].required_action_value}";
             if (data.callBackType == EventCallBackType.Normal)
             {
                 buttons.transform.GetChild(i).gameObject.GetComponent<Button>().onClick.AddListener(actions[i]);
@@ -142,6 +151,17 @@ public class EventPanelBase : MonoBehaviour
         buttons_prefab_parent.gameObject.SetActive(false);
 
 
+    }
+
+    bool CanEventExcute(int scene_id)
+    {
+        switch (scene_id)
+        {
+            case 3:
+                return PlayerInfo.Instance.Health >= 50;
+            default:
+                return true;
+        }
     }
 
    
