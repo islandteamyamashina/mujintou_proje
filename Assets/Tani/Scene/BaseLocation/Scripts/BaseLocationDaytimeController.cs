@@ -16,7 +16,10 @@ public class BaseLocationDaytimeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        var fade =  ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
+        fade.OnFadeEnd.AddListener(() => { print("fadeEnd"); });
+        fade.Fade(Fading.type.FadeIn);
     }
 
     // Update is called once per frame
