@@ -184,7 +184,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     public enum Weather
     {
-        Sunny,Cloudy,Rainy,Snowy,Foggy,Windy,
+        Sunny,Cloudy,Rainy,
         Weather_Max
     }
 

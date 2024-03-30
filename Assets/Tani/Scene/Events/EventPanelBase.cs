@@ -40,8 +40,7 @@ public class EventPanelBase : MonoBehaviour
 
     void Start()
     {
-       // SetRandomEvent();
-       
+
     }
 
     public void SetEvent(int index)
@@ -52,9 +51,12 @@ public class EventPanelBase : MonoBehaviour
     public  void SetRandomEvent()
     {
         probability_sum = 0;
-        foreach (var n in EventList)
+        int[] modifiedProbabilities = new int[EventList.Count];
+        for (int i = 0; i < EventList.Count; i++)
         {
-            probability_sum += n.probability;
+            int modi = (int)(EventList[i].probability * EventProbabilityMultiplier(EventList[i].scene_id));
+            modifiedProbabilities[i] = modi;
+            probability_sum += modi;
         }
         int random_int = Mathf.CeilToInt(Random.value * probability_sum);
         int range_min = 0;
@@ -63,7 +65,7 @@ public class EventPanelBase : MonoBehaviour
         while (true)
         {
             range_min = range_max;
-            range_max += EventList[index].probability;
+            range_max += modifiedProbabilities[index];
             if(random_int > range_min && random_int <= range_max)
             {
                 break;
@@ -153,6 +155,28 @@ public class EventPanelBase : MonoBehaviour
 
     }
 
+    float EventProbabilityMultiplier(int scene_id)
+    {
+        PlayerInfo info = PlayerInfo.Instance;
+        switch (scene_id)
+        {
+            case 3:
+                if (PlayerInfo.Instance.Day.day >= 10)
+                {
+                    return 1.5f;
+                }
+                return 1;
+            case 1000:
+                return info.weather == PlayerInfo.Weather.Sunny ? 1 : 0;
+            case 1100:
+                return info.weather == PlayerInfo.Weather.Rainy ? 1 : 0;
+            case 1200:
+                return info.weather == PlayerInfo.Weather.Cloudy ? 1 : 0;
+            default:
+                return 1;
+        }
+    }
+
     bool CanEventExcute(int scene_id)
     {
         switch (scene_id)
@@ -163,6 +187,8 @@ public class EventPanelBase : MonoBehaviour
                 return true;
         }
     }
+
+    
 
    
 
