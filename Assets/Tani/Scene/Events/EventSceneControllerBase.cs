@@ -14,6 +14,10 @@ public class EventSceneControllerBase : MonoBehaviour
     Fading fading;
     [SerializeField]
     GameObject imageInMoveing;
+    [SerializeField]
+    Image scene_BG;
+    [SerializeField]
+    List<Sprite> scene_back_ground_images;
 
     private void Awake()
     {
@@ -21,6 +25,7 @@ public class EventSceneControllerBase : MonoBehaviour
     }
     void Start()
     {
+        scene_BG.sprite = scene_back_ground_images[(int)PlayerInfo.Instance.weather];
         eventPanel.SetRandomEvent();
     }
 
