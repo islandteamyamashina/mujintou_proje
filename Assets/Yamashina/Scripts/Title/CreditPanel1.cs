@@ -9,194 +9,265 @@ using UnityEngine.UI;
 
 public class CreditPanel1 : MonoBehaviour
 {
-
-    //public GameObject UICanvas;
+    //パネル関係
     public GameObject mainPanel;
     public GameObject subPanel;
     public GameObject OptionPanel;
     public GameObject QuitPanel;
     public GameObject startPanel;
-    //public Button start;
-    //public Button Continue;
-    //public Button quit;
-    //public Button Credit;
-    //public Button option;
+
+    //ゲームオブジェクトのボタン(Setactive)
     [SerializeField] GameObject startButton;
     [SerializeField] GameObject ContinueButton;
     [SerializeField] GameObject quitButton;
     [SerializeField] GameObject CreditButton;
     [SerializeField] GameObject optionButton;
 
-    //[SerializeField] EventTrigger eventTrigger_start;
-    //[SerializeField] EventTrigger eventTrigger_quit;
-    //[SerializeField] EventTrigger eventTrigger_Credit;
-    //[SerializeField] EventTrigger eventTrigger_option;
+    //ボタンのイベントトリガー関連
+    [SerializeField] EventTrigger eventTrigger_start;
+    [SerializeField] EventTrigger eventTrigger_quit;
+    [SerializeField] EventTrigger eventTrigger_Credit;
+    [SerializeField] EventTrigger eventTrigger_option;
     //[SerializeField] EventTrigger eventTrigger_Continue_;
 
+    //ボタン機能関連（Interactive)
+    public Button start;
 
-    //public Button invenntory;
-    //public Button ExitInventory;
+    //public Button Continue;
+    public Button quit;
+    public Button Credit;
+    public Button option;
 
-    void Start()
+    void Start()//始まるとき
     {
+        //パネル関係
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
+
+        //ゲームオブジェクトのボタン(Setactive)
         startButton.SetActive(true);
         ContinueButton.SetActive(true);
         optionButton.SetActive(true);
         quitButton.SetActive(true);
         CreditButton.SetActive(true);
+
+        //シングルトン
         PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-        //eventTrigger_start.enabled = true;
-        //eventTrigger_quit.enabled = true;   
-        //eventTrigger_option.enabled = true;     
-        //eventTrigger_Credit.enabled = true;
-        //eventTrigger_Continue_.enabled = true;  
 
-        //ExitInventory.interactable = false;
-        //invenntory.interactable = true;
+        //ボタンのイベントトリガー関連
+        eventTrigger_start.enabled = true;
+        eventTrigger_quit.enabled = true;
+        eventTrigger_option.enabled = true;
+        eventTrigger_Credit.enabled = true;
 
-        //GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-
-        //inventory = GameObject.Find("Inventory");
-        //inventory.SetActive(false);
-        //  InventorySlot.SetActive(false);
-        //UICanvas.SetActive(false);
-    }
-
-    public virtual void MainView()
-    {
-        mainPanel.SetActive(true);
-        subPanel.SetActive(false);
-        OptionPanel.SetActive(false);
-        QuitPanel.SetActive(false);
-        startPanel.SetActive(false);
-
-        startButton.SetActive(true);
-        ContinueButton.SetActive(true);
-        optionButton.SetActive(true);
-        quitButton.SetActive(true);
-        CreditButton.SetActive(true);
-        //GameObject.Find("InventoryUIPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-        //GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-
-
-
-        //eventTrigger_start.enabled = true;
-        //eventTrigger_quit.enabled = true;
-        //eventTrigger_option.enabled = true;
-        //eventTrigger_Credit.enabled = true;
+        //ボタン機能関連（Interactive)
+        start.interactable = true;  
+        quit.interactable = true;   
+        Credit.interactable = true; 
+        option.interactable = true; 
         //eventTrigger_Continue_.enabled = true;
 
-
     }
 
-    public virtual void SubView()
+    public virtual void MainView()//メイン画面のみ表示
     {
+        //パネル関係
+        mainPanel.SetActive(true);
+        subPanel.SetActive(false);
+        OptionPanel.SetActive(false);
+        QuitPanel.SetActive(false);
+        startPanel.SetActive(false);
+
+        //ゲームオブジェクトのボタン(Setactive)
+        startButton.SetActive(true);
+        ContinueButton.SetActive(true);
+        optionButton.SetActive(true);
+        quitButton.SetActive(true);
+        CreditButton.SetActive(true);
+       
+        //ボタンのイベントトリガー関連
+        eventTrigger_start.enabled = true;
+        eventTrigger_quit.enabled = true;
+        eventTrigger_option.enabled = true;
+        eventTrigger_Credit.enabled = true;
+
+        //ボタン機能関連（Interactive)
+        start.interactable = true;
+        quit.interactable = true;
+        Credit.interactable = true;
+        option.interactable = true;
+       
+    }
+
+    public virtual void SubView() //クレジット画面表示
+    {
+        //パネル関係
         mainPanel.SetActive(true);
         subPanel.SetActive(true);
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
+
+        //ゲームオブジェクトのボタン(Setactive)
         startButton.SetActive(false);
         ContinueButton.SetActive(false);
         optionButton.SetActive(false);
         quitButton.SetActive(false);
-        CreditButton.SetActive(false);
+        CreditButton.SetActive(true);
+
+        //ボタンのイベントトリガー関連
         //eventTrigger_start.enabled = false;
         //eventTrigger_quit.enabled = false;
         //eventTrigger_option.enabled = false;
-        //eventTrigger_Credit.enabled = false;
+        eventTrigger_Credit.enabled = false;
         //eventTrigger_Continue_.enabled = false;
-       
+
+        //ボタン機能関連（Interactive)
+        //start.interactable = false;
+        //quit.interactable = false;
+        Credit.interactable = false;
+        //option.interactable = false;
+
+        //パネル拡大する前（オプションパネル）
+        if (subPanel.activeSelf)
+        {
+            subPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            StartSlidein();
+        }
     }
-    public virtual void CreditView()
+
+    public virtual void CreditView()//オプション表示
     {
+        //パネル関係
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
         OptionPanel.SetActive(true);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
-        //start.interactable = false;
+
+        //ゲームオブジェクトのボタン(Setactive)
         startButton.SetActive(false);
         ContinueButton.SetActive(false);
         optionButton.SetActive(true);
         quitButton.SetActive(false);
         CreditButton.SetActive(false);
+
+        //ボタンのイベントトリガー関連
+        //eventTrigger_start.enabled = false;
+        //eventTrigger_quit.enabled = false;
+        eventTrigger_option.enabled = false;
+        //eventTrigger_Credit.enabled = false;
+        //eventTrigger_Continue_.enabled = false;
+
+        //ボタン機能関連（Interactive)
+        //start.interactable = false;
+        //Continue.interactable = false;
+        //Credit.interactable = false;
+        //quit.interactable = false;
+        option.interactable = false;
+
+        //パネル拡大する前（オプションパネル）
         if (OptionPanel.activeSelf)
         {
             OptionPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             StartSlidein();
-
         }
-        //Continue.interactable = false;
-        //Credit.interactable = false;
-        //quit.interactable = false;
-        //option.interactable = false;
-        //eventTrigger_start.enabled = false;
-        //eventTrigger_quit.enabled = false;
-        //eventTrigger_option.enabled = false;
-        //eventTrigger_Credit.enabled = false;
-        //eventTrigger_Continue_.enabled = false;
-
     }
-    public void QuitView()
+
+    public void QuitView()//終了画面表示
     {
+        //パネル関係
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(true);
         startPanel.SetActive(false);
-        //start.interactable = false;
-        //Continue.interactable = false;
-        //Credit.interactable = false;
-        //quit.interactable = false;
-        //option.interactable = false;
+
+        //ゲームオブジェクトのボタン(Setactive)
         startButton.SetActive(false);
         ContinueButton.SetActive(false);
         optionButton.SetActive(false);
-        quitButton.SetActive(false);
+        quitButton.SetActive(true);
         CreditButton.SetActive(false);
 
+        //ボタンのイベントトリガー関連
+        //eventTrigger_start.enabled = false;
+        eventTrigger_quit.enabled = false;
+        //eventTrigger_option.enabled = false;
+        //eventTrigger_Credit.enabled = false;
+        //eventTrigger_Continue_.enabled = false;
+
+        //ボタン機能関連（Interactive)
+        //start.interactable = false;
+        //Continue.interactable = false;
+        //Credit.interactable = false;
+        quit.interactable = false;
+        //option.interactable = false;
+
+        //パネル拡大する前（終了パネル）
+        if (QuitPanel.activeSelf)
+        {
+            QuitPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            StartSlidein();
+        }
     }
-    public void startView()
+    public void startView()//スタートパネル表示
     {
+        //パネル関係
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(true);
-        //start.interactable = false;
-        //Continue.interactable = false;
-        //Credit.interactable = false;
-        //option.interactable = false;
-        //quit.interactable = false;
+
+        //ゲームオブジェクトのボタン(Setactive)
         startButton.SetActive(true);
         ContinueButton.SetActive(false);
         optionButton.SetActive(false);
         quitButton.SetActive(false);
         CreditButton.SetActive(false);
+
+        //ボタンのイベントトリガー関連
+        eventTrigger_start.enabled = false;
+        //eventTrigger_quit.enabled = false;
+        //eventTrigger_option.enabled = false;
+        //eventTrigger_Credit.enabled = false;
+        //eventTrigger_Continue_.enabled = false;
+
+        //ボタン機能関連（Interactive)
+        start.interactable = false;
+        //Continue.interactable = false;
+        //Credit.interactable = false;
+        //option.interactable = false;
+        //quit.interactable = false;
+
+        //パネル拡大する前（スタートパネル）
         if (startPanel.activeSelf)
         {
             startPanel.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             StartSlidein();
         }
-
     }
-    public void StartSlidein()
+    
+    public void StartSlidein()//パネル拡大開始のための関数
     {
         StartCoroutine(ChangePaneltoBigSize());
     }
 
-
+    //パネル拡大(汎用)
     public IEnumerator ChangePaneltoBigSize()
     {
         var size = 0f;
         var speed = 0.05f;
         var size2 = 0f;
+        var size3 = 0f;
+        var size4 = 0f;
+
+
+        //パネル拡大（スタートパネル）
 
         while (size <= 1.0f && startPanel.activeSelf)
         {
@@ -205,7 +276,7 @@ public class CreditPanel1 : MonoBehaviour
 
             yield return null;
         }
-
+        //パネル拡大（オプションパネル）
         while (size2 <= 1.0f && OptionPanel.activeSelf)
         {
             OptionPanel.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), new Vector3(1.0f, 1.0f, 1.0f), size2);
@@ -213,85 +284,61 @@ public class CreditPanel1 : MonoBehaviour
 
             yield return null;
         }
+        //パネル拡大（クレジットパネル）
+
+        while (size3 <= 1.0f && subPanel.activeSelf)
+        {
+            subPanel.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), new Vector3(1.0f, 1.0f, 1.0f), size3);
+            size3 += speed;
+
+            yield return null;
+        }
+
+        //パネル拡大（終了パネル）
+
+        while (size4 <= 1.0f && QuitPanel.activeSelf)
+        {
+            QuitPanel.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), new Vector3(1.0f, 1.0f, 1.0f), size4);
+            size4 += speed;
+
+            yield return null;
+        }
 
     }
 
-    //    private IEnumerator StartSlidePanel()
-    //    {
 
-    //        while (true)
-    //        {
-    //            startPanel.transform.localScale+=new Vector3(0, 0, 0);
-    //.
-    //            yield return null;        // 1フレーム後、再開
-    //        }
-    //    }
-    //public virtual void InventoryView()
-    //{
-    //    //mainPanel.SetActive(false);
-    //    //subPanel.SetActive(false);
-    //    //OptionPanel.SetActive(false);
-
-    //    //GameObject.Find("Inventory").transform.position = Vector3.zero;
-    //    GameObject.Find("InventorySlotManager").transform.position = Vector3.zero;
-
-    //    GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
-    //    //GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-
-
-    //    //inventory = GameObject.Find("Inventory");
-
-    //    //newbutton.SetActive(false); 
-    //    //wakimizu_tabu.SetActive(false);
-    //}
-    //public void ToMainView()
-    //{
-    //    GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-
-    //    GameObject.Find("SozaibakoSlotManager").transform.position = new Vector3(-4.4f, -7.94f, 0.0f);
-    //    //GameObject.Find("SozaibakoPanel").transform.position = Vector3.zero;
-
-
-    //    //ExitInventory.interactable = false;
-    //    //invenntory.interactable = true;
-    //}
     void Update()
     {
+        //escapeキー対応
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            //パネル関係
             OptionPanel.SetActive(false);
             mainPanel.SetActive(true);
             subPanel.SetActive(false);
             QuitPanel.SetActive(false);
             startPanel.SetActive(false);
-            //start.interactable = true;
-            //Continue.interactable = true;
-            //Credit.interactable = true;
-            //quit.interactable = true;
-            //option.interactable = true;
+
+            //ゲームオブジェクトのボタン(Setactive)
             startButton.SetActive(true);
             ContinueButton.SetActive(true);
             optionButton.SetActive(true);
             quitButton.SetActive(true);
             CreditButton.SetActive(true);
 
+            //ボタン機能関連（Interactive)
+            start.interactable = true;
+            //Continue.interactable = true;
+            Credit.interactable = true;
+            quit.interactable = true;
+            option.interactable = true;
+           
+            //ボタンのイベントトリガー関連
+            eventTrigger_start.enabled = true;
+            eventTrigger_quit.enabled = true;
+            eventTrigger_option.enabled = true;
+            eventTrigger_Credit.enabled = true;
         }
-
-
     }
-    //public virtual void SozaibakoView()
-    //{
-
-
-    //    GameObject.Find("SozaibakoSlotManager").transform.position = Vector3.zero;
-    //    GameObject.Find("InventorySlotManager").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-
-    //    GameObject.Find("SozaibakoPanel").transform.position = new Vector3(375.4f, -1039f, 0.0f);
-
-
-
-    //}
-
-
 }
 

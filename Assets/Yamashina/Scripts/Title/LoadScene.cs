@@ -12,7 +12,7 @@ public class LoadScene : MonoBehaviour
     private void Start()
     {
         eventTrigger.enabled = true;    
-        image.SetActive(false);
+        //image.SetActive(false);
         
     }
     [SerializeField] Fade fade;
@@ -20,7 +20,7 @@ public class LoadScene : MonoBehaviour
     [SerializeField] EventTrigger eventTrigger;
     [SerializeField] Button continueButton;
     [SerializeField] CreditPanel1 CreditPanel1;
-    [SerializeField] GameObject image;
+    //[SerializeField] GameObject image;
     // Update is called once per frame
     public void Text_of_each_places(int num = 0)
     {
@@ -57,7 +57,7 @@ public class LoadScene : MonoBehaviour
     {
         if (!DataManager.Instance.DoesSaveExist())
         {
-            image.SetActive(true);
+            //image.SetActive(true);
 
             string colorString = "#999999"; // ê‘êFÇÃ16êiêîï∂éöóÒ
             Color newColor;
@@ -71,7 +71,7 @@ public class LoadScene : MonoBehaviour
             DataManager.Instance.Load();
             fade.scene_name_num = num;
             fade.feadout_f = true;
-            image.SetActive(false);
+            //image.SetActive(false);
             if (fade.feadout_f == false)
             {
                 PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
