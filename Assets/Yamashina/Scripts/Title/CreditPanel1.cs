@@ -74,12 +74,40 @@ public class CreditPanel1 : MonoBehaviour
 
     public virtual void MainView()//メイン画面のみ表示
     {
+        if (startPanel.activeSelf)
+        {
+            StartSlideOut();
+            startPanel.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            startPanel.SetActive(false);
+
+        }
+        if (subPanel.activeSelf)
+        {
+            StartSlideOut();
+            subPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            subPanel.SetActive(false);
+            
+        }
+        if (OptionPanel.activeSelf)
+        {
+            StartSlideOut();
+            OptionPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            OptionPanel.SetActive(false);
+
+        }
+        if (QuitPanel.activeSelf)
+        {
+            StartSlideOut();
+            QuitPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            
+            QuitPanel.SetActive(false);
+
+        }
         //パネル関係
         mainPanel.SetActive(true);
-        subPanel.SetActive(false);
-        OptionPanel.SetActive(false);
-        QuitPanel.SetActive(false);
-        startPanel.SetActive(false);
+        
+        
+       
 
         //ゲームオブジェクトのボタン(Setactive)
         startButton.SetActive(true);
@@ -99,7 +127,8 @@ public class CreditPanel1 : MonoBehaviour
         quit.interactable = true;
         Credit.interactable = true;
         option.interactable = true;
-       
+        
+        
     }
 
     public virtual void SubView() //クレジット画面表示
@@ -306,7 +335,59 @@ public class CreditPanel1 : MonoBehaviour
 
     }
 
+    public void StartSlideOut()//パネル縮小開始のための関数
+    {
+        StartCoroutine(ChangePaneltoSmallSize());
+    }
 
+    //パネル縮小(汎用)
+    public IEnumerator ChangePaneltoSmallSize()
+    {
+        var size = 0f;
+        var speed = 0.05f;
+        var size2 = 0f;
+        var size3 = 0f;
+        var size4 = 0f;
+
+
+        //パネル縮小（スタートパネル）
+
+        while (size <= 1.0f && startPanel.activeSelf)
+        {
+            startPanel.transform.localScale = Vector3.Lerp(new Vector3(1.5f, 1.5f, 1.5f), new Vector3(1.0f, 1.0f, 1.0f), size);
+            size -= speed;
+
+            yield return null;
+        }
+        //パネル縮小（オプションパネル）
+        while (size2 <= 1.0f && OptionPanel.activeSelf)
+        {
+            OptionPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size2);
+            size2 -= speed;
+
+            yield return null;
+        }
+        //パネル縮小（クレジットパネル）
+
+        while (size3 <= 1.0f && subPanel.activeSelf)
+        {
+            subPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size3);
+            size3 -= speed;
+
+            yield return null;
+        }
+
+        //パネル拡大（終了パネル）
+
+        while (size4 <= 1.0f && QuitPanel.activeSelf)
+        {
+            QuitPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size4);
+            size4 -= speed;
+
+            yield return null;
+        }
+
+    }
     void Update()
     {
         //escapeキー対応
