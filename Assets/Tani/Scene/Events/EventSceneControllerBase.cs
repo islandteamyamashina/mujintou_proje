@@ -26,7 +26,9 @@ public class EventSceneControllerBase : MonoBehaviour
     void Start()
     {
         scene_BG.sprite = scene_back_ground_images[(int)PlayerInfo.Instance.weather];
-        eventPanel.SetRandomEvent();
+        imageInMoveing.SetActive(true);
+        StartCoroutine("HideMovingImage");
+        
     }
 
 
@@ -45,7 +47,7 @@ public class EventSceneControllerBase : MonoBehaviour
     }
     IEnumerator HideMovingImage()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
         imageInMoveing.SetActive(false);
         fading.Fade(Fading.type.FadeIn);
         eventPanel.SetRandomEvent();
