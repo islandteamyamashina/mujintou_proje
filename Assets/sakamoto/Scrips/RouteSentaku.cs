@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-//using UnityEngine.UIElements;
 
 public class RouteSentaku : MonoBehaviour
 {
@@ -18,8 +16,8 @@ public class RouteSentaku : MonoBehaviour
     Color normalColor = new Color(1.0f, 1.0f, 1.0f, 0.0f);
     Color highlightColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
-    [SerializeField, Header("inventoryマネージャー取得してね")] InventoryManagerVer cpInventoryManager;
-    [SerializeField] GetItemManager GetItemManager;
+    //[SerializeField, Header("inventoryマネージャー取得してね")] InventoryManagerVer cpInventoryManager;
+    //[SerializeField] GetItemManager GetItemManager;
 
     public Event_BG_Disply event_BG_Disply;
     public Event_Text event_Text;
@@ -36,19 +34,33 @@ public class RouteSentaku : MonoBehaviour
         Route1_text.SetActive(false);
         Route2_text.SetActive(false);
 
-        // Route1にマウスオーバー時のイベントを追加
-        EventTrigger trigger1 = Route1.gameObject.AddComponent<EventTrigger>();
-        trigger1.triggers.Add(new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter });
-        trigger1.triggers[0].callback.AddListener((data) => { OnRouteEnter(Route1); });
-        trigger1.triggers.Add(new EventTrigger.Entry { eventID = EventTriggerType.PointerExit });
-        trigger1.triggers[1].callback.AddListener((data) => { OnRouteExit(Route1); });
+        if (PlayerInfo.Instance.Inventry.GetItemAmount((Items.Item_ID)event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Zyouken) >= event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Zyouken_num || event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Zyouken_num == 0)
+        {
+            // Route1にマウスオーバー時のイベントを追加
+            EventTrigger trigger1 = Route1.gameObject.AddComponent<EventTrigger>();
+            trigger1.triggers.Add(new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter });
+            trigger1.triggers[0].callback.AddListener((data) => { OnRouteEnter(Route1); });
+            trigger1.triggers.Add(new EventTrigger.Entry { eventID = EventTriggerType.PointerExit });
+            trigger1.triggers[1].callback.AddListener((data) => { OnRouteExit(Route1); });
+        }
+        else
+        {
+            Route1.interactable = false;
+        }
 
-        // Route2にマウスオーバー時のイベントを追加
-        EventTrigger trigger2 = Route2.gameObject.AddComponent<EventTrigger>();
-        trigger2.triggers.Add(new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter });
-        trigger2.triggers[0].callback.AddListener((data) => { OnRouteEnter(Route2); });
-        trigger2.triggers.Add(new EventTrigger.Entry { eventID = EventTriggerType.PointerExit });
-        trigger2.triggers[1].callback.AddListener((data) => { OnRouteExit(Route2); });
+        if (PlayerInfo.Instance.Inventry.GetItemAmount((Items.Item_ID)event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Zyouken) >= event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Zyouken_num || event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Zyouken_num == 0)
+        {
+            // Route2にマウスオーバー時のイベントを追加
+            EventTrigger trigger2 = Route2.gameObject.AddComponent<EventTrigger>();
+            trigger2.triggers.Add(new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter });
+            trigger2.triggers[0].callback.AddListener((data) => { OnRouteEnter(Route2); });
+            trigger2.triggers.Add(new EventTrigger.Entry { eventID = EventTriggerType.PointerExit });
+            trigger2.triggers[1].callback.AddListener((data) => { OnRouteExit(Route2); });
+        }
+        else
+        {
+            Route2.interactable = false;
+        }
     }
 
     void OnRouteEnter(Button button)
