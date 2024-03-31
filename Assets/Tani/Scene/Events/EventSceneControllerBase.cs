@@ -27,7 +27,7 @@ public class EventSceneControllerBase : MonoBehaviour
     {
         scene_BG.sprite = scene_back_ground_images[(int)PlayerInfo.Instance.weather];
         imageInMoveing.SetActive(true);
-        StartCoroutine("HideMovingImage");
+        StartCoroutine(HideMovingImage());
         
     }
 
@@ -38,7 +38,7 @@ public class EventSceneControllerBase : MonoBehaviour
         fading.OnFadeEnd.AddListener(() =>
         {
             imageInMoveing.SetActive(true);
-            StartCoroutine("HideMovingImage");
+            StartCoroutine(HideMovingImage());
             
         });
         fading.Fade(Fading.type.FadeOut);
@@ -55,8 +55,13 @@ public class EventSceneControllerBase : MonoBehaviour
 
     public void BackHome()
     {
-        PlayerInfo.Instance.DoAction();
-        SceneManager.LoadScene(sceneToGetBack);
+        fading.Fade(Fading.type.FadeOut);
+        fading.OnFadeEnd.AddListener(() =>
+        {
+            PlayerInfo.Instance.DoAction();
+            SceneManager.LoadScene(sceneToGetBack);
+        });
+        
     }
 
     

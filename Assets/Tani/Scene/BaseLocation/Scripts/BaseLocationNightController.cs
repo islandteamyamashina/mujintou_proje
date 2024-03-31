@@ -63,6 +63,14 @@ public class BaseLocationNightController : MonoBehaviour
 
     public void ChangeBaseLocation()
     {
-        SceneManager.LoadScene(next_base_location);
+        var fade = ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
+        fade.Fade(Fading.type.FadeOut);
+        fade.OnFadeEnd.AddListener(() => { SceneManager.LoadScene(next_base_location); });
+        
+    }
+
+    public void ChangeScene()
+    {
+
     }
 }
