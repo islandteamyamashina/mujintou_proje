@@ -20,6 +20,9 @@ public class BaseLocationDaytimeController : MonoBehaviour
         var fade =  ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
         fade.OnFadeEnd.AddListener(() => { print("fadeEnd"); });
         fade.Fade(Fading.type.FadeIn);
+
+
+        print( PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_magma));
     }
 
     // Update is called once per frame

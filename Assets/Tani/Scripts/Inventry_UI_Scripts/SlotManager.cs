@@ -432,6 +432,22 @@ public class SlotManager : MonoBehaviour
         }
     }
 
+    
+    public int GetItemAmount(Items.Item_ID id)
+    {
+        int amount = 0;
+        for (int i = 0; i < item_list.Length; i++)
+        {
+            if (data.index_igonored.Contains(i)) continue;
+            if (!_Slots[i]) continue;
+            if(item_list[i].id == id)
+            {
+                amount += item_list[i].amount;
+            }
+        }
+        return amount;
+    }
+
     public void SetVisible(bool visible)
     {
         if (Slots_Main)
