@@ -74,7 +74,6 @@ public class CreditPanel1 : MonoBehaviour
 
     public virtual void MainView()//メイン画面のみ表示
     {
-        Invoke(nameof(True_SetActive), 3.5f);
         if (startPanel.activeSelf)
         {
             StartSlideOut();
@@ -113,14 +112,14 @@ public class CreditPanel1 : MonoBehaviour
         //QuitPanel.SetActive(false);
         //startPanel.SetActive(false);
 
+        Invoke(nameof(True_SetActive), 0.2f);
 
-
-        //ゲームオブジェクトのボタン(Setactive)
-        startButton.SetActive(true);
-        ContinueButton.SetActive(true);
-        optionButton.SetActive(true);
-        quitButton.SetActive(true);
-        CreditButton.SetActive(true);
+        //ボタン機能関連（Interactive)
+        start.interactable = true;
+        quit.interactable = true;
+        Credit.interactable = true;
+        option.interactable = true;
+       
 
         //ボタンのイベントトリガー関連
         eventTrigger_start.enabled = true;
@@ -134,11 +133,12 @@ public class CreditPanel1 : MonoBehaviour
 
     public void True_SetActive()
     {
-        //ボタン機能関連（Interactive)
-        start.interactable = true;
-        quit.interactable = true;
-        Credit.interactable = true;
-        option.interactable = true;
+        //ゲームオブジェクトのボタン(Setactive)
+        startButton.SetActive(true);
+        ContinueButton.SetActive(true);
+        optionButton.SetActive(true);
+        quitButton.SetActive(true);
+        CreditButton.SetActive(true);
 
     }
     public virtual void SubView() //クレジット画面表示
