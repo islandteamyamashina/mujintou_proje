@@ -77,37 +77,42 @@ public class CreditPanel1 : MonoBehaviour
         if (startPanel.activeSelf)
         {
             StartSlideOut();
-            startPanel.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-            startPanel.SetActive(false);
+            //startPanel.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            //if()
+            //startPanel.SetActive(false);
 
         }
         if (subPanel.activeSelf)
         {
             StartSlideOut();
-            subPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            subPanel.SetActive(false);
+            //subPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            //subPanel.SetActive(false);
             
         }
         if (OptionPanel.activeSelf)
         {
             StartSlideOut();
-            OptionPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            OptionPanel.SetActive(false);
+            //OptionPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            //OptionPanel.SetActive(false);
 
         }
         if (QuitPanel.activeSelf)
         {
             StartSlideOut();
-            QuitPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            //QuitPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             
-            QuitPanel.SetActive(false);
+            //QuitPanel.SetActive(false);
 
         }
         //パネル関係
         mainPanel.SetActive(true);
-        
-        
-       
+
+        //subPanel.SetActive(false);
+        //OptionPanel.SetActive(false);
+        //QuitPanel.SetActive(false);
+        //startPanel.SetActive(false);
+
+
 
         //ゲームオブジェクトのボタン(Setactive)
         startButton.SetActive(true);
@@ -355,15 +360,17 @@ public class CreditPanel1 : MonoBehaviour
         while (size <= 1.0f && startPanel.activeSelf)
         {
             startPanel.transform.localScale = Vector3.Lerp(new Vector3(1.5f, 1.5f, 1.5f), new Vector3(1.0f, 1.0f, 1.0f), size);
-            size -= speed;
+            size += speed;
 
             yield return null;
         }
+        Debug.Log("通った");
+
         //パネル縮小（オプションパネル）
         while (size2 <= 1.0f && OptionPanel.activeSelf)
         {
             OptionPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size2);
-            size2 -= speed;
+            size2 += speed;
 
             yield return null;
         }
@@ -372,7 +379,7 @@ public class CreditPanel1 : MonoBehaviour
         while (size3 <= 1.0f && subPanel.activeSelf)
         {
             subPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size3);
-            size3 -= speed;
+            size3 += speed;
 
             yield return null;
         }
@@ -382,10 +389,17 @@ public class CreditPanel1 : MonoBehaviour
         while (size4 <= 1.0f && QuitPanel.activeSelf)
         {
             QuitPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size4);
-            size4 -= speed;
+            size4 += speed;
 
             yield return null;
         }
+        Debug.Log("通った");
+        subPanel.SetActive(false);
+        OptionPanel.SetActive(false);
+        QuitPanel.SetActive(false);
+        startPanel.SetActive(false);
+        Debug.Log("通った");
+
 
     }
     void Update()
