@@ -74,6 +74,7 @@ public class CreditPanel1 : MonoBehaviour
 
     public virtual void MainView()//メイン画面のみ表示
     {
+        Invoke(nameof(True_SetActive), 3.5f);
         if (startPanel.activeSelf)
         {
             StartSlideOut();
@@ -127,15 +128,19 @@ public class CreditPanel1 : MonoBehaviour
         eventTrigger_option.enabled = true;
         eventTrigger_Credit.enabled = true;
 
+        
+
+    }
+
+    public void True_SetActive()
+    {
         //ボタン機能関連（Interactive)
         start.interactable = true;
         quit.interactable = true;
         Credit.interactable = true;
         option.interactable = true;
 
-
     }
-
     public virtual void SubView() //クレジット画面表示
     {
         //パネル関係
@@ -286,7 +291,7 @@ public class CreditPanel1 : MonoBehaviour
         if (startPanel.activeSelf)
         {
             startPanel.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-            startPanel.transform.localPosition=new Vector3(-286.0f,229, 0f);    
+            startPanel.transform.localPosition=new Vector3(-286.0f,300, 0f);    
             StartSlidein();
         }
     }
@@ -311,7 +316,7 @@ public class CreditPanel1 : MonoBehaviour
         while (size <= 1.0f && startPanel.activeSelf)
         {
             startPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(1.5f, 1.5f, 1.5f), size);
-            startPanel.transform.localPosition = Vector3.Lerp(new Vector3(-286.0f, 229.0f, 0f), new Vector3(-152.0f, 258.0f, 0f), size);
+            startPanel.transform.localPosition = Vector3.Lerp(new Vector3(-286.0f, 300, 0f), new Vector3(-152.0f, 258.0f, 0f), size);
            size += speed;
             //startPanel.transform.localPosition =
             yield return null;
@@ -372,6 +377,7 @@ public class CreditPanel1 : MonoBehaviour
         while (size <= 1.0f && startPanel.activeSelf)
         {
             startPanel.transform.localScale = Vector3.Lerp(new Vector3(1.5f, 1.5f, 1.5f), new Vector3(1.0f, 1.0f, 1.0f), size);
+            startPanel.transform.localPosition = Vector3.Lerp(new Vector3(-152.0f, 258.0f, 0f), new Vector3(-286.0f, 300, 0f), size);
             size += speed;
 
             yield return null;
