@@ -14,7 +14,7 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
         base.Awake();
         DontDestroyOnLoad(gameObject);
         // ƒpƒX–¼Žæ“¾
-        filepath = Application.dataPath + "/Tani/Saves/" + fileName;
+        filepath = Application.streamingAssetsPath + "/Saves/" + fileName;
     }
     private void Start()
     {

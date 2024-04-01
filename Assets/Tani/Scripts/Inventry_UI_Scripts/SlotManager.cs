@@ -478,7 +478,7 @@ public class SlotManager : MonoBehaviour
             Debug.LogWarning("File name not assigned");
             return;
         }
-        string path = Application.dataPath + "/Tani/Saves/" + fileName + ".txt";
+        string path = Application.streamingAssetsPath + "/Saves/" + fileName + ".txt";
         string[] texts = new string[item_list.Length];
         for (int i = 0; i < texts.Length; i++)
         {
@@ -494,7 +494,7 @@ public class SlotManager : MonoBehaviour
             Debug.LogWarning("File name not assigned");
             return;
         }
-        string path = Application.dataPath + "/Tani/Saves/" + fileName + ".txt";
+        string path = Application.streamingAssetsPath + "/Saves/" + fileName + ".txt";
         var datas = File.ReadAllLines(path);
         for (int i = 0; i < datas.Length; i++)
         {

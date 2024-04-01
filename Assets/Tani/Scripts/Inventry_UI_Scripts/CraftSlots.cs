@@ -38,7 +38,7 @@ public class CraftSlots : SlotManager
 
     int? recipe_index = null;
     bool isCraftable = false;
-    string recipe_data_save_folder = Application.dataPath + "/Tani/Saves/";
+    string recipe_data_save_folder = Application.streamingAssetsPath + "/Saves/";
     string default_save_name = "default_recipe_save";
     protected override void Awake()
     {
