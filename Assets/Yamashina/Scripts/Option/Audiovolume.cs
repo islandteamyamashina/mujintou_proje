@@ -51,12 +51,14 @@ public class Audiovolume : MonoBehaviour
         AudioSource_BGM.volume = value;
 
         // スライダーが一番端に行った場合、音を消す
-        if (value == bGMSlider.minValue || value == bGMSlider.maxValue)
+        if (value == bGMSlider.minValue /*|| value == bGMSlider.maxValue*/)
         {
             AudioSource_BGM.volume = 0f;
         }
-       
+       else { 
+            AudioSource_BGM.volume = 1f;
 
+        }
     }
     void OnSESliderValueChanged(float value)
     {
