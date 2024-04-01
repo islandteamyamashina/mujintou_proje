@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CreditPanel1 : MonoBehaviour
@@ -56,6 +57,9 @@ public class CreditPanel1 : MonoBehaviour
 
         //シングルトン
         PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+             
 
         //ボタンのイベントトリガー関連
         eventTrigger_start.enabled = true;
@@ -71,7 +75,10 @@ public class CreditPanel1 : MonoBehaviour
         //eventTrigger_Continue_.enabled = true;
 
     }
-
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+    }
     public virtual void MainView()//メイン画面のみ表示
     {
         if (startPanel.activeSelf)
