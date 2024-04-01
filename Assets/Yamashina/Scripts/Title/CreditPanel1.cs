@@ -174,7 +174,7 @@ public class CreditPanel1 : MonoBehaviour
         if (subPanel.activeSelf)
         {
             subPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            subPanel.transform.localPosition = new Vector3(-165.0f, -114.69f, 0f);
+            subPanel.transform.localPosition = new Vector3(-173.0f, -71.63499f, 0f);
             StartSlidein();
         }
     }
@@ -335,8 +335,8 @@ public class CreditPanel1 : MonoBehaviour
         while (size3 <= 1.0f && subPanel.activeSelf)
         {
             subPanel.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), new Vector3(1.0f, 1.0f, 1.0f), size3);
-            subPanel.transform.localPosition = Vector3.Lerp(new Vector3(165.0f, -114.69f, 0f), new Vector3(175.0f, -104.69f, 10.0f), size3);
-            new Vector3(-165.0f, -114.69f, 0f);
+            subPanel.transform.localPosition = Vector3.Lerp(new Vector3(-173.0f, -71.63499f, 0f), new Vector3(10f, -178.635f, 0.0f), size3);
+           
 
 
             size3 += speed;
@@ -397,6 +397,9 @@ public class CreditPanel1 : MonoBehaviour
         while (size3 <= 1.0f && subPanel.activeSelf)
         {
             subPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size3);
+            subPanel.transform.localPosition = Vector3.Lerp(new Vector3(10f - 178.635f, 0.0f), new Vector3(-173.0f, -71.63499f, 0f), size3);
+            
+
             size3 += speed;
 
             yield return null;
