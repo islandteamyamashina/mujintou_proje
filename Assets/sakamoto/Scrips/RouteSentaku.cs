@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,7 +12,9 @@ public class RouteSentaku : MonoBehaviour
     [SerializeField] Button Route2;
     [SerializeField] GameObject Route1_text;
     [SerializeField] GameObject Route2_text;
-
+    [SerializeField] GameObject BG_cover;
+    [SerializeField] TextControl textControl;
+ 
     Color color;
     Color normalColor = new Color(1.0f, 1.0f, 1.0f, 0.0f);
     Color highlightColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
@@ -87,5 +90,44 @@ public class RouteSentaku : MonoBehaviour
         {
             Route2_text.SetActive(false);
         }
+    }
+    public void ChoiseRoute1()
+    {
+        textControl.ResetTextData();
+        StartCoroutine(appearBGcover());
+        getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1_num);
+    }
+
+    IEnumerator appearBGcover()
+    {
+        while (true)
+        {
+            Color BG_cover_color;
+             BG_cover_color = BG_cover.GetComponent<Image>().color;
+            BG_cover_color.a += 0.05f;
+            BG_cover.GetComponent<Image>().color = BG_cover_color;
+            if (BG_cover.GetComponent<Image>().color.a < 0.7f)
+            {
+                break;
+            }
+            yield return null;
+        }
+    }
+
+    //　本文、体力変化、アイテムゲットの順番
+
+    void changCondirion()
+    {
+        int beforeHelth;
+        int beforeHunger;
+        int beforeThirst;
+    }
+
+    void getItems(int Item_ID, int get_num)
+    {
+        string Item_name;
+        PlayerInfo.Instance.Inventry.GetItem((Items.Item_ID)Item_ID, get_num);
+        Item_name = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)Item_ID);
+        textControl.AddTextData($"{Item_name}を{get_num}つ手に入れました。");
     }
 }
