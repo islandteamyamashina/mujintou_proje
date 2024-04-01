@@ -20,5 +20,39 @@ MonoBehaviour:
     \u3053\u306E\u6D77\u5CB8\u306B\u6D41\u308C\u7740\u3044\u3066\u3057\u3070\u3089\u304F\u7D4C\u3064\u306E\u3060\u308D\u3046\u2026
     \u4E2D\u306B\u751F\u304D\u7269\u3067\u3082\u5C45\u306A\u3044\u3060\u308D\u3046\u304B"
   callBackType: 0
-  buttons_prefab: {fileID: 0}
-  results: []
+  buttons_prefab: {fileID: 7029110843412465754, guid: c41f2fd7c3b38494c9461e33f2b25e09, type: 3}
+  results:
+  - choise_text: "\u6301\u3061\u4E0A\u3052\u308B"
+    Gain_Items:
+    - id: 14
+      probability: 1
+      range_min: 1
+      range_max: 2
+    result_text: "\u6728\u306E\u4E0B\u306B\u306F\u6F02\u6D41\u7269\u304C\u631F\u307E\u3063\u3066\u3044\u305F\uFF01"
+    health_change: -10
+    hunger_change: -10
+    thirst_change: -10
+    required_action_value: 2
+  - choise_text: "\u5272\u3063\u3066\u307F\u308B"
+    Gain_Items:
+    - id: 8
+      probability: 1
+      range_min: 3
+      range_max: 4
+    - id: 14
+      probability: 1
+      range_min: 1
+      range_max: 2
+    result_text: "\u5272\u308C\u305F\uFF01\u4E2D\u306F\u30AB\u30CB\u306E\u4F4F\u51E6\u306B\u306A\u3063\u3066\u3044\u305F\u3088\u3046\u3060\u3002
+      \u3055\u3089\u306B\u6728\u306E\u4E0B\u306B\u6F02\u6D41\u7269\u304C\u631F\u307E\u3063\u3066\u3044\u305F\u3002"
+    health_change: -20
+    hunger_change: -20
+    thirst_change: -20
+    required_action_value: 3
+  - choise_text: "\u7121\u8996\u3059\u308B"
+    Gain_Items: []
+    result_text: "\u5F15\u304D\u5E30\u305D\u3046"
+    health_change: 0
+    hunger_change: 0
+    thirst_change: 0
+    required_action_value: 1

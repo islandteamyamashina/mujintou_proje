@@ -18,6 +18,10 @@ public class EventSceneControllerBase : MonoBehaviour
     Image scene_BG;
     [SerializeField]
     List<Sprite> scene_back_ground_images;
+    [SerializeField]
+    SceneObject trueEnd;
+    [SerializeField]
+    SceneObject badEnd;
 
     private void Awake()
     {
@@ -64,8 +68,18 @@ public class EventSceneControllerBase : MonoBehaviour
         
     }
 
-    
+    public void TrueEnd()
+    {
+        fading.Fade(Fading.type.FadeOut);
+        fading.OnFadeEnd.AddListener(() => { SceneManager.LoadScene(trueEnd); });
+    }
 
-    
+    public void BadEnd()
+    {
+        fading.Fade(Fading.type.FadeOut);
+        fading.OnFadeEnd.AddListener(() => { SceneManager.LoadScene(badEnd); });
+    }
+
+
 
 }
