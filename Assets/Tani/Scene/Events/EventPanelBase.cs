@@ -172,6 +172,15 @@ public class EventPanelBase : MonoBehaviour
                 return info.weather == PlayerInfo.Weather.Rainy ? 1 : 0;
             case 1200:
                 return info.weather == PlayerInfo.Weather.Cloudy ? 1 : 0;
+            case 1005:
+                if(info.Day.day >= 10 && info.Thirst <= 20)
+                {
+                    return 15;
+                }
+                else
+                {
+                    return 0;
+                }
             default:
                 return 1;
         }

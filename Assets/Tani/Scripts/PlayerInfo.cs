@@ -65,6 +65,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] private Text action_value_text;
     [SerializeField] private List<TextureData> textureDatas;
     [SerializeField] private SlotManager inventry;
+    [SerializeField] private SceneObject BadEnding;
+    [SerializeField] private Fading fade;
 
 
     private int _player_Health;
@@ -89,6 +91,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         {
             _player_Health = value;
             _player_Health = Mathf.Clamp(_player_Health,0, _Max_Player_Health);
+
         }
     }
 
