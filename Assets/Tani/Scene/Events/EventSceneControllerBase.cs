@@ -18,6 +18,10 @@ public class EventSceneControllerBase : MonoBehaviour
     Image scene_BG;
     [SerializeField]
     List<Sprite> scene_back_ground_images;
+    [SerializeField]
+    SceneObject trueEnd;
+    [SerializeField]
+    SceneObject badEnd;
 
     private void Awake()
     {
@@ -26,7 +30,9 @@ public class EventSceneControllerBase : MonoBehaviour
     void Start()
     {
         scene_BG.sprite = scene_back_ground_images[(int)PlayerInfo.Instance.weather];
-        eventPanel.SetRandomEvent();
+        imageInMoveing.SetActive(true);
+        StartCoroutine(HideMovingImage());
+        
     }
 
 
@@ -36,7 +42,7 @@ public class EventSceneControllerBase : MonoBehaviour
         fading.OnFadeEnd.AddListener(() =>
         {
             imageInMoveing.SetActive(true);
-            StartCoroutine("HideMovingImage");
+            StartCoroutine(HideMovingImage());
             
         });
         fading.Fade(Fading.type.FadeOut);
@@ -45,7 +51,7 @@ public class EventSceneControllerBase : MonoBehaviour
     }
     IEnumerator HideMovingImage()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
         imageInMoveing.SetActive(false);
         fading.Fade(Fading.type.FadeIn);
         eventPanel.SetRandomEvent();
@@ -53,12 +59,27 @@ public class EventSceneControllerBase : MonoBehaviour
 
     public void BackHome()
     {
-        PlayerInfo.Instance.DoAction();
-        SceneManager.LoadScene(sceneToGetBack);
+        fading.Fade(Fading.type.FadeOut);
+        fading.OnFadeEnd.AddListener(() =>
+        {
+            PlayerInfo.Instance.DoAction();
+            SceneManager.LoadScene(sceneToGetBack);
+        });
+        
     }
 
-    
+    public void TrueEnd()
+    {
+        fading.Fade(Fading.type.FadeOut);
+        fading.OnFadeEnd.AddListener(() => { SceneManager.LoadScene(trueEnd); });
+    }
 
-    
+    public void BadEnd()
+    {
+        fading.Fade(Fading.type.FadeOut);
+        fading.OnFadeEnd.AddListener(() => { SceneManager.LoadScene(badEnd); });
+    }
+
+
 
 }

@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CreditPanel1 : MonoBehaviour
@@ -56,6 +57,9 @@ public class CreditPanel1 : MonoBehaviour
 
         //シングルトン
         PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+             
 
         //ボタンのイベントトリガー関連
         eventTrigger_start.enabled = true;
@@ -71,7 +75,10 @@ public class CreditPanel1 : MonoBehaviour
         //eventTrigger_Continue_.enabled = true;
 
     }
-
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+    }
     public virtual void MainView()//メイン画面のみ表示
     {
         if (startPanel.activeSelf)
@@ -112,14 +119,14 @@ public class CreditPanel1 : MonoBehaviour
         //QuitPanel.SetActive(false);
         //startPanel.SetActive(false);
 
+        Invoke(nameof(True_SetActive), 0.2f);
 
-
-        //ゲームオブジェクトのボタン(Setactive)
-        startButton.SetActive(true);
-        ContinueButton.SetActive(true);
-        optionButton.SetActive(true);
-        quitButton.SetActive(true);
-        CreditButton.SetActive(true);
+        //ボタン機能関連（Interactive)
+        start.interactable = true;
+        quit.interactable = true;
+        Credit.interactable = true;
+        option.interactable = true;
+       
 
         //ボタンのイベントトリガー関連
         eventTrigger_start.enabled = true;
@@ -127,15 +134,20 @@ public class CreditPanel1 : MonoBehaviour
         eventTrigger_option.enabled = true;
         eventTrigger_Credit.enabled = true;
 
-        //ボタン機能関連（Interactive)
-        start.interactable = true;
-        quit.interactable = true;
-        Credit.interactable = true;
-        option.interactable = true;
-
+        
 
     }
 
+    public void True_SetActive()
+    {
+        //ゲームオブジェクトのボタン(Setactive)
+        startButton.SetActive(true);
+        ContinueButton.SetActive(true);
+        optionButton.SetActive(true);
+        quitButton.SetActive(true);
+        CreditButton.SetActive(true);
+
+    }
     public virtual void SubView() //クレジット画面表示
     {
         //パネル関係
@@ -169,7 +181,7 @@ public class CreditPanel1 : MonoBehaviour
         if (subPanel.activeSelf)
         {
             subPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            subPanel.transform.localPosition = new Vector3(-165.0f, -114.69f, 0f);
+            subPanel.transform.localPosition = new Vector3(-173.0f, -71.63499f, 0f);
             StartSlidein();
         }
     }
@@ -286,7 +298,7 @@ public class CreditPanel1 : MonoBehaviour
         if (startPanel.activeSelf)
         {
             startPanel.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-            startPanel.transform.localPosition=new Vector3(-286.0f,229, 0f);    
+            startPanel.transform.localPosition=new Vector3(-286.0f,300, 0f);    
             StartSlidein();
         }
     }
@@ -311,7 +323,7 @@ public class CreditPanel1 : MonoBehaviour
         while (size <= 1.0f && startPanel.activeSelf)
         {
             startPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(1.5f, 1.5f, 1.5f), size);
-            startPanel.transform.localPosition = Vector3.Lerp(new Vector3(-286.0f, 229.0f, 0f), new Vector3(-152.0f, 258.0f, 0f), size);
+            startPanel.transform.localPosition = Vector3.Lerp(new Vector3(-286.0f, 300, 0f), new Vector3(-152.0f, 258.0f, 0f), size);
            size += speed;
             //startPanel.transform.localPosition =
             yield return null;
@@ -330,8 +342,8 @@ public class CreditPanel1 : MonoBehaviour
         while (size3 <= 1.0f && subPanel.activeSelf)
         {
             subPanel.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), new Vector3(1.0f, 1.0f, 1.0f), size3);
-            subPanel.transform.localPosition = Vector3.Lerp(new Vector3(165.0f, -114.69f, 0f), new Vector3(175.0f, -104.69f, 10.0f), size3);
-            new Vector3(-165.0f, -114.69f, 0f);
+            subPanel.transform.localPosition = Vector3.Lerp(new Vector3(-173.0f, -71.63499f, 0f), new Vector3(10f, -178.635f, 0.0f), size3);
+           
 
 
             size3 += speed;
@@ -372,6 +384,7 @@ public class CreditPanel1 : MonoBehaviour
         while (size <= 1.0f && startPanel.activeSelf)
         {
             startPanel.transform.localScale = Vector3.Lerp(new Vector3(1.5f, 1.5f, 1.5f), new Vector3(1.0f, 1.0f, 1.0f), size);
+            startPanel.transform.localPosition = Vector3.Lerp(new Vector3(-152.0f, 258.0f, 0f), new Vector3(-286.0f, 300, 0f), size);
             size += speed;
 
             yield return null;
@@ -391,6 +404,9 @@ public class CreditPanel1 : MonoBehaviour
         while (size3 <= 1.0f && subPanel.activeSelf)
         {
             subPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size3);
+            subPanel.transform.localPosition = Vector3.Lerp(new Vector3(10f - 178.635f, 0.0f), new Vector3(-173.0f, -71.63499f, 0f), size3);
+            
+
             size3 += speed;
 
             yield return null;

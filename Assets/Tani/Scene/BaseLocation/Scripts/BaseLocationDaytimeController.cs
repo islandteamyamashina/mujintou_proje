@@ -18,17 +18,18 @@ public class BaseLocationDaytimeController : MonoBehaviour
     {
 
         var fade =  ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
-        fade.OnFadeEnd.AddListener(() => { print("fadeEnd"); });
         fade.Fade(Fading.type.FadeIn);
+        var areaNameShow = (AreaNameText)GameObject.FindAnyObjectByType(typeof(AreaNameText));
+        IEnumerator coroutine = areaNameShow.ShowAreaText();
+        fade.OnFadeEnd.AddListener(() => { StartCoroutine(coroutine); });
 
-
-        print( PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_magma));
+     
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-      //  print(PlayerInfo.Instance.Inventry.GetSlotItem(0).Value.id);
+     
     }
     
     public void ActivatePanelSingle(int index)
@@ -74,7 +75,10 @@ public class BaseLocationDaytimeController : MonoBehaviour
 
     public void ChangeBaseLocation()
     {
-        SceneManager.LoadScene(next_base_location);
+        var fade = ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
+        fade.Fade(Fading.type.FadeOut);
+        fade.OnFadeEnd.AddListener(() => { SceneManager.LoadScene(next_base_location); });
+        
     }
 
 }

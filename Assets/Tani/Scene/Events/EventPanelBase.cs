@@ -172,6 +172,15 @@ public class EventPanelBase : MonoBehaviour
                 return info.weather == PlayerInfo.Weather.Rainy ? 1 : 0;
             case 1200:
                 return info.weather == PlayerInfo.Weather.Cloudy ? 1 : 0;
+            case 1005:
+                if(info.Day.day >= 10 && info.Thirst <= 20)
+                {
+                    return 15;
+                }
+                else
+                {
+                    return 0;
+                }
             default:
                 return 1;
         }
@@ -221,28 +230,25 @@ public class EventPanelBase : MonoBehaviour
 
 
         PlayerInfo info = PlayerInfo.Instance;
-        if (Mathf.Abs(result.health_change) + Mathf.Abs(result.hunger_change) + Mathf.Abs(result.thirst_change) != 0)
-        {
-            //ステータスの増減を表す文字列
+        //ステータスの増減を表す文字列
 
-            var prev_health = info.Health;
-            var prev_hunger = info.Hunger;
-            var prev_thirst = info.Thirst;
-            var prev_action = info.ActionValue;
+        var prev_health = info.Health;
+        var prev_hunger = info.Hunger;
+        var prev_thirst = info.Thirst;
+        var prev_action = info.ActionValue;
 
-            info.Health += result.health_change;
-            info.Hunger += result.hunger_change;
-            info.Thirst += result.thirst_change;
-            info.ActionValue -= result.required_action_value;
+        info.Health += result.health_change;
+        info.Hunger += result.hunger_change;
+        info.Thirst += result.thirst_change;
+        info.ActionValue -= result.required_action_value;
 
-            string status_change =
-                $"体力 : {prev_health} ⇒ {info.Health}\n" +
-                $"水分 : {prev_thirst} ⇒ {info.Thirst}\n" +
-                $"空腹 : {prev_hunger} ⇒ {info.Hunger}\n"+
-                $"行動値 : {prev_action} ⇒ {info.ActionValue}";
-            event_text_control.AddTextData(status_change);
-        }
-        
+        string status_change =
+            $"体力 : {prev_health} ⇒ {info.Health}\n" +
+            $"水分 : {prev_thirst} ⇒ {info.Thirst}\n" +
+            $"空腹 : {prev_hunger} ⇒ {info.Hunger}\n" +
+            $"行動値 : {prev_action} ⇒ {info.ActionValue}";
+        event_text_control.AddTextData(status_change);
+
 
         //獲得結果を表す文字列
         if (result.Gain_Items.Count != 0)
