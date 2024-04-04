@@ -1,95 +1,76 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
-//using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
-//public class Inventry : SingletonMonoBehaviour<Inventry>
-//{
-//    [SerializeField] private List<Items> Item_Datas;
-//    [SerializeField] private GameObject slot_manager_object;
-//    [SerializeField] private GameObject mouse_image_object;
-//    [HideInInspector] public SlotManager slot_manager;
+public class Inventry : SlotManager
+{
+    int selected_slot_index = 0;
 
-//    private (Items item, int? _slot_index) dragging_item_data;
-//    private Image dragging_item_image = null;
 
-//    protected override void Awake() 
-//    {
-//        base.Awake();
-//        if(!slot_manager_object.TryGetComponent<SlotManager>(out slot_manager))
-//        {
-//            Debug.Log("Erorr Get Slot_Manager_");
-//        }
-        
-//    }
+}
 
-//    void Start()
-//    {
-//        dragging_item_image = mouse_image_object.GetComponent<Image>();
-//        mouse_image_object.SetActive(false);
-//        dragging_item_data.item = null;
-//        dragging_item_data._slot_index = null;
-//        if (Item_Datas.Count != (int)Items.Item_ID.Item_Max)
-//        {
-//            Debug.Log("アイテムデータに登録された個数が一致しません");
-//        }
+#if UNITY_EDITOR
+[CustomEditor(typeof(SlotManager))]
+class InventryInspector : Editor
+{
+    SerializedProperty property_slot_editable;
 
-//    }
-//    private void Update()
-//    {
-//        if (dragging_item_image.sprite)
-//        {
-//            mouse_image_object.transform.position = Input.mousePosition;
-//        }
-//    }
+    bool use_slotdata_maintaining = true;
+    private void OnEnable()
+    {
+        var manager = target as SlotManager;
+        property_slot_editable = serializedObject.FindProperty("slot_data_editable");
 
-//    public Items GetItemData(Items.Item_ID id)
-//    {
-//        foreach (var n in Item_Datas)
-//        {
-//            if (n.item_ID == id) return n;
-//        }
+    }
 
-//        return null;
-//    }
+    public override void OnInspectorGUI()
+    {
+        //  base.OnInspectorGUI();
+        serializedObject.Update();
 
-//    public void OnSlotSelected(int slotIndex)
-//    {
-//        Debug.Log($"slotindex : {slotIndex} , item_id : {slot_manager.GetSlots()[slotIndex].GetItem().item_ID}");
-        
-        
-//    }
+        var manager = target as SlotManager;
+        using (var check = new EditorGUI.ChangeCheckScope())
+        {
+            EditorGUILayout.PropertyField(property_slot_editable, new GUIContent("データを編集"));
+            if (check.changed)
+            {
+                serializedObject.ApplyModifiedProperties();
+                if (!property_slot_editable.boolValue)
+                {
+                    manager.SlotReconstruct();
+                }
+                serializedObject.Update();
 
-//    public void OnItemChanged(int index)
-//    {
-//        slot_manager.OnItemChanged(index);
-//    }
+            }
 
-//    public void OnItemDropInSlot()
-//    {
+        }
 
-//    }
-//    public void SetDraggingItem(Items dragged_item,int? index)
-//    {
-//       if(dragged_item && index.HasValue)
-//        {
-//            mouse_image_object.SetActive(true);
-//            dragging_item_data.item = dragged_item;
-//            dragging_item_data._slot_index = (int)index;
-//            dragging_item_image.sprite = dragged_item.icon;
-//        }
-//        else
-//        {
-//            mouse_image_object.SetActive(false);
-//            mouse_image_object.transform.position = new Vector3(-1000, -1000, 0);
-//            dragging_item_data.item = null;
-//            dragging_item_data._slot_index = null;
-//            dragging_item_image.sprite = null;
-//        }
-//    }
 
-//    public (Items item,int? index) GetDraggingData()
-//    {
-//        return dragging_item_data;
-//    }
-//}
+
+        EditorGUI.BeginDisabledGroup(!property_slot_editable.boolValue);
+
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("data"), new GUIContent("スロット群のデータ"));
+
+        EditorGUI.EndDisabledGroup();
+
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("Slots_Main"), new GUIContent("表示の切り替え元"));
+
+        use_slotdata_maintaining = EditorGUILayout.Toggle("アイテムデータを保持する", use_slotdata_maintaining);
+        if (use_slotdata_maintaining)
+        {
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("fileName"), new GUIContent("データ保存先"));
+
+        }
+
+
+        serializedObject.ApplyModifiedProperties();
+
+    }
+}
+
+
+#endif

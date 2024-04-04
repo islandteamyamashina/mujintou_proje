@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(EventTrigger))]
-public class Slot : MonoBehaviour
+[RequireComponent(typeof(EventTrigger)),RequireComponent((typeof(Selectable)))]
+public class Slot : MonoBehaviour,ISelectHandler,IDeselectHandler
 {
     [HideInInspector]
     static public string slot_tag_name = "Slot";
@@ -17,7 +17,7 @@ public class Slot : MonoBehaviour
     public bool can_place_item = true;
 
     [SerializeField]
-    GameObject right_click_popup;
+    Image selectedImage;
     [SerializeField]
     Text amout_text;
 
@@ -29,6 +29,8 @@ public class Slot : MonoBehaviour
     int default_icon_canvas_sortinglayer = 3;
     [SerializeField]
     int dragging_icon_canvas_sortinglayer = 4;
+
+   
 
     private void Awake()
     {
@@ -89,13 +91,7 @@ public class Slot : MonoBehaviour
         
         if (Input.GetMouseButtonUp(1) && Affiliation.GetSlotItem(Slot_index).Value.id != Items.Item_ID.EmptyObject)
         {
-            //if (right_click_popup)
-            //{
-            //    var popup = Instantiate(right_click_popup, Input.mousePosition + new Vector3(100,130,0), transform.rotation);
-            //    popup.transform.SetParent(item_icon_object.canvas.gameObject.transform);
-            //    popup.GetComponent<PopupImage>().spawned_slot = this;
-
-            //}
+            Affiliation.SlotPartition(Slot_index);
         }
         
 
@@ -145,5 +141,21 @@ public class Slot : MonoBehaviour
 
     }
 
+    public void OnDeselect(BaseEventData eventData)
+    {
+        if (selectedImage)
+        {
+            selectedImage.gameObject.SetActive(false);
+            print("deselected");
+        }
+    }
 
+    public void OnSelect(BaseEventData eventData)
+    {
+        if (selectedImage)
+        {
+            selectedImage.gameObject.SetActive(true);
+            print("selected");
+        }
+    }
 }

@@ -350,6 +350,7 @@ public class SlotManager : MonoBehaviour
                     dis.Affiliation.item_list[dis.Slot_index].amount + src.Affiliation.item_list[src.Slot_index].amount
                     , dis.Slot_index);
                 src.Affiliation.ClearSlot(src.Slot_index);
+                dis.gameObject.GetComponent<Selectable>().Select();
                 return true;
             }
 
@@ -369,6 +370,7 @@ public class SlotManager : MonoBehaviour
                     dis.Affiliation.item_list[dis.Slot_index].amount + src.Affiliation.item_list[src.Slot_index].amount
                     , dis.Slot_index);
                 src.Affiliation.ClearSlot(src.Slot_index);
+                dis.gameObject.GetComponent<Selectable>().Select();
                 return true;
             }
 
@@ -378,7 +380,7 @@ public class SlotManager : MonoBehaviour
 
             dis.Affiliation.SetItemToSlot(temp_src.id, temp_src.amount, dis.Slot_index);
             src.Affiliation.SetItemToSlot(temp_dis.id, temp_dis.amount, src.Slot_index);
-
+            dis.gameObject.GetComponent<Selectable>().Select();
             return true;
 
         }
@@ -387,7 +389,7 @@ public class SlotManager : MonoBehaviour
             var temp_src = src.Affiliation.item_list[src.Slot_index];
             dis.Affiliation.SetItemToSlot(temp_src.id, temp_src.amount, dis.Slot_index);
             src.Affiliation.ClearSlot(src.Slot_index);
-
+            dis.gameObject.GetComponent<Selectable>().Select();
             return true;
         }
     }
@@ -397,6 +399,7 @@ public class SlotManager : MonoBehaviour
         var target_slot = GetNullSlot();
         if (target_slot)
         {
+            if (item_list[slot_index].amount <= 1) return false;
             int move_amount = item_list[slot_index].amount / 2;
             SetItemToSlot(item_list[slot_index].id, move_amount, target_slot.Slot_index);
             ChangeSlotItemAmount(item_list[slot_index].amount - move_amount, slot_index);
