@@ -312,6 +312,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2602195647382966277, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
   m_PrefabInstance: {fileID: 5065753683682882702}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &374813115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 192842705551358162, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+  m_PrefabInstance: {fileID: 5065753683682882702}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b926857f7c81d4e99445af137249df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &439468156 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4775419436617282111, guid: fc722cdcb71c8e841ade281dee49f444, type: 3}
@@ -2647,6 +2658,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4022198186828752665, guid: 4568460be2efafd45a8868fb5781fc54, type: 3}
   m_PrefabInstance: {fileID: 7829532094858084896}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2109727094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7397707868811041232, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+  m_PrefabInstance: {fileID: 5065753683682882702}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b926857f7c81d4e99445af137249df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2112995013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6532,7 +6554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3555905439393559430, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3555905439393559430, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -6544,7 +6566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3555905439393559430, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3555905439393559430, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6557,7 +6579,7 @@ PrefabInstance:
     - target: {fileID: 3555905439393559430, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 374813115}
     - target: {fileID: 3555905439393559430, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -6576,7 +6598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3555905439393559430, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: Text_of_each_places
+      value: Text_ColorRestart
       objectReference: {fileID: 0}
     - target: {fileID: 3555905439393559430, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -6588,7 +6610,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3555905439393559430, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: LoadScene, Assembly-CSharp
+      value: TextColorChange, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3555905439393559430, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
@@ -6600,7 +6622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3555905439393559430, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3555905439393559430, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -6623,7 +6645,15 @@ PrefabInstance:
       value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 3555905439393559435, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555905439393559435, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555905439393559435, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3555905439393559435, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
@@ -6631,12 +6661,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1265888933}
     - target: {fileID: 3555905439393559435, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 374813115}
+    - target: {fileID: 3555905439393559435, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555905439393559435, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SE2
       objectReference: {fileID: 0}
     - target: {fileID: 3555905439393559435, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Text_ColorChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555905439393559435, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: multiAudio, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555905439393559435, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TextColorChange, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3555905439393559435, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -6646,9 +6692,17 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3555905439393559435, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3555905440077445546, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555905440077445546, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3555905440077445546, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -6669,7 +6723,7 @@ PrefabInstance:
     - target: {fileID: 3555905440077445546, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1265888933}
+      objectReference: {fileID: 2109727094}
     - target: {fileID: 3555905440077445546, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -6688,7 +6742,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3555905440077445546, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SE1
+      value: Text_ColorRestart
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555905440077445546, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: After_LocationSentaku1, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3555905440077445546, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -6696,7 +6754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3555905440077445546, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: multiAudio, Assembly-CSharp
+      value: TextColorChange, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3555905440077445546, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
@@ -6719,7 +6777,15 @@ PrefabInstance:
       value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 3555905440077445550, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555905440077445550, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555905440077445550, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3555905440077445550, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
@@ -6727,12 +6793,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1265888933}
     - target: {fileID: 3555905440077445550, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2109727094}
+    - target: {fileID: 3555905440077445550, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555905440077445550, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SE2
       objectReference: {fileID: 0}
     - target: {fileID: 3555905440077445550, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Text_ColorChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555905440077445550, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: multiAudio, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555905440077445550, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TextColorChange, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3555905440077445550, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -6740,6 +6822,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3555905440077445550, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555905440077445550, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3759256424994004992, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
