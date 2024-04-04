@@ -146,7 +146,7 @@ public class Slot : MonoBehaviour,ISelectHandler,IDeselectHandler
         if (selectedImage)
         {
             selectedImage.gameObject.SetActive(false);
-            print("deselected");
+          
         }
     }
 
@@ -155,7 +155,7 @@ public class Slot : MonoBehaviour,ISelectHandler,IDeselectHandler
         if (selectedImage)
         {
             selectedImage.gameObject.SetActive(true);
-            print("selected");
+            SlotManager.selectedItem = (Affiliation, Slot_index);
         }
     }
 }

@@ -23,6 +23,9 @@ public class SlotsInfo
 
 public class SlotManager : MonoBehaviour
 {
+    public static (SlotManager slotManager, int index)? selectedItem = null;
+
+
     [SerializeField]
     protected SlotsInfo data;
     [SerializeField]

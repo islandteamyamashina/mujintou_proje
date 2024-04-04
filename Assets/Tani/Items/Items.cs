@@ -19,6 +19,8 @@ public class Items : ScriptableObject
     public int Luck_Change = 0;
     //説明文
     public string Discription = null;
+    [Header("追加効果テキスト")]
+    public string extra_effect = null;
     
     public enum Item_ID
     {
