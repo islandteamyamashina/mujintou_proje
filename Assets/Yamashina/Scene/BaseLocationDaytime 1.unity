@@ -515,6 +515,8 @@ MonoBehaviour:
   ownedMainCanvas: {fileID: 828340485}
   water_value_text: {fileID: 1213369002}
   spring_water_text: {fileID: 818659215}
+  DrinkButton: {fileID: 0}
+  PourButton: {fileID: 0}
 --- !u!224 &85948070 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5054162521460240159, guid: b99e48dfc0c745f4e9257b41c04b7c80, type: 3}
@@ -2572,6 +2574,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FadeCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3410907304491221969, guid: 64ed8b244c506f043af6574af7c8fba6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3122,6 +3128,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1696978078318026791, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_Value
+      value: 0.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696978078318026791, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_MaxValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696978078318026791, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_WholeNumbers
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696978078318026791, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -3165,6 +3183,10 @@ PrefabInstance:
       propertyPath: audioClipsBGM.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: a9caca634a4da554190cba8252b23f2d, type: 3}
+    - target: {fileID: 5743363427429034246, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5743363428146210276, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3253,6 +3275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 5743363428177442298, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5743363428578171217, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3263,6 +3289,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5743363428578171217, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743363428963535201, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_Value
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743363428963535201, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_MaxValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743363428963535201, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_WholeNumbers
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5743363428963535201, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
@@ -3355,6 +3393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmSlider: {fileID: 407826676}
   seSlider: {fileID: 407826677}
+  audioMixer: {fileID: 24100000, guid: 201275a464147634591467b51401d7de, type: 2}
 --- !u!224 &412794497 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8275885427414199181, guid: b0b067c6bca75ef4f84bb95d72c20de3, type: 3}
@@ -6072,6 +6111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedMainCanvas: {fileID: 387076448}
   MainBG: {fileID: 609090260}
+  multi: {fileID: 407826679}
   images:
   - {fileID: 21300000, guid: 841c9773733830240bce7815d4f6d26a, type: 3}
   - {fileID: 21300000, guid: a6b08aad8eb629a498dc20e71e1df7e4, type: 3}
@@ -9913,7 +9953,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1478376853
 RectTransform:
   m_ObjectHideFlags: 0

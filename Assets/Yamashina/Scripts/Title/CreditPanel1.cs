@@ -23,6 +23,7 @@ public class CreditPanel1 : MonoBehaviour
     [SerializeField] GameObject quitButton;
     [SerializeField] GameObject CreditButton;
     [SerializeField] GameObject optionButton;
+    [SerializeField] multiAudio multi;
 
     //ボタンのイベントトリガー関連
     [SerializeField] EventTrigger eventTrigger_start;
@@ -39,13 +40,18 @@ public class CreditPanel1 : MonoBehaviour
     public Button Credit;
     public Button option;
 
+    private void Awake()
+    {
+        multi.BgmLoadSlider();
+        multi.SeLoadSlider();
+    }
+
     void Start()//始まるとき
     {
         //パネル関係
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
-        GameObject.Find("BGM_ob").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipsBGM[1];
-        GameObject.Find("BGM_ob").GetComponent<AudioSource>().Play();
+        multi.BGMSE();
         OptionPanel.SetActive(false);  
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);

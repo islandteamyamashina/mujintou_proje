@@ -28,7 +28,7 @@ public class Slot : MonoBehaviour,ISelectHandler,IDeselectHandler
     [SerializeField]
     int default_icon_canvas_sortinglayer = 3;
     [SerializeField]
-    int dragging_icon_canvas_sortinglayer = 4;
+    int dragging_icon_canvas_sortinglayer = 20;
 
    
 
@@ -87,7 +87,7 @@ public class Slot : MonoBehaviour,ISelectHandler,IDeselectHandler
     void OnSlotSelected()
     {
         
-        print($"slotIndex : {Slot_index},Item : {Affiliation.GetSlotItem(Slot_index).Value.id},Count : {Affiliation.GetSlotItem(Slot_index).Value.amount}");
+       // print($"slotIndex : {Slot_index},Item : {Affiliation.GetSlotItem(Slot_index).Value.id},Count : {Affiliation.GetSlotItem(Slot_index).Value.amount}");
         
         if (Input.GetMouseButtonUp(1) && Affiliation.GetSlotItem(Slot_index).Value.id != Items.Item_ID.EmptyObject)
         {
@@ -148,6 +148,7 @@ public class Slot : MonoBehaviour,ISelectHandler,IDeselectHandler
             selectedImage.gameObject.SetActive(false);
           
         }
+        
     }
 
     public void OnSelect(BaseEventData eventData)
@@ -155,7 +156,11 @@ public class Slot : MonoBehaviour,ISelectHandler,IDeselectHandler
         if (selectedImage)
         {
             selectedImage.gameObject.SetActive(true);
-            SlotManager.selectedItem = (Affiliation, Slot_index);
+            
         }
+        if (Affiliation.GetSlotItem(Slot_index).Value.id != Items.Item_ID.EmptyObject)
+            SlotManager.selectedItem = (Affiliation, Slot_index);
+        else
+            SlotManager.selectedItem = (null, 0);
     }
 }

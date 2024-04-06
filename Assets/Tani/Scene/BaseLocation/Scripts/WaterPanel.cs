@@ -9,6 +9,10 @@ public class WaterPanel : PanelBase
     Text water_value_text;
     [SerializeField]
     Text spring_water_text;
+    [SerializeField]
+    Button DrinkButton;
+    [SerializeField]
+    Button PourButton;
 
 
     // Start is called before the first frame update
@@ -16,7 +20,8 @@ public class WaterPanel : PanelBase
     {
 
         SetSortOrder(OrderOfUI.NormalPanel);
-
+        DrinkButton.onClick.AddListener(DrinkWater);
+        PourButton.onClick.AddListener(PourWater);
         
     }
 
@@ -25,9 +30,11 @@ public class WaterPanel : PanelBase
     {
         water_value_text.text = "ˆù—¿’l : " + PlayerInfo.Instance.Thirst.ToString() ;
         spring_water_text.text = "—N‚«… : " + PlayerInfo.Instance.Water.ToString();
+        PourButton.interactable = PlayerInfo.Instance.Water >= 30 &&
+                                    PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_bottle) >= 1;
     }
 
-    public void DrinkWater()
+    void DrinkWater()
     {
         var info = PlayerInfo.Instance;
         if(info.Thirst + info.Water >= 100)
@@ -41,4 +48,14 @@ public class WaterPanel : PanelBase
             info.Water = 0;
         }
     }
+
+    void PourWater()
+    {
+        PlayerInfo.Instance.Water -= 30;
+        PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.item_mat_bottle);
+        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_water,1);
+
+    }
+
+    
 }

@@ -20,9 +20,15 @@ public class ChoiseResult
     public string choise_text = string.Empty;
     public List<GetItemData> Gain_Items;
     public string result_text = null;
-    public int health_change = 0;
-    public int hunger_change = 0;
-    public int thirst_change = 0;
+    [Space(10)]
+    public int health_change_min = 0;
+    public int health_change_max = 0;
+    [Space(15)]
+    public int hunger_change_min = 0;
+    public int hunger_change_max = 0;
+    [Space(15)]
+    public int thirst_change_min = 0;
+    public int thirst_change_max = 0;
     public int required_action_value = 1;
 
 }

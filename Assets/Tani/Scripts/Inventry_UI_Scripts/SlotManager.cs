@@ -23,7 +23,7 @@ public class SlotsInfo
 
 public class SlotManager : MonoBehaviour
 {
-    public static (SlotManager slotManager, int index)? selectedItem = null;
+    public static (SlotManager slotManager, int index) selectedItem = (null,0);
 
 
     [SerializeField]
@@ -49,10 +49,6 @@ public class SlotManager : MonoBehaviour
         active_range = data.slot_prefab.GetComponent<RectTransform>().rect.width * 2;
         LoadSlotDatas(fileName);
 
-        //SetItemToSlot(Items.Item_ID.Fish, 2, 0);
-        //SetItemToSlot(Items.Item_ID.Fish, 50, 1);
-        //SetItemToSlot(Items.Item_ID.item_special_medicine, 10, 2);
-        //SetItemToSlot(Items.Item_ID.item_mat_bottle, 10, 3);
 
     }
 
@@ -225,6 +221,17 @@ public class SlotManager : MonoBehaviour
         _Slots[slot_index].SetIcon(n.icon);
         _Slots[slot_index].SetAmoutText(num);
         return true;
+    }
+
+    static public Items GetItemData(Items.Item_ID id)
+    {
+        var n = Resources.Load($"{id}") as Items;
+        if (n == null)
+        {
+            Debug.LogError($"Couldn't find Item Data : {id} in Resources");
+            return null;
+        }
+        return n;
     }
 
     public string GetItemName(Items.Item_ID item_ID)
@@ -411,6 +418,9 @@ public class SlotManager : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Add item to slot if there is empty slot
+    /// </summary>
     public bool GetItem(Items.Item_ID id,int num)
     {
         if (num == 0) return true;
@@ -438,7 +448,9 @@ public class SlotManager : MonoBehaviour
         }
     }
 
-    
+    /// <summary>
+    /// return item amount in slots
+    /// </summary>
     public int GetItemAmount(Items.Item_ID id)
     {
         int amount = 0;
@@ -452,6 +464,46 @@ public class SlotManager : MonoBehaviour
             }
         }
         return amount;
+    }
+    /// <summary>
+    /// アイテムが使用できない場合そのアイテムを一つ減らす
+    /// </summary>
+    public bool UseItem(Items.Item_ID id)
+    {
+        if (id == Items.Item_ID.EmptyObject) return false;
+        if (GetItemAmount(id) < 1) return false;
+
+        for (int i = 0; i < item_list.Length; i++)
+        {
+            if(item_list[i].id == id)
+            {
+                if (data.index_igonored.Contains(i)) continue;
+                if (item_list[i].amount < 1) continue;
+                UseSlotItem(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// 指定したslotにあるアイテムを一つ消費
+    /// </summary>
+    public void UseSlotItem(int index)
+    {
+        if (item_list[index].id == Items.Item_ID.EmptyObject) return;
+        if (item_list[index].amount < 1) return;
+
+
+        Items item_data = SlotManager.GetItemData(item_list[index].id);
+        if (item_data.canUse)
+        {
+            PlayerInfo info = PlayerInfo.Instance;
+            info.Health += item_data.Health_Change;
+            info.Hunger += item_data.Hunger_Change;
+            info.Thirst += item_data.Thirst_Chage;
+        }
+        ChangeSlotItemAmount(item_list[index].amount - 1, index);
     }
 
     public void SetVisible(bool visible)
@@ -477,6 +529,17 @@ public class SlotManager : MonoBehaviour
         }
     }
 
+    public bool GetVisibility()
+    {
+        if (Slots_Main)
+        {
+            return Slots_Main.activeSelf;
+        }
+        else
+        {
+            return gameObject.activeSelf;
+        }
+    }
     protected void SaveSlotDatas(string fileName)
     {
         if(fileName.Trim().Length == 0)
