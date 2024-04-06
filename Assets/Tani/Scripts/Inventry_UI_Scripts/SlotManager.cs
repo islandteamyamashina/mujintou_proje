@@ -23,7 +23,7 @@ public class SlotsInfo
 
 public class SlotManager : MonoBehaviour
 {
-    public static (SlotManager slotManager, int index)? selectedItem = null;
+    public static (SlotManager slotManager, int index) selectedItem = (null,0);
 
 
     [SerializeField]
@@ -225,6 +225,17 @@ public class SlotManager : MonoBehaviour
         _Slots[slot_index].SetIcon(n.icon);
         _Slots[slot_index].SetAmoutText(num);
         return true;
+    }
+
+    static public Items GetItemData(Items.Item_ID id)
+    {
+        var n = Resources.Load($"{id}") as Items;
+        if (n == null)
+        {
+            Debug.LogError($"Couldn't find Item Data : {id} in Resources");
+            return null;
+        }
+        return n;
     }
 
     public string GetItemName(Items.Item_ID item_ID)
