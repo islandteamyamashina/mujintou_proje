@@ -314,20 +314,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5743363428146210276, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
   m_PrefabInstance: {fileID: 1861542798}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &260018008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 260018003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a6cc13882276a847a9dc7d63eaf9ca7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bgmSlider: {fileID: 1195417829}
-  seSlider: {fileID: 480133085}
 --- !u!82 &265471459 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 4716655546215748943, guid: 91221296759c3c9439a0ffc2d6e495bf, type: 3}
@@ -921,17 +907,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &480133085 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5743363428963535201, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
-  m_PrefabInstance: {fileID: 1861542798}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,6 +922,7 @@ GameObject:
   - component: {fileID: 519420036}
   - component: {fileID: 519420037}
   - component: {fileID: 519420038}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1041,7 +1017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmSlider: {fileID: 866643328}
-  seSlider: {fileID: 923700502}
+  seSlider: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: 201275a464147634591467b51401d7de, type: 2}
 --- !u!82 &519420035
 AudioSource:
@@ -1644,17 +1620,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &923700502 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5743363428963535201, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
-  m_PrefabInstance: {fileID: 1861542798}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &945528630 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 579316230186143063, guid: e432429a349a46843bc8606bf96b7b88, type: 3}
@@ -1950,17 +1915,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167542016}
   m_CullTransparentMesh: 1
---- !u!114 &1195417829 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1696978078318026791, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
-  m_PrefabInstance: {fileID: 1861542798}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1225213582 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5249148058291651179, guid: e432429a349a46843bc8606bf96b7b88, type: 3}
@@ -3206,10 +3160,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5743363428146210277, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 260018008}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
 --- !u!1001 &1884454422
 PrefabInstance:
@@ -4877,7 +4828,6 @@ MonoBehaviour:
   Route2_text: {fileID: 1226420529}
   BG_cover: {fileID: 1388949851}
   Loadimage: {fileID: 0}
-  textControl: {fileID: 2127606342}
   event_BG_Disply: {fileID: 70715953}
   event_Text: {fileID: 2127606343}
   event_manage: {fileID: 323282687}
