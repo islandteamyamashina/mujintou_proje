@@ -237,9 +237,14 @@ public class EventPanelBase : MonoBehaviour
         var prev_thirst = info.Thirst;
         var prev_action = info.ActionValue;
 
-        info.Health += result.health_change;
-        info.Hunger += result.hunger_change;
-        info.Thirst += result.thirst_change;
+        int health_change = Mathf.RoundToInt(Random.Range(result.health_change_min, result.health_change_max));
+        int hunger_change = Mathf.RoundToInt(Random.Range(result.hunger_change_min, result.hunger_change_max));
+        int thirst_change = Mathf.RoundToInt(Random.Range(result.thirst_change_min, result.thirst_change_max));
+
+
+        info.Health += health_change;
+        info.Hunger += hunger_change;
+        info.Thirst += thirst_change;
         info.ActionValue -= result.required_action_value;
 
         string status_change =

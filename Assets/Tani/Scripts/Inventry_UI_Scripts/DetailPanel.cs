@@ -13,8 +13,15 @@ public class DetailPanel : MonoBehaviour
     Text ItemName;
     [SerializeField]
     Image icon_image;
+    [SerializeField]
+    Button Use_Button;
 
     Items.Item_ID current_id = Items.Item_ID.Item_Max;
+
+    private void Awake()
+    {
+        Use_Button.onClick.AddListener(() => { SlotManager.selectedItem.slotManager.UseSlotItem(SlotManager.selectedItem.index); });
+    }
 
     private void FixedUpdate()
     {
@@ -51,6 +58,7 @@ public class DetailPanel : MonoBehaviour
             ItemName.text = item_data.item_name;
 
             current_id = item_data.item_ID;
+            Use_Button.interactable = item_data.canUse ;
         }
         else
         {
@@ -60,6 +68,8 @@ public class DetailPanel : MonoBehaviour
             ItemName.text = null;
             icon_image.sprite = null;
             icon_image.color = new Color(1, 1, 1, 0);
+            current_id = Items.Item_ID.Item_Max;
+            Use_Button.interactable = false;
         }
     }
 

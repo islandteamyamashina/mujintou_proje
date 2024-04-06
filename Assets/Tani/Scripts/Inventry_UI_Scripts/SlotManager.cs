@@ -418,6 +418,9 @@ public class SlotManager : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Add item to slot if there is empty slot
+    /// </summary>
     public bool GetItem(Items.Item_ID id,int num)
     {
         if (num == 0) return true;
@@ -445,7 +448,9 @@ public class SlotManager : MonoBehaviour
         }
     }
 
-    
+    /// <summary>
+    /// return item amount in slots
+    /// </summary>
     public int GetItemAmount(Items.Item_ID id)
     {
         int amount = 0;
@@ -481,6 +486,9 @@ public class SlotManager : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// 指定したslotにあるアイテムを一つ消費
+    /// </summary>
     public void UseSlotItem(int index)
     {
         if (item_list[index].id == Items.Item_ID.EmptyObject) return;
@@ -532,7 +540,7 @@ public class SlotManager : MonoBehaviour
             return gameObject.activeSelf;
         }
     }
-        protected void SaveSlotDatas(string fileName)
+    protected void SaveSlotDatas(string fileName)
     {
         if(fileName.Trim().Length == 0)
         {

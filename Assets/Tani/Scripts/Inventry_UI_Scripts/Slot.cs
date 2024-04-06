@@ -148,6 +148,7 @@ public class Slot : MonoBehaviour,ISelectHandler,IDeselectHandler
             selectedImage.gameObject.SetActive(false);
           
         }
+        
     }
 
     public void OnSelect(BaseEventData eventData)
@@ -155,7 +156,11 @@ public class Slot : MonoBehaviour,ISelectHandler,IDeselectHandler
         if (selectedImage)
         {
             selectedImage.gameObject.SetActive(true);
-            SlotManager.selectedItem = (Affiliation, Slot_index);
+            
         }
+        if (Affiliation.GetSlotItem(Slot_index).Value.id != Items.Item_ID.EmptyObject)
+            SlotManager.selectedItem = (Affiliation, Slot_index);
+        else
+            SlotManager.selectedItem = (null, 0);
     }
 }
