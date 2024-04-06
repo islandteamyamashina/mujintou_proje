@@ -21,7 +21,7 @@ public class multiAudio : MonoBehaviour
     }
     public void BgmVolume()
     {
-        float a = bgmSlider.value * 0.8f;
+        float a = bgmSlider.value;
         Audiovolume.instance.SetBgmVolume(a);
         audioMixer.SetFloat("BGM", ConvertVolumeToDb(bgmSlider.value));
 
@@ -42,7 +42,6 @@ public class multiAudio : MonoBehaviour
             //audioSourceBGM = GameObject.Find("BGM_ob").GetComponent<AudioSource>();
             //audioSourceSE= GameObject.Find("SE_ob").GetComponent<AudioSource>();
 
-            GameObject.Find("SE_ob").GetComponent<AudioSource>().PlayOneShot(Audiovolume.instance.audioClipSE[1]);
         
         print(b);
     }
@@ -57,7 +56,7 @@ public class multiAudio : MonoBehaviour
     public void BgmLoadSlider()
     {
         bgmSlider.value = PlayerPrefs.GetFloat("bgmSliderValue", 1.0f);
-        float a = bgmSlider.value * 0.8f;
+        float a = bgmSlider.value ;
         Audiovolume.instance.SetBgmVolume(a);
         print(a);
     }
@@ -72,6 +71,11 @@ public class multiAudio : MonoBehaviour
     public float ConvertVolumeToDb(float volume)
     {
         return Mathf.Clamp(Mathf.Log10(Mathf.Clamp(volume, 0f, 1f)) * 20f, -80f, 0f);
+    }
+    public void playse()
+    {
+        GameObject.Find("SE_ob").GetComponent<AudioSource>().PlayOneShot(Audiovolume.instance.audioClipSE[1]);
+
     }
 }
 
