@@ -15,6 +15,7 @@ public class LoadScene : MonoBehaviour
         //image.SetActive(false);
         
     }
+    //[SerializeField] multiAudio multiAudio;
     [SerializeField] Fade fade;
     [SerializeField] Text Text;
     [SerializeField] EventTrigger eventTrigger;
@@ -48,7 +49,7 @@ public class LoadScene : MonoBehaviour
         {
             PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
 
-
+            //SceneManager.sceneUnloaded += VolumeSave_loadsecene;
         }
 
 
@@ -82,6 +83,11 @@ public class LoadScene : MonoBehaviour
 
         }
     }
+    //public void VolumeSave_loadsecene(Scene scene)
+    //{
+    //    multiAudio.BgmSave();
+    //    multiAudio.SeSave();
+    //}
 
 
 }

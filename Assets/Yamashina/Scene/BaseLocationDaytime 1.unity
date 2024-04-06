@@ -515,6 +515,8 @@ MonoBehaviour:
   ownedMainCanvas: {fileID: 828340485}
   water_value_text: {fileID: 1213369002}
   spring_water_text: {fileID: 818659215}
+  DrinkButton: {fileID: 0}
+  PourButton: {fileID: 0}
 --- !u!224 &85948070 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5054162521460240159, guid: b99e48dfc0c745f4e9257b41c04b7c80, type: 3}
@@ -3126,6 +3128,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1696978078318026791, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_Value
+      value: 0.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696978078318026791, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_MaxValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696978078318026791, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_WholeNumbers
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696978078318026791, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -3275,6 +3289,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5743363428578171217, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743363428963535201, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_Value
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743363428963535201, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_MaxValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743363428963535201, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_WholeNumbers
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5743363428963535201, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
@@ -6085,6 +6111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownedMainCanvas: {fileID: 387076448}
   MainBG: {fileID: 609090260}
+  multi: {fileID: 407826679}
   images:
   - {fileID: 21300000, guid: 841c9773733830240bce7815d4f6d26a, type: 3}
   - {fileID: 21300000, guid: a6b08aad8eb629a498dc20e71e1df7e4, type: 3}
