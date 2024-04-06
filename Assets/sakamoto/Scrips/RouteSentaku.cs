@@ -13,7 +13,9 @@ public class RouteSentaku : MonoBehaviour
     [SerializeField] GameObject Route1_text;
     [SerializeField] GameObject Route2_text;
     [SerializeField] GameObject BG_cover;
+    [SerializeField] GameObject Loadimage;
     [SerializeField] TextControl textControl;
+
  
     Color color;
     Color normalColor = new Color(1.0f, 1.0f, 1.0f, 0.0f);
@@ -26,7 +28,7 @@ public class RouteSentaku : MonoBehaviour
     public Event_Text event_Text;
     public Event_Manage event_manage;
 
-    int next_num_tnp;//ひとつ前のイベントナンバー
+    int next_num_tnp;//次のイベントナンバー
 
     // Start is called before the first frame update
 
@@ -95,7 +97,16 @@ public class RouteSentaku : MonoBehaviour
     {
         textControl.ResetTextData();
         StartCoroutine(appearBGcover());
+        addMainSentence(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Result1);
+        changCondirion(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_health, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_hunger, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_warter);
         getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1_num);
+        next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Next_Ivent_ID;
+        ID_change_Event_num();
+        //ボタンの機能提出
+        Route1.interactable = false; 
+        Route2.interactable = false;
+        textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
+
     }
 
     IEnumerator appearBGcover()
@@ -116,18 +127,78 @@ public class RouteSentaku : MonoBehaviour
 
     //　本文、体力変化、アイテムゲットの順番
 
-    void changCondirion()
+    //本文書き換え
+    void addMainSentence(string scentence)
+    {
+        textControl.AddTextData(scentence);
+    }
+
+    //コンディション書き換え
+    void changCondirion(int helth, int hunger, int thirst)
     {
         int beforeHelth;
         int beforeHunger;
         int beforeThirst;
+        //変化前の値をストック
+        beforeHelth = PlayerInfo.Instance.Health;
+        beforeHunger = PlayerInfo.Instance.Hunger;
+        beforeThirst = PlayerInfo.Instance.Thirst;
+
+        //体力変化
+        PlayerInfo.Instance.Health += helth;
+        PlayerInfo.Instance.Hunger += hunger;
+        PlayerInfo.Instance.Thirst += thirst;
+
+        textControl.AddTextData($"体力 　{beforeHelth} => {PlayerInfo.Instance.Health}\n" +
+                                $"空腹度 {beforeHunger} => {PlayerInfo.Instance.Hunger}\n" +
+                                $"水分 　{beforeThirst} => {PlayerInfo.Instance.Thirst}");
     }
 
+    //アイテムゲット
     void getItems(int Item_ID, int get_num)
     {
         string Item_name;
         PlayerInfo.Instance.Inventry.GetItem((Items.Item_ID)Item_ID, get_num);
         Item_name = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)Item_ID);
         textControl.AddTextData($"{Item_name}を{get_num}つ手に入れました。");
+    }
+
+    //次のイベントに飛ばす
+    void Nextevent()
+    {
+        nextEvent(next_num_tnp);
+    }
+
+    void nextEvent(int event_num)
+    {
+        Loadimage.SetActive(true);
+        event_manage.now_event_num = event_num;
+        textControl.ResetTextData();
+        textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
+        Invoke("ventStart", 2);
+    }
+
+    void ventStart()
+    {
+        Loadimage.SetActive(false);
+        textControl.AddTextData(event_manage.eventDatas[event_manage.now_event_num].Main_Text);
+        //ボタンの機能再開
+        Route1.interactable = true;
+        Route2.interactable = true;
+    }
+
+    void ID_change_Event_num()
+    {
+        for (int i = 0; i < event_manage.eventDatas.Length; i++)
+        {
+            if (next_num_tnp == event_manage.eventDatas[i].Event_ID)
+            {
+                Debug.Log(event_manage.eventDatas[i].Event_ID);
+                next_num_tnp = i;
+                Debug.Log(event_manage.eventDatas[event_manage.now_event_num].Event_ID);
+                break;
+            }
+        }
+
     }
 }
