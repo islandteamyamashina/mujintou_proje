@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class multiAudio : MonoBehaviour
@@ -9,11 +10,11 @@ public class multiAudio : MonoBehaviour
 
     [SerializeField] private Slider bgmSlider;//BGMスライダー
     [SerializeField] private Slider seSlider;//SEスライダー
+    [SerializeField] AudioMixer audioMixer;
     void Start()
 
     {//起動時にロードする
         BgmVolume();
-        SeVolume(); 
         BgmLoadSlider();
         SeLoadSlider();
 
@@ -22,6 +23,8 @@ public class multiAudio : MonoBehaviour
     {
         float a = bgmSlider.value * 0.8f;
         Audiovolume.instance.SetBgmVolume(a);
+        audioMixer.SetFloat("BGM", ConvertVolumeToDb(bgmSlider.value));
+
         BgmSave();
         print(a);
     }
@@ -30,6 +33,8 @@ public class multiAudio : MonoBehaviour
     {
         float b = seSlider.value;
         Audiovolume.instance.SetSeVolume(b);
+        audioMixer.SetFloat("SE", ConvertVolumeToDb(seSlider.value));
+
         //セーブ
         SeSave();
         
@@ -63,6 +68,10 @@ public class multiAudio : MonoBehaviour
         float b = seSlider.value;
         Audiovolume.instance.SetSeVolume(b);
         print(b);
+    }
+    public float ConvertVolumeToDb(float volume)
+    {
+        return Mathf.Clamp(Mathf.Log10(Mathf.Clamp(volume, 0f, 1f)) * 20f, -80f, 0f);
     }
 }
 

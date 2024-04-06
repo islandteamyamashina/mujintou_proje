@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 
 public class Audiovolume : MonoBehaviour
@@ -31,6 +32,7 @@ public class Audiovolume : MonoBehaviour
     public void SetBgmVolume(float bgmVolume)
     {
         audioSourceBGM.volume = bgmVolume;
+
     }
 
     public void SetSeVolume(float seVolume)
@@ -38,7 +40,9 @@ public class Audiovolume : MonoBehaviour
         audioSourceSE.volume = seVolume;
        
     }
-    
    
+
+    
+
 }
 
