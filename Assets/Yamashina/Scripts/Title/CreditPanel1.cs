@@ -13,7 +13,7 @@ public class CreditPanel1 : MonoBehaviour
     //パネル関係
     public GameObject mainPanel;
     public GameObject subPanel;
-    //public GameObject OptionPanel;
+    public GameObject OptionPanel;
     public GameObject QuitPanel;
     public GameObject startPanel;
 
@@ -44,7 +44,9 @@ public class CreditPanel1 : MonoBehaviour
         //パネル関係
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
-        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);  
+        GameObject.Find("BGM_ob").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipsBGM[1];
+        GameObject.Find("BGM_ob").GetComponent<AudioSource>().Play();
+        OptionPanel.SetActive(false);  
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
 
@@ -96,8 +98,9 @@ public class CreditPanel1 : MonoBehaviour
             //subPanel.SetActive(false);
 
         }
-        if (Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.activeSelf)
+        if (OptionPanel.activeSelf)
         {
+
             StartSlideOut();
             //OptionPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             //OptionPanel.SetActive(false);
@@ -153,7 +156,7 @@ public class CreditPanel1 : MonoBehaviour
         //パネル関係
         mainPanel.SetActive(true);
         subPanel.SetActive(true);
-        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
 
@@ -191,7 +194,7 @@ public class CreditPanel1 : MonoBehaviour
         //パネル関係
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
-        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        OptionPanel.SetActive(true);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
 
@@ -217,10 +220,10 @@ public class CreditPanel1 : MonoBehaviour
         option.interactable = false;
 
         //パネル拡大する前（オプションパネル）
-        if (Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.activeSelf)
+        if (OptionPanel.activeSelf)
         {
-            Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.transform.localPosition = new Vector3(-359.6f, 73.53f, 0f);
+            OptionPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            OptionPanel.transform.localPosition = new Vector3(-359.6f, 73.53f, 0f);
 
             StartSlidein();
         }
@@ -231,7 +234,7 @@ public class CreditPanel1 : MonoBehaviour
         //パネル関係
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
-        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        OptionPanel.SetActive(false);
         QuitPanel.SetActive(true);
         startPanel.SetActive(false);
 
@@ -269,7 +272,7 @@ public class CreditPanel1 : MonoBehaviour
         //パネル関係
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
-        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(true);
 
@@ -329,10 +332,10 @@ public class CreditPanel1 : MonoBehaviour
             yield return null;
         }
         //パネル拡大（オプションパネル）
-        while (size2 <= 1.0f && Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.activeSelf)
+        while (size2 <= 1.0f && OptionPanel.activeSelf)
         {
-            Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), new Vector3(1.0f, 1.0f, 1.0f), size2);
-            Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.transform.localPosition=Vector3.Lerp(new Vector3(-259.0f, 144.62f, 0f), new Vector3(-218.0f, 147.0f, 0f), size2);
+            OptionPanel.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), new Vector3(1.0f, 1.0f, 1.0f), size2);
+            OptionPanel.transform.localPosition=Vector3.Lerp(new Vector3(3228.857f, -436.489f, 0f), new Vector3(-218.0f, 147.0f, 0f), size2);
             size2 += speed;
 
             yield return null;
@@ -394,7 +397,7 @@ public class CreditPanel1 : MonoBehaviour
         //パネル縮小（オプションパネル）
         while (size2 <= 1.0f && Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.activeSelf)
         {
-            Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size2);
+            OptionPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size2);
             size2 += speed;
 
             yield return null;
@@ -423,7 +426,7 @@ public class CreditPanel1 : MonoBehaviour
         }
         Debug.Log("通った");
         subPanel.SetActive(false);
-        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
         Debug.Log("通った");
@@ -436,7 +439,7 @@ public class CreditPanel1 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             //パネル関係
-            Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            OptionPanel.SetActive(false);
             mainPanel.SetActive(true);
             subPanel.SetActive(false);
             QuitPanel.SetActive(false);

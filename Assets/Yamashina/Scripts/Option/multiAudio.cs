@@ -10,7 +10,10 @@ public class multiAudio : MonoBehaviour
     [SerializeField] private Slider bgmSlider;//BGMスライダー
     [SerializeField] private Slider seSlider;//SEスライダー
     void Start()
+
     {//起動時にロードする
+        BgmVolume();
+        SeVolume(); 
         BgmLoadSlider();
         SeLoadSlider();
 
