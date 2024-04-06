@@ -1134,10 +1134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6cc13882276a847a9dc7d63eaf9ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {fileID: 406623018}
-  b1: {fileID: 8300000, guid: 0f121c9f5c55ba64ebd89e4f2a55719b, type: 3}
-  b2: {fileID: 8300000, guid: 0f121c9f5c55ba64ebd89e4f2a55719b, type: 3}
-  b3: {fileID: 8300000, guid: 2c90e3a0f05e63c408c94741ebcffa83, type: 3}
+  bgmSlider: {fileID: 866643328}
+  seSlider: {fileID: 923700502}
+  audioMixer: {fileID: 24100000, guid: 201275a464147634591467b51401d7de, type: 2}
 --- !u!82 &519420035
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1724,6 +1723,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ebee9855378614da86c4e5d6e9aab8, type: 3}
+--- !u!114 &866643328 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1696978078318026791, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+  m_PrefabInstance: {fileID: 1861542798}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &923700502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5743363428963535201, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+  m_PrefabInstance: {fileID: 1861542798}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &945528630 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 579316230186143063, guid: e432429a349a46843bc8606bf96b7b88, type: 3}
@@ -4764,6 +4785,7 @@ MonoBehaviour:
   Route1_text: {fileID: 678720185}
   Route2_text: {fileID: 1226420529}
   BG_cover: {fileID: 1388949851}
+  Loadimage: {fileID: 0}
   textControl: {fileID: 2127606342}
   event_BG_Disply: {fileID: 70715953}
   event_Text: {fileID: 2127606343}
