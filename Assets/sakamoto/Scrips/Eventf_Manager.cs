@@ -9,6 +9,8 @@ public class Event_Manage : MonoBehaviour
     public int start_event_num;
     public int now_event_num;
     [SerializeField] int start_area;
+
+    [SerializeField] multiAudio multi;
     // Start is called before the first frame update
     void Awake()
     {
@@ -33,8 +35,16 @@ public class Event_Manage : MonoBehaviour
         now_event_num = start_event_num;
         now_event_num = 0;
         Debug.Log(eventDatas[start_event_num].Main_Text);
+
+        multi.BgmLoadSlider();
+        multi.SeLoadSlider();   
+        multi.BGMSE();
+
     }
 
+    private void Start()
+    {
+    }
     // Update is called once per frame
     void Update()
     {
