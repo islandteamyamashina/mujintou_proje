@@ -21,6 +21,8 @@ public class Items : ScriptableObject
     public string Discription = null;
     [Header("追加効果テキスト")]
     public string extra_effect = null;
+    [Header("料理か")]
+    public bool isCooking = false;
     
     public enum Item_ID
     {
