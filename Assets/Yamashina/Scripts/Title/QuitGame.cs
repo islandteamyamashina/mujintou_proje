@@ -12,16 +12,16 @@ public class QuitGame : MonoBehaviour
 
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;//ゲームプレイ終了
-        Application.quitting += VolumeSave;
+        //Application.quitting += VolumeSave;
 
 
 #else
     Application.Quit();//ゲームプレイ終了
 #endif
     }
-    public void VolumeSave()
-    {
-        multiAudio.BgmSave();
-        multiAudio.SeSave();
-    }
+    //public void VolumeSave()
+    //{
+    //    multiAudio.BgmSave();
+    //    multiAudio.SeSave();
+    //}
 }
