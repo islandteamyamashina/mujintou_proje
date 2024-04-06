@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -37,12 +38,11 @@ public class multiAudio : MonoBehaviour
 
         //ÉZÅ[Éu
         SeSave();
-        
-            GameObject.Find("SE_ob").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipSE[1];
-            //audioSourceBGM = GameObject.Find("BGM_ob").GetComponent<AudioSource>();
-            //audioSourceSE= GameObject.Find("SE_ob").GetComponent<AudioSource>();
 
-        
+        //audioSourceBGM = GameObject.Find("BGM_ob").GetComponent<AudioSource>();
+        //audioSourceSE= GameObject.Find("SE_ob").GetComponent<AudioSource>();
+
+
         print(b);
     }
     public void BgmSave()
@@ -56,7 +56,7 @@ public class multiAudio : MonoBehaviour
     public void BgmLoadSlider()
     {
         bgmSlider.value = PlayerPrefs.GetFloat("bgmSliderValue", 1.0f);
-        float a = bgmSlider.value ;
+        float a = bgmSlider.value;
         Audiovolume.instance.SetBgmVolume(a);
         print(a);
     }
@@ -74,8 +74,25 @@ public class multiAudio : MonoBehaviour
     }
     public void playse()
     {
-        GameObject.Find("SE_ob").GetComponent<AudioSource>().PlayOneShot(Audiovolume.instance.audioClipSE[1]);
+        GameObject.Find("SE_ob").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipSE[1];
+       GameObject.Find("SE_ob").GetComponent<AudioSource>().PlayOneShot(Audiovolume.instance.audioClipSE[1]);
+    }
+    public void CancelSE()
+    {
+        GameObject.Find("BGM_ob").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipSE[2];
+       GameObject.Find("SE_ob").GetComponent<AudioSource>().PlayOneShot(Audiovolume.instance.audioClipSE[2]);
 
     }
-}
+    public void BGMSE()
+    {
+        GameObject.Find("BGM_ob").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipsBGM[1];
+        GameObject.Find("BGM_ob").GetComponent<AudioSource>().Play();
+    }
+    public void BGMSE_Kyoten()
+    {
 
+        GameObject.Find("BGM_ob").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipsBGM[2];
+        GameObject.Find("BGM_ob").GetComponent<AudioSource>().Play();
+    }
+
+}
