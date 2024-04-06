@@ -16,6 +16,7 @@ public class multiAudio : MonoBehaviour
 
     {//‹N“®‚Éƒ[ƒh‚·‚é
         BgmVolume();
+        SeVolume();
         BgmLoadSlider();
         SeLoadSlider();
 
@@ -48,10 +49,14 @@ public class multiAudio : MonoBehaviour
     public void BgmSave()
     {
         PlayerPrefs.SetFloat("bgmSliderValue", bgmSlider.value);
+        Debug.Log("Check OnDisable");
+
     }
     public void SeSave()
     {
         PlayerPrefs.SetFloat("seSliderValue", seSlider.value);
+        Debug.Log("Check OnDisable");
+
     }
     public void BgmLoadSlider()
     {

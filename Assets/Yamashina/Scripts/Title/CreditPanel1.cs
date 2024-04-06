@@ -40,6 +40,12 @@ public class CreditPanel1 : MonoBehaviour
     public Button Credit;
     public Button option;
 
+    private void Awake()
+    {
+        multi.BgmLoadSlider();
+        multi.SeLoadSlider();
+    }
+
     void Start()//Žn‚Ü‚é‚Æ‚«
     {
         //ƒpƒlƒ‹ŠÖŒW
