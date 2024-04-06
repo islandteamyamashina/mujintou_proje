@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class RouteSentaku : MonoBehaviour
+public class RouteSentaku : Event_Text
 {
     [SerializeField] Button Route1;
     [SerializeField] Button Route2;
@@ -14,7 +14,6 @@ public class RouteSentaku : MonoBehaviour
     [SerializeField] GameObject Route2_text;
     [SerializeField] GameObject BG_cover;
     [SerializeField] GameObject Loadimage;
-    [SerializeField] TextControl textControl;
 
  
     Color color;
@@ -100,13 +99,26 @@ public class RouteSentaku : MonoBehaviour
         addMainSentence(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Result1);
         changCondirion(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_health, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_hunger, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_warter);
         getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1_num);
+        next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Next_Ivent_ID;
+        ID_change_Event_num();
+        //ボタンの機能提出
+        Route1.interactable = false; 
+        Route2.interactable = false;
+        textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
+    }
+    public void ChoiseRoute2()
+    {
+        textControl.ResetTextData();
+        StartCoroutine(appearBGcover());
+        addMainSentence(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Result1);
+        changCondirion(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_health, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_hunger, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_warter);
+        getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1_num);
         next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Next_Ivent_ID;
         ID_change_Event_num();
         //ボタンの機能提出
         Route1.interactable = false; 
         Route2.interactable = false;
         textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
-
     }
 
     IEnumerator appearBGcover()
@@ -173,7 +185,7 @@ public class RouteSentaku : MonoBehaviour
     {
         Loadimage.SetActive(true);
         event_manage.now_event_num = event_num;
-        textControl.ResetTextData();
+        //textControl.ResetTextData();
         textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
         Invoke("ventStart", 2);
     }
@@ -181,12 +193,14 @@ public class RouteSentaku : MonoBehaviour
     void ventStart()
     {
         Loadimage.SetActive(false);
-        textControl.AddTextData(event_manage.eventDatas[event_manage.now_event_num].Main_Text);
+        //textControl.AddTextData(event_manage.eventDatas[event_manage.now_event_num].Main_Text);
+        SetEventText();
         //ボタンの機能再開
         Route1.interactable = true;
         Route2.interactable = true;
     }
 
+    //イベントIDとリストのナンバーの紐づけ
     void ID_change_Event_num()
     {
         for (int i = 0; i < event_manage.eventDatas.Length; i++)
