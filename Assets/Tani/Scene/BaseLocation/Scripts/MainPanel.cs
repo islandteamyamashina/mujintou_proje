@@ -16,8 +16,8 @@ public class MainPanel : PanelBase
     {
         //ƒpƒlƒ‹ŠÖŒW
        
-        GameObject.Find("BGM_ob").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipsBGM[1];
-        GameObject.Find("BGM_ob").GetComponent<AudioSource>().Play();
+        //GameObject.Find("BGM_ob").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipsBGM[1];
+        //GameObject.Find("BGM_ob").GetComponent<AudioSource>().Play();
     }
 
     protected override void Start()
