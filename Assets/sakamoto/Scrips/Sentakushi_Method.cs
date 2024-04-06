@@ -469,7 +469,6 @@ public class Sentakushi_Method : Event_Text
         {
             fade.scene_name_num = 1;
            fade.feadout_f = true;
-            multiAudio.SE1();
             Debug.Log("バッドエンド");
             //SceneManager.LoadScene("BadEnd");
         }
@@ -478,7 +477,6 @@ public class Sentakushi_Method : Event_Text
         else if (next_num_tnp / 1000 == 0)
         {
             fade.feadout_f = true;
-            multiAudio.SE1();
             Debug.Log("トゥルーエンド");
             //SceneManager.LoadScene("TrueEnd");
         }

@@ -64,7 +64,7 @@ public class KyotenToOtherspace : CreditPanel1
         // prehubdelete.deletePrehub();
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
-        OptionPanel.SetActive(false);
+        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         InventoryPanel.SetActive(false);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
@@ -96,7 +96,7 @@ public class KyotenToOtherspace : CreditPanel1
     {
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
-        OptionPanel.SetActive(false);
+        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);
@@ -114,7 +114,7 @@ public class KyotenToOtherspace : CreditPanel1
     {
         mainPanel.SetActive(false);
         subPanel.SetActive(true);
-        OptionPanel.SetActive(false);
+        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);
@@ -135,7 +135,7 @@ public class KyotenToOtherspace : CreditPanel1
     {
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
-        OptionPanel.SetActive(true);
+        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);
@@ -156,7 +156,7 @@ public class KyotenToOtherspace : CreditPanel1
     {
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
-        OptionPanel.SetActive(false);
+        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         cookingPanel.SetActive(false);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(true);
@@ -181,7 +181,7 @@ public class KyotenToOtherspace : CreditPanel1
         //takibi_f = false;
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
-        OptionPanel.SetActive(false);
+        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         cookingPanel.SetActive(false);
         TakibiPanel.SetActive(true);
         WakimizuPanel.SetActive(false);
@@ -209,7 +209,7 @@ public class KyotenToOtherspace : CreditPanel1
     {
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
-        OptionPanel.SetActive(false);
+        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         cookingPanel.SetActive(true);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
@@ -234,7 +234,7 @@ public class KyotenToOtherspace : CreditPanel1
 
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
-        OptionPanel.SetActive(false);
+        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         cookingPanel.SetActive(false);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
@@ -256,7 +256,7 @@ public class KyotenToOtherspace : CreditPanel1
     {
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
-        OptionPanel.SetActive(false);
+        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);
@@ -294,7 +294,7 @@ public class KyotenToOtherspace : CreditPanel1
     {
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
-        OptionPanel.SetActive(false);
+        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         cookingPanel.SetActive(false);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
@@ -332,7 +332,7 @@ public class KyotenToOtherspace : CreditPanel1
 
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
-        OptionPanel.SetActive(false);
+        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         cookingPanel.SetActive(false);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
@@ -354,7 +354,6 @@ public class KyotenToOtherspace : CreditPanel1
     {
         if (takibi_f == false)
         {
-            multiAudio.SE3();
             cooking_tabu();
         }
         else if (takibi_f == true)
@@ -408,7 +407,7 @@ public class KyotenToOtherspace : CreditPanel1
     {
         mainPanel.SetActive(false);
         subPanel.SetActive(true);
-        OptionPanel.SetActive(false);
+        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);
@@ -473,7 +472,7 @@ public class KyotenToOtherspace : CreditPanel1
     {
         mainPanel.SetActive(false);
         subPanel.SetActive(false);
-        OptionPanel.SetActive(false);
+        Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         TakibiPanel.SetActive(false);
         WakimizuPanel.SetActive(false);
         cookingPanel.SetActive(false);

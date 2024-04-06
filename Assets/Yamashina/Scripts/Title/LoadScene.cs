@@ -47,6 +47,8 @@ public class LoadScene : MonoBehaviour
         if (fade.feadout_f == false)
         {
             PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+
 
         }
 
@@ -75,6 +77,8 @@ public class LoadScene : MonoBehaviour
             if (fade.feadout_f == false)
             {
                 PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+
 
             }
 

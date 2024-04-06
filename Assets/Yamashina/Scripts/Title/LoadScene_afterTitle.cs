@@ -10,6 +10,7 @@ public class LoadScene_afterTitle : MonoBehaviour
         if (fade.feadout_f == false)
         {
             PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
 
         }
     }

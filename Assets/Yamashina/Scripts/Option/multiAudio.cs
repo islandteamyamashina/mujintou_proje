@@ -2,32 +2,64 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class multiAudio : MonoBehaviour
 {
-    bool f = false;
 
-      [SerializeField] private AudioSource a;//AudioSource型の変数aを宣言 使用するAudioSourceコンポーネントをアタッチ必要
+    [SerializeField] private Slider bgmSlider;//BGMスライダー
+    [SerializeField] private Slider seSlider;//SEスライダー
+    void Start()
+    {//起動時にロードする
+        BgmLoadSlider();
+        SeLoadSlider();
 
-        [SerializeField] private AudioClip b1;//AudioClip型の変数b1を宣言 使用するAudioClipをアタッチ必要
-        [SerializeField] private AudioClip b2;//AudioClip型の変数b2を宣言 使用するAudioClipをアタッチ必要 
-    [SerializeField] private AudioClip b3;
-    //自作の関数1
-    public void SE1()
-        {
-            a.PlayOneShot(b1);
-        }
-
-    //自作の関数2
-    public void SE2()
+    }
+    public void BgmVolume()
     {
-            a.PlayOneShot(b2);
+        float a = bgmSlider.value * 0.8f;
+        Audiovolume.instance.SetBgmVolume(a);
+        BgmSave();
+        print(a);
     }
 
-    public void SE3()
+    public void SeVolume()
     {
-        a.PlayOneShot(b3);
+        float b = seSlider.value;
+        Audiovolume.instance.SetSeVolume(b);
+        //セーブ
+        SeSave();
+        
+            GameObject.Find("SE_ob").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipSE[1];
+            //audioSourceBGM = GameObject.Find("BGM_ob").GetComponent<AudioSource>();
+            //audioSourceSE= GameObject.Find("SE_ob").GetComponent<AudioSource>();
+
+            GameObject.Find("SE_ob").GetComponent<AudioSource>().PlayOneShot(Audiovolume.instance.audioClipSE[1]);
+        
+        print(b);
+    }
+    public void BgmSave()
+    {
+        PlayerPrefs.SetFloat("bgmSliderValue", bgmSlider.value);
+    }
+    public void SeSave()
+    {
+        PlayerPrefs.SetFloat("seSliderValue", seSlider.value);
+    }
+    public void BgmLoadSlider()
+    {
+        bgmSlider.value = PlayerPrefs.GetFloat("bgmSliderValue", 1.0f);
+        float a = bgmSlider.value * 0.8f;
+        Audiovolume.instance.SetBgmVolume(a);
+        print(a);
     }
 
+    public void SeLoadSlider()
+    {
+        seSlider.value = PlayerPrefs.GetFloat("seSliderValue", 1.0f);
+        float b = seSlider.value;
+        Audiovolume.instance.SetSeVolume(b);
+        print(b);
+    }
 }
 

@@ -10,7 +10,6 @@ public class Story_Text : Text_Method
 {
     [SerializeField] StoryData storyData;
     [SerializeField] string sceneName; 
-    public multiAudio multiAudio;
     [SerializeField] Fade fade;
     int line_num;
 
@@ -33,7 +32,6 @@ public class Story_Text : Text_Method
             {
 
                 Botton_f = false;
-                multiAudio.SE2();
                 if (!fade.feadout_f)
                 {
                     Invoke("Next_Text", 1.0f);
