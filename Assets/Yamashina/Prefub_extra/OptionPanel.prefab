@@ -167,10 +167,10 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4654331429391987432}
-        m_TargetAssemblyTypeName: Audiovolume, Assembly-CSharp
-        m_MethodName: SetBGM
-        m_Mode: 0
+      - m_Target: {fileID: 2365714785203330968}
+        m_TargetAssemblyTypeName: multiAudio, Assembly-CSharp
+        m_MethodName: BgmVolume
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -387,13 +387,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
+        - m_Target: {fileID: 2365714785203330968}
+          m_TargetAssemblyTypeName: multiAudio, Assembly-CSharp
+          m_MethodName: playse
+          m_Mode: 1
           m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 2c90e3a0f05e63c408c94741ebcffa83, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -650,6 +650,7 @@ GameObject:
   - component: {fileID: 5743363428146210278}
   - component: {fileID: 5743363428146210279}
   - component: {fileID: 4654331429391987432}
+  - component: {fileID: 2365714785203330968}
   m_Layer: 5
   m_Name: OptionPanel
   m_TagString: Untagged
@@ -737,6 +738,21 @@ MonoBehaviour:
   audioClipsBGM: []
   audioSourceSE: {fileID: 0}
   audioClipSE: []
+--- !u!114 &2365714785203330968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5743363428146210277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6cc13882276a847a9dc7d63eaf9ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmSlider: {fileID: 1696978078318026791}
+  seSlider: {fileID: 5743363428963535201}
+  audioMixer: {fileID: 24100000, guid: 201275a464147634591467b51401d7de, type: 2}
 --- !u!1 &5743363428177442296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,10 +1331,10 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4654331429391987432}
-        m_TargetAssemblyTypeName: Audiovolume, Assembly-CSharp
-        m_MethodName: SetSE
-        m_Mode: 0
+      - m_Target: {fileID: 2365714785203330968}
+        m_TargetAssemblyTypeName: multiAudio, Assembly-CSharp
+        m_MethodName: SeVolume
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
