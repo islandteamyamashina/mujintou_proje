@@ -54,6 +54,7 @@ public class DetailPanel : MonoBehaviour
         }
         else
         {
+
             effect_text.text = null;
             discription_text.text = null;
             ItemName.text = null;
