@@ -190,12 +190,12 @@ public class CraftSlots : SlotManager
     private void OnOutputItemChanged()
     {
         isCraftable = CheckCraftable() != 0;
-        bool output_slot_has_item = craft_output_slot.Affiliation
+        bool is_output_slot_empty = craft_output_slot.Affiliation
             .GetSlotItem(craft_output_slot.Slot_index).Value.id == Items.Item_ID.EmptyObject;
 
         for (int i = 0; i < input_slot_num; i++)
         {
-            _Slots[i].can_place_item = output_slot_has_item;
+            _Slots[i].can_place_item = is_output_slot_empty;
         }
         if (CheckCraftable() == 1)
         {
@@ -214,12 +214,13 @@ public class CraftSlots : SlotManager
             if (item_list[i].id != Items.Item_ID.EmptyObject)
             {
                 input_slot_has_item = true;
+                break;
             }
         }
         if (!input_slot_has_item) return null;
 
         //MatchRecipeの絞り込み
-        var match_recipe = recipes.FindAll(n => n.input_items.Count <= input_slot_num);
+        List<CraftRecipe> match_recipe = recipes.FindAll(n => n.input_items.Count <= input_slot_num);
         //必要アイテム個数がスロットの数より小さいときemptyを足しておく
         foreach(var n in match_recipe)
         {
@@ -234,8 +235,9 @@ public class CraftSlots : SlotManager
 
         for (int k = 0; k < input_slot_num; k++)
         {
+            
             match_recipe = match_recipe.FindAll(n => n.input_items.Contains(item_list[k].id));
-            if (match_recipe.Count == 0) break;
+            if (match_recipe.Count == 0) return null;
         }
 
         if (match_recipe.Count != 0)

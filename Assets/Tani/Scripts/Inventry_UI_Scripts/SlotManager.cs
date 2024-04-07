@@ -504,6 +504,7 @@ public class SlotManager : MonoBehaviour
             info.Thirst += item_data.Thirst_Chage;
         }
         ChangeSlotItemAmount(item_list[index].amount - 1, index);
+        _Slots[index].gameObject.GetComponent<Selectable>().Select();
     }
 
     public void SetVisible(bool visible)
