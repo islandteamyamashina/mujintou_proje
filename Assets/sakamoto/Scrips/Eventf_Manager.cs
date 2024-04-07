@@ -9,12 +9,16 @@ public class Event_Manage : MonoBehaviour
     public int start_event_num;
     public int now_event_num;
     [SerializeField] int start_area;
-
+    [SerializeField] Audiovolume audiovolume;
     [SerializeField] multiAudio multi;
     // Start is called before the first frame update
     void Awake()
     {
-        if (start_area == 0)
+        Camera camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        audiovolume.audioSourceBGM = GameObject.Find("BGM_ob").GetComponent<AudioSource>();
+
+        audiovolume.audioSourceSE = GameObject.Find("SE_ob").GetComponent<AudioSource>();
+        if (start_area == 0) 
         {
             start_event_num = Random.Range(-1, 2) + 1;
             //Debug.Log("start_num‚Í" + start_event_num + "‚Å‚·");
@@ -36,9 +40,48 @@ public class Event_Manage : MonoBehaviour
         now_event_num = 0;
         Debug.Log(eventDatas[start_event_num].Main_Text);
 
+        if (audiovolume.audioClipsBGM != null)
+        {
+            Debug.Log(audiovolume.audioClipsBGM.Length);
+        }
+        else
+        {
+            Debug.Log("audioClipsBGM is Null!");
+        }
+        if (audiovolume.audioClipSE != null)
+        {
+            Debug.Log(audiovolume.audioClipSE.Length);
+        }
+        else
+        {
+            Debug.Log("audioClipSE is Null!");
+        }
+        if (audiovolume.audioClipsBGM != null)
+        {
+            audiovolume.audioSourceBGM.clip = audiovolume.audioClipsBGM[1];
+            audiovolume.audioSourceBGM.Play();
+        }
+        else
+        {
+
+            Debug.Log("audioSourceBGM is Null!");
+        }
+        if (audiovolume.audioClipSE != null)
+        {
+            audiovolume.audioSourceSE.clip = audiovolume.audioClipsBGM[1];
+            audiovolume.audioSourceSE.Play();
+        }
+        else
+        {
+
+            Debug.Log("audioSourceBGM is Null!");
+        }
+        Debug.Log("‚»‚Ì‘¼");
+        multi.BGMSE();
+
         multi.BgmLoadSlider();
         multi.SeLoadSlider();   
-        multi.BGMSE();
+        
 
     }
 

@@ -11,6 +11,7 @@ public class Audiovolume : MonoBehaviour
     public static Audiovolume instance;
     private void Awake()
     {
+
         if (instance == null)
         {
             instance = this;
@@ -20,8 +21,47 @@ public class Audiovolume : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        if (audioClipsBGM != null)
+        {
+            Debug.Log(audioClipsBGM.Length);//ここが通った
+        }
+        else
+        {
+            Debug.Log("audioClipsBGM is Null!");
+        }
+        if (audioClipSE != null)
+        {
+            Debug.Log(audioClipSE.Length);//ここが通った
+        }
+        else
+        {
+            Debug.Log("audioClipSE is Null!");
+        }
+        if (audioClipsBGM != null)
+        {
+            audioSourceBGM.clip = audioClipsBGM[1];
+            audioSourceBGM.Play();
+        }
+        else
+        {
+            
+            Debug.Log("audioSourceBGM is Null!");
+        }
+        if (audioClipSE != null)
+        {
+            audioSourceSE.clip = audioClipSE[1];
+            audioSourceSE.Play();
+        }
+        else
+        {
+
+            Debug.Log("audioSourceBGM is Null!");
+        }
+        Debug.Log("その他");//ここが通る？？
     }
-   
+
+
+
     public AudioSource audioSourceBGM;//BGMスピーカー
     public AudioClip[] audioClipsBGM;//BGMの素材
 
@@ -37,11 +77,11 @@ public class Audiovolume : MonoBehaviour
     public void SetSeVolume(float seVolume)
     {
         audioSourceSE.volume = seVolume;
-       
+
     }
    
+       
 
-    
 
 }
 

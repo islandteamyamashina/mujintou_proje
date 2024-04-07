@@ -48,6 +48,7 @@ public class CreditPanel1 : MonoBehaviour
 
     void Start()//Žn‚Ü‚é‚Æ‚«
     {
+        multi.BGMSE_Kyoten();
         //ƒpƒlƒ‹ŠÖŒW
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
