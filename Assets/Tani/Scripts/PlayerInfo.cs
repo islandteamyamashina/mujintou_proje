@@ -230,7 +230,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
         }
 
-
+        Inventry.GetItem(Items.Item_ID.item_mat_coconut,3);
 
     }
 

@@ -8,13 +8,30 @@ using UnityEngine.UI;
 using UnityEditor;
 #endif
 
-
+[System.Serializable]
+class IdAmountPair
+{
+    public IdAmountPair() { }
+    public IdAmountPair(Items.Item_ID id,int amount)
+    {
+        this.id = id;
+        this.amount = amount;
+    }
+    public  Items.Item_ID id = Items.Item_ID.EmptyObject;
+    public  int amount = 1;
+    public bool Matching(Items.Item_ID id, int amount)
+    {
+        Debug.Log($"this id:{this.id},this amount:{this.amount},id:{id},amout{amount}");
+        if (this.id != id) return false;
+        return amount >= this.amount;
+    }
+}
 
 [System.Serializable]
 class CraftRecipe
 {
 
-    public List<Items.Item_ID> input_items;
+    public List<IdAmountPair> input_items;
     public Items.Item_ID crafted_item;
     public int craft_num = 1;
 }
@@ -38,7 +55,7 @@ public class CraftSlots : SlotManager
 
     int? recipe_index = null;
     bool isCraftable = false;
-    string recipe_data_save_folder = Application.streamingAssetsPath + "/Saves/";
+    string recipe_data_save_folder = Application.dataPath + "/Tani/Saves/";
     string default_save_name = "default_recipe_save";
     protected override void Awake()
     {
@@ -171,7 +188,7 @@ public class CraftSlots : SlotManager
     {
         recipe_index = ExistCraftRecipe();
         isCraftable = CheckCraftable() != 0 ;
-        //print("recipe : "+ recipe_index);
+        print("recipe : "+ recipe_index);
         if (CheckCraftable() == 1)
         {
             var item_data = Resources.Load($"{recipes[recipe_index.Value].crafted_item}") as Items;
@@ -228,39 +245,46 @@ public class CraftSlots : SlotManager
             {
                 while (n.input_items.Count < input_slot_num)
                 {
-                    n.input_items.Add(Items.Item_ID.EmptyObject);
+                    n.input_items.Add(new IdAmountPair(Items.Item_ID.EmptyObject,0));
                 }
             }
         }
 
-        for (int k = 0; k < input_slot_num; k++)
-        {
-            
-            match_recipe = match_recipe.FindAll(n => n.input_items.Contains(item_list[k].id));
-            if (match_recipe.Count == 0) return null;
-        }
-
+ 
         if (match_recipe.Count != 0)
         {
-            foreach (var n in match_recipe)
+            var input_item_list = item_list.ToList();
+            input_item_list.RemoveAt(input_item_list.Count - 1);
+
+            foreach (var recipe_data in match_recipe)
             {
                 
-                bool isMatch = true;
-                for (int k = 0; k < input_slot_num; k++)
+                var temp_input_item_list = input_item_list;
+                foreach (var idAmountPair in recipe_data.input_items)
                 {
-                    var temp_item_list = item_list.ToList();
-                    temp_item_list.RemoveAt(temp_item_list.Count - 1);
+                    for (int i = 0; i < temp_input_item_list.Count; i++)
+                    {
+                        if (idAmountPair.Matching(temp_input_item_list[i].id, temp_input_item_list[i].amount))
+                        {
+                            
+                            temp_input_item_list.RemoveAt(i);
+                            break;
+                        }
+                        else
+                        {
+                            if(i >= temp_input_item_list.Count - 1)
+                            {
+                                goto There;
+                            }
+                        }
+                    }
                     
-
-                    isMatch = n.input_items.FindAll(n => n == temp_item_list[k].id).Count
-                        == temp_item_list.FindAll(n => n.id == temp_item_list[k].id).Count;
-                   
-                    if (!isMatch) break;
                 }
+                There:
 
-                if (isMatch)
+                if (temp_input_item_list.Count == 0)
                 {
-                    return recipes.FindIndex(l => l == n);
+                    return recipes.FindIndex(l => l == recipe_data);
                 }
 
             }
@@ -288,18 +312,20 @@ public class CraftSlots : SlotManager
             if (line.Contains("IGNORE")) continue;
             var data_per_slot = line.Split(",");
             CraftRecipe recipe = new CraftRecipe();
-            recipe.input_items = new List<Items.Item_ID>();
+            recipe.input_items = new List<IdAmountPair>();
             for (int i = 0;i < data_per_slot.Length - 2; i++)
             {
-                int int_data = 0;
+                int id_data = 0;
+                int amount_data = 0;
                 #region TryParseのエラー回避
-                if (!int.TryParse(data_per_slot[i],out int_data))
+                if (!(int.TryParse(data_per_slot[i].Split(":")[0],out id_data) 
+                    && int.TryParse(data_per_slot[i].Split(":")[1], out amount_data)))
                 {
                     Debug.LogError("参照先レシピの読み込みに失敗\n形式が正しいか確認してください");
                     return;
                 }
                 #endregion
-                recipe.input_items.Add((Items.Item_ID)int_data);
+                recipe.input_items.Add(new IdAmountPair((Items.Item_ID)id_data,amount_data));
             }
             recipe.crafted_item = (Items.Item_ID)int.Parse(data_per_slot[data_per_slot.Length - 2]);
             recipe.craft_num = int.Parse(data_per_slot[data_per_slot.Length - 1]);
@@ -317,9 +343,10 @@ public class CraftSlots : SlotManager
         foreach(var n in recipes)
         {
             string line = "";
-            foreach(var value in n.input_items)
+            foreach(var item in n.input_items)
             {
-                line += ((int)value).ToString() + ",";
+                line += ((int)item.id).ToString() + ":"+ item.amount.ToString() + ",";
+               
             }
             line += ((int)n.crafted_item).ToString() + ",";
             line += n.craft_num.ToString();
