@@ -17,8 +17,7 @@ public class multiAudio : MonoBehaviour
     {//ãNìÆéûÇ…ÉçÅ[ÉhÇ∑ÇÈ
         BgmVolume();
         SeVolume();
-        BgmLoadSlider();
-        SeLoadSlider();
+       
 
     }
     public void BgmVolume()
@@ -95,9 +94,9 @@ public class multiAudio : MonoBehaviour
     }
     public void BGMSE_Kyoten()
     {
+        GameObject.FindAnyObjectByType(typeof(AudioSource)).GetComponent<AudioSource>().clip= Audiovolume.instance.audioClipsBGM[2];
 
-        GameObject.Find("BGM_ob").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipsBGM[2];
-        GameObject.Find("BGM_ob").GetComponent<AudioSource>().Play();
+        GameObject.FindAnyObjectByType(typeof(AudioSource)).GetComponent<AudioSource>().Play();
     }
 
 }
