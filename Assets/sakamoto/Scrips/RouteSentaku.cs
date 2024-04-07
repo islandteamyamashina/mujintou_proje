@@ -120,6 +120,18 @@ public class RouteSentaku : Event_Text
         Route2.interactable = false;
         textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
     }
+    public void ChoiseRoute3()
+    {
+        textControl.ResetTextData();
+        StartCoroutine(appearBGcover());
+        addMainSentence(event_manage.eventDatas[event_manage.now_event_num].Cancel_Result);
+        next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Cancel_Next_Ivent_ID;
+        ID_change_Event_num();
+        //ボタンの機能提出
+        Route1.interactable = false; 
+        Route2.interactable = false;
+        textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
+    }
 
     IEnumerator appearBGcover()
     {
