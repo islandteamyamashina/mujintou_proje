@@ -6,6 +6,8 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     [HideInInspector] public SaveData data;     // json変換するデータのクラス
     string filepath;                            // jsonファイルのパス
     string fileName = "Data.json";              // jsonファイル名
+    string default_fileName = "default_save_data.json";
+    string folderPath;
 
     //-------------------------------------------------------------------
     // 開始時にファイルチェック、読み込み
@@ -14,23 +16,16 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
         base.Awake();
         DontDestroyOnLoad(gameObject);
         // パス名取得
-        filepath = Application.streamingAssetsPath + "/Saves/" + fileName;
+        
+        folderPath = Application.streamingAssetsPath + "/Saves/";
+        filepath = folderPath + fileName;
     }
     private void Start()
     {
         
 
-        //// ファイルがないとき、ファイル作成
-        //if (!File.Exists(filepath))
-        //{
-        //    Save(data);
-        //}
-
-        //// ファイルを読み込んでdataに格納
-        //data = Load(filepath);
     }
-    //-------------------------------------------------------------------
-    // jsonとしてデータを保存
+
     public void Save(SaveData data)
     {
         string json = JsonUtility.ToJson(data);                 // jsonとして変換
@@ -49,10 +44,17 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
         return JsonUtility.FromJson<SaveData>(json);            // jsonファイルを型に戻して返す
     }
 
+     public void InitializeSaveData()
+    {
+        File.Copy(folderPath + default_fileName, filepath,true);
+        print("セーブデータは初期化されました");
+    }
+
+    
+
     protected override void OnDestroy()
     {
         base.OnDestroy();
-       // Save(new SaveData());
     }
 
     public bool DoesSaveExist()

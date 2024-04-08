@@ -65,8 +65,9 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] private Text action_value_text;
     [SerializeField] private List<TextureData> textureDatas;
     [SerializeField] private SlotManager inventry;
-    [SerializeField] private SceneObject BadEnding;
     [SerializeField] private Fading fade;
+    [SerializeField] private SceneObject base_daytime;
+    [SerializeField] private SceneObject base_night;
 
 
     private int _player_Health;
@@ -191,11 +192,43 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         Weather_Max
     }
 
+    public void StartGame(bool override_current_data = false)
+    {
+        if (DataManager.Instance.DoesSaveExist())
+        {
+            
+            print("save exist");
+            if (override_current_data)
+            {
+                DataManager.Instance.InitializeSaveData();
+            }
+            LoadData();
+
+        }
+        else
+        {
+            print("save not exist");
+            DataManager.Instance.Save(new SaveData());
+            DataManager.Instance.InitializeSaveData();
+            LoadData();
+        }
+
+        this.Inventry.SwitchVisible();
+        this.inventry.SwitchVisible();
+
+
+        Inventry.GetItem(Items.Item_ID.item_mat_coconut,3);
+        Inventry.GetItem(Items.Item_ID.item_mat_magma, 3);       
+        
+    }
+
     protected override void Awake()
     {
         base.Awake();
-        this.Inventry.SwitchVisible();
-        this.Inventry.SwitchVisible();
+        OnActionValueChange.AddListener(() => { action_value_text.text = $"{ActionValue} / {MaxActionValue}"; });
+        OnMaxActionValueChange.AddListener(() => { action_value_text.text = $"{ActionValue} / {MaxActionValue}"; });
+
+        
 
         DontDestroyOnLoad(gameObject);
 
@@ -203,24 +236,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     private void Start()
     {
-        _player_Health = _Init_Player_Health;
-        _player_Hunger = _Init_Player_Hunger;
-        _player_Thirst = _Init_Player_Thirst;
-        _player_Luck = 0;
-
-        OnActionValueChange.AddListener(() => { action_value_text.text = $"{ActionValue} / {MaxActionValue}"; });
-        OnMaxActionValueChange.AddListener(() => { action_value_text.text = $"{ActionValue} / {MaxActionValue}"; });
-
-        if (DataManager.Instance.DoesSaveExist())
-        {
-            LoadData();
-            print("save exist");
-
-        }
-        else
-        {
-            print("save not exist");
-        }
+        StartGame(true);
 
         cursor_textures = new List<Texture2D>();
         foreach (var n in textureDatas)
@@ -230,8 +246,6 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
         }
 
-        Inventry.GetItem(Items.Item_ID.item_mat_coconut,3);
-        Inventry.GetItem(Items.Item_ID.item_mat_magma, 3);
 
     }
 
@@ -419,9 +433,6 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     
 
-    int GetFirstItem() { return first_item; }
- 
-    void SetFirstItem(int item) { first_item = item; }
 
 
     void LoadData()
@@ -438,6 +449,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         fire_value = data.fire;
         ActionValue = data.action;
         MaxActionValue = data.max_action;
+       // UnityEngine.SceneManagement.SceneManager.LoadScene()
     }
 
 
@@ -452,21 +464,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         SetMouseCursor(null);
     }
 
-    public void AddCondition(int i)
-    {
-        AddPlayerCondition((Condition)i);
-    }
 
-    public void OnStartDrag()
-    {
-        print("drag");
-    }
-
-    public void OnDrop()
-    {
-        print("drop");
-        
-    }
 
 
 }
