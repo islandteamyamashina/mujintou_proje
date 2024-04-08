@@ -21,7 +21,7 @@ class IdAmountPair
     public  int amount = 1;
     public bool Matching(Items.Item_ID id, int amount)
     {
-        Debug.Log($"this id:{this.id},this amount:{this.amount},id:{id},amout{amount}");
+       // Debug.Log($"this id:{this.id},this amount:{this.amount},id:{id},amout{amount}");
         if (this.id != id) return false;
         return amount >= this.amount;
     }
@@ -34,6 +34,8 @@ class CraftRecipe
     public List<IdAmountPair> input_items;
     public Items.Item_ID crafted_item;
     public int craft_num = 1;
+    [HideInInspector]
+    public int[] input_relation = null;
 }
 
 public class CraftSlots : SlotManager
@@ -53,8 +55,7 @@ public class CraftSlots : SlotManager
 
     int input_slot_num = 0;
 
-    int? recipe_index = null;
-    bool isCraftable = false;
+    CraftRecipe cureentCraftableRecipe = null;
     string recipe_data_save_folder = Application.dataPath + "/Tani/Saves/";
     string default_save_name = "default_recipe_save";
     protected override void Awake()
@@ -130,30 +131,33 @@ public class CraftSlots : SlotManager
     }
     public void DoCraft()
     {
-        if (!isCraftable) return ;
+        int craftable = CheckCraftable();
+        if (craftable == 0 || cureentCraftableRecipe == null) return;
 
-        if(GetSlotItem(craft_output_slot.Slot_index).Value.id == Items.Item_ID.EmptyObject)
+        
+        if(craftable == 1)
         {
             print("craft new");
-            var temp_craft_item_index = recipe_index;//recipe_indexが更新でnullになってしまうため
-            for (int i = 0; i < input_slot_num; i++)
+            var temp_current_recipe = cureentCraftableRecipe;//currentRecipeが更新でnullになってしまうため
+            for (int i = 0; i < temp_current_recipe.input_relation.Length; i++)
             {
-                _Slots[i].Affiliation.ChangeSlotItemAmount(GetSlotItem(_Slots[i].Slot_index).Value.amount - 1, _Slots[i].Slot_index);
+                ChangeSlotItemAmount(item_list[temp_current_recipe.input_relation[i]].amount
+                    - temp_current_recipe.input_items[i].amount, temp_current_recipe.input_relation[i]);
             }
-            SetItemToSlot(recipes[temp_craft_item_index.Value].crafted_item, recipes[temp_craft_item_index.Value].craft_num, craft_output_slot.Slot_index);
+            SetItemToSlot(temp_current_recipe.crafted_item, temp_current_recipe.craft_num, craft_output_slot.Slot_index);
             return ;
         }
-        else if(GetSlotItem(craft_output_slot.Slot_index).Value.id == recipes[recipe_index.Value].crafted_item)
+        else if(craftable == 2)
         {
             print("craft add");
-            var temp_craft_item_index = recipe_index;//recipe_indexが更新でnullになってしまうため
-            for (int i = 0; i < input_slot_num; i++)
+            var temp_current_recipe = cureentCraftableRecipe;//currentRecipeが更新でnullになってしまうため
+            for (int i = 0; i < temp_current_recipe.input_relation.Length; i++)
             {
-                _Slots[i].Affiliation.ChangeSlotItemAmount(GetSlotItem(_Slots[i].Slot_index).Value.amount - 1, _Slots[i].Slot_index);
-               
+                ChangeSlotItemAmount(item_list[temp_current_recipe.input_relation[i]].amount
+                    - temp_current_recipe.input_items[i].amount, temp_current_recipe.input_relation[i]);
             }
 
-            ChangeSlotItemAmount(GetSlotItem(craft_output_slot.Slot_index).Value.amount + recipes[temp_craft_item_index.Value].craft_num, craft_output_slot.Slot_index);
+            ChangeSlotItemAmount(GetSlotItem(craft_output_slot.Slot_index).Value.amount + temp_current_recipe.craft_num, craft_output_slot.Slot_index);
             return ;
         }
         else
@@ -168,13 +172,13 @@ public class CraftSlots : SlotManager
     /// <returns></returns>
     public int CheckCraftable()
     {
-        if (!recipe_index.HasValue) return 0;
+        if (cureentCraftableRecipe == null || cureentCraftableRecipe.input_relation == null) return 0;
 
         if (GetSlotItem(craft_output_slot.Slot_index).Value.id == Items.Item_ID.EmptyObject)
         {
             return 1;
         }
-        else if (GetSlotItem(craft_output_slot.Slot_index).Value.id == recipes[recipe_index.Value].crafted_item)
+        else if (GetSlotItem(craft_output_slot.Slot_index).Value.id == cureentCraftableRecipe.crafted_item)
         {
             return 2;
         }
@@ -186,17 +190,15 @@ public class CraftSlots : SlotManager
 
     private void OnInputItemChanged()
     {
-        recipe_index = ExistCraftRecipe();
-        isCraftable = CheckCraftable() != 0 ;
-        print("recipe : "+ recipe_index);
+        cureentCraftableRecipe = ExistCraftRecipe();
+       // print("recipe : "+ recipe_index);
         if (CheckCraftable() == 1)
         {
-            var item_data = Resources.Load($"{recipes[recipe_index.Value].crafted_item}") as Items;
-            if (!item_data) Debug.LogError("Data not found");
+            var item_data = SlotManager.GetItemData(cureentCraftableRecipe.crafted_item);
             craft_output_slot.SetIcon(item_data.icon, 200);
         
         }
-        else if(recipe_index == null && GetSlotItem(craft_output_slot.Slot_index).Value.id == Items.Item_ID.EmptyObject)
+        else if(CheckCraftable() == 0 && GetSlotItem(craft_output_slot.Slot_index).Value.id == Items.Item_ID.EmptyObject)
         {
             craft_output_slot.SetIcon(null);
        
@@ -206,7 +208,6 @@ public class CraftSlots : SlotManager
 
     private void OnOutputItemChanged()
     {
-        isCraftable = CheckCraftable() != 0;
         bool is_output_slot_empty = craft_output_slot.Affiliation
             .GetSlotItem(craft_output_slot.Slot_index).Value.id == Items.Item_ID.EmptyObject;
 
@@ -216,14 +217,13 @@ public class CraftSlots : SlotManager
         }
         if (CheckCraftable() == 1)
         {
-            var item_data = Resources.Load($"{recipes[recipe_index.Value].crafted_item}") as Items;
-            if (!item_data) Debug.LogError("Data not found");
+            var item_data = SlotManager.GetItemData(cureentCraftableRecipe.crafted_item);
             craft_output_slot.SetIcon(item_data.icon, 200);
 
         }
     }
 
-    private int? ExistCraftRecipe()
+    private CraftRecipe ExistCraftRecipe()
     {
         bool input_slot_has_item = false;
         for (int i = 0; i < input_slot_num; i++)
@@ -238,6 +238,7 @@ public class CraftSlots : SlotManager
 
         //MatchRecipeの絞り込み
         List<CraftRecipe> match_recipe = recipes.FindAll(n => n.input_items.Count <= input_slot_num);
+
         //必要アイテム個数がスロットの数より小さいときemptyを足しておく
         foreach(var n in match_recipe)
         {
@@ -251,47 +252,50 @@ public class CraftSlots : SlotManager
         }
 
  
-        if (match_recipe.Count != 0)
-        {
-            var input_item_list = item_list.ToList();
-            input_item_list.RemoveAt(input_item_list.Count - 1);
+        var input_item_list = item_list.ToList();
+        input_item_list.RemoveAt(input_item_list.Count - 1);
 
-            foreach (var recipe_data in match_recipe)
+        //レシピデータの素材に対応するインプットスロットのインデックス
+        int[] relation = new int[input_slot_num];
+        
+        //レシピリストからレシピデータを取り出す
+        foreach (var recipe_data in match_recipe)
+        {
+            List<int> used_numbers = new List<int>();
+            ///レシピデータの素材をひとつづつ取り出す
+            for (int n = 0; n < recipe_data.input_items.Count; n++)
             {
-                
-                var temp_input_item_list = input_item_list;
-                foreach (var idAmountPair in recipe_data.input_items)
+                //レシピデータの素材に対応するインプットスロットのアイテムを探す
+                for (int i = 0; i < input_item_list.Count; i++)
                 {
-                    for (int i = 0; i < temp_input_item_list.Count; i++)
+                    if (recipe_data.input_items[n].Matching(input_item_list[i].id, input_item_list[i].amount))
                     {
-                        if (idAmountPair.Matching(temp_input_item_list[i].id, temp_input_item_list[i].amount))
+                        print($"match {i}");
+                        if (used_numbers.Contains(i)) continue ;
+                        relation[n] = i;
+                        used_numbers.Add(i);
+                        break;
+                    }
+                    else
+                    {
+                        if (i >= input_item_list.Count - 1)
                         {
-                            
-                            temp_input_item_list.RemoveAt(i);
-                            break;
-                        }
-                        else
-                        {
-                            if(i >= temp_input_item_list.Count - 1)
-                            {
-                                goto There;
-                            }
+                            goto There;
                         }
                     }
-                    
                 }
-                There:
 
-                if (temp_input_item_list.Count == 0)
+                if (used_numbers.Count == input_slot_num)
                 {
-                    return recipes.FindIndex(l => l == recipe_data);
-                }
-
+                    recipe_data.input_relation = relation;
+                    return recipe_data;
+                }     
             }
+        There:;
 
 
         }
-
+    
         return null;
     }
 

@@ -25,9 +25,7 @@ public class Slot : MonoBehaviour,ISelectHandler,IDeselectHandler
     //、アイテムのデータは所属先のManagerが持つ
 
     bool dragging_item_exist = false;
-    [SerializeField]
-    int default_icon_canvas_sortinglayer = 3;
-    [SerializeField]
+    int default_icon_canvas_sortinglayer = 5;
     int dragging_icon_canvas_sortinglayer = 20;
 
    
