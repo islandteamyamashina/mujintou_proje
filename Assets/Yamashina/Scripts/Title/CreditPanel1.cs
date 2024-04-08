@@ -52,7 +52,7 @@ public class CreditPanel1 : MonoBehaviour
         //ƒpƒlƒ‹ŠÖŒW
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
-        multi.BGMSE();
+        //multi.BGMSE();
         OptionPanel.SetActive(false);  
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);

@@ -37,26 +37,26 @@ public class Audiovolume : MonoBehaviour
         {
             Debug.Log("audioClipSE is Null!");
         }
-        if (audioClipsBGM != null)
-        {
-            audioSourceBGM.clip = audioClipsBGM[1];
-            audioSourceBGM.Play();
-        }
-        else
-        {
+        //if (audioClipsBGM != null)
+        //{
+        //    audioSourceBGM.clip = audioClipsBGM[1];
+        //    audioSourceBGM.Play();
+        //}
+        //else
+        //{
             
-            Debug.Log("audioSourceBGM is Null!");
-        }
-        if (audioClipSE != null)
-        {
-            audioSourceSE.clip = audioClipSE[1];
-            audioSourceSE.Play();
-        }
-        else
-        {
+        //    Debug.Log("audioSourceBGM is Null!");
+        //}
+        //if (audioClipSE != null)
+        //{
+        //    audioSourceSE.clip = audioClipSE[1];
+        //    audioSourceSE.Play();
+        //}
+        //else
+        //{
 
-            Debug.Log("audioSourceBGM is Null!");
-        }
+        //    Debug.Log("audioSourceBGM is Null!");
+        //}
         Debug.Log("ÇªÇÃëº");//Ç±Ç±Ç™í ÇÈÅHÅH
     }
 

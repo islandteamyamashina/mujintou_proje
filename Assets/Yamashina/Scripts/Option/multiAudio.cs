@@ -94,9 +94,9 @@ public class multiAudio : MonoBehaviour
     }
     public void BGMSE_Kyoten()
     {
-        GameObject.FindAnyObjectByType(typeof(AudioSource)).GetComponent<AudioSource>().clip= Audiovolume.instance.audioClipsBGM[2];
+        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().clip= Audiovolume.instance.audioClipsBGM[1];
 
-        GameObject.FindAnyObjectByType(typeof(AudioSource)).GetComponent<AudioSource>().Play();
+        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().Play();
     }
 
 }
