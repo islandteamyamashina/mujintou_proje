@@ -46,6 +46,7 @@ public class CreditPanel1 : MonoBehaviour
 
         multi.BgmLoadSlider();
         multi.SeLoadSlider();
+        if(GameObject
     }
 
     void Start()//Žn‚Ü‚é‚Æ‚«
