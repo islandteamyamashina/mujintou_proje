@@ -42,11 +42,22 @@ public class CreditPanel1 : MonoBehaviour
 
     private void Awake()
     {
-        multi.BGMSE_Kyoten();
 
+        
+        //if(GameObject.FindAnyObjectByType<CreditPanel1>() == null) 
+        //{
+        //    Debug.Log("credit  is null");
+        //}
+        //else
+        //{
+        //    Debug.Log("credit is not null");
+
+        //}
+        multi.BGMSE_Kyoten();
+        multi.playse();
         multi.BgmLoadSlider();
         multi.SeLoadSlider();
-        if(GameObject
+        //if(GameObject.FindWithTag()
     }
 
     void Start()//Žn‚Ü‚é‚Æ‚«
