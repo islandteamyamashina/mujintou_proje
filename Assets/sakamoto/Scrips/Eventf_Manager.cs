@@ -15,8 +15,9 @@ public class Event_Manage : MonoBehaviour
     void Awake()
     {
         Camera camera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        multi.playse();
-        multi.BGMSE_Kyoten(); 
+        multi.BGMSE_Kyoten();
+        audiovolume.audioSourceBGM = GameObject.FindWithTag("BGM").GetComponent<AudioSource>();
+        audiovolume.audioSourceSE = GameObject.FindWithTag("SE").GetComponent<AudioSource>();
         if (start_area == 0)
         {
             start_event_num = Random.Range(-1, 2) + 1;
@@ -57,8 +58,8 @@ public class Event_Manage : MonoBehaviour
         }
         if (audiovolume.audioClipsBGM != null)
         {
-            audiovolume.audioSourceBGM.clip = audiovolume.audioClipsBGM[1];
-            audiovolume.audioSourceBGM.Play();
+            //audiovolume.audioSourceBGM.clip = audiovolume.audioClipsBGM[1];
+            //audiovolume.audioSourceBGM.Play();
         }
         else
         {
@@ -67,8 +68,8 @@ public class Event_Manage : MonoBehaviour
         }
         if (audiovolume.audioClipSE != null)
         {
-            audiovolume.audioSourceSE.clip = audiovolume.audioClipsBGM[1];
-            audiovolume.audioSourceSE.Play();
+            //audiovolume.audioSourceSE.clip = audiovolume.audioClipsBGM[1];
+            //audiovolume.audioSourceSE.Play();
         }
         else
         {
@@ -76,7 +77,6 @@ public class Event_Manage : MonoBehaviour
             Debug.Log("audioSourceBGM is Null!");
         }
         Debug.Log("‚»‚Ì‘¼");
-        multi.BGMSE();
 
         multi.BgmLoadSlider();
         multi.SeLoadSlider();
