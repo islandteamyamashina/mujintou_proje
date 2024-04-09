@@ -13,15 +13,15 @@ public class LoadScene : MonoBehaviour
     {
         eventTrigger.enabled = true;
         //image.SetActive(false);
-        if (CreditPanel1 = null)
-        {
-            CreditPanel1 = GameObject.FindAnyObjectByType<CreditPanel1>();
-        }
-        else
-        {
-            Debug.Log("credit is not null");
+        //if (CreditPanel1 = null)
+        //{
+        //    CreditPanel1 = GameObject.FindAnyObjectByType<CreditPanel1>();
+        //}
+        //else
+        //{
+        //    Debug.Log("credit is not null");
 
-        }
+        //}
     }
     //[SerializeField] multiAudio multiAudio;
     [SerializeField] Fade fade;

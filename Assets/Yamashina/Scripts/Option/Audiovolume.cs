@@ -21,43 +21,43 @@ public class Audiovolume : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        if (audioClipsBGM != null)
-        {
-            Debug.Log(audioClipsBGM.Length);//ここが通った
-        }
-        else
-        {
-            Debug.Log("audioClipsBGM is Null!");
-        }
-        if (audioClipSE != null)
-        {
-            Debug.Log(audioClipSE.Length);//ここが通った
-        }
-        else
-        {
-            Debug.Log("audioClipSE is Null!");
-        }
-        if (audioClipsBGM != null)
-        {
-            Debug.Log("audioSourceBGM is not Null!");
-        }
-    
-        else
-        {
+        //if (audioClipsBGM != null)
+        //{
+        //    Debug.Log(audioClipsBGM.Length);//ここが通った
+        //}
+        //else
+        //{
+        //    Debug.Log("audioClipsBGM is Null!");
+        //}
+        //if (audioClipSE != null)
+        //{
+        //    Debug.Log(audioClipSE.Length);//ここが通った
+        //}
+        //else
+        //{
+        //    Debug.Log("audioClipSE is Null!");
+        //}
+        //if (audioClipsBGM != null)
+        //{
+        //    Debug.Log("audioSourceBGM is not Null!");
+        //}
 
-            Debug.Log("audioSourceBGM is Null!");
-        }
-        if (audioClipSE != null)
-        {
-            Debug.Log("audioSourceSE is not Null!");
+        //else
+        //{
 
-        }
-        else
-        {
+        //    Debug.Log("audioSourceBGM is Null!");
+        //}
+        //if (audioClipSE != null)
+        //{
+        //    Debug.Log("audioSourceSE is not Null!");
 
-            Debug.Log("audioSourceSE is Null!");
-        }
-        Debug.Log("その他");//ここが通る？？
+        //}
+        //else
+        //{
+
+        //    Debug.Log("audioSourceSE is Null!");
+        //}
+        //Debug.Log("その他");//ここが通る？？
     }
 
 

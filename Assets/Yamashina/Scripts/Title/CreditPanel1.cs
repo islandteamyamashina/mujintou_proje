@@ -42,8 +42,8 @@ public class CreditPanel1 : MonoBehaviour
 
     private void Awake()
     {
-
         
+
         //if(GameObject.FindAnyObjectByType<CreditPanel1>() == null) 
         //{
         //    Debug.Log("credit  is null");
@@ -53,15 +53,18 @@ public class CreditPanel1 : MonoBehaviour
         //    Debug.Log("credit is not null");
 
         //}
-        multi.BGMSE_Kyoten();
-        multi.playse();
-        multi.BgmLoadSlider();
-        multi.SeLoadSlider();
+
         //if(GameObject.FindWithTag()
     }
 
     void Start()//始まるとき
     {
+        multi.BGMSE_Kyoten();
+        multi.BgmLoadSlider();
+        multi.SeLoadSlider();
+
+        //multi.playse();
+
         //パネル関係
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
@@ -409,13 +412,13 @@ public class CreditPanel1 : MonoBehaviour
             startPanel.transform.localScale = Vector3.Lerp(new Vector3(1.5f, 1.5f, 1.5f), new Vector3(1.0f, 1.0f, 1.0f), size);
             startPanel.transform.localPosition = Vector3.Lerp(new Vector3(-152.0f, 258.0f, 0f), new Vector3(-286.0f, 300, 0f), size);
             size += speed;
-
+            startPanel.SetActive(false);
             yield return null;
         }
         Debug.Log("通った");
 
         //パネル縮小（オプションパネル）
-        while (size2 <= 1.0f && Audiovolume.instance.gameObject.transform.GetChild(0).gameObject.activeSelf)
+        while (size2 <= 1.0f && OptionPanel.activeSelf)
         {
             OptionPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size2);
             size2 += speed;
@@ -431,6 +434,7 @@ public class CreditPanel1 : MonoBehaviour
             
 
             size3 += speed;
+
 
             yield return null;
         }

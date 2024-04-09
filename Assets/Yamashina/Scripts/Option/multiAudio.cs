@@ -15,8 +15,7 @@ public class multiAudio : MonoBehaviour
     void Start()
 
     {//‹N“®‚Éƒ[ƒh‚·‚é
-        BgmVolume();
-        SeVolume();
+      
        
 
     }
