@@ -673,8 +673,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 43108775}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &108811678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,8 +823,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 1260676954}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &126431827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1835,8 +1831,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 1129102669}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &248743643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2232,8 +2226,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 1720615390}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &268642844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2466,6 +2458,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316794789}
   m_CullTransparentMesh: 1
+--- !u!224 &323903446 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+  m_PrefabInstance: {fileID: 564379380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &324968378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3121,11 +3118,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 283417799949353149, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 283417799949353149, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1696978078318026791, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_Value
@@ -3275,21 +3272,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 5743363428146210277, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5743363428177442298, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5743363428578171217, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 5743363428578171217, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5743363428578171217, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 5743363428963535201, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_Value
@@ -3321,23 +3322,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5743363429014901628, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 5743363429014901628, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5801497356985143488, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 5801497356985143488, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5801497356985143488, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3349,17 +3350,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5743363428146210276, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
   m_PrefabInstance: {fileID: 407826674}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &407826676 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2365714785203330968, guid: 4d4b63ec603377c4791bfd5411c0553e, type: 3}
-  m_PrefabInstance: {fileID: 407826674}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a6cc13882276a847a9dc7d63eaf9ca7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &412794497 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8275885427414199181, guid: b0b067c6bca75ef4f84bb95d72c20de3, type: 3}
@@ -3626,8 +3616,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 1420110201}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &463334733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4182,6 +4170,107 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownedMainCanvas: {fileID: 477680805}
+--- !u!1001 &564379380
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1823886147}
+    m_Modifications:
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825482560839432347, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: m_Name
+      value: TansakuPanel
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
 --- !u!1 &582302038
 GameObject:
   m_ObjectHideFlags: 0
@@ -4333,8 +4422,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 1266029070}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &591007968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4744,8 +4831,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 170686483}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &717858039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4971,8 +5056,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 1201444777}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &777117349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5716,8 +5799,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 188217505}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &848409763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5944,8 +6025,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 1783362463}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &880019288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6041,7 +6120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &892628356
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6084,7 +6163,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b505727684eec794ab8bc6294f8812e3, type: 3}
   - {fileID: 21300000, guid: 1eb11a29518bc2e4ab05a927b25b67aa, type: 3}
   - {fileID: 21300000, guid: ce8404e886b3e754483aa1019372f4f4, type: 3}
-  multi: {fileID: 407826676}
 --- !u!1 &903514835
 GameObject:
   m_ObjectHideFlags: 0
@@ -6156,8 +6234,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 231949669}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &903514839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8444,8 +8520,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 582302040}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &1264332450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9238,8 +9312,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 1457203068}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &1404607129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10074,8 +10146,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 1870633795}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &1480605658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10757,8 +10827,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 26664286}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &1636854317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12204,8 +12272,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 1557632881}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &1807447660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12560,6 +12626,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 892628356}
+  - {fileID: 323903446}
   - {fileID: 73163522}
   - {fileID: 1388414954}
   - {fileID: 941092436}
@@ -12646,8 +12713,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 1084801324}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &1827458751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13072,8 +13137,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 676578469}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &1901863927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14091,8 +14154,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 843273878}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &2096768910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14432,8 +14493,6 @@ MonoBehaviour:
   can_place_item: 1
   selectedImage: {fileID: 0}
   amout_text: {fileID: 106320212}
-  default_icon_canvas_sortinglayer: 3
-  dragging_icon_canvas_sortinglayer: 4
 --- !u!114 &2144101686
 MonoBehaviour:
   m_ObjectHideFlags: 0
