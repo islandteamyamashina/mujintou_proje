@@ -20,6 +20,7 @@ public class Slot : MonoBehaviour,ISelectHandler,IDeselectHandler
     Image selectedImage;
     [SerializeField]
     Text amout_text;
+    
 
     //Slotクラスは所属先であるSlotManagerへの参照と自身を表すインデックスのみを保持し
     //、アイテムのデータは所属先のManagerが持つ

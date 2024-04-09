@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class AreaNameText : MonoBehaviour
 {
-    [SerializeField]
-    string areaName;
+
     [SerializeField]
     Text text;
 
@@ -16,7 +15,8 @@ public class AreaNameText : MonoBehaviour
 
     public IEnumerator  ShowAreaText()
     {
-        text.text = areaName;
+        text.text = PlayerInfo.Instance.ActionValue > PlayerInfo.Instance.MaxActionValue / 2.0f ? "‹’“_(’©)" : "‹’“_(–é)";
+
         Rect canvas_size = text.canvas.pixelRect;
         Vector3 startPos = new Vector3(canvas_size.width, canvas_size.height / 2);
         Vector3 stayPos = new Vector3(canvas_size.width / 2, canvas_size.height / 2);
