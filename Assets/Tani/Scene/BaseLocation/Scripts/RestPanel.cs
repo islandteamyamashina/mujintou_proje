@@ -37,6 +37,7 @@ public class RestPanel : PanelBase
         else
         {
             GameObject.FindWithTag("GameController").GetComponent<BaseLocationNightController>().ChangeBaseLocation();
+            PlayerInfo.Instance.SavePalyerData();
         }
         
     }

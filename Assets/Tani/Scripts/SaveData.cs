@@ -22,6 +22,7 @@ public class SaveData
             water = info.Water;
             action = info.ActionValue;
             max_action = info.MaxActionValue;
+           
         }
         else
         {

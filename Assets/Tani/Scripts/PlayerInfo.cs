@@ -95,6 +95,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
         }
     }
+    
 
     public int Hunger
     {
@@ -254,10 +255,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SaveData saveData = new SaveData();
-            saveData.MakeSaveData();
-            Debug.Log($"{saveData.player_health},{saveData.player_hunger},{saveData.player_thirst}");
-           DataManager.Instance.Save(saveData);
+            SavePalyerData();
         }
         if (status_text && condition_text)
         {
@@ -431,7 +429,16 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         }
     }
 
-    
+    public void SwitchUIVisibility()
+    {
+        gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).GetChild(0).gameObject.activeSelf);
+
+    }
+    public void SetUIVisibility(bool visible)
+    {
+        gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(visible);
+    }
+
 
 
 
@@ -450,6 +457,14 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         ActionValue = data.action;
         MaxActionValue = data.max_action;
        // UnityEngine.SceneManagement.SceneManager.LoadScene()
+    }
+
+    public void SavePalyerData()
+    {
+        SaveData saveData = new SaveData();
+        saveData.MakeSaveData();
+        Debug.Log($"プレイヤーデータが保存されました");
+        DataManager.Instance.Save(saveData);
     }
 
 

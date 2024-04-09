@@ -1,5 +1,9 @@
 using System.IO;
 using UnityEngine;
+using UnityEditor;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class DataManager : SingletonMonoBehaviour<DataManager>
 {
@@ -8,7 +12,8 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     string fileName = "Data.json";              // jsonファイル名
     string default_fileName = "default_save_data.json";
     string folderPath;
-
+   
+    List<string> DeleteWhenIntialized = new() { "PlayerInventryData.txt", "BaseLocationStorageSlotData.txt" };
     //-------------------------------------------------------------------
     // 開始時にファイルチェック、読み込み
     protected override void Awake()
@@ -22,8 +27,9 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     }
     private void Start()
     {
-        
 
+
+   
     }
 
     public void Save(SaveData data)
@@ -46,8 +52,16 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
 
      public void InitializeSaveData()
     {
+
         File.Copy(folderPath + default_fileName, filepath,true);
         print("セーブデータは初期化されました");
+        foreach (var item in DeleteWhenIntialized)
+        {
+            File.Delete(folderPath + item);
+            File.Delete(folderPath + item + ".meta");
+            print(folderPath + item + " was deleted");
+
+        }
     }
 
     

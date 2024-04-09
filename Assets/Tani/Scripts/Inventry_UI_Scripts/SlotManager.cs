@@ -47,6 +47,8 @@ public class SlotManager : MonoBehaviour
     {
         SlotReconstruct();
         active_range = data.slot_prefab.GetComponent<RectTransform>().rect.width * 2;
+
+
         LoadSlotDatas(fileName);
 
 
@@ -545,26 +547,42 @@ public class SlotManager : MonoBehaviour
     {
         if(fileName.Trim().Length == 0)
         {
-            Debug.LogWarning("File name not assigned");
+            Debug.LogWarning($"File name not assigned at {gameObject.name}");
             return;
         }
         string path = Application.streamingAssetsPath + "/Saves/" + fileName + ".txt";
+        if (!File.Exists(path))
+        {
+            using (File.Create(path)) { }
+            print($"make new slots data file of {gameObject.name}");
+
+        }
+        
+        
         string[] texts = new string[item_list.Length];
+        
         for (int i = 0; i < texts.Length; i++)
         {
             texts[i] = ((int)item_list[i].id).ToString() +"," + item_list[i].amount.ToString();
         }
         File.WriteAllLines(path, texts);
+        
     }
 
     protected void LoadSlotDatas(string fileName)
     {
         if (fileName.Trim().Length == 0)
         {
-            Debug.LogWarning("File name not assigned");
+            Debug.LogWarning($"File name not assigned at {gameObject.name}");
             return;
         }
         string path = Application.streamingAssetsPath + "/Saves/" + fileName + ".txt";
+        if (!File.Exists(path))
+        {
+            
+            SaveSlotDatas(fileName);
+            return;
+        }
         var datas = File.ReadAllLines(path);
         for (int i = 0; i < datas.Length; i++)
         {
