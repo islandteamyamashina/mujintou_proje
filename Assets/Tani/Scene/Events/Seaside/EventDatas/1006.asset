@@ -29,9 +29,12 @@ MonoBehaviour:
       range_min: 1
       range_max: 2
     result_text: "\u6728\u306E\u4E0B\u306B\u306F\u6F02\u6D41\u7269\u304C\u631F\u307E\u3063\u3066\u3044\u305F\uFF01"
-    health_change: -10
-    hunger_change: -10
-    thirst_change: -10
+    health_change_min: 0
+    health_change_max: 0
+    hunger_change_min: -1
+    hunger_change_max: -3
+    thirst_change_min: -1
+    thirst_change_max: -3
     required_action_value: 2
   - choise_text: "\u5272\u3063\u3066\u307F\u308B"
     Gain_Items:
@@ -45,14 +48,20 @@ MonoBehaviour:
       range_max: 2
     result_text: "\u5272\u308C\u305F\uFF01\u4E2D\u306F\u30AB\u30CB\u306E\u4F4F\u51E6\u306B\u306A\u3063\u3066\u3044\u305F\u3088\u3046\u3060\u3002
       \u3055\u3089\u306B\u6728\u306E\u4E0B\u306B\u6F02\u6D41\u7269\u304C\u631F\u307E\u3063\u3066\u3044\u305F\u3002"
-    health_change: -20
-    hunger_change: -20
-    thirst_change: -20
-    required_action_value: 3
+    health_change_min: 0
+    health_change_max: 0
+    hunger_change_min: -3
+    hunger_change_max: -6
+    thirst_change_min: -3
+    thirst_change_max: -6
+    required_action_value: 1
   - choise_text: "\u7121\u8996\u3059\u308B"
     Gain_Items: []
     result_text: "\u5F15\u304D\u5E30\u305D\u3046"
-    health_change: 0
-    hunger_change: -1
-    thirst_change: -2
+    health_change_min: 0
+    health_change_max: 0
+    hunger_change_min: 0
+    hunger_change_max: -1
+    thirst_change_min: 0
+    thirst_change_max: -1
     required_action_value: 0
