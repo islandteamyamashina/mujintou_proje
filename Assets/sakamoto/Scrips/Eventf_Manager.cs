@@ -15,10 +15,9 @@ public class Event_Manage : MonoBehaviour
     void Awake()
     {
         Camera camera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        audiovolume.audioSourceBGM = GameObject.Find("BGM_ob").GetComponent<AudioSource>();
-
-        audiovolume.audioSourceSE = GameObject.Find("SE_ob").GetComponent<AudioSource>();
-        if (start_area == 0) 
+        multi.playse();
+        multi.BGMSE_Kyoten(); 
+        if (start_area == 0)
         {
             start_event_num = Random.Range(-1, 2) + 1;
             //Debug.Log("start_num‚Í" + start_event_num + "‚Å‚·");
@@ -80,8 +79,8 @@ public class Event_Manage : MonoBehaviour
         multi.BGMSE();
 
         multi.BgmLoadSlider();
-        multi.SeLoadSlider();   
-        
+        multi.SeLoadSlider();
+
 
     }
 
