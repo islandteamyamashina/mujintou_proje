@@ -32,9 +32,12 @@ MonoBehaviour:
       range_min: 1
       range_max: 3
     result_text: "\u5468\u56F2\u306F\u3059\u3067\u306B\u751F\u304D\u7269\u305F\u3061\u306E\u4F4F\u51E6\u306B\u306A\u3063\u3066\u3044\u305F\u3088\u3046\u3060\u3002"
-    health_change: 0
-    hunger_change: -3
-    thirst_change: -2
+    health_change_min: 0
+    health_change_max: 0
+    hunger_change_min: -2
+    hunger_change_max: -6
+    thirst_change_min: -2
+    thirst_change_max: -6
     required_action_value: 1
   - choise_text: "\u90E8\u54C1\u3092\u5265\u304C\u3059 \uFF08\u30CA\u30A4\u30D5\u304C\u5FC5\u8981\uFF09"
     Gain_Items:
@@ -45,14 +48,20 @@ MonoBehaviour:
     result_text: "\u3084\u3063\u3068\u306E\u601D\u3044\u3067\u90E8\u54C1\u3092\u5265\u304C\u3059\u3068
       \u30A8\u30F3\u30B8\u30F3\u90E8\u5206\u304C\u3080\u304D\u51FA\u3057\u306B\u306A\u3063\u305F\u3002\u3084\u3063\u3068\u306E\u601D\u3044\u3067\u90E8\u54C1\u3092\u5265\u304C\u3059\u3068
       \u30A8\u30F3\u30B8\u30F3\u90E8\u5206\u304C\u3080\u304D\u51FA\u3057\u306B\u306A\u3063\u305F\u3002"
-    health_change: 0
-    hunger_change: -9
-    thirst_change: -11
-    required_action_value: 2
+    health_change_min: 0
+    health_change_max: 0
+    hunger_change_min: -1
+    hunger_change_max: -4
+    thirst_change_min: -1
+    thirst_change_max: -3
+    required_action_value: 3
   - choise_text: "\u7121\u8996\u3059\u308B"
     Gain_Items: []
     result_text: "\u305D\u306E\u5834\u3092\u7ACB\u3061\u53BB\u3063\u305F\u3002"
-    health_change: 0
-    hunger_change: -2
-    thirst_change: -1
+    health_change_min: 0
+    health_change_max: 0
+    hunger_change_min: 0
+    hunger_change_max: -1
+    thirst_change_min: 0
+    thirst_change_max: -1
     required_action_value: 0
