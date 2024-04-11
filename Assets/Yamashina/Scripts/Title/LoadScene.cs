@@ -75,8 +75,7 @@ public class LoadScene : MonoBehaviour
             eventTrigger.enabled = false;
 
         }
-        else if(DataManager.Instance.DoesSaveExist())
-        { 
+        else { 
             fade.scene_name_num = num;
             fade.feadout_f = true;
             if (fade.feadout_f == false)
