@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -7,11 +8,9 @@ using UnityEngine.UI;
 
 public class After_LocationSentaku1 : MonoBehaviour
 {
-    public GameObject newPanel; // 新しいUIパネルへの参照
-                                // public GameObject text;
-                                // public KyotenToOtherspace kyotenToOtherspace;
+    // public GameObject text;
+    // public KyotenToOtherspace kyotenToOtherspace;
 
-    [SerializeField] Fade fade;
     [SerializeField] EventTrigger eventTriggerKawabe;
     [SerializeField] EventTrigger eventTrigger_Forest;
     [SerializeField] EventTrigger eventTrigger_Kaigan;
@@ -32,7 +31,8 @@ public class After_LocationSentaku1 : MonoBehaviour
 
     void Start()
     {
-        newPanel.SetActive(false); // パネルを表示する
+
+        Syupatsu.interactable = false;
         eventTriggerKawabe.enabled = true;
         eventTrigger_Doukutu.enabled = true;
         eventTrigger_Forest.enabled = true;
@@ -48,70 +48,179 @@ public class After_LocationSentaku1 : MonoBehaviour
 
 
     }
-    public void OnClick()
-    {
-        // マウスの左クリックを検知
+   
+   
 
-        ShowNewPanel(); // 新しいUIパネル(After_locationsentakuパネルを表示
-                        //  text.SetActive(true);
-        eventTriggerKawabe.enabled = false;
-        eventTrigger_Doukutu.enabled = false;
-        eventTrigger_Forest.enabled = false;
-        eventTrigger_Kaigan.enabled = false;
-        eventTrigger_Kakou.enabled = false;
-        eventTrigger_Sangaku.enabled = false;
-        //ボタン関連
-        button_Kawabe.enabled = false;
-        button_Forest.enabled = false;
-        button_Kaigan.enabled = false;
-        button_Kakou.enabled = false;
-        button_Doukutu.enabled = false;
-        button_Sangaku.enabled = false;
+
+
+
+    public void Sentakuplaces(int num)
+    {
+
+        switch (num)
+        {
+            //海岸選択
+            case 0:
+                if (button_Kaigan.onClick != null)
+                {
+                    Debug.Log(("シーン先は" + num));
+                    Syupatsu.interactable = true;
+
+                    //num = 0;
+
+                }
+                break;
+            //森選択
+            case 1:
+                if (button_Forest.onClick != null)
+                {
+                    Debug.Log(("シーン先は" + num));
+                    Syupatsu.interactable = true;
+
+                    //num = 1;
+                }
+                break;
+            //川辺選択
+            case 2:
+                if (button_Kawabe.onClick != null)
+                {
+                    Debug.Log(("シーン先は" + num));
+                    num = 2;
+                    Syupatsu.interactable = true;
+
+                }
+                break;
+            //山岳選択
+            case 3:
+                if (button_Sangaku.onClick != null)
+                {
+                    Debug.Log(("シーン先は" + num));
+                    //num = 3;
+                    Syupatsu.interactable = true;
+
+                }
+                break;
+            //火口選択
+            case 4:
+                if (button_Kakou.onClick != null)
+                {
+                    Debug.Log(("シーン先は" + num));
+                    //num = 4;
+                    Syupatsu.interactable = true;
+
+                }
+                break;
+            //洞窟選択
+            case 5:
+                if (button_Doukutu.onClick != null)
+                {
+                    Debug.Log(("シーン先は" + num));
+                    //num = 5;
+                    Syupatsu.interactable = true;
+
+                }
+                break;
+        }
+
+    }
+    public void LoadScene_each(/*int num_p*/)
+    {
+        //switch (num_p)
+        //{        //海岸選択
+
+            //case 0:
+                if (button_Kaigan.onClick != null && Syupatsu.onClick != null)
+                {
+            Sentakuplaces(0);
+                    Debug.Log(("シーン先は" + num));
+                    SceneManager.LoadScene(nextScene[num]);
+                }
+                //break;
+            //森選択
+
+            //case 1:
+                if (button_Forest.onClick != null && Syupatsu.onClick != null)
+                {
+            Sentakuplaces(1);
+
+            Debug.Log(("シーン先は" + num));
+                    SceneManager.LoadScene(nextScene[num]);
+                }
+            //    break;
+            ////川辺選択
+
+            //case 2:
+                if (button_Kawabe.onClick != null && Syupatsu.onClick != null)
+                {
+            Sentakuplaces(2);
+            Debug.Log(("シーン先は" + num));
+
+                    SceneManager.LoadScene(nextScene[num]);
+                }
+            //    break;
+
+            //case 3:
+                if (button_Sangaku.onClick != null && Syupatsu.onClick != null)
+                {
+            Sentakuplaces(3);
+            Debug.Log(("シーン先は" + num));
+
+                    SceneManager.LoadScene(nextScene[num]);
+                }
+
+            //    break;
+
+
+            //case 4:
+                if (button_Kakou.onClick != null && Syupatsu.onClick != null)
+                {
+            Sentakuplaces (4);
+            Debug.Log(("シーン先は" + num));
+
+                    SceneManager.LoadScene(nextScene[num]);
+                }
+
+            //    break;
+
+            //case 5:
+                //洞窟選択
+                if (button_Doukutu.onClick != null && Syupatsu.onClick != null)
+                {
+            Sentakuplaces(5);
+            Debug.Log(("シーン先は" + num));
+
+                    SceneManager.LoadScene(nextScene[num]);
+                }
+        //        break;
+        //}
     }
 
 
+    //public void StartSentaku()
+    //{
+    //    Sentakuplaces(num);
 
-    
-    public void Sentakuplaces()
-    {
-       
-        if(button_Doukutu.onClick != null) 
+    //}
+
+    //
+
+    public void Cancell()
         {
-            num = 0;
-            if (Syupatsu.onClick != null)
-            {
-                SceneManager.LoadScene(nextScene[num]);
-            }
+            num = 6;
+            Debug.Log(("シーン先は" + num));
+
+            SceneManager.LoadScene(nextScene[num]);
+
+
+
+
         }
-        if(button_Forest.onClick != null)
-        {
-            num = 1;
-            if (Syupatsu.onClick != null)
-            {
-                SceneManager.LoadScene(nextScene[num]);
-            }
-        }
-        if (button_Forest.onClick != null)
-        {
-            num = 2;
-            if (Syupatsu.onClick != null)
-            {
-                SceneManager.LoadScene(nextScene[num]);
-            }
-        }
+    //public void Depature()
+    //{
+    //    LoadScene_each(num);
+    //}
+
+
+        // 新しいUIパネルを表示する関数
 
     }
-
-
-
-                        
-
-
-// 新しいUIパネルを表示する関数
-public void ShowNewPanel()
-    {
-        newPanel.SetActive(true); // パネルを表示する
-
-
-    }
-}
