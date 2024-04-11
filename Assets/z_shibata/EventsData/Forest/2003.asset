@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050302beb80aafa4a81bafe0a4641693, type: 3}
+  m_Name: 2003
+  m_EditorClassIdentifier: 
+  event_title: "\u5371\u967A\u751F\u7269"
+  scene_id: 2003
+  event_view_sprite: {fileID: 21300000, guid: 922c39122cef08c4dba29a757e3e6d94, type: 3}
+  probability: 1
+  main_text: "\u3053\u306E\u5CF6\u306B\u751F\u606F\u3057\u3066\u3044\u308B\u751F\u7269\u306E\u3088\u3046\u3060\u3002\u3086\u3063\u304F\u308A\u3068\u8FD1\u3065\u3044\u3066\u304F\u308B\u2026\u3002
+    \u92ED\u3044\u6BD2\u7259\u304C\u8997\u3044\u3066\u304A\u308A\u3001\u4ECA\u306B\u3082\u8972\u3044\u639B\u304B\u304B\u3063\u3066\u304D\u305D\u3046\u3060\u2026\uFF01"
+  callBackType: 0
+  buttons_prefab: {fileID: 6265861607819639980, guid: 097217561056dc343a8d3bd57b3e9492, type: 3}
+  results:
+  - choise_text: "\u9003\u3052\u308B"
+    Gain_Items: []
+    result_text: "\u52DD\u3061\u76EE\u306E\u306A\u3044\u6226\u3044\u306F\u3059\u308B\u3079\u304D\u3067\u306F\u306A\u3044\u2026\u3002
+      \u614E\u91CD\u304B\u3064\u5927\u80C6\u306B\u9003\u3052\u51FA\u3057\u305F\u3002
+      \u2026\u8FFD\u3063\u3066\u304F\u308B\u69D8\u5B50\u306F\u7121\u3055\u305D\u3046\u3060\u3002"
+    health_change_min: 0
+    health_change_max: 0
+    hunger_change_min: -12
+    hunger_change_max: -6
+    thirst_change_min: -15
+    thirst_change_max: -10
+    required_action_value: 0
+  - choise_text: "\u4ED5\u7559\u3081\u308B \uFF08\u6B66\u5668\u304C\u5FC5\u8981\uFF09"
+    Gain_Items:
+    - id: 17
+      probability: 1
+      range_min: 1
+      range_max: 1
+    result_text: "\u30D8\u30D3\u3068\u5BFE\u5CD9\u3057\u3001\u6B66\u5668\u3092\u632F\u308A\u4E0B\u308D\u3059\u3002
+      \u5E78\u3044\u3001\u4E00\u6483\u3067\u982D\u90E8\u3092\u4ED5\u7559\u3081\u308B\u3053\u3068\u304C\u3067\u304D\u305F\u3002"
+    health_change_min: 0
+    health_change_max: 0
+    hunger_change_min: -7
+    hunger_change_max: 2
+    thirst_change_min: -6
+    thirst_change_max: -2
+    required_action_value: 0

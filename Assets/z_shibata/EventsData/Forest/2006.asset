@@ -10,24 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 050302beb80aafa4a81bafe0a4641693, type: 3}
-  m_Name: 1007
+  m_Name: 2006
   m_EditorClassIdentifier: 
-  event_title: "\u7802\u306E\u4E2D"
-  scene_id: 1007
-  event_view_sprite: {fileID: 21300000, guid: 6dae5b2421a73e04ba897bfb9dd376be, type: 3}
-  probability: 3
-  main_text: "\u7802\u6D5C\u306B\u76EE\u3092\u51DD\u3089\u3059\u3002 \u6F02\u6D41\u7269\u306E\u53CE\u96C6\u306F\u3001\u7121\u4EBA\u5CF6\u3067
-    \u8CC7\u6E90\u3092\u5F97\u308B\u305F\u3081\u306E\u6700\u3082\u6709\u52B9\u306A\u624B\u6BB5\u3060\u3002"
+  event_title: "\u5927\u6728\u8ABF\u67FB"
+  scene_id: 2006
+  event_view_sprite: {fileID: 21300000, guid: 9b5c7960b9b095f479f9b3c47dce8497, type: 3}
+  probability: 1
+  main_text: "\u7ACB\u6D3E\u306A\u6728\u3060\u3002 \u4F55\u304B\u5909\u308F\u3063\u305F\u7269\u304C\u3042\u308B\u304B\u3082\u3057\u308C\u306A\u3044\u3002\u8ABF\u3079\u3066\u307F\u3088\u3046\u3002"
   callBackType: 0
   buttons_prefab: {fileID: 7029110843412465754, guid: 1066121386c2d0942bc581fcf8485926, type: 3}
   results:
-  - choise_text: "\u8DB3\u5143\u3092\u3088\u304F\u898B\u308B"
+  - choise_text: "\u5E79\u56DE\u308A\u3092\u8ABF\u3079\u308B"
     Gain_Items:
-    - id: 14
+    - id: 18
       probability: 1
       range_min: 1
-      range_max: 1
-    result_text: "\u7802\u306B\u57CB\u307E\u3063\u305F\u6F02\u6D41\u7269\u3092\u898B\u3064\u3051\u3001\u5F15\u304D\u629C\u3044\u305F\u3002 "
+      range_max: 3
+    result_text: "\u6728\u306E\u5E79\u306B\u306F\u30AD\u30CE\u30B3\u304C\u751F\u3048\u3066\u3044\u305F\u3002"
     health_change_min: 0
     health_change_max: 0
     hunger_change_min: -3
@@ -35,23 +34,20 @@ MonoBehaviour:
     thirst_change_min: -3
     thirst_change_max: -1
     required_action_value: 1
-  - choise_text: "\u5C11\u3057\u9060\u304F\u3092\u898B\u6E21\u3057\u3066\u307F\u308B"
+  - choise_text: "\u767B\u3063\u3066\u8ABF\u3079\u308B"
     Gain_Items:
-    - id: 12
+    - id: 21
       probability: 1
       range_min: 1
-      range_max: 1
-    - id: 13
-      probability: 1
-      range_min: 1
-      range_max: 1
-    result_text: "\u9060\u304F\u306B\u4F55\u304B\u3092\u898B\u3064\u3051\u3001\u6B69\u3044\u305F\u3002"
+      range_max: 2
+    result_text: "\u767B\u3063\u3066\u307F\u308B\u3068\u5927\u6728\u3092\u30D7\u30E9\u30F3\u30BF\u30FC\u4EE3\u308F\u308A\u306B\u3057\u3066
+      \u3055\u3089\u306B\u5225\u306E\u690D\u7269\u304C\u80B2\u3063\u3066\u3044\u305F\u3002"
     health_change_min: 0
     health_change_max: 0
-    hunger_change_min: -6
-    hunger_change_max: -3
-    thirst_change_min: -6
-    thirst_change_max: -3
+    hunger_change_min: -7
+    hunger_change_max: -5
+    thirst_change_min: -8
+    thirst_change_max: -5
     required_action_value: 2
   - choise_text: "\u7121\u8996\u3059\u308B"
     Gain_Items: []
