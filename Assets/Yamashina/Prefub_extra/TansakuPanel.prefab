@@ -401,7 +401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -330.1, y: 206.6}
+  m_AnchoredPosition: {x: -281, y: 190.3}
   m_SizeDelta: {x: 261.0546, y: 61.4637}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8429802874021312681
@@ -642,8 +642,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 120.86}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchoredPosition: {x: -211, y: -32}
+  m_SizeDelta: {x: 295.15, y: 83.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1053982351439886349
 CanvasRenderer:
@@ -739,9 +739,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: multiAudio, Assembly-CSharp
-        m_MethodName: SE1
+      - m_Target: {fileID: 4452925513885076490}
+        m_TargetAssemblyTypeName: After_LocationSentaku1, Assembly-CSharp
+        m_MethodName: Sentakuplaces
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -861,8 +861,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 247.81, y: -139.12}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchoredPosition: {x: 136, y: 71}
+  m_SizeDelta: {x: 295.15, y: 83.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1565866735508394338
 CanvasRenderer:
@@ -949,6 +949,18 @@ MonoBehaviour:
       - m_Target: {fileID: 7279689104205655013}
         m_TargetAssemblyTypeName: Image_change, Assembly-CSharp
         m_MethodName: ImageChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4452925513885076490}
+        m_TargetAssemblyTypeName: After_LocationSentaku1, Assembly-CSharp
+        m_MethodName: Sentakuplaces
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1055,8 +1067,8 @@ RectTransform:
   m_GameObject: {fileID: 1907119604218916053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5200396154959540684}
   m_RootOrder: -1
@@ -1096,12 +1108,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 64
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 4
+    m_MaxSize: 64
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -1135,8 +1147,8 @@ RectTransform:
   m_GameObject: {fileID: 2166502473638448156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.63, y: 0.63, z: 0.63}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5925551746733741592}
   m_RootOrder: -1
@@ -1176,18 +1188,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 64
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 64
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: "\u51FA\u767A"
 --- !u!1 &2602195645708771489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1299,7 +1311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 123, y: 210}
+  m_AnchoredPosition: {x: 68, y: 287}
   m_SizeDelta: {x: 383.68, y: 65.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2602195646248513218
@@ -1403,7 +1415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.11764706}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1540,8 +1552,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -144}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchoredPosition: {x: -211, y: 82}
+  m_SizeDelta: {x: 295.15, y: 83.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1510690202424260856
 CanvasRenderer:
@@ -1628,6 +1640,18 @@ MonoBehaviour:
       - m_Target: {fileID: 7541225670644090175}
         m_TargetAssemblyTypeName: Image_change, Assembly-CSharp
         m_MethodName: ImageChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4452925513885076490}
+        m_TargetAssemblyTypeName: After_LocationSentaku1, Assembly-CSharp
+        m_MethodName: Sentakuplaces
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1747,8 +1771,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -9.56}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchoredPosition: {x: -210, y: -138}
+  m_SizeDelta: {x: 295.15, y: 83.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7520632672551928910
 CanvasRenderer:
@@ -1835,6 +1859,18 @@ MonoBehaviour:
       - m_Target: {fileID: 6052173659366906267}
         m_TargetAssemblyTypeName: Image_change, Assembly-CSharp
         m_MethodName: ImageChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4452925513885076490}
+        m_TargetAssemblyTypeName: After_LocationSentaku1, Assembly-CSharp
+        m_MethodName: Sentakuplaces
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1954,8 +1990,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 247.81, y: 127}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchoredPosition: {x: 131, y: -44}
+  m_SizeDelta: {x: 295.15, y: 83.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2329846230966333988
 CanvasRenderer:
@@ -2042,6 +2078,18 @@ MonoBehaviour:
       - m_Target: {fileID: 443582137995133487}
         m_TargetAssemblyTypeName: Image_change, Assembly-CSharp
         m_MethodName: ImageChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4452925513885076490}
+        m_TargetAssemblyTypeName: After_LocationSentaku1, Assembly-CSharp
+        m_MethodName: Sentakuplaces
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2224,15 +2272,15 @@ RectTransform:
   m_GameObject: {fileID: 6373574645372049752}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.42, y: 0.42, z: 0.42}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4490935562594596242}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -9.913452, y: 3.1669922}
+  m_AnchoredPosition: {x: -57, y: -2}
   m_SizeDelta: {x: 25.8863, y: 6.3341}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2359862456192297904
@@ -2265,12 +2313,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 64
     m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 4
+    m_BestFit: 1
+    m_MinSize: 0
+    m_MaxSize: 64
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -2397,8 +2445,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 247.81, y: -7.09}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchoredPosition: {x: 129, y: 178}
+  m_SizeDelta: {x: 295.15, y: 83.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8112865969787107336
 CanvasRenderer:
@@ -2485,6 +2533,18 @@ MonoBehaviour:
       - m_Target: {fileID: 7662122505095756192}
         m_TargetAssemblyTypeName: Image_change, Assembly-CSharp
         m_MethodName: ImageChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4452925513885076490}
+        m_TargetAssemblyTypeName: After_LocationSentaku1, Assembly-CSharp
+        m_MethodName: Sentakuplaces
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2667,8 +2727,8 @@ RectTransform:
   m_GameObject: {fileID: 7230515958647937114}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2374963874561003146}
   m_RootOrder: -1
@@ -2708,12 +2768,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 64
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 4
+    m_MaxSize: 64
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -2968,8 +3028,14 @@ MonoBehaviour:
   button_Sangaku: {fileID: 1904190967505679205}
   button_Kakou: {fileID: 2649415195991771118}
   nextScene:
-  - m_SceneName: 
-  Syupatsu: {fileID: 0}
+  - m_SceneName: SeasideEvent
+  - m_SceneName: BaseLocationDaytime
+  - m_SceneName: Doukutu
+  - m_SceneName: True_End
+  - m_SceneName: Bad_End
+  - m_SceneName: BaseLocationNight
+  - m_SceneName: Title_scene
+  Syupatsu: {fileID: 6124929375839767688}
 --- !u!1 &8482521102479055318
 GameObject:
   m_ObjectHideFlags: 0
