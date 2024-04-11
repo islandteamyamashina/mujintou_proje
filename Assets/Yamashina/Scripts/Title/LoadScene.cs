@@ -48,13 +48,12 @@ public class LoadScene : MonoBehaviour
     }
     public void AfterStart(int num = 0)
     {
-        SaveData saveData = new SaveData();
-        saveData.MakeSaveData();
-        DataManager.Instance.Save(saveData);
         fade.scene_name_num = num;
         fade.feadout_f = true;
         if (fade.feadout_f == false)
         {
+            PlayerInfo.Instance.StartGame(true);
+
             PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
 
             //SceneManager.sceneUnloaded += VolumeSave_loadsecene;
@@ -78,12 +77,11 @@ public class LoadScene : MonoBehaviour
         }
         else
         {
-            DataManager.Instance.Load();
-            fade.scene_name_num = num;
-            fade.feadout_f = true;
-            //image.SetActive(false);
+
             if (fade.feadout_f == false)
             {
+                PlayerInfo.Instance.StartGame(false);
+
                 PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
 
 
