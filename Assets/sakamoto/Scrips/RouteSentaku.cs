@@ -13,9 +13,13 @@ public class RouteSentaku : Event_Text
     [SerializeField] GameObject Route1_text;
     [SerializeField] GameObject Route2_text;
     [SerializeField] GameObject BG_cover;
+    [SerializeField] GameObject BG2;
     [SerializeField] GameObject Loadimage;
+    [SerializeField] GameObject ItemPrefab;
+    //int item_ID;
+    //int get_Num;
 
- 
+
     Color color;
     Color normalColor = new Color(1.0f, 1.0f, 1.0f, 0.0f);
     Color highlightColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
@@ -101,6 +105,7 @@ public class RouteSentaku : Event_Text
         getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1_num);
         next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Next_Ivent_ID;
         ID_change_Event_num();
+        BG2.SetActive(true);
         //ボタンの機能提出
         Route1.interactable = false; 
         Route2.interactable = false;
@@ -115,6 +120,7 @@ public class RouteSentaku : Event_Text
         getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1_num);
         next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Next_Ivent_ID;
         ID_change_Event_num();
+        BG2.SetActive(true);
         //ボタンの機能提出
         Route1.interactable = false; 
         Route2.interactable = false;
@@ -185,6 +191,18 @@ public class RouteSentaku : Event_Text
         PlayerInfo.Instance.Inventry.GetItem((Items.Item_ID)Item_ID, get_num);
         Item_name = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)Item_ID);
         textControl.AddTextData($"{Item_name}を{get_num}つ手に入れました。");
+        //textControl.ClickEventAfterTextsEnd.AddListener(DisplayGetItem);
+
+    }
+    void DisplayGetItem(int Item_ID, int get_num)
+    {
+        for (int i = 0; i < get_num; i++)
+        {
+            //生成位置
+            Vector3 pos = new Vector3(0 + 0.1f * i, 0.0f, 0.0f);
+            //プレハブを指定位置に生成
+            Instantiate(ItemPrefab, pos, Quaternion.identity);
+        }
     }
 
     //次のイベントに飛ばす
@@ -199,11 +217,12 @@ public class RouteSentaku : Event_Text
         event_manage.now_event_num = event_num;
         //textControl.ResetTextData();
         textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
-        Invoke("ventStart", 2);
+        Invoke("eventStart", 2);
     }
 
-    void ventStart()
+    void eventStart()
     {
+        BG2.SetActive(false);
         Loadimage.SetActive(false);
         //textControl.AddTextData(event_manage.eventDatas[event_manage.now_event_num].Main_Text);
         SetEventText();
