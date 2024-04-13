@@ -27,6 +27,7 @@ public class After_LocationSentaku1 : MonoBehaviour
     [SerializeField] SceneObject[] nextScene;
     [SerializeField] Image_change image_Change;
     [SerializeField] Button Syupatsu;
+    [SerializeField] EventTrigger eventTrigger_Syupatsu;
     private int num;
     private int Choice_num;
 
@@ -41,12 +42,14 @@ public class After_LocationSentaku1 : MonoBehaviour
         eventTrigger_Kaigan.enabled = true;
         eventTrigger_Kakou.enabled = true;
         eventTrigger_Sangaku.enabled = true;
+        eventTrigger_Syupatsu.enabled = false;
         button_Kawabe.enabled = true;
         button_Forest.enabled = true;
         button_Kaigan.enabled = true;
         button_Kakou.enabled = true;
         button_Doukutu.enabled = true;
         button_Sangaku.enabled = true;
+
 
 
     }
@@ -69,6 +72,7 @@ public class After_LocationSentaku1 : MonoBehaviour
                     num = 0;
                     Choice_num = num;
                     Syupatsu.interactable = true;
+                    eventTrigger_Syupatsu.enabled = true;
 
                     image_Change.restartImage(0);
                     //eventTrigger_Kaigan.enabled = false;
@@ -96,6 +100,7 @@ public class After_LocationSentaku1 : MonoBehaviour
                     num = 1;
                     Choice_num = num;
                     image_Change.restartImage(1);
+                    eventTrigger_Syupatsu.enabled = true;
 
                     Syupatsu.interactable = true;
                     //eventTrigger_Kaigan.enabled = false;
@@ -133,6 +138,7 @@ public class After_LocationSentaku1 : MonoBehaviour
                     //button_Kakou.enabled = false;
                     //button_Kawabe.enabled = false;
                     //button_Sangaku.enabled = false;
+                    eventTrigger_Syupatsu.enabled = true;
 
                     Syupatsu.interactable = true;
 
@@ -158,6 +164,7 @@ public class After_LocationSentaku1 : MonoBehaviour
                     //button_Kakou.enabled = false;
                     //button_Kawabe.enabled = false;
                     //button_Sangaku.enabled = false;
+                    eventTrigger_Syupatsu.enabled = true;
 
                     Syupatsu.interactable = true;
 
@@ -183,6 +190,7 @@ public class After_LocationSentaku1 : MonoBehaviour
                     //button_Kakou.enabled = false;
                     //button_Kawabe.enabled = false;
                     //button_Sangaku.enabled = false;
+                    eventTrigger_Syupatsu.enabled = true;
 
                     Syupatsu.interactable = true;
 
@@ -208,6 +216,8 @@ public class After_LocationSentaku1 : MonoBehaviour
                     //button_Kakou.enabled = false;
                     //button_Kawabe.enabled = false;
                     //button_Sangaku.enabled = false;
+                    eventTrigger_Syupatsu.enabled = true;
+
 
                     Syupatsu.interactable = true;
 
