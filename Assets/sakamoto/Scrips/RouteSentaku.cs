@@ -16,8 +16,8 @@ public class RouteSentaku : Event_Text
     [SerializeField] GameObject BG2;
     [SerializeField] GameObject Loadimage;
     [SerializeField] GameObject ItemPrefab;
-    //int item_ID;
-    //int get_Num;
+    int item_ID;
+    int get_Num;
 
 
     Color color;
@@ -109,7 +109,7 @@ public class RouteSentaku : Event_Text
         //ボタンの機能提出
         Route1.interactable = false; 
         Route2.interactable = false;
-        textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
+        //textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
     }
     public void ChoiseRoute2()
     {
@@ -191,18 +191,35 @@ public class RouteSentaku : Event_Text
         PlayerInfo.Instance.Inventry.GetItem((Items.Item_ID)Item_ID, get_num);
         Item_name = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)Item_ID);
         textControl.AddTextData($"{Item_name}を{get_num}つ手に入れました。");
-        //textControl.ClickEventAfterTextsEnd.AddListener(DisplayGetItem);
+        item_ID = Item_ID;
+        get_Num = get_num;
+        textControl.ClickEventAfterTextsEnd.AddListener(DisplayGetItem);
 
     }
-    void DisplayGetItem(int Item_ID, int get_num)
+
+    void DisplayGetItem()
     {
-        for (int i = 0; i < get_num; i++)
+        StartCoroutine(displayGetItem());
+    }
+    IEnumerator displayGetItem()
+    {
+        for (int i = 0; i < get_Num; i++)
         {
+            yield return new WaitForSeconds(0.2f);
             //生成位置
-            Vector3 pos = new Vector3(0 + 0.1f * i, 0.0f, 0.0f);
+            Vector3 pos = new Vector3(570, -250 + 125f * i, 0.0f);
             //プレハブを指定位置に生成
-            Instantiate(ItemPrefab, pos, Quaternion.identity);
+            //Instantiate(ItemPrefab, pos, Quaternion.identity);
+            GameObject obj = Instantiate(ItemPrefab, pos, Quaternion.identity);
+            obj.transform.SetParent(Route1.image.canvas.gameObject.transform);
+            obj.transform.localScale = Vector3.one;
+            obj.transform.localPosition = pos;
+            obj.GetComponent<Image>().sprite = SlotManager.GetItemData((Items.Item_ID)item_ID).icon;
+            obj.transform.GetChild(0).gameObject.GetComponent<Text>().text = PlayerInfo.Instance.Inventry.GetItemAmount((Items.Item_ID)item_ID).ToString();
         }
+        textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
+        textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
+        
     }
 
     //次のイベントに飛ばす
