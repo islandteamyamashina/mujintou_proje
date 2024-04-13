@@ -71,19 +71,19 @@ public class After_LocationSentaku1 : MonoBehaviour
                     Syupatsu.interactable = true;
 
                     image_Change.restartImage(0);
-                    eventTrigger_Kaigan.enabled = false;
-                    eventTrigger_Doukutu.enabled = false;
-                    eventTrigger_Kawabe.enabled= false; 
-                    eventTrigger_Kakou.enabled= false;  
-                    eventTrigger_Sangaku.enabled= false;    
-                    eventTrigger_Forest.enabled= false; 
+                    //eventTrigger_Kaigan.enabled = false;
+                    //eventTrigger_Doukutu.enabled = false;
+                    //eventTrigger_Kawabe.enabled= false; 
+                    //eventTrigger_Kakou.enabled= false;  
+                    //eventTrigger_Sangaku.enabled= false;    
+                    //eventTrigger_Forest.enabled= false; 
 
-                    button_Doukutu.enabled = false;
-                    button_Forest.enabled=false;
-                    button_Kaigan.enabled=false;    
-                    button_Kakou.enabled=false;
-                    button_Kawabe.enabled=false;
-                    button_Sangaku.enabled=false;
+                    //button_Doukutu.enabled = false;
+                    //button_Forest.enabled=false;
+                    //button_Kaigan.enabled=false;    
+                    //button_Kakou.enabled=false;
+                    //button_Kawabe.enabled=false;
+                    //button_Sangaku.enabled=false;
 
 
                 }
@@ -98,18 +98,18 @@ public class After_LocationSentaku1 : MonoBehaviour
                     image_Change.restartImage(1);
 
                     Syupatsu.interactable = true;
-                    eventTrigger_Kaigan.enabled = false;
-                    eventTrigger_Doukutu.enabled = false;
-                    eventTrigger_Kawabe.enabled = false;
-                    eventTrigger_Kakou.enabled = false;
-                    eventTrigger_Sangaku.enabled = false;
-                    eventTrigger_Forest.enabled = false;
-                    button_Doukutu.enabled = false;
-                    button_Forest.enabled = false;
-                    button_Kaigan.enabled = false;
-                    button_Kakou.enabled = false;
-                    button_Kawabe.enabled = false;
-                    button_Sangaku.enabled = false;
+                    //eventTrigger_Kaigan.enabled = false;
+                    //eventTrigger_Doukutu.enabled = false;
+                    //eventTrigger_Kawabe.enabled = false;
+                    //eventTrigger_Kakou.enabled = false;
+                    //eventTrigger_Sangaku.enabled = false;
+                    //eventTrigger_Forest.enabled = false;
+                    //button_Doukutu.enabled = false;
+                    //button_Forest.enabled = false;
+                    //button_Kaigan.enabled = false;
+                    //button_Kakou.enabled = false;
+                    //button_Kawabe.enabled = false;
+                    //button_Sangaku.enabled = false;
 
                 }
                 break;
@@ -121,18 +121,18 @@ public class After_LocationSentaku1 : MonoBehaviour
                     num = 2;
                     Choice_num = num;
                     image_Change.restartImage(2);
-                    eventTrigger_Kaigan.enabled = false;
-                    eventTrigger_Doukutu.enabled = false;
-                    eventTrigger_Kawabe.enabled = false;
-                    eventTrigger_Kakou.enabled = false;
-                    eventTrigger_Sangaku.enabled = false;
-                    eventTrigger_Forest.enabled = false;
-                    button_Doukutu.enabled = false;
-                    button_Forest.enabled = false;
-                    button_Kaigan.enabled = false;
-                    button_Kakou.enabled = false;
-                    button_Kawabe.enabled = false;
-                    button_Sangaku.enabled = false;
+                    //eventTrigger_Kaigan.enabled = false;
+                    //eventTrigger_Doukutu.enabled = false;
+                    //eventTrigger_Kawabe.enabled = false;
+                    //eventTrigger_Kakou.enabled = false;
+                    //eventTrigger_Sangaku.enabled = false;
+                    //eventTrigger_Forest.enabled = false;
+                    //button_Doukutu.enabled = false;
+                    //button_Forest.enabled = false;
+                    //button_Kaigan.enabled = false;
+                    //button_Kakou.enabled = false;
+                    //button_Kawabe.enabled = false;
+                    //button_Sangaku.enabled = false;
 
                     Syupatsu.interactable = true;
 
@@ -146,18 +146,18 @@ public class After_LocationSentaku1 : MonoBehaviour
                     num = 3;
                     Choice_num = num;
                     image_Change.restartImage(3);
-                    eventTrigger_Kaigan.enabled = false;
-                    eventTrigger_Doukutu.enabled = false;
-                    eventTrigger_Kawabe.enabled = false;
-                    eventTrigger_Kakou.enabled = false;
-                    eventTrigger_Sangaku.enabled = false;
-                    eventTrigger_Forest.enabled = false;
-                    button_Doukutu.enabled = false;
-                    button_Forest.enabled = false;
-                    button_Kaigan.enabled = false;
-                    button_Kakou.enabled = false;
-                    button_Kawabe.enabled = false;
-                    button_Sangaku.enabled = false;
+                    //eventTrigger_Kaigan.enabled = false;
+                    //eventTrigger_Doukutu.enabled = false;
+                    //eventTrigger_Kawabe.enabled = false;
+                    //eventTrigger_Kakou.enabled = false;
+                    //eventTrigger_Sangaku.enabled = false;
+                    //eventTrigger_Forest.enabled = false;
+                    //button_Doukutu.enabled = false;
+                    //button_Forest.enabled = false;
+                    //button_Kaigan.enabled = false;
+                    //button_Kakou.enabled = false;
+                    //button_Kawabe.enabled = false;
+                    //button_Sangaku.enabled = false;
 
                     Syupatsu.interactable = true;
 
@@ -171,18 +171,18 @@ public class After_LocationSentaku1 : MonoBehaviour
                     num = 4;
                     Choice_num = num;
                     image_Change.restartImage(4);
-                    eventTrigger_Kaigan.enabled = false;
-                    eventTrigger_Doukutu.enabled = false;
-                    eventTrigger_Kawabe.enabled = false;
-                    eventTrigger_Kakou.enabled = false;
-                    eventTrigger_Sangaku.enabled = false;
-                    eventTrigger_Forest.enabled = false;
-                    button_Doukutu.enabled = false;
-                    button_Forest.enabled = false;
-                    button_Kaigan.enabled = false;
-                    button_Kakou.enabled = false;
-                    button_Kawabe.enabled = false;
-                    button_Sangaku.enabled = false;
+                    //eventTrigger_Kaigan.enabled = false;
+                    //eventTrigger_Doukutu.enabled = false;
+                    //eventTrigger_Kawabe.enabled = false;
+                    //eventTrigger_Kakou.enabled = false;
+                    //eventTrigger_Sangaku.enabled = false;
+                    //eventTrigger_Forest.enabled = false;
+                    //button_Doukutu.enabled = false;
+                    //button_Forest.enabled = false;
+                    //button_Kaigan.enabled = false;
+                    //button_Kakou.enabled = false;
+                    //button_Kawabe.enabled = false;
+                    //button_Sangaku.enabled = false;
 
                     Syupatsu.interactable = true;
 
@@ -196,18 +196,18 @@ public class After_LocationSentaku1 : MonoBehaviour
                     num = 5;
                     Choice_num = num;
                     image_Change.restartImage(5);
-                    eventTrigger_Kaigan.enabled = false;
-                    eventTrigger_Doukutu.enabled = false;
-                    eventTrigger_Kawabe.enabled = false;
-                    eventTrigger_Kakou.enabled = false;
-                    eventTrigger_Sangaku.enabled = false;
-                    eventTrigger_Forest.enabled = false;
-                    button_Doukutu.enabled = false;
-                    button_Forest.enabled = false;
-                    button_Kaigan.enabled = false;
-                    button_Kakou.enabled = false;
-                    button_Kawabe.enabled = false;
-                    button_Sangaku.enabled = false;
+                    //eventTrigger_Kaigan.enabled = false;
+                    //eventTrigger_Doukutu.enabled = false;
+                    //eventTrigger_Kawabe.enabled = false;
+                    //eventTrigger_Kakou.enabled = false;
+                    //eventTrigger_Sangaku.enabled = false;
+                    //eventTrigger_Forest.enabled = false;
+                    //button_Doukutu.enabled = false;
+                    //button_Forest.enabled = false;
+                    //button_Kaigan.enabled = false;
+                    //button_Kakou.enabled = false;
+                    //button_Kawabe.enabled = false;
+                    //button_Sangaku.enabled = false;
 
                     Syupatsu.interactable = true;
 
