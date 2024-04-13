@@ -49,15 +49,18 @@ public class LoadScene : MonoBehaviour
     public void AfterStart(int num = 0)
     {
         fade.scene_name_num = num;
+        PlayerInfo.Instance.StartGame(true);
+
         fade.feadout_f = true;
         if (fade.feadout_f == false)
         {
-            PlayerInfo.Instance.StartGame(true);
+            PlayerInfo.Instance.gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
 
-            PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
-
-            //SceneManager.sceneUnloaded += VolumeSave_loadsecene;
         }
+
+
+        //SceneManager.sceneUnloaded += VolumeSave_loadsecene;
+
 
 
 
@@ -66,6 +69,7 @@ public class LoadScene : MonoBehaviour
     {
         if (!DataManager.Instance.DoesSaveExist())
         {
+
             //image.SetActive(true);
 
             string colorString = "#999999"; // ê‘êFÇÃ16êiêîï∂éöóÒ
@@ -73,19 +77,18 @@ public class LoadScene : MonoBehaviour
             ColorUtility.TryParseHtmlString(colorString, out newColor); // êVÇµÇ≠ColorÇçÏê¨
             Text.color = newColor;
             eventTrigger.enabled = false;
+            continueButton.enabled = false;
+
 
         }
         else { 
             fade.scene_name_num = num;
+
+            PlayerInfo.Instance.StartGame(false);
             fade.feadout_f = true;
-            if (fade.feadout_f == false)
+            if(fade.feadout_f==false)
             {
-
-
-                PlayerInfo.Instance.StartGame(false);
-
-                PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
-
+                PlayerInfo.Instance.gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
 
             }
 
@@ -97,6 +100,6 @@ public class LoadScene : MonoBehaviour
     //    multiAudio.SeSave();
     //}
 
-
+   
 }
 

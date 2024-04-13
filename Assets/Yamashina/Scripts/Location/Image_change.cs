@@ -9,28 +9,75 @@ public class Image_change : MonoBehaviour
 {
 
     //[SerializeField] public GameObject image;
-    [SerializeField] public GameObject hightlightImage;
-    public  void Start()
+    [SerializeField] public GameObject[] hightlightImage;
+    public void Start()
     {
-       // image.SetActive(false);
-        hightlightImage.SetActive(false);
-       
-    }
-
-    public  void ImageChange()
-    {
-        //image.SetActive(true);
-        hightlightImage.SetActive(false);
-
+        // image.SetActive(false);
+        hightlightImage[0].SetActive(false);
 
     }
 
-    public  void  restartImage()
+    public void ImageChange(int num)
     {
-       // image.SetActive(false);
-        hightlightImage.SetActive(true);
+
+
+        switch (num)
+        {
+            ////ŠCŠÝ‘I‘ð
+            case 0:
+                hightlightImage[0].SetActive(false);
+                break;
+            case 1:
+                hightlightImage[1].SetActive(false);
+                break;
+            case 2:
+                hightlightImage[2].SetActive(false);
+                break;
+            case 3:
+                hightlightImage[3].SetActive(false);
+                break;
+            case 4:
+                hightlightImage[4].SetActive(false);
+                break;
+            case 5:
+                hightlightImage[5].SetActive(false);
+                break;
+                //image.SetActive(true);
+
+
+        }
+
+    }
+    public void restartImage(int num)
+    {
+        // image.SetActive(false);
+        switch (num)
+        {
+            ////ŠCŠÝ‘I‘ð
+            case 0:
+                hightlightImage[0].SetActive(true);
+                break;
+            case 1:
+                hightlightImage[1].SetActive(true);
+                break;
+            case 2:
+                hightlightImage[2].SetActive(true);
+                break;
+            case 3:
+                hightlightImage[3].SetActive(true);
+                break;
+            case 4:
+                hightlightImage[4].SetActive(true);
+                break;
+            case 5:
+                hightlightImage[5].SetActive(true);
+                break;
+                //image.SetActive(true);
+
+
+        }
     }
 
-   
-   
+
+
 }
