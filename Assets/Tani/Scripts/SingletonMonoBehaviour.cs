@@ -44,7 +44,7 @@ public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        Debug.Log("Singleton Destroyed");
+        //Debug.Log("Singleton Destroyed");
         if (instance == this)
         {
             instance = null;
