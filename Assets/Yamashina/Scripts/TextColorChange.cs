@@ -31,4 +31,13 @@ public class TextColorChange : MonoBehaviour
         ColorUtility.TryParseHtmlString(colorString, out newColor); // 新しくColorを作成
         Text.color = newColor;
     }
+
+
+    public void Text_ColorChange_option()
+    {
+        string colorString = "#00ffff"; // 赤色の16進数文字列
+        Color newColor;
+        ColorUtility.TryParseHtmlString(colorString, out newColor); // 新しくColorを作成
+        Text.color = newColor;
+    }
 }

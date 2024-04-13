@@ -6,23 +6,22 @@ using UnityEngine.UI;
 public class Event_Panel_view :MonoBehaviour
 {
     public GameObject mainPanel;
-    public GameObject Opbutton;
     //[SerializeField]GameObject InventoryPanel;
     public GameObject OptionPanel;
 
     void Start()
     {
         mainPanel.SetActive(true);
-        OptionPanel.SetActive(false);
-        Opbutton.SetActive(true);
+        SwitchVisibleOption();
+
         //InventoryPanel.SetActive(false);
     }
 
     public void MainView()
     {
         mainPanel.SetActive(true);
-        OptionPanel.SetActive(false);
-        Opbutton.SetActive(true);
+        SwitchVisibleOption();
+
         //InventoryPanel.SetActive(false);
     }
 
@@ -31,10 +30,13 @@ public class Event_Panel_view :MonoBehaviour
     {
 
         mainPanel.SetActive(true);
-        OptionPanel.SetActive(true);
-        Opbutton.SetActive(false);
+        SwitchVisibleOption();
         //InventoryPanel.SetActive(false);
 
+    }
+    public void SwitchVisibleOption()
+    {
+        OptionPanel.SetActive(!OptionPanel.activeSelf);
     }
     //public void SubView()
     //{
