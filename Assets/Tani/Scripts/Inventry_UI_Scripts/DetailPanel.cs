@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
+using System;
 
 public class DetailPanel : MonoBehaviour
 {
@@ -15,12 +17,22 @@ public class DetailPanel : MonoBehaviour
     Image icon_image;
     [SerializeField]
     Button Use_Button;
+    [SerializeField]
+    List<Items.Item_ID> foodsForActionValueIncrease;
 
     Items.Item_ID current_id = Items.Item_ID.Item_Max;
-
+    string foodUsageLogForActionValueIncrease_textName = "FoodUsageLog.txt";
+    string fullPath;
+    bool[] foodUsageLog = null;
     private void Awake()
     {
-        Use_Button.onClick.AddListener(() => { SlotManager.selectedItem.slotManager.UseSlotItem(SlotManager.selectedItem.index); });
+        fullPath = Application.streamingAssetsPath + "/Saves/" + foodUsageLogForActionValueIncrease_textName;
+        foodUsageLog = new bool[foodsForActionValueIncrease.Count];
+        Use_Button.onClick.AddListener(() => 
+        { 
+            SlotManager.selectedItem.slotManager.UseSlotItem(SlotManager.selectedItem.index);
+            CheckFoodNotUsed(current_id);
+        });
     }
 
     private void FixedUpdate()
@@ -71,6 +83,57 @@ public class DetailPanel : MonoBehaviour
             current_id = Items.Item_ID.Item_Max;
             Use_Button.interactable = false;
         }
+    }
+
+    //指定したアイテムが行動値を増加させるアイテムでかつ使ったことがなければtrue
+    bool CheckFoodNotUsed(Items.Item_ID id)
+    {
+        if (!File.Exists(fullPath))
+        {
+            MakeFoodUsageLog(null);
+        }
+        string rawText = File.ReadAllText(fullPath);
+        print(rawText);
+        
+        int start = 0;
+        for(int i = 0;i < rawText.Length;i++)
+        {
+            if(rawText[i] ==char.Parse(":"))
+            {
+                if(int.Parse( rawText.AsSpan()[start..i]) ==(int)id)
+                {
+                    start = i + 1;
+                    return int.Parse(rawText.AsSpan()[start..(start + 1)]) != 0;
+                }
+            }
+
+            
+            
+        }
+
+        return false;
+    }
+    void MakeFoodUsageLog(bool[] log)
+    {
+        if (log == null)
+        {
+            string text = string.Empty;
+            foreach(Items.Item_ID id in foodsForActionValueIncrease)
+            {
+                text += ((int)id).ToString() + ":" + "1\n";
+            }
+            File.WriteAllText(fullPath, text);
+            return;
+        }
+
+        string str = string.Empty;
+       
+        for (int i = 0; i < foodsForActionValueIncrease.Count; i++)
+        {
+            str += ((int)foodsForActionValueIncrease[i]).ToString() + ":" + $"{log[i]}\n";
+        }
+        return;
+
     }
 
 
