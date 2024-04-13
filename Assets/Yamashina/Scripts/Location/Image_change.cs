@@ -14,6 +14,13 @@ public class Image_change : MonoBehaviour
     {
         // image.SetActive(false);
         hightlightImage[0].SetActive(false);
+        hightlightImage[1].SetActive(false);
+        hightlightImage[2].SetActive(false);
+        hightlightImage[3].SetActive(false);
+        hightlightImage[4].SetActive(false);
+        hightlightImage[5].SetActive(false);
+
+
 
     }
 
