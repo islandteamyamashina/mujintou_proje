@@ -30,8 +30,8 @@ public class After_LocationSentaku1 : MonoBehaviour
     {
 
         Syupatsu.interactable = false;
-        
-        
+
+
 
 
     }
@@ -58,33 +58,34 @@ public class After_LocationSentaku1 : MonoBehaviour
                     num = 0;
                     Choice_num = num;
                     buttons[num].GetComponent<Image>().sprite = image_c[num];
-            Syupatsu.interactable = true;
                     ;
                     for (int i = 0; i < buttons.Length; i++)
                     {
-                        if (i != num)
+                    Syupatsu.interactable = true;
+
+                    if (i != num)
                         {
                             buttons[i].GetComponent<Image>().sprite = image[i];
-                            Syupatsu.interactable = false;
                         }
+                    //Syupatsu.interactable = false;
 
-                        //image_Change.restartImage(0);
-                        //eventTrigger_Kaigan.enabled = false;
-                        //eventTrigger_Doukutu.enabled = false;
-                        //eventTrigger_Kawabe.enabled= false; 
-                        //eventTrigger_Kakou.enabled= false;  
-                        //eventTrigger_Sangaku.enabled= false;    
-                        //eventTrigger_Forest.enabled= false; 
+                    //image_Change.restartImage(0);
+                    //eventTrigger_Kaigan.enabled = false;
+                    //eventTrigger_Doukutu.enabled = false;
+                    //eventTrigger_Kawabe.enabled= false; 
+                    //eventTrigger_Kakou.enabled= false;  
+                    //eventTrigger_Sangaku.enabled= false;    
+                    //eventTrigger_Forest.enabled= false; 
 
-                        //button_Doukutu.enabled = false;
-                        //button_Forest.enabled=false;
-                        //button_Kaigan.enabled=false;    
-                        //button_Kakou.enabled=false;
-                        //button_Kawabe.enabled=false;
-                        //button_Sangaku.enabled=false;
+                    //button_Doukutu.enabled = false;
+                    //button_Forest.enabled=false;
+                    //button_Kaigan.enabled=false;    
+                    //button_Kakou.enabled=false;
+                    //button_Kawabe.enabled=false;
+                    //button_Sangaku.enabled=false;
 
 
-                    
+
                 }
                 break;
             ////X‘I‘ğ
@@ -95,30 +96,32 @@ public class After_LocationSentaku1 : MonoBehaviour
                     Choice_num = num;
                     //image_Change.restartImage(1);
                     buttons[num].GetComponent<Image>().sprite = image_c[num];
-        Syupatsu.interactable = false;
                     ;
                     for (int i = 0; i < buttons.Length; i++)
                     {
-                        if (i != num)
+                    Syupatsu.interactable = true;
+
+                    if (i != num)
                         {
                             buttons[i].GetComponent<Image>().sprite = image[i];
-                            Syupatsu.interactable = false;
                         }
-                        //eventTrigger_Kaigan.enabled = false;
-                        //eventTrigger_Doukutu.enabled = false;
-                        //eventTrigger_Kawabe.enabled = false;
-                        //eventTrigger_Kakou.enabled = false;
-                        //eventTrigger_Sangaku.enabled = false;
-                        //eventTrigger_Forest.enabled = false;
-                        //button_Doukutu.enabled = false;
-                        //button_Forest.enabled = false;
-                        //button_Kaigan.enabled = false;
-                        //button_Kakou.enabled = false;
-                        //button_Kawabe.enabled = false;
-                        //button_Sangaku.enabled = false;
+                    //Syupatsu.interactable = false;
 
-                    }
-                
+                    //eventTrigger_Kaigan.enabled = false;
+                    //eventTrigger_Doukutu.enabled = false;
+                    //eventTrigger_Kawabe.enabled = false;
+                    //eventTrigger_Kakou.enabled = false;
+                    //eventTrigger_Sangaku.enabled = false;
+                    //eventTrigger_Forest.enabled = false;
+                    //button_Doukutu.enabled = false;
+                    //button_Forest.enabled = false;
+                    //button_Kaigan.enabled = false;
+                    //button_Kakou.enabled = false;
+                    //button_Kawabe.enabled = false;
+                    //button_Sangaku.enabled = false;
+
+                }
+
                 break;
             ////ì•Ó‘I‘ğ
             case 2:
@@ -140,18 +143,20 @@ public class After_LocationSentaku1 : MonoBehaviour
                     //button_Kawabe.enabled = false;
                     //button_Sangaku.enabled = false;
                     buttons[num].GetComponent<Image>().sprite = image_c[num];
-                    Syupatsu.interactable = true;
                     ;
                     for (int i = 0; i < buttons.Length; i++)
                     {
-                        if (i != num)
+                    Syupatsu.interactable = true;
+
+                    if (i != num)
                         {
                             buttons[i].GetComponent<Image>().sprite = image[i];
-                        Syupatsu.interactable = false;
 
                         }
-                    }
-                
+                    //Syupatsu.interactable = /*false*/;
+
+                }
+
                 break;
             ////RŠx‘I‘ğ
             case 3:
@@ -173,19 +178,21 @@ public class After_LocationSentaku1 : MonoBehaviour
                     //button_Kawabe.enabled = false;
                     //button_Sangaku.enabled = false;
                     buttons[num].GetComponent<Image>().sprite = image_c[num];
-                    Syupatsu.interactable = true;
                     ;
                     for (int i = 0; i < buttons.Length; i++)
                     {
-                        if (i != num)
+                    Syupatsu.interactable = true;
+
+                    if (i != num)
                         {
                             buttons[i].GetComponent<Image>().sprite = image[i];
-                            Syupatsu.interactable = false;
 
                         }
-                    }
+                    //Syupatsu./*interactable*/ = false;
 
-                
+                }
+
+
                 break;
             ////‰ÎŒû‘I‘ğ
             case 4:
@@ -207,18 +214,20 @@ public class After_LocationSentaku1 : MonoBehaviour
                     //button_Kawabe.enabled = false;
                     //button_Sangaku.enabled = false;
                     buttons[num].GetComponent<Image>().sprite = image_c[num];
-                    Syupatsu.interactable = true;
                     ;
                     for (int i = 0; i < buttons.Length; i++)
                     {
-                        if (i != num)
+                    Syupatsu.interactable = true;
+
+                    if (i != num)
                         {
                             buttons[i].GetComponent<Image>().sprite = image[i];
-                            Syupatsu.interactable = false;
 
                         }
-                    }
-                
+                    //Syupatsu.interactable = false;
+
+                }
+
                 break;
             ////“´ŒA‘I‘ğ
             case 5:
@@ -240,19 +249,21 @@ public class After_LocationSentaku1 : MonoBehaviour
                     //button_Kawabe.enabled = false;
                     //button_Sangaku.enabled = false;
                     buttons[num].GetComponent<Image>().sprite = image_c[num];
-                    Syupatsu.interactable = true;
                     ;
                     for (int i = 0; i < buttons.Length; i++)
                     {
-                        if (i != num)
+                    Syupatsu.interactable = true;
+
+                    if (i != num)
                         {
                             buttons[i].GetComponent<Image>().sprite = image[i];
-                            Syupatsu.interactable = false;
 
                         }
-                    }
+                    //Syupatsu.interactable = false;
 
-                
+                }
+
+
                 break;
         }
 
