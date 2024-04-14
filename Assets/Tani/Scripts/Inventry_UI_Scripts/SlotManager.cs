@@ -332,7 +332,7 @@ public class SlotManager : MonoBehaviour
         {
             return false;
         }
-        if(num + GetSlotItem(slot_index).Value.amount <= SlotManager.GetItemData(id).overlap_num)
+        if(num + GetSlotItem(slot_index).Value.amount > GetItemData(id).overlap_num)
         {
             return false;
         }
