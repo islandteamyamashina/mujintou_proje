@@ -38,6 +38,7 @@ public class DetailPanel : MonoBehaviour
         { 
             SlotManager.selectedItem.slotManager.UseSlotItem(SlotManager.selectedItem.index);
 
+            if (!SlotManager.selectedItem.slotManager) return;
             var id = SlotManager.selectedItem.slotManager.GetSlotItem(SlotManager.selectedItem.index).Value.id;
             //Keyにアイテムがなかったらスキップ
             if (!foodUsageLog.ContainsKey(id)) return;
@@ -50,7 +51,7 @@ public class DetailPanel : MonoBehaviour
         });
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (SlotManager.selectedItem.slotManager)
         {

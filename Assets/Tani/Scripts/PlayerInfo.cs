@@ -222,7 +222,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         Inventry.GetItem(Items.Item_ID.item_mat_magma, 3);
         Inventry.GetItem(Items.Item_ID.item_craft_onFireSet, 1);
         Inventry.GetItem(Items.Item_ID.item_special_lighter, 1);
-        
+        Inventry.GetItem(Items.Item_ID.item_mat_branch, 5);
+
     }
 
     protected override void Awake()

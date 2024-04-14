@@ -50,13 +50,17 @@ public class MakeFire : MonoBehaviour
     Button MakeFireButton;
     [SerializeField]
     Image Fire_Icon_Middle;
+    [SerializeField]
+    Image trans1;
+    [SerializeField]
+    Image trans2;
 
     int selectedType = 0;//0 : なし 1 : 素手 ,2 : FireSet ,3 : Lighter
 
     private void OnEnable()
     {
         selectedType = 0;
-        Fire_Icon_Middle.fillAmount = 0.3f;
+        Fire_Icon_Middle.fillAmount = 0;
         SelectedResultText.text = "";
         var info = PlayerInfo.Instance;
         health_Change_Text.text = $"{info.Health} >> {info.Health}";
@@ -89,7 +93,33 @@ public class MakeFire : MonoBehaviour
             _=> false
         };
         MakeFireButton.interactable = PlayerInfo.Instance.Fire == 0 && MakeFireButton.interactable;
- 
+        if(slotManager.GetSlotItem(0).Value.id != Items.Item_ID.EmptyObject)
+        {
+            var color = trans1.color;
+            color.a = 0;
+            trans1.color = color;
+        }
+        else
+        {
+            var color = trans1.color;
+            color.a = 0.8f;
+            trans1.color = color;
+        }
+
+        if (slotManager.GetSlotItem(1).Value.id != Items.Item_ID.EmptyObject)
+        {
+            var color = trans2.color;
+            color.a = 0;
+            trans2.color = color;
+        }
+        else
+        {
+            var color = trans2.color;
+            color.a = 0.8f;
+            trans2.color = color;
+        }
+
+
     }
 
     private void Awake()
@@ -102,6 +132,7 @@ public class MakeFire : MonoBehaviour
             hunger_Change_Text.text = $"{info.Hunger} >> {Mathf.Clamp(info.Hunger + hunger_Change_Hand, 0, 100)}";
             thirst_Change_Text.text = $"{info.Thirst} >> {Mathf.Clamp(info.Thirst + thirst_Change_Hand, 0, 100)}";
             SelectedResultText.text = "素手でやるしかない";
+            Fire_Icon_Middle.fillAmount = 0.3f;
         });
 
         select_FireSet.onClick.AddListener(() =>
@@ -112,6 +143,7 @@ public class MakeFire : MonoBehaviour
             hunger_Change_Text.text = $"{info.Hunger} >> {Mathf.Clamp(info.Hunger + hunger_Change_FireSet, 0, 100)}";
             thirst_Change_Text.text = $"{info.Thirst} >> {Mathf.Clamp(info.Thirst + thirst_Change_FireSet, 0, 100)}";
             SelectedResultText.text = "火おこしセットを使用";
+            Fire_Icon_Middle.fillAmount = 0.3f;
         });
 
         select_Lighter.onClick.AddListener(() =>
@@ -122,6 +154,7 @@ public class MakeFire : MonoBehaviour
             hunger_Change_Text.text = $"{info.Hunger} >> {Mathf.Clamp(info.Hunger + hunger_Change_Lighter, 0, 100)}";
             thirst_Change_Text.text = $"{info.Thirst} >> {Mathf.Clamp(info.Thirst + thirst_Change_Lighter, 0, 100)}";
             SelectedResultText.text = "ライターを使う";
+            Fire_Icon_Middle.fillAmount = 0.3f;
         });
 
         MakeFireButton.onClick.AddListener(() =>
