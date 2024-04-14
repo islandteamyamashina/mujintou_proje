@@ -16,7 +16,14 @@ public class TextColorChange : MonoBehaviour
         Text.color = newColor;
 
     }
+    public void TextChangeOptionRestart()
+    {
+        string colorString = "#FFFFFF"; // 赤色の16進数文字列
+        Color newColor;
+        ColorUtility.TryParseHtmlString(colorString, out newColor); // 新しくColorを作成
+        Text.color = newColor;
 
+    }
     public void Text_ColorChange()
     {
         string colorString = "#1B1464"; // 赤色の16進数文字列
