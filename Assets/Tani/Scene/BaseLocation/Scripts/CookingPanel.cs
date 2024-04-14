@@ -5,7 +5,20 @@ using UnityEngine.UI;
 
 public class CookingPanel : PanelBase
 {
+    protected override void Awake()
+    {
+        OnStateChange.AddListener((enable) =>
+        {
 
+            if (enable)
+            {
+                PlayerInfo.Instance.Inventry.SetVisible(true);
+                gameObject.SetActive(true);
+
+
+            }
+        });
+    }
     protected override void Start()
     {
 
@@ -15,6 +28,10 @@ public class CookingPanel : PanelBase
 
     protected override void Update()
     {
-        
+        if (gameObject.activeSelf && !PlayerInfo.Instance.Inventry.GetVisibility())
+        {
+            gameObject.SetActive(false);
+
+        }
     }
 }
