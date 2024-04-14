@@ -23,15 +23,30 @@ public class DetailPanel : MonoBehaviour
     Items.Item_ID current_id = Items.Item_ID.Item_Max;
     string foodUsageLogForActionValueIncrease_textName = "FoodUsageLog.txt";
     string fullPath;
-    bool[] foodUsageLog = null;
+    Dictionary<Items.Item_ID,bool> foodUsageLog = new Dictionary<Items.Item_ID, bool>();
     private void Awake()
     {
         fullPath = Application.streamingAssetsPath + "/Saves/" + foodUsageLogForActionValueIncrease_textName;
-        foodUsageLog = new bool[foodsForActionValueIncrease.Count];
+        var loaded = LoadFoodUsageLog();
+        foreach (var item in loaded)
+        {
+            
+            foodUsageLog.Add(item.id, item.isUsed);
+        }
+
         Use_Button.onClick.AddListener(() => 
         { 
             SlotManager.selectedItem.slotManager.UseSlotItem(SlotManager.selectedItem.index);
-            CheckFoodNotUsed(current_id);
+
+            var id = SlotManager.selectedItem.slotManager.GetSlotItem(SlotManager.selectedItem.index).Value.id;
+            //Keyにアイテムがなかったらスキップ
+            if (!foodUsageLog.ContainsKey(id)) return;
+            if(  foodUsageLog[id] == false)
+            {
+                PlayerInfo.Instance.MaxActionValue++;
+                foodUsageLog[id] = true;
+
+            }
         });
     }
 
@@ -85,56 +100,52 @@ public class DetailPanel : MonoBehaviour
         }
     }
 
-    //指定したアイテムが行動値を増加させるアイテムでかつ使ったことがなければtrue
-    bool CheckFoodNotUsed(Items.Item_ID id)
+
+
+    IEnumerable<(Items.Item_ID id, bool isUsed)> LoadFoodUsageLog()
     {
-        if (!File.Exists(fullPath))
+        if (!File.Exists(fullPath)) SaveFoodUsageLog();
+
+        using (StreamReader sr = new StreamReader(fullPath))
         {
-            MakeFoodUsageLog(null);
-        }
-        string rawText = File.ReadAllText(fullPath);
-        print(rawText);
-        
-        int start = 0;
-        for(int i = 0;i < rawText.Length;i++)
-        {
-            if(rawText[i] ==char.Parse(":"))
+            while (!sr.EndOfStream)
             {
-                if(int.Parse( rawText.AsSpan()[start..i]) ==(int)id)
+                var line = sr.ReadLine().Split(":");
+                yield return ((Items.Item_ID)(int.Parse(line[0])), bool.Parse(line[1]));
+            }
+        }
+    }
+
+    public void SaveFoodUsageLog()
+    {
+          // ファイルが存在しないとき
+          if (!File.Exists(fullPath))
+          {
+             using (var fs = File.Create(fullPath))
+             using (StreamWriter sw = new StreamWriter(fs))
+             {
+                foreach (Items.Item_ID id in foodsForActionValueIncrease)
                 {
-                    start = i + 1;
-                    return int.Parse(rawText.AsSpan()[start..(start + 1)]) != 0;
+                    sw.WriteLine(((int)id).ToString() + ":" + "False");
                 }
+             }
+                return;
             }
 
-            
-            
-        }
-
-        return false;
-    }
-    void MakeFoodUsageLog(bool[] log)
-    {
-        if (log == null)
+        using (var sw = new StreamWriter(fullPath))
         {
-            string text = string.Empty;
-            foreach(Items.Item_ID id in foodsForActionValueIncrease)
+            foreach (var pair in foodUsageLog)
             {
-                text += ((int)id).ToString() + ":" + "1\n";
+                sw.WriteLine((int)pair.Key + ":" + pair.Value.ToString());
             }
-            File.WriteAllText(fullPath, text);
-            return;
         }
-
-        string str = string.Empty;
-       
-        for (int i = 0; i < foodsForActionValueIncrease.Count; i++)
-        {
-            str += ((int)foodsForActionValueIncrease[i]).ToString() + ":" + $"{log[i]}\n";
-        }
-        return;
-
     }
 
+   
+   
 
+    private void OnDestroy()
+    {
+        SaveFoodUsageLog();
+    }
 }

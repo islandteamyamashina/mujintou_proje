@@ -23,6 +23,8 @@ public class Items : ScriptableObject
     public string extra_effect = null;
     [Header("—¿—‚©")]
     public bool isCooking = false;
+    [Header("d•¡”"),Min(1)]
+    public int overlap_num = 999;
     
     public enum Item_ID
     {
