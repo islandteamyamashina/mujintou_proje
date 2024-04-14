@@ -1054,8 +1054,8 @@ GameObject:
   - component: {fileID: 8811530408371435500}
   - component: {fileID: 5172482140459916972}
   - component: {fileID: 3575803308912650401}
-  - component: {fileID: 8890737877791719424}
   - component: {fileID: 1378902815}
+  - component: {fileID: 1744562073}
   m_Layer: 5
   m_Name: ToTitle
   m_TagString: Untagged
@@ -1166,8 +1166,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8890737877791719424}
-        m_TargetAssemblyTypeName: TextColorChange, Assembly-CSharp
+      - m_Target: {fileID: 1744562073}
+        m_TargetAssemblyTypeName: TextCollorChange_op, Assembly-CSharp
         m_MethodName: TextChangeOptionRestart
         m_Mode: 1
         m_Arguments:
@@ -1207,8 +1207,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8890737877791719424}
-          m_TargetAssemblyTypeName: TextColorChange, Assembly-CSharp
+        - m_Target: {fileID: 1744562073}
+          m_TargetAssemblyTypeName: TextCollorChange_op, Assembly-CSharp
           m_MethodName: Text_ColorChange_option
           m_Mode: 1
           m_Arguments:
@@ -1235,8 +1235,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8890737877791719424}
-          m_TargetAssemblyTypeName: TextColorChange, Assembly-CSharp
+        - m_Target: {fileID: 1744562073}
+          m_TargetAssemblyTypeName: TextCollorChange_op, Assembly-CSharp
           m_MethodName: TextChangeOptionRestart
           m_Mode: 1
           m_Arguments:
@@ -1247,19 +1247,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &8890737877791719424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5158497011798474950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b926857f7c81d4e99445af137249df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Text: {fileID: 1605454209903224795}
 --- !u!114 &1378902815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1274,6 +1261,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title:
     m_SceneName: Title_scene
+--- !u!114 &1744562073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5158497011798474950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3d8f47daa294974db3e805bc806da09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 1605454209903224795}
 --- !u!1 &5540734874611986159
 GameObject:
   m_ObjectHideFlags: 0
