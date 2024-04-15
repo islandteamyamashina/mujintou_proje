@@ -192,7 +192,7 @@ public class TextControl : MonoBehaviour
 
         text.text = "";
     }
-    void OnClick()
+    public void OnClick()
     {
         // Reset‚µ‚½Œã‚ÉClick
         if (strs.Count == 0) return;
