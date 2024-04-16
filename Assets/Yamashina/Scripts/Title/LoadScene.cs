@@ -11,7 +11,29 @@ public class LoadScene : MonoBehaviour
 
     private void Start()
     {
-        eventTrigger.enabled = true;
+
+        string colorString2 = "#4D4D4D"; // 赤色の16進数文字列
+        Color newColor2;
+        ColorUtility.TryParseHtmlString(colorString2, out newColor2); // 新しくColorを作成
+        Text.color = newColor2;
+       
+            if (!DataManager.Instance.DoesSaveExist())
+            {
+
+                //image.SetActive(true);
+
+                string colorString = "#999999"; // 赤色の16進数文字列
+                Color newColor;
+                ColorUtility.TryParseHtmlString(colorString, out newColor); // 新しくColorを作成
+                Text.color = newColor;
+                eventTrigger.enabled = false;
+                continueButton.enabled = false;
+
+
+            }
+            
+        
+
         //image.SetActive(false);
         //if (CreditPanel1 = null)
         //{
@@ -72,34 +94,33 @@ public class LoadScene : MonoBehaviour
 
             //image.SetActive(true);
 
-            string colorString = "#999999"; // 赤色の16進数文字列
-            Color newColor;
-            ColorUtility.TryParseHtmlString(colorString, out newColor); // 新しくColorを作成
-            Text.color = newColor;
+
             eventTrigger.enabled = false;
             continueButton.enabled = false;
 
 
         }
-        else { 
+        else
+        {
             fade.scene_name_num = num;
 
             PlayerInfo.Instance.StartGame(false);
             fade.feadout_f = true;
-            if(fade.feadout_f==false)
+            if (fade.feadout_f == false)
             {
                 PlayerInfo.Instance.gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
 
             }
 
         }
-    }
-    //public void VolumeSave_loadsecene(Scene scene)
-    //{
-    //    multiAudio.BgmSave();
-    //    multiAudio.SeSave();
-    //}
 
-   
-}
+
+        //public void VolumeSave_loadsecene(Scene scene)
+        //{
+        //    multiAudio.BgmSave();
+        //    multiAudio.SeSave();
+        //}
+
+    }
+    }
 
