@@ -16,7 +16,7 @@ public class CreditPanel1 : MonoBehaviour
     public GameObject OptionPanel;
     public GameObject QuitPanel;
     public GameObject startPanel;
-    public float 
+    public float corrutin;
     //ゲームオブジェクトのボタン(Setactive)
     [SerializeField] GameObject startButton;
     [SerializeField] GameObject ContinueButton;
@@ -352,7 +352,7 @@ public class CreditPanel1 : MonoBehaviour
             startPanel.transform.localPosition = Vector3.Lerp(new Vector3(-286.0f, 300, 0f), new Vector3(-152.0f, 258.0f, 0f), size);
            size += speed;
             //startPanel.transform.localPosition =
-            yield return null;
+            yield return new WaitForSeconds(corrutin);
         }
         //パネル拡大（オプションパネル）
         while (size2 <= 1.0f && OptionPanel.activeSelf)
@@ -361,7 +361,7 @@ public class CreditPanel1 : MonoBehaviour
             OptionPanel.transform.localPosition=Vector3.Lerp(new Vector3(3228.857f, -436.489f, 0f), new Vector3(-218.0f, 147.0f, 0f), size2);
             size2 += speed;
 
-            yield return null;
+            yield return new WaitForSeconds(corrutin);
         }
         //パネル拡大（クレジットパネル）
 
@@ -374,7 +374,7 @@ public class CreditPanel1 : MonoBehaviour
 
             size3 += speed;
 
-            yield return null;
+            yield return new WaitForSeconds(corrutin);
         }
 
         //パネル拡大（終了パネル）
@@ -385,7 +385,7 @@ public class CreditPanel1 : MonoBehaviour
             QuitPanel.transform.localPosition= Vector3.Lerp(new Vector3(-371.0f, -67.0f,0f),new Vector3(-171.0f,-21.0f, 0f), size4);    
             size4 += speed;
 
-            yield return null;
+            yield return new WaitForSeconds(corrutin);
         }
 
     }
@@ -413,7 +413,7 @@ public class CreditPanel1 : MonoBehaviour
             startPanel.transform.localPosition = Vector3.Lerp(new Vector3(-152.0f, 258.0f, 0f), new Vector3(-286.0f, 300, 0f), size);
             size += speed;
             startPanel.SetActive(false);
-            yield return new WaitForSeconds(;
+            yield return new WaitForSeconds(corrutin);
         }
         Debug.Log("通った");
 
@@ -423,7 +423,7 @@ public class CreditPanel1 : MonoBehaviour
             OptionPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size2);
             size2 += speed;
 
-            yield return null;
+            yield return new WaitForSeconds(corrutin);
         }
         //パネル縮小（クレジットパネル）
 
@@ -436,7 +436,7 @@ public class CreditPanel1 : MonoBehaviour
             size3 += speed;
 
 
-            yield return null;
+            yield return new WaitForSeconds(corrutin);
         }
 
         //パネル拡大（終了パネル）
@@ -446,7 +446,7 @@ public class CreditPanel1 : MonoBehaviour
             QuitPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size4);
             size4 += speed;
 
-            yield return null;
+            yield return new WaitForSeconds(corrutin);
         }
         Debug.Log("通った");
         subPanel.SetActive(false);
