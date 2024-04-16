@@ -16,7 +16,7 @@ public class CreditPanel1 : MonoBehaviour
     public GameObject OptionPanel;
     public GameObject QuitPanel;
     public GameObject startPanel;
-
+    public float 
     //ゲームオブジェクトのボタン(Setactive)
     [SerializeField] GameObject startButton;
     [SerializeField] GameObject ContinueButton;
@@ -413,7 +413,7 @@ public class CreditPanel1 : MonoBehaviour
             startPanel.transform.localPosition = Vector3.Lerp(new Vector3(-152.0f, 258.0f, 0f), new Vector3(-286.0f, 300, 0f), size);
             size += speed;
             startPanel.SetActive(false);
-            yield return null;
+            yield return new WaitForSeconds(;
         }
         Debug.Log("通った");
 
