@@ -10,15 +10,16 @@ public class After_LocationSentaku1 : MonoBehaviour
 {
 
     [SerializeField] GameObject Panel;
-    [SerializeField] Button button_Kawabe;
-    [SerializeField] Button button_Forest;
-    [SerializeField] Button button_Kaigan;
-    [SerializeField] Button button_Doukutu;
-    [SerializeField] Button button_Sangaku;
-    [SerializeField] Button button_Kakou;
-    [SerializeField] GameObject[] buttons;
+    [SerializeField] public Button button_Kawabe;
+    [SerializeField] public Button button_Forest;
+    [SerializeField] public Button button_Kaigan;
+    [SerializeField] public Button button_Doukutu;
+    [SerializeField] public Button button_Sangaku;
+    [SerializeField] public Button button_Kakou;
+    [SerializeField] public GameObject[] buttons;
     [SerializeField] Sprite[] image;
     [SerializeField] Sprite[] image_c;
+   
     [SerializeField] SceneObject[] nextScene;
 
     [SerializeField] Button Syupatsu;
@@ -28,9 +29,10 @@ public class After_LocationSentaku1 : MonoBehaviour
 
     void Start()
     {
-
+        
         Syupatsu.interactable = false;
 
+      
 
 
 
@@ -46,27 +48,27 @@ public class After_LocationSentaku1 : MonoBehaviour
 
         switch (num)
         {
-                
-   
-    
-      
-        
+
+
+
+
+
             ////海岸選択
             case 0:
-               
-                    Debug.Log(("シーン先は" + num));
-                    num = 0;
-                    Choice_num = num;
-                    buttons[num].GetComponent<Image>().sprite = image_c[num];
-                    ;
-                    for (int i = 0; i < buttons.Length; i++)
-                    {
+
+                Debug.Log(("シーン先は" + num));
+                num = 0;
+                Choice_num = num;
+                buttons[num].GetComponent<Image>().sprite = image_c[num];
+                ;
+                for (int i = 0; i < buttons.Length; i++)
+                {
                     Syupatsu.interactable = true;
 
                     if (i != num)
-                        {
-                            buttons[i].GetComponent<Image>().sprite = image[i];
-                        }
+                    {
+                        buttons[i].GetComponent<Image>().sprite = image[i];
+                    }
                     //Syupatsu.interactable = false;
 
                     //image_Change.restartImage(0);
@@ -90,21 +92,21 @@ public class After_LocationSentaku1 : MonoBehaviour
                 break;
             ////森選択
             case 1:
-                
-                    Debug.Log(("シーン先は" + num));
-                    num = 1;
-                    Choice_num = num;
-                    //image_Change.restartImage(1);
-                    buttons[num].GetComponent<Image>().sprite = image_c[num];
-                    ;
-                    for (int i = 0; i < buttons.Length; i++)
-                    {
+
+                Debug.Log(("シーン先は" + num));
+                num = 1;
+                Choice_num = num;
+                //image_Change.restartImage(1);
+                buttons[num].GetComponent<Image>().sprite = image_c[num];
+                ;
+                for (int i = 0; i < buttons.Length; i++)
+                {
                     Syupatsu.interactable = true;
 
                     if (i != num)
-                        {
-                            buttons[i].GetComponent<Image>().sprite = image[i];
-                        }
+                    {
+                        buttons[i].GetComponent<Image>().sprite = image[i];
+                    }
                     //Syupatsu.interactable = false;
 
                     //eventTrigger_Kaigan.enabled = false;
@@ -125,34 +127,34 @@ public class After_LocationSentaku1 : MonoBehaviour
                 break;
             ////川辺選択
             case 2:
-                
-                    Debug.Log(("シーン先は" + num));
-                    num = 2;
-                    Choice_num = num;
-                    //image_Change.restartImage(2);
-                    //eventTrigger_Kaigan.enabled = false;
-                    //eventTrigger_Doukutu.enabled = false;
-                    //eventTrigger_Kawabe.enabled = false;
-                    //eventTrigger_Kakou.enabled = false;
-                    //eventTrigger_Sangaku.enabled = false;
-                    //eventTrigger_Forest.enabled = false;
-                    //button_Doukutu.enabled = false;
-                    //button_Forest.enabled = false;
-                    //button_Kaigan.enabled = false;
-                    //button_Kakou.enabled = false;
-                    //button_Kawabe.enabled = false;
-                    //button_Sangaku.enabled = false;
-                    buttons[num].GetComponent<Image>().sprite = image_c[num];
-                    ;
-                    for (int i = 0; i < buttons.Length; i++)
-                    {
+
+                Debug.Log(("シーン先は" + num));
+                num = 2;
+                Choice_num = num;
+                //image_Change.restartImage(2);
+                //eventTrigger_Kaigan.enabled = false;
+                //eventTrigger_Doukutu.enabled = false;
+                //eventTrigger_Kawabe.enabled = false;
+                //eventTrigger_Kakou.enabled = false;
+                //eventTrigger_Sangaku.enabled = false;
+                //eventTrigger_Forest.enabled = false;
+                //button_Doukutu.enabled = false;
+                //button_Forest.enabled = false;
+                //button_Kaigan.enabled = false;
+                //button_Kakou.enabled = false;
+                //button_Kawabe.enabled = false;
+                //button_Sangaku.enabled = false;
+                buttons[num].GetComponent<Image>().sprite = image_c[num];
+                ;
+                for (int i = 0; i < buttons.Length; i++)
+                {
                     Syupatsu.interactable = true;
 
                     if (i != num)
-                        {
-                            buttons[i].GetComponent<Image>().sprite = image[i];
+                    {
+                        buttons[i].GetComponent<Image>().sprite = image[i];
 
-                        }
+                    }
                     //Syupatsu.interactable = /*false*/;
 
                 }
@@ -160,34 +162,34 @@ public class After_LocationSentaku1 : MonoBehaviour
                 break;
             ////山岳選択
             case 3:
-                
-                    Debug.Log(("シーン先は" + num));
-                    num = 3;
-                    Choice_num = num;
-                    //image_Change.restartImage(3);
-                    //eventTrigger_Kaigan.enabled = false;
-                    //eventTrigger_Doukutu.enabled = false;
-                    //eventTrigger_Kawabe.enabled = false;
-                    //eventTrigger_Kakou.enabled = false;
-                    //eventTrigger_Sangaku.enabled = false;
-                    //eventTrigger_Forest.enabled = false;
-                    //button_Doukutu.enabled = false;
-                    //button_Forest.enabled = false;
-                    //button_Kaigan.enabled = false;
-                    //button_Kakou.enabled = false;
-                    //button_Kawabe.enabled = false;
-                    //button_Sangaku.enabled = false;
-                    buttons[num].GetComponent<Image>().sprite = image_c[num];
-                    ;
-                    for (int i = 0; i < buttons.Length; i++)
-                    {
+
+                Debug.Log(("シーン先は" + num));
+                num = 3;
+                Choice_num = num;
+                //image_Change.restartImage(3);
+                //eventTrigger_Kaigan.enabled = false;
+                //eventTrigger_Doukutu.enabled = false;
+                //eventTrigger_Kawabe.enabled = false;
+                //eventTrigger_Kakou.enabled = false;
+                //eventTrigger_Sangaku.enabled = false;
+                //eventTrigger_Forest.enabled = false;
+                //button_Doukutu.enabled = false;
+                //button_Forest.enabled = false;
+                //button_Kaigan.enabled = false;
+                //button_Kakou.enabled = false;
+                //button_Kawabe.enabled = false;
+                //button_Sangaku.enabled = false;
+                buttons[num].GetComponent<Image>().sprite = image_c[num];
+                ;
+                for (int i = 0; i < buttons.Length; i++)
+                {
                     Syupatsu.interactable = true;
 
                     if (i != num)
-                        {
-                            buttons[i].GetComponent<Image>().sprite = image[i];
+                    {
+                        buttons[i].GetComponent<Image>().sprite = image[i];
 
-                        }
+                    }
                     //Syupatsu./*interactable*/ = false;
 
                 }
@@ -196,34 +198,34 @@ public class After_LocationSentaku1 : MonoBehaviour
                 break;
             ////火口選択
             case 4:
-                
-                    Debug.Log(("シーン先は" + num));
-                    num = 4;
-                    Choice_num = num;
-                    //image_Change.restartImage(image_c[num]);
-                    //eventTrigger_Kaigan.enabled = false;
-                    //eventTrigger_Doukutu.enabled = false;
-                    //eventTrigger_Kawabe.enabled = false;
-                    //eventTrigger_Kakou.enabled = false;
-                    //eventTrigger_Sangaku.enabled = false;
-                    //eventTrigger_Forest.enabled = false;
-                    //button_Doukutu.enabled = false;
-                    //button_Forest.enabled = false;
-                    //button_Kaigan.enabled = false;
-                    //button_Kakou.enabled = false;
-                    //button_Kawabe.enabled = false;
-                    //button_Sangaku.enabled = false;
-                    buttons[num].GetComponent<Image>().sprite = image_c[num];
-                    ;
-                    for (int i = 0; i < buttons.Length; i++)
-                    {
+
+                Debug.Log(("シーン先は" + num));
+                num = 4;
+                Choice_num = num;
+                //image_Change.restartImage(image_c[num]);
+                //eventTrigger_Kaigan.enabled = false;
+                //eventTrigger_Doukutu.enabled = false;
+                //eventTrigger_Kawabe.enabled = false;
+                //eventTrigger_Kakou.enabled = false;
+                //eventTrigger_Sangaku.enabled = false;
+                //eventTrigger_Forest.enabled = false;
+                //button_Doukutu.enabled = false;
+                //button_Forest.enabled = false;
+                //button_Kaigan.enabled = false;
+                //button_Kakou.enabled = false;
+                //button_Kawabe.enabled = false;
+                //button_Sangaku.enabled = false;
+                buttons[num].GetComponent<Image>().sprite = image_c[num];
+                ;
+                for (int i = 0; i < buttons.Length; i++)
+                {
                     Syupatsu.interactable = true;
 
                     if (i != num)
-                        {
-                            buttons[i].GetComponent<Image>().sprite = image[i];
+                    {
+                        buttons[i].GetComponent<Image>().sprite = image[i];
 
-                        }
+                    }
                     //Syupatsu.interactable = false;
 
                 }
@@ -231,34 +233,34 @@ public class After_LocationSentaku1 : MonoBehaviour
                 break;
             ////洞窟選択
             case 5:
-               
-                    Debug.Log(("シーン先は" + num));
-                    num = 5;
-                    Choice_num = num;
-                    //image_Change.restartImage(5);
-                    //eventTrigger_Kaigan.enabled = false;
-                    //eventTrigger_Doukutu.enabled = false;
-                    //eventTrigger_Kawabe.enabled = false;
-                    //eventTrigger_Kakou.enabled = false;
-                    //eventTrigger_Sangaku.enabled = false;
-                    //eventTrigger_Forest.enabled = false;
-                    //button_Doukutu.enabled = false;
-                    //button_Forest.enabled = false;
-                    //button_Kaigan.enabled = false;
-                    //button_Kakou.enabled = false;
-                    //button_Kawabe.enabled = false;
-                    //button_Sangaku.enabled = false;
-                    buttons[num].GetComponent<Image>().sprite = image_c[num];
-                    ;
-                    for (int i = 0; i < buttons.Length; i++)
-                    {
+
+                Debug.Log(("シーン先は" + num));
+                num = 5;
+                Choice_num = num;
+                //image_Change.restartImage(5);
+                //eventTrigger_Kaigan.enabled = false;
+                //eventTrigger_Doukutu.enabled = false;
+                //eventTrigger_Kawabe.enabled = false;
+                //eventTrigger_Kakou.enabled = false;
+                //eventTrigger_Sangaku.enabled = false;
+                //eventTrigger_Forest.enabled = false;
+                //button_Doukutu.enabled = false;
+                //button_Forest.enabled = false;
+                //button_Kaigan.enabled = false;
+                //button_Kakou.enabled = false;
+                //button_Kawabe.enabled = false;
+                //button_Sangaku.enabled = false;
+                buttons[num].GetComponent<Image>().sprite = image_c[num];
+                ;
+                for (int i = 0; i < buttons.Length; i++)
+                {
                     Syupatsu.interactable = true;
 
                     if (i != num)
-                        {
-                            buttons[i].GetComponent<Image>().sprite = image[i];
+                    {
+                        buttons[i].GetComponent<Image>().sprite = image[i];
 
-                        }
+                    }
                     //Syupatsu.interactable = false;
 
                 }
@@ -289,7 +291,7 @@ public class After_LocationSentaku1 : MonoBehaviour
         {
             SceneManager.LoadScene(nextScene[Choice_num]);
         }
-        else if (Choice_num == 4) 
+        else if (Choice_num == 4)
         {
             SceneManager.LoadScene(nextScene[Choice_num]);
 

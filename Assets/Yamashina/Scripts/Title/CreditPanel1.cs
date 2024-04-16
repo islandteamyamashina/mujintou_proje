@@ -59,7 +59,7 @@ public class CreditPanel1 : MonoBehaviour
 
     void Start()//Žn‚Ü‚é‚Æ‚«
     {
-        multi.BGMSE();
+        multi.BGM_0();
         multi.BgmLoadSlider();
         multi.SeLoadSlider();
 
