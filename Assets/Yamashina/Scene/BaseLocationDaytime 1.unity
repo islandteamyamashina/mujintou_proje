@@ -3862,6 +3862,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownedMainCanvas: {fileID: 477680805}
+  craftslots: {fileID: 0}
+  discriptions: []
 --- !u!1001 &564379380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6534,7 +6536,7 @@ MonoBehaviour:
   scene:
     m_SceneName: SeasideEvent
   next_base_location:
-    m_SceneName: BaseLocationNight
+    m_SceneName: BaseLocationDaytime 1
 --- !u!4 &964864655
 Transform:
   m_ObjectHideFlags: 0
@@ -8933,10 +8935,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownedMainCanvas: {fileID: 1062633737}
-  fire_value_text: {fileID: 1164252159}
-  AddFireButton: {fileID: 1780757187}
-  MakeFireButton: {fileID: 1318757006}
-  ToCookingButton: {fileID: 1660100354}
+  fire_panels: []
+  main: {fileID: 0}
+  ToMakeFire: {fileID: 0}
+  ToAddFire: {fileID: 0}
+  ToCooking: {fileID: 0}
+  fire_icon_front: {fileID: 0}
+  fire_icon_middle: {fileID: 0}
 --- !u!1 &1404607125
 GameObject:
   m_ObjectHideFlags: 0

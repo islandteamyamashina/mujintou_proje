@@ -17,8 +17,8 @@ public class After_LocationSentaku1 : MonoBehaviour
     [SerializeField] public Button button_Sangaku;
     [SerializeField] public Button button_Kakou;
     [SerializeField] public GameObject[] buttons;
-    [SerializeField] Sprite[] image;
-    [SerializeField] Sprite[] image_c;
+    [SerializeField] public Sprite[] image;
+    [SerializeField] public Sprite[] image_c;
    
     [SerializeField] SceneObject[] nextScene;
 
@@ -29,7 +29,8 @@ public class After_LocationSentaku1 : MonoBehaviour
 
     void Start()
     {
-        
+        PlayerInfo.Instance.gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+
         Syupatsu.interactable = false;
 
       

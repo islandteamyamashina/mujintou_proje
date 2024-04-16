@@ -1265,6 +1265,7 @@ MonoBehaviour:
   bgmSlider: {fileID: 0}
   seSlider: {fileID: 0}
   audioMixer: {fileID: 0}
+  audioVolume: {fileID: 0}
 --- !u!114 &1265888935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5441,6 +5442,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1273170411}
     m_Modifications:
+    - target: {fileID: 1309170168, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: Final_unLocknum
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309170168, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: First_unLocknum
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309170168, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: Second_unLocknum
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7437,7 +7450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a391ce2a062186f45a6c0c2418a84841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fade: {fileID: 1265888936}
+  Title:
+    m_SceneName: 
 --- !u!114 &8300453768890509736 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 773930596441171936, guid: aea71b07048a86f4d88777f5cfa5bf35, type: 3}
