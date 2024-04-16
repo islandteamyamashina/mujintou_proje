@@ -16,7 +16,38 @@ public class CreditPanel1 : MonoBehaviour
     public GameObject OptionPanel;
     public GameObject QuitPanel;
     public GameObject startPanel;
+
+    //パネルアニメーション
+
     public float corrutin;
+    [SerializeField] float StartPanel_X;
+    [SerializeField] float StartPanel_Y;
+    [SerializeField] float StartPanel_Z;
+    [SerializeField] float StartPanel_End_X;
+    [SerializeField] float StartPanel_End_Y;
+    [SerializeField] float StartPanel_End_Z;
+
+    [SerializeField] float OptionPanel_X;
+    [SerializeField] float OptionPanel_Y;
+    [SerializeField] float OptionPanel_Z;
+    [SerializeField] float OptionPanel_End_X;
+    [SerializeField]float OptionPanel_End_Y;
+    [SerializeField] float OptionPanel_End_Z;
+
+    [SerializeField] float CreditPanel_X;
+    [SerializeField]float CreditPanel_Y;
+    [SerializeField] float CreditPanel_Z;
+    [SerializeField] float CreditPanel_End_X;
+    [SerializeField] float CreditPanel_End_Y;
+    [SerializeField] float CreditPanel_End_Z;
+
+    [SerializeField] float QuitPanel_X; 
+    [SerializeField] float QuitPanel_Y; 
+    [SerializeField] float QuitPanel_Z;
+    [SerializeField] float QuitPanel_End_X;
+    [SerializeField]float QuitPanel_End_Y;
+    [SerializeField] float QuitPanel_End_Z;
+
     //ゲームオブジェクトのボタン(Setactive)
     [SerializeField] GameObject startButton;
     [SerializeField] GameObject ContinueButton;
@@ -69,7 +100,7 @@ public class CreditPanel1 : MonoBehaviour
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
         //multi.BGMSE();
-        OptionPanel.SetActive(false);  
+        OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
 
@@ -84,7 +115,7 @@ public class CreditPanel1 : MonoBehaviour
         PlayerInfo.Instance.gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-             
+
 
         //ボタンのイベントトリガー関連
         eventTrigger_start.enabled = true;
@@ -152,7 +183,7 @@ public class CreditPanel1 : MonoBehaviour
         quit.interactable = true;
         Credit.interactable = true;
         option.interactable = true;
-       
+
 
         //ボタンのイベントトリガー関連
         eventTrigger_start.enabled = true;
@@ -160,7 +191,7 @@ public class CreditPanel1 : MonoBehaviour
         eventTrigger_option.enabled = true;
         eventTrigger_Credit.enabled = true;
 
-        
+
 
     }
 
@@ -203,11 +234,11 @@ public class CreditPanel1 : MonoBehaviour
         Credit.interactable = false;
         //option.interactable = false;
 
-        //パネル拡大する前（オプションパネル）
+        //パネル拡大する前（クレジットパネル）
         if (subPanel.activeSelf)
         {
-            subPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            subPanel.transform.localPosition = new Vector3(-173.0f, -71.63499f, 0f);
+            //subPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            subPanel.transform.localPosition = new Vector3(CreditPanel_X, CreditPanel_Y, CreditPanel_Z);
             StartSlidein();
         }
     }
@@ -245,8 +276,8 @@ public class CreditPanel1 : MonoBehaviour
         //パネル拡大する前（オプションパネル）
         if (OptionPanel.activeSelf)
         {
-            OptionPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            OptionPanel.transform.localPosition = new Vector3(-359.6f, 73.53f, 0f);
+            //OptionPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            OptionPanel.transform.localPosition = new Vector3(OptionPanel_X, OptionPanel_Y, OptionPanel_Z);
 
             StartSlidein();
         }
@@ -285,8 +316,8 @@ public class CreditPanel1 : MonoBehaviour
         //パネル拡大する前（終了パネル）
         if (QuitPanel.activeSelf)
         {
-            QuitPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            QuitPanel.transform.localPosition=new Vector3(-313.98f,-54.5f, 0f); 
+            //QuitPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            QuitPanel.transform.localPosition = new Vector3(QuitPanel_X, QuitPanel_Y, QuitPanel_Z);
             StartSlidein();
         }
     }
@@ -323,8 +354,8 @@ public class CreditPanel1 : MonoBehaviour
         //パネル拡大する前（スタートパネル）
         if (startPanel.activeSelf)
         {
-            startPanel.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-            startPanel.transform.localPosition=new Vector3(-286.0f,300, 0f);    
+            //startPanel.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            startPanel.transform.localPosition = new Vector3(StartPanel_X, StartPanel_Y, StartPanel_Z);
             StartSlidein();
         }
     }
@@ -338,7 +369,8 @@ public class CreditPanel1 : MonoBehaviour
     public IEnumerator ChangePaneltoBigSize()
     {
         var size = 0f;
-        var speed = 0.05f;
+        float speed = 1;
+
         var size2 = 0f;
         var size3 = 0f;
         var size4 = 0f;
@@ -348,42 +380,44 @@ public class CreditPanel1 : MonoBehaviour
 
         while (size <= 1.0f && startPanel.activeSelf)
         {
-            startPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(1.5f, 1.5f, 1.5f), size);
-            startPanel.transform.localPosition = Vector3.Lerp(new Vector3(-286.0f, 300, 0f), new Vector3(-152.0f, 258.0f, 0f), size);
-           size += speed;
+            //startPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(1.5f, 1.5f, 1.5f), size);
+
+            startPanel.transform.localPosition = Vector3.Lerp(new Vector3(StartPanel_X, StartPanel_Y, StartPanel_Z), new Vector3(StartPanel_End_X, StartPanel_End_Y, StartPanel_End_Z), size);
+            size += speed * Time.deltaTime;
+            ;
             //startPanel.transform.localPosition =
-            yield return new WaitForSeconds(corrutin);
+            yield return new WaitForSeconds(corrutin /** Time.deltaTime*/);
         }
         //パネル拡大（オプションパネル）
         while (size2 <= 1.0f && OptionPanel.activeSelf)
         {
-            OptionPanel.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), new Vector3(1.0f, 1.0f, 1.0f), size2);
-            OptionPanel.transform.localPosition=Vector3.Lerp(new Vector3(3228.857f, -436.489f, 0f), new Vector3(-218.0f, 147.0f, 0f), size2);
-            size2 += speed;
+            //OptionPanel.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), new Vector3(1.0f, 1.0f, 1.0f), size2);
+            OptionPanel.transform.localPosition = Vector3.Lerp(new Vector3(OptionPanel_X, OptionPanel_Y, OptionPanel_Z), new Vector3(OptionPanel_End_X, OptionPanel_End_Y, OptionPanel_End_Z), size2);
+            size2 += speed * Time.deltaTime;
 
-            yield return new WaitForSeconds(corrutin);
+            yield return new WaitForSeconds(corrutin /** Time.deltaTime*/);
         }
         //パネル拡大（クレジットパネル）
 
         while (size3 <= 1.0f && subPanel.activeSelf)
         {
-            subPanel.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), new Vector3(1.0f, 1.0f, 1.0f), size3);
-            subPanel.transform.localPosition = Vector3.Lerp(new Vector3(-173.0f, -71.63499f, 0f), new Vector3(10f, -178.635f, 0.0f), size3);
-           
+            //subPanel.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), new Vector3(1.0f, 1.0f, 1.0f), size3);
+            subPanel.transform.localPosition = Vector3.Lerp(new Vector3(CreditPanel_X, CreditPanel_Y, CreditPanel_Z), new Vector3(CreditPanel_End_X, CreditPanel_End_Y,CreditPanel_End_Z), size3);
 
 
-            size3 += speed;
 
-            yield return new WaitForSeconds(corrutin);
+            size3 += speed * Time.deltaTime;
+
+            yield return new WaitForSeconds(corrutin /** Time.deltaTime*/);
         }
 
         //パネル拡大（終了パネル）
 
         while (size4 <= 1.0f && QuitPanel.activeSelf)
         {
-            QuitPanel.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), new Vector3(1.0f, 1.0f, 1.0f), size4);
-            QuitPanel.transform.localPosition= Vector3.Lerp(new Vector3(-371.0f, -67.0f,0f),new Vector3(-171.0f,-21.0f, 0f), size4);    
-            size4 += speed;
+            //QuitPanel.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), new Vector3(1.0f, 1.0f, 1.0f), size4);
+            QuitPanel.transform.localPosition = Vector3.Lerp(new Vector3(QuitPanel_X, QuitPanel_Y, QuitPanel_Z), new Vector3(QuitPanel_End_X, QuitPanel_End_Y, QuitPanel_End_Z), size4);
+            size4 += speed * Time.deltaTime;
 
             yield return new WaitForSeconds(corrutin);
         }
@@ -399,7 +433,7 @@ public class CreditPanel1 : MonoBehaviour
     public IEnumerator ChangePaneltoSmallSize()
     {
         var size = 0f;
-        var speed = 0.05f;
+        var speed = 1;
         var size2 = 0f;
         var size3 = 0f;
         var size4 = 0f;
@@ -409,9 +443,9 @@ public class CreditPanel1 : MonoBehaviour
 
         while (size <= 1.0f && startPanel.activeSelf)
         {
-            startPanel.transform.localScale = Vector3.Lerp(new Vector3(1.5f, 1.5f, 1.5f), new Vector3(1.0f, 1.0f, 1.0f), size);
-            startPanel.transform.localPosition = Vector3.Lerp(new Vector3(-152.0f, 258.0f, 0f), new Vector3(-286.0f, 300, 0f), size);
-            size += speed;
+            //startPanel.transform.localScale = Vector3.Lerp(new Vector3(1.5f, 1.5f, 1.5f), new Vector3(1.0f, 1.0f, 1.0f), size);
+            startPanel.transform.localPosition = Vector3.Lerp(new Vector3(StartPanel_End_X, StartPanel_End_Y, StartPanel_End_Z), new Vector3(StartPanel_X, StartPanel_Y, StartPanel_Z), size);
+            size += speed * Time.deltaTime;
             startPanel.SetActive(false);
             yield return new WaitForSeconds(corrutin);
         }
@@ -420,8 +454,10 @@ public class CreditPanel1 : MonoBehaviour
         //パネル縮小（オプションパネル）
         while (size2 <= 1.0f && OptionPanel.activeSelf)
         {
-            OptionPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size2);
-            size2 += speed;
+            //OptionPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size2);
+            OptionPanel.transform.localPosition = Vector3.Lerp(new Vector3(OptionPanel_End_X, OptionPanel_End_Y,OptionPanel_End_Z), new Vector3(OptionPanel_X, OptionPanel_Y, OptionPanel_Z), size2);
+
+            size2 += speed * Time.deltaTime;
 
             yield return new WaitForSeconds(corrutin);
         }
@@ -429,11 +465,11 @@ public class CreditPanel1 : MonoBehaviour
 
         while (size3 <= 1.0f && subPanel.activeSelf)
         {
-            subPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size3);
-            subPanel.transform.localPosition = Vector3.Lerp(new Vector3(10f - 178.635f, 0.0f), new Vector3(-173.0f, -71.63499f, 0f), size3);
-            
+            //subPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size3);
+            subPanel.transform.localPosition = Vector3.Lerp(new Vector3(CreditPanel_End_X,CreditPanel_End_Y, CreditPanel_End_Z), new Vector3(CreditPanel_X, CreditPanel_Y, CreditPanel_Z), size3);
 
-            size3 += speed;
+
+            size3 += speed * Time.deltaTime;
 
 
             yield return new WaitForSeconds(corrutin);
@@ -443,8 +479,11 @@ public class CreditPanel1 : MonoBehaviour
 
         while (size4 <= 1.0f && QuitPanel.activeSelf)
         {
-            QuitPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size4);
-            size4 += speed;
+
+            //QuitPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size4);
+            QuitPanel.transform.localPosition = Vector3.Lerp(new Vector3(QuitPanel_End_X, QuitPanel_End_Y, QuitPanel_End_Z), new Vector3(QuitPanel_X, QuitPanel_Y, QuitPanel_Z), size4);
+
+            size4 += speed * Time.deltaTime;
 
             yield return new WaitForSeconds(corrutin);
         }
