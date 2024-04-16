@@ -77,7 +77,11 @@ public class BaseLocationDaytimeController : MonoBehaviour
     {
         var fade = ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
         fade.Fade(Fading.type.FadeOut);
-        fade.OnFadeEnd.AddListener(() => { SceneManager.LoadScene(next_base_location); });
+        fade.OnFadeEnd.AddListener(() => 
+        {
+            PlayerInfo.Instance.SetWeatherIcon();
+            SceneManager.LoadScene(next_base_location); 
+        });
         
     }
     //BaseLocationDayTime‚ÉƒV[ƒ“‚ğ“ˆê

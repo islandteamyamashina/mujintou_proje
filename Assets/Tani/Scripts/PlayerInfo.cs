@@ -68,6 +68,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] private Fading fade;
     [SerializeField] private SceneObject base_daytime;
     [SerializeField] private SceneObject base_night;
+    [SerializeField] private Image weather_image;
+    [SerializeField] private List<Sprite> SunnyCloudyRainy;
 
 
     private int _player_Health;
@@ -250,7 +252,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
         }
 
-
+        SetWeatherIcon();
     }
 
     
@@ -344,6 +346,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         Water += water_gain;
         Day = (day + 1,true);
         weather = (Weather)((int)Random.Range(0, (int)Weather.Weather_Max));
+        //SetWeatherIcon();
         if(IsPlayerConditionEqualTo(Condition.Hungry) &&
             IsPlayerConditionEqualTo(Condition.Thirsty))
         {
@@ -442,7 +445,10 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(visible);
     }
 
-
+    public void SetWeatherIcon()
+    {
+        weather_image.sprite = SunnyCloudyRainy[(int)weather];
+    }
 
 
     void LoadData()
