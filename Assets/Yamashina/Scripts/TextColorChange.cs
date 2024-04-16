@@ -16,7 +16,7 @@ public class TextColorChange : MonoBehaviour
         Text.color = newColor;
 
     }
-
+  
     public void Text_ColorChange()
     {
         string colorString = "#1B1464"; // ÔF‚Ì16i”•¶š—ñ
@@ -31,4 +31,7 @@ public class TextColorChange : MonoBehaviour
         ColorUtility.TryParseHtmlString(colorString, out newColor); // V‚µ‚­Color‚ğì¬
         Text.color = newColor;
     }
+
+
+  
 }

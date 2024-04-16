@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
+using System;
 
 public class DetailPanel : MonoBehaviour
 {
@@ -15,15 +17,41 @@ public class DetailPanel : MonoBehaviour
     Image icon_image;
     [SerializeField]
     Button Use_Button;
+    [SerializeField]
+    List<Items.Item_ID> foodsForActionValueIncrease;
 
     Items.Item_ID current_id = Items.Item_ID.Item_Max;
-
+    string foodUsageLogForActionValueIncrease_textName = "FoodUsageLog.txt";
+    string fullPath;
+    Dictionary<Items.Item_ID,bool> foodUsageLog = new Dictionary<Items.Item_ID, bool>();
     private void Awake()
     {
-        Use_Button.onClick.AddListener(() => { SlotManager.selectedItem.slotManager.UseSlotItem(SlotManager.selectedItem.index); });
+        fullPath = Application.streamingAssetsPath + "/Saves/" + foodUsageLogForActionValueIncrease_textName;
+        var loaded = LoadFoodUsageLog();
+        foreach (var item in loaded)
+        {
+            
+            foodUsageLog.Add(item.id, item.isUsed);
+        }
+
+        Use_Button.onClick.AddListener(() => 
+        { 
+            SlotManager.selectedItem.slotManager.UseSlotItem(SlotManager.selectedItem.index);
+
+            if (!SlotManager.selectedItem.slotManager) return;
+            var id = SlotManager.selectedItem.slotManager.GetSlotItem(SlotManager.selectedItem.index).Value.id;
+            //Keyにアイテムがなかったらスキップ
+            if (!foodUsageLog.ContainsKey(id)) return;
+            if(  foodUsageLog[id] == false)
+            {
+                PlayerInfo.Instance.MaxActionValue++;
+                foodUsageLog[id] = true;
+
+            }
+        });
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (SlotManager.selectedItem.slotManager)
         {
@@ -74,4 +102,51 @@ public class DetailPanel : MonoBehaviour
     }
 
 
+
+    IEnumerable<(Items.Item_ID id, bool isUsed)> LoadFoodUsageLog()
+    {
+        if (!File.Exists(fullPath)) SaveFoodUsageLog();
+
+        using (StreamReader sr = new StreamReader(fullPath))
+        {
+            while (!sr.EndOfStream)
+            {
+                var line = sr.ReadLine().Split(":");
+                yield return ((Items.Item_ID)(int.Parse(line[0])), bool.Parse(line[1]));
+            }
+        }
+    }
+
+    public void SaveFoodUsageLog()
+    {
+          // ファイルが存在しないとき
+          if (!File.Exists(fullPath))
+          {
+             using (var fs = File.Create(fullPath))
+             using (StreamWriter sw = new StreamWriter(fs))
+             {
+                foreach (Items.Item_ID id in foodsForActionValueIncrease)
+                {
+                    sw.WriteLine(((int)id).ToString() + ":" + "False");
+                }
+             }
+                return;
+            }
+
+        using (var sw = new StreamWriter(fullPath))
+        {
+            foreach (var pair in foodUsageLog)
+            {
+                sw.WriteLine((int)pair.Key + ":" + pair.Value.ToString());
+            }
+        }
+    }
+
+   
+   
+
+    private void OnDestroy()
+    {
+        SaveFoodUsageLog();
+    }
 }

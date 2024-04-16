@@ -6,43 +6,44 @@ using UnityEngine.UI;
 public class FirePanel : PanelBase
 {
     [SerializeField]
-    Text fire_value_text;
-    [SerializeField]
-    Button AddFireButton;
-    [SerializeField]
-    Button MakeFireButton;
-    [SerializeField]
-    Button ToCookingButton;
+    List<GameObject> fire_panels;
 
-    protected override void Start()
-    {
-        SetSortOrder(OrderOfUI.NormalPanel);    
-    }
 
-   
-    protected override void Update()
+    [SerializeField]
+    GameObject main;
+    [SerializeField]
+    Button ToMakeFire;
+    [SerializeField]
+    Button ToAddFire;
+    [SerializeField]
+    Button ToCooking;
+    [SerializeField]
+    Image fire_icon_front;
+    [SerializeField]
+    Image fire_icon_middle;
+
+    private void OnEnable()
     {
-        fire_value_text.text = "焚火値 : " + PlayerInfo.Instance.Fire.ToString();
+        SetFirePanelActivate(0);
+        fire_icon_middle.fillAmount = 0;
         
-        AddFireButton.interactable = PlayerInfo.Instance.Fire != 100 && PlayerInfo.Instance.Fire != 0;
-        MakeFireButton.interactable = PlayerInfo.Instance.Fire == 0 && PlayerInfo.Instance.ActionValue >= 3;
-        ToCookingButton.interactable = PlayerInfo.Instance.Fire != 0;
+    }
+    private void FixedUpdate()
+    {
+        ToMakeFire.gameObject.SetActive(PlayerInfo.Instance.Fire == 0);
+        ToAddFire.gameObject.SetActive(PlayerInfo.Instance.Fire != 0);
+        fire_icon_front.fillAmount = PlayerInfo.Instance.Fire / 100.0f;
+        ToCooking.interactable = PlayerInfo.Instance.Fire != 0;
     }
 
-    public void AddFire()
+    public void SetFirePanelActivate(int index)
     {
-        //枝を一本消費する処理
-        PlayerInfo.Instance.Fire += 10;
+        for (int i = 0; i < fire_panels.Count; i++)
+        {
+            fire_panels[i].SetActive(false);
+        }
+        fire_panels[index].SetActive(true);
     }
 
-    public void MakeFire()
-    {
-        //枝を三本消費する処理
-        var info = PlayerInfo.Instance;
-        info.Health -= 20;
-        info.Thirst -= 10;
-        info.Hunger -= 10;
-        info.Fire = 30;
-        info.ActionValue -= 3;
-    }
+
 }

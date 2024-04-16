@@ -68,6 +68,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] private Fading fade;
     [SerializeField] private SceneObject base_daytime;
     [SerializeField] private SceneObject base_night;
+    [SerializeField] private Image weather_image;
+    [SerializeField] private List<Sprite> SunnyCloudyRainy;
 
 
     private int _player_Health;
@@ -219,8 +221,11 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
 
         Inventry.GetItem(Items.Item_ID.item_mat_coconut,3);
-        Inventry.GetItem(Items.Item_ID.item_mat_magma, 3);       
-        
+        Inventry.GetItem(Items.Item_ID.item_mat_magma, 3);
+        Inventry.GetItem(Items.Item_ID.item_craft_onFireSet, 1);
+        Inventry.GetItem(Items.Item_ID.item_special_lighter, 1);
+        Inventry.GetItem(Items.Item_ID.item_mat_branch, 5);
+
     }
 
     protected override void Awake()
@@ -237,7 +242,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     private void Start()
     {
-        StartGame(true);
+        StartGame(false);
 
         cursor_textures = new List<Texture2D>();
         foreach (var n in textureDatas)
@@ -247,7 +252,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
         }
 
-
+        SetWeatherIcon();
     }
 
     
@@ -341,6 +346,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         Water += water_gain;
         Day = (day + 1,true);
         weather = (Weather)((int)Random.Range(0, (int)Weather.Weather_Max));
+        //SetWeatherIcon();
         if(IsPlayerConditionEqualTo(Condition.Hungry) &&
             IsPlayerConditionEqualTo(Condition.Thirsty))
         {
@@ -439,7 +445,10 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(visible);
     }
 
-
+    public void SetWeatherIcon()
+    {
+        weather_image.sprite = SunnyCloudyRainy[(int)weather];
+    }
 
 
     void LoadData()

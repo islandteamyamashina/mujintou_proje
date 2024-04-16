@@ -141,7 +141,7 @@ public class EventPanelBase : MonoBehaviour
 
             }
 
-            print($"PLayerAction :{PlayerInfo.Instance.ActionValue  },required: {data.results[i].required_action_value}");
+          
             buttons.transform.GetChild(i).GetComponent<Button>().interactable =
                     PlayerInfo.Instance.ActionValue >= data.results[i].required_action_value;
         }

@@ -327,7 +327,12 @@ public class SlotManager : MonoBehaviour
 
     public bool CanSlotOverlapItem(int slot_index,Items.Item_ID id,int num)
     {
+        if (id == Items.Item_ID.EmptyObject) return false;
         if(item_list[slot_index].id != id)
+        {
+            return false;
+        }
+        if(num + GetSlotItem(slot_index).Value.amount > GetItemData(id).overlap_num)
         {
             return false;
         }
