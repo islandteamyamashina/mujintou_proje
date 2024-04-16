@@ -11,6 +11,7 @@ public class LockSystem : MonoBehaviour
     Sprite[] image_Lock;
     public int First_unLocknum;
     public int Second_unLocknum;
+    public int Third_unLocknum;
     public int Final_unLocknum;
     private void Start()
     {

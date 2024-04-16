@@ -3872,6 +3872,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1823886147}
     m_Modifications:
+    - target: {fileID: 4452925513885076490, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
+      propertyPath: nextScene.Array.data[0].m_SceneName
+      value: SeasideEvent_1
+      objectReference: {fileID: 0}
     - target: {fileID: 6779975993702508085, guid: fb0e0dcfcea39fc4898de2a2517f273e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5818,7 +5822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &892628356
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6534,9 +6538,9 @@ MonoBehaviour:
   - {fileID: 1566722257}
   - {fileID: 564245493}
   scene:
-    m_SceneName: SeasideEvent
+    m_SceneName: SeasideEvent_1
   next_base_location:
-    m_SceneName: BaseLocationDaytime 1
+    m_SceneName: BaseLocationNight 1
 --- !u!4 &964864655
 Transform:
   m_ObjectHideFlags: 0
@@ -12256,8 +12260,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 323903446}
   - {fileID: 892628356}
+  - {fileID: 323903446}
   - {fileID: 73163522}
   - {fileID: 1388414954}
   - {fileID: 941092436}
