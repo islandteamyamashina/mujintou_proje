@@ -441,7 +441,7 @@ public class SlotManager : MonoBehaviour
                     ChangeSlotItemAmount(item_list[i].amount + num, i);
                     if (visualize)
                     {
-                        PlayerInfo.Instance.ItemViewVisualize(id, num);
+                        //PlayerInfo.Instance.ItemViewVisualize(id, num);
                     }
                     return true;
                 }
@@ -454,7 +454,7 @@ public class SlotManager : MonoBehaviour
             SetItemToSlot(id, num, slot.Slot_index);
             if (visualize)
             {
-                PlayerInfo.Instance.ItemViewVisualize(id, num);
+               // PlayerInfo.Instance.ItemViewVisualize(id, num);
             }
             return true;
         }else
