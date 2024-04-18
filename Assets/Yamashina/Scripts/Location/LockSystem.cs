@@ -38,6 +38,10 @@ public class LockSystem : MonoBehaviour
 
 
         }
+        else if (PlayerInfo.Instance.ActionValue < First_unLocknum) {
+            after_.button_Kawabe.interactable = false;
+            after_.buttons[2].GetComponent<Image>().sprite = image_Lock[0];
+        }
         else if (PlayerInfo.Instance.ActionValue >= Second_unLocknum)
         {
 
