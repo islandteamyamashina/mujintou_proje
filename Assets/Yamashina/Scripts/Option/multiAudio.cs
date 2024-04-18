@@ -9,20 +9,37 @@ using UnityEngine.UI;
 public class multiAudio : MonoBehaviour
 {
 
-    [SerializeField] private Slider bgmSlider;//BGMスライダー
+    
+[SerializeField] private Slider bgmSlider;//BGMスライダー
     [SerializeField] private Slider seSlider;//SEスライダー
     [SerializeField] AudioMixer audioMixer;
-    [SerializeField]Audiovolume audioVolume;
+    [SerializeField] Audiovolume audioVolume;
+    public RectTransform fillRectTransform_BGM;
+    public RectTransform fillRectTransform_SE;
+    public float fixedWidth = 100f;
+    public float fixedHeight = 50f;
+
     void Start()
-
-    {//起動時にロードする
-      
-       
-
+    {
+        // 幅と高さを固定値に設定する
+        SetFixedSize();
     }
+
+    // 幅と高さを固定値に設定するメソッド
+    void SetFixedSize()
+    {
+        // 幅と高さを設定する
+        fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, fixedWidth);
+        fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fixedHeight);
+        fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, fixedWidth);
+        fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fixedHeight);
+    }
+
     public void BgmVolume()
     {
         float a = bgmSlider.value;
+        bgmSlider.fillRect = fillRectTransform_BGM;
+
         Audiovolume.instance.SetBgmVolume(a);
         audioMixer.SetFloat("BGM", ConvertVolumeToDb(bgmSlider.value));
 
@@ -33,9 +50,9 @@ public class multiAudio : MonoBehaviour
     public void SeVolume()
     {
         float b = seSlider.value;
+        seSlider.fillRect = fillRectTransform_SE;
         Audiovolume.instance.SetSeVolume(b);
         audioMixer.SetFloat("SE", ConvertVolumeToDb(seSlider.value));
-
         //セーブ
         SeSave();
 
@@ -97,8 +114,8 @@ public class multiAudio : MonoBehaviour
         audioVolume.audioClipSE = GameObject.FindWithTag("SoundControler").GetComponent<Audiovolume>().audioClipSE;
 
         GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(Audiovolume.instance.audioClipSE[2]);
-    
-}
+
+    }
     public void BGM_0()
     {
         GameObject.FindWithTag("BGM").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipsBGM[0];
@@ -108,7 +125,7 @@ public class multiAudio : MonoBehaviour
     }
     public void BGM_1()
     {
-        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().clip= Audiovolume.instance.audioClipsBGM[1];
+        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipsBGM[1];
         audioVolume.audioClipsBGM = GameObject.FindWithTag("SoundControler").GetComponent<Audiovolume>().audioClipsBGM;
         GameObject.FindWithTag("BGM").GetComponent<AudioSource>().Play();
     }

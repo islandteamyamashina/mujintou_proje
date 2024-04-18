@@ -76,7 +76,7 @@ public class LoadScene : MonoBehaviour
         fade.feadout_f = true;
         if (fade.feadout_f == false)
         {
-            PlayerInfo.Instance.gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            //PlayerInfo.Instance.gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
 
         }
 
@@ -108,7 +108,7 @@ public class LoadScene : MonoBehaviour
             fade.feadout_f = true;
             if (fade.feadout_f == false)
             {
-                PlayerInfo.Instance.gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+                //PlayerInfo.Instance.gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
 
             }
 
