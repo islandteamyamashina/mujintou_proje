@@ -8,7 +8,12 @@ public class RestPanel : PanelBase
     [SerializeField]
     Button rest_button;
     [SerializeField]
-    bool isDayTime = true;
+    int health_change = 30;
+    [SerializeField]
+    int hunger_change = -30;
+    [SerializeField]
+    int thirst_change = -30;
+
     protected override void Start()
     {
 
@@ -24,21 +29,23 @@ public class RestPanel : PanelBase
 
     void Rest()
     {
+        Fading fading = (Fading)GameObject.FindAnyObjectByType(typeof(Fading));
+        if (!fading) return;
+        fading.Fade(Fading.type.FadeOut);
+        fading.OnFadeEnd.AddListener(() =>
+        {
+            var info = PlayerInfo.Instance;
+            info.Health += health_change;
+            info.Hunger += hunger_change;
+            info.Thirst += thirst_change;
+            info.ActionValue += Mathf.CeilToInt(info.MaxActionValue / 2.0f);
+            info.DoAction();
+            info.SavePalyerData();
+            BaseLocationDaytimeController controller = (BaseLocationDaytimeController)GameObject.FindAnyObjectByType(typeof(BaseLocationDaytimeController));
+            controller.ChangeBaseLocation();
+        });
 
-        PlayerInfo.Instance.DoAction();
-        PlayerInfo.Instance.Health += 30;
-        PlayerInfo.Instance.Hunger -= 30;
-        PlayerInfo.Instance.Thirst -= 40;
-        PlayerInfo.Instance.ActionValue = PlayerInfo.Instance.MaxActionValue;
-        if (isDayTime)
-        {
-            GameObject.FindWithTag("GameController").GetComponent<BaseLocationDaytimeController>().ChangeBaseLocation();
-        }
-        else
-        {
-            GameObject.FindWithTag("GameController").GetComponent<BaseLocationNightController>().ChangeBaseLocation();
-            PlayerInfo.Instance.SavePalyerData();
-        }
+        
         
     }
 
