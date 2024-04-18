@@ -13,39 +13,44 @@ public class WaterPanel : PanelBase
     Button DrinkButton;
     [SerializeField]
     Button PourButton;
+    [SerializeField]
+    int waterAmountPerOnce = 10;
 
-
+    PlayerInfo info;
     // Start is called before the first frame update
     protected override void Start()
     {
-
+        info = PlayerInfo.Instance;
         SetSortOrder(OrderOfUI.NormalPanel);
         DrinkButton.onClick.AddListener(DrinkWater);
         PourButton.onClick.AddListener(PourWater);
         
     }
 
-    // Update is called once per frame
+    
     protected override void Update()
     {
-        water_value_text.text = "à˘óøíl : " + PlayerInfo.Instance.Thirst.ToString() ;
-        spring_water_text.text = "óNÇ´êÖ : " + PlayerInfo.Instance.Water.ToString();
+        int prev = info.Thirst;
+        water_value_text.text = $"<b>{prev}%  >>  {Mathf.Clamp(prev + waterAmountPerOnce, 0, 100)}</b>";
+        spring_water_text.text = $"íôêÖ : {info.Water}";
+
         PourButton.interactable = PlayerInfo.Instance.Water >= 30 &&
                                     PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_bottle) >= 1;
+        DrinkButton.interactable = info.Water >= waterAmountPerOnce;
     }
 
     void DrinkWater()
     {
-        var info = PlayerInfo.Instance;
-        if(info.Thirst + info.Water >= 100)
+
+        if(info.Thirst + waterAmountPerOnce >= 100)
         {
-            info.Water -= 100 - info.Thirst;
+            info.Water -= 100 - waterAmountPerOnce;
             info.Thirst = 100;
         }
         else
         {
-            info.Thirst += info.Water;
-            info.Water = 0;
+            info.Thirst += waterAmountPerOnce;
+            info.Water -= waterAmountPerOnce;
         }
     }
 

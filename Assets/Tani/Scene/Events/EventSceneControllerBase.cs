@@ -22,6 +22,9 @@ public class EventSceneControllerBase : MonoBehaviour
     SceneObject trueEnd;
     [SerializeField]
     SceneObject badEnd;
+    [SerializeField]
+    SceneObject volcanoEvent;
+
 
     private void Awake()
     {
@@ -80,6 +83,13 @@ public class EventSceneControllerBase : MonoBehaviour
         fading.OnFadeEnd.AddListener(() => { SceneManager.LoadScene(badEnd); });
     }
 
+    public void GoVolcano()
+    {
+       
+        fading.Fade(Fading.type.FadeOut);
+        fading.OnFadeEnd.AddListener(() => { SceneManager.LoadScene(volcanoEvent); });
+        
+    }
 
 
 }
