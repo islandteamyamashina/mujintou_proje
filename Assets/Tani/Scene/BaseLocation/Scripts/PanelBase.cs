@@ -53,5 +53,6 @@ public class PanelBase : MonoBehaviour
         Inventry,
         PlayerStatus,
         Option,
+        CraftPanel = 7,
     }
 }

@@ -222,6 +222,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         Inventry.GetItem(Items.Item_ID.item_mat_magma, 3);
         Inventry.GetItem(Items.Item_ID.item_craft_onFireSet, 1);
         Inventry.GetItem(Items.Item_ID.item_special_lighter, 1);
+        Inventry.GetItem((Items.Item_ID)34, 1);
         Inventry.GetItem(Items.Item_ID.item_mat_branch, 5,true);
 
        

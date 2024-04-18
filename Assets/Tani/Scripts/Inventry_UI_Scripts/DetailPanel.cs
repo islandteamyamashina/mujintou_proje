@@ -38,15 +38,25 @@ public class DetailPanel : MonoBehaviour
         { 
             SlotManager.selectedItem.slotManager.UseSlotItem(SlotManager.selectedItem.index);
 
-            if (!SlotManager.selectedItem.slotManager) return;
+            if (!SlotManager.selectedItem.slotManager)
+            {
+                print("なし"); return;
+            }
             var id = SlotManager.selectedItem.slotManager.GetSlotItem(SlotManager.selectedItem.index).Value.id;
+            print($"id : {id}");
             //Keyにアイテムがなかったらスキップ
-            if (!foodUsageLog.ContainsKey(id)) return;
+            if (!foodUsageLog.ContainsKey(id)) {return; }
             if(  foodUsageLog[id] == false)
             {
                 PlayerInfo.Instance.MaxActionValue++;
+                PlayerInfo.Instance.MaxActionValue++;
                 foodUsageLog[id] = true;
+                
+            }
 
+            foreach (var item in foodUsageLog)
+            {
+                print( item.Key+ ":"+ item.Value);
             }
         });
     }
