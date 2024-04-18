@@ -19,7 +19,6 @@ public class After_LocationSentaku1 : MonoBehaviour
     [SerializeField] public GameObject[] buttons;
     [SerializeField] public Sprite[] image;
     [SerializeField] public Sprite[] image_c;
-    [SerializeField] LockSystem lockSystem;
    
     [SerializeField] SceneObject[] nextScene;
 
@@ -67,10 +66,12 @@ public class After_LocationSentaku1 : MonoBehaviour
                 {
                     Syupatsu.interactable = true;
 
-                    if (i != num && PlayerInfo.Instance.ActionValue >= lockSystem.First_unLocknum)
+                    if (i != num)
+
                     {
                         buttons[i].GetComponent<Image>().sprite = image[i];
                     }
+
                     //Syupatsu.interactable = false;
 
                     //image_Change.restartImage(0);
@@ -105,7 +106,7 @@ public class After_LocationSentaku1 : MonoBehaviour
                 {
                     Syupatsu.interactable = true;
 
-                    if (i != num && PlayerInfo.Instance.ActionValue >= lockSystem.First_unLocknum)
+                    if (i != num)
                     {
                         buttons[i].GetComponent<Image>().sprite = image[i];
                     }
@@ -153,7 +154,7 @@ public class After_LocationSentaku1 : MonoBehaviour
                 {
                     Syupatsu.interactable = true;
 
-                    if (i != num && PlayerInfo.Instance.ActionValue >= lockSystem.First_unLocknum)
+                    if (i != num)
                     {
                         buttons[i].GetComponent<Image>().sprite = image[i];
 
@@ -188,7 +189,7 @@ public class After_LocationSentaku1 : MonoBehaviour
                 {
                     Syupatsu.interactable = true;
 
-                    if (i != num && PlayerInfo.Instance.ActionValue >= lockSystem.First_unLocknum)
+                    if (i != num)
                     {
                         buttons[i].GetComponent<Image>().sprite = image[i];
 
@@ -224,7 +225,7 @@ public class After_LocationSentaku1 : MonoBehaviour
                 {
                     Syupatsu.interactable = true;
 
-                    if (i != num && PlayerInfo.Instance.ActionValue >= lockSystem.First_unLocknum)
+                    if (i != num )
                     {
                         buttons[i].GetComponent<Image>().sprite = image[i];
 
@@ -259,7 +260,7 @@ public class After_LocationSentaku1 : MonoBehaviour
                 {
                     Syupatsu.interactable = true;
 
-                    if (i != num && PlayerInfo.Instance.ActionValue >= lockSystem.First_unLocknum)
+                    if (i != num)
                     {
                         buttons[i].GetComponent<Image>().sprite = image[i];
 

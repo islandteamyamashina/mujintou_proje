@@ -25,6 +25,10 @@ public class LockSystem : MonoBehaviour
         after_.buttons[3].GetComponent<Image>().sprite = image_Lock[0];
         after_.buttons[4].GetComponent<Image>().sprite = image_Lock[1];
         after_.buttons[5].GetComponent<Image>().sprite = image_Lock[2];
+    }
+
+    private void Update()
+    {
         Lock();
     }
 
@@ -33,6 +37,7 @@ public class LockSystem : MonoBehaviour
     {
         if (PlayerInfo.Instance.ActionValue >= First_unLocknum)
         {
+            Debug.Log(PlayerInfo.Instance.ActionValue >= First_unLocknum);
             after_.button_Kawabe.interactable = true;
             after_.buttons[2].GetComponent<Image>().sprite = after_.image[2];
 
