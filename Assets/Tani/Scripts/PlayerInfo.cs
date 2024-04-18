@@ -81,7 +81,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     private int fire_value = 0;
     private int day = 2;
     private List<Texture2D> cursor_textures;
-    private List<Coroutine> coroutines;
+    private List<Coroutine> coroutines = new List<Coroutine>();
 
     [SerializeField] private int first_item = 0;
 
@@ -224,6 +224,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         Inventry.GetItem(Items.Item_ID.item_special_lighter, 1);
         Inventry.GetItem(Items.Item_ID.item_mat_branch, 5,true);
 
+       
+        
     }
 
     protected override void Awake()
@@ -465,19 +467,27 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     IEnumerator MoveImage()
     {
-        yield return null;
         print($"リストのなかは{coroutines.Count}個");
+        if(coroutines.Count > 0)
+        {
+            StopCoroutine(coroutines[coroutines.Count - 1]);
+        }
         yield return null;
+
+        print(Time.time);
+        yield return new WaitForSeconds(1);
+        coroutines.RemoveAt(0);
+       
     }
     public void ItemViewVisualize(Items.Item_ID id, int num)
     {
-        print(MoveImage());
+
         coroutines.Add(StartCoroutine(MoveImage()));
 
 
-        
+
     }
-    
+
     void LoadData()
     {
         SaveData data = DataManager.Instance.Load();
