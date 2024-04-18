@@ -12,6 +12,12 @@ public class LoadScene_afterTitle : MonoBehaviour
     {
 
         SceneManager.LoadScene(Title);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        PlayerInfo.Instance.SwitchUIVisibility(); ;
     }
 }
 

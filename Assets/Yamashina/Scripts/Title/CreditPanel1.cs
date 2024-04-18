@@ -98,7 +98,7 @@ public class CreditPanel1 : MonoBehaviour
         CreditButton.SetActive(true);
 
         //シングルトン
-        PlayerInfo.Instance.gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        PlayerInfo.Instance.SwitchUIVisibility();
         SceneManager.sceneLoaded += OnSceneLoaded;
 
 
@@ -119,7 +119,7 @@ public class CreditPanel1 : MonoBehaviour
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        PlayerInfo.Instance.gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+        PlayerInfo.Instance.SwitchUIVisibility(); ;
     }
     public virtual void MainView()//メイン画面のみ表示
     {
