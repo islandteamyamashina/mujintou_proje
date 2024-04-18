@@ -34,7 +34,9 @@ public class LockSystem : MonoBehaviour
 
 
     void Lock()
+        
     {
+        //ì•Ó
         if (PlayerInfo.Instance.ActionValue >= First_unLocknum)
         {
             Debug.Log(PlayerInfo.Instance.ActionValue >= First_unLocknum);
@@ -48,6 +50,7 @@ public class LockSystem : MonoBehaviour
             after_.button_Kawabe.interactable = false;
             after_.buttons[2].GetComponent<Image>().sprite = image_Lock[0];
         }
+        //ŽRŠx
         if (PlayerInfo.Instance.ActionValue >= Second_unLocknum)
         {
 
@@ -62,6 +65,7 @@ public class LockSystem : MonoBehaviour
             after_.button_Sangaku.interactable = false;
             after_.buttons[3].GetComponent<Image>().sprite = image_Lock[0];
         }
+        //‰ÎŒû
         if (PlayerInfo.Instance.ActionValue >= Third_unLocknum)
         {
             after_.button_Kakou.interactable = true;
@@ -77,6 +81,7 @@ public class LockSystem : MonoBehaviour
 
             after_.buttons[4].GetComponent<Image>().sprite = image_Lock[1];
         }
+        //“´ŒA
         if (PlayerInfo.Instance.ActionValue >= Final_unLocknum)
         {
             after_.button_Doukutu.interactable = true;
