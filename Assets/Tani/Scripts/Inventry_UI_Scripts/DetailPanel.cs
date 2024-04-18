@@ -49,7 +49,6 @@ public class DetailPanel : MonoBehaviour
             if(  foodUsageLog[id] == false)
             {
                 PlayerInfo.Instance.MaxActionValue++;
-                PlayerInfo.Instance.MaxActionValue++;
                 foodUsageLog[id] = true;
                 
             }
