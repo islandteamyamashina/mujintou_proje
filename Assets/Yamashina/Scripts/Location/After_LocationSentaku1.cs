@@ -30,7 +30,6 @@ public class After_LocationSentaku1 : MonoBehaviour
 
     void Start()
     {
-        PlayerInfo.Instance.gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
 
         Syupatsu.interactable = false;
 
