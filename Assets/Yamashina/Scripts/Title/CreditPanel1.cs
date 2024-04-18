@@ -16,6 +16,8 @@ public class CreditPanel1 : MonoBehaviour
     public GameObject OptionPanel;
     public GameObject QuitPanel;
     public GameObject startPanel;
+    [SerializeField] float speed = 1;
+
 
     //パネルアニメーション
 
@@ -71,22 +73,6 @@ public class CreditPanel1 : MonoBehaviour
     public Button Credit;
     public Button option;
 
-    private void Awake()
-    {
-
-
-        //if(GameObject.FindAnyObjectByType<CreditPanel1>() == null) 
-        //{
-        //    Debug.Log("credit  is null");
-        //}
-        //else
-        //{
-        //    Debug.Log("credit is not null");
-
-        //}
-
-        //if(GameObject.FindWithTag()
-    }
 
     void Start()//始まるとき
     {
@@ -369,7 +355,6 @@ public class CreditPanel1 : MonoBehaviour
     public IEnumerator ChangePaneltoBigSize()
     {
         var size = 0f;
-        float speed = 1;
 
         var size2 = 0f;
         var size3 = 0f;
@@ -433,7 +418,6 @@ public class CreditPanel1 : MonoBehaviour
     public IEnumerator ChangePaneltoSmallSize()
     {
         var size = 0f;
-        var speed = 1;
         var size2 = 0f;
         var size3 = 0f;
         var size4 = 0f;
@@ -446,7 +430,6 @@ public class CreditPanel1 : MonoBehaviour
             //startPanel.transform.localScale = Vector3.Lerp(new Vector3(1.5f, 1.5f, 1.5f), new Vector3(1.0f, 1.0f, 1.0f), size);
             startPanel.transform.localPosition = Vector3.Lerp(new Vector3(StartPanel_End_X, StartPanel_End_Y, StartPanel_End_Z), new Vector3(StartPanel_X, StartPanel_Y, StartPanel_Z), size);
             size += speed * Time.deltaTime;
-            startPanel.SetActive(false);
             yield return new WaitForSeconds(corrutin);
         }
         Debug.Log("通った");
