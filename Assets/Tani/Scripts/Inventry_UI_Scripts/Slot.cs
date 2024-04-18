@@ -160,6 +160,6 @@ public class Slot : MonoBehaviour,ISelectHandler,IDeselectHandler
         if (Affiliation.GetSlotItem(Slot_index).Value.id != Items.Item_ID.EmptyObject)
             SlotManager.selectedItem = (Affiliation, Slot_index);
         else
-            SlotManager.selectedItem = (null, 0);
+            SlotManager.selectedItem = (Affiliation, 0);
     }
 }

@@ -12,7 +12,7 @@ public class ActionValueController : MonoBehaviour
     [SerializeField]
     Sprite EmptyImage;
     [SerializeField]
-    int margin_width = 50;
+    int margin_width = 35;
 
 
     List<Image> ActionValueImageRefs = new List<Image>();
