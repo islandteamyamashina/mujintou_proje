@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050302beb80aafa4a81bafe0a4641693, type: 3}
+  m_Name: 6009
+  m_EditorClassIdentifier: 
+  event_title: "\u596A\u53D6\u4F5C\u6226"
+  scene_id: 6009
+  event_view_sprite: {fileID: 21300000, guid: d75c3f60602377349b40846d120a66e6, type: 3}
+  probability: 1
+  main_text: "\u3053\u3093\u306A\u3068\u3053\u308D\u306B\u9CE5\u306E\u5DE3\u304C\u3042\u308B\u3002
+    \u304A\u305D\u3089\u304F\u3055\u3063\u304D\u304B\u3089\u4E0A\u7A7A\u3092\u65CB\u56DE\u3057\u3066\u3044\u308B\u30BF\u30AB\u306E\u7269\u3060\u308D\u3046\u3002
+    \u5375\u3082\u898B\u3048\u3066\u3044\u308B\u304C\u3069\u3046\u3057\u3088\u3046\uFF1F"
+  callBackType: 0
+  buttons_prefab: {fileID: 7029110843412465754, guid: 1a7a3f4c89508f245a788d0a5c91aa94, type: 3}
+  results:
+  - choise_text: "\u3086\u3063\u304F\u308A\u3068\u8FD1\u3065\u3044\u3066\u53D6\u308B"
+    Gain_Items: []
+    result_text: "\u3086\u3063\u304F\u308A\u3068\u6C17\u3065\u304B\u308C\u306A\u3044\u3088\u3046\u306B\u5DE3\u3078\u8FD1\u3065\u304F\u3002
+      \u3057\u304B\u3057\u3053\u3061\u3089\u306E\u52D5\u304D\u3092\u5BDF\u77E5\u3057\u305F\u306E\u304B\u3001\u30BF\u30AB\u306F\u6025\u964D\u4E0B\u3092\u59CB\u3081\u305F\uFF01
+      \u75DB\u3044\uFF01\uFF01 \u8155\u306B\u722A\u304C\u98DF\u3044\u8FBC\u307F\u3001\u3072\u3069\u3044\u88C2\u50B7\u3092\u8CA0\u3063\u3066\u3057\u307E\u3063\u305F\u2026\u3002"
+    health_change_min: -32
+    health_change_max: -28
+    hunger_change_min: -7
+    hunger_change_max: -3
+    thirst_change_min: -9
+    thirst_change_max: -6
+    required_action_value: 1
+  - choise_text: "\u56EE\u3092\u4F7F\u3046 <color=#B53D3D>\uFF08\u713C\u304D\u9CE5\u304C\u5FC5\u8981\uFF09</color>"
+    Gain_Items:
+    - id: 30
+      probability: 1
+      range_min: 1
+      range_max: 2
+    result_text: "\u30AB\u30D0\u30F3\u306E\u4E2D\u306B\u3042\u3063\u305F\u713C\u304D\u9CE5\u3092\u6295\u3052\u308B\u3068\u3001\u5974\u306F\u305D\u308C\u3092\u898B\u9003\u3055\u305A\u3001\u964D\u4E0B\u3092\u59CB\u3081\u305F\u3002
+      \u305D\u306E\u9699\u306B\u5DE3\u3078\u8D70\u308A\u3001\u5375\u3092\u596A\u3046\u3053\u3068\u304C\u3067\u304D\u305F\u3002
+      \u8089\u3092\u5931\u3063\u305F\u304C\u53CE\u7A6B\u306F\u5927\u304D\u3044\u3002"
+    health_change_min: 0
+    health_change_max: 0
+    hunger_change_min: -7
+    hunger_change_max: -3
+    thirst_change_min: -8
+    thirst_change_max: -4
+    required_action_value: 1
+  - choise_text: "\u7121\u8996\u3059\u308B"
+    Gain_Items: []
+    result_text: "\u305D\u306E\u5834\u3092\u7ACB\u3061\u53BB\u3063\u305F\u3002"
+    health_change_min: 0
+    health_change_max: 0
+    hunger_change_min: -7
+    hunger_change_max: -4
+    thirst_change_min: -8
+    thirst_change_max: -5
+    required_action_value: 1

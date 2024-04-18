@@ -10,7 +10,7 @@ public class Button_poispn : MonoBehaviour
     void Start()
     {
         button = GetComponent<Button>();
-        //クリック後ボトル-1、指定％で毒状態
+        //指定％で毒状態
         bool poison = Random.value <= poisonProbability;
         if(poison)
         {
