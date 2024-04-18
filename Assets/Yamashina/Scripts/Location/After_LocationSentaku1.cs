@@ -19,6 +19,7 @@ public class After_LocationSentaku1 : MonoBehaviour
     [SerializeField] public GameObject[] buttons;
     [SerializeField] public Sprite[] image;
     [SerializeField] public Sprite[] image_c;
+    [SerializeField] public Fading fading;
    
     [SerializeField] SceneObject[] nextScene;
 
@@ -278,40 +279,44 @@ public class After_LocationSentaku1 : MonoBehaviour
     {
         if (Choice_num == 0)
         {
-            SceneManager.LoadScene(nextScene[Choice_num]);
+            fading.Fade(Fading.type.FadeOut);
+            fading.OnFadeEnd.AddListener(() =>SceneManager.LoadScene(nextScene[Choice_num]));
 
         }
         else if (Choice_num == 1)
         {
-            SceneManager.LoadScene(nextScene[Choice_num]);
 
+            fading.Fade(Fading.type.FadeOut);
+            fading.OnFadeEnd.AddListener(() => SceneManager.LoadScene(nextScene[Choice_num]));
         }
         else if (Choice_num == 2)
         {
-            SceneManager.LoadScene(nextScene[Choice_num]);
 
+            fading.Fade(Fading.type.FadeOut);
+            fading.OnFadeEnd.AddListener(() => SceneManager.LoadScene(nextScene[Choice_num]));
         }
         else if (Choice_num == 3)
         {
-            SceneManager.LoadScene(nextScene[Choice_num]);
+
+            fading.Fade(Fading.type.FadeOut);
+            fading.OnFadeEnd.AddListener(() => SceneManager.LoadScene(nextScene[Choice_num]));
         }
         else if (Choice_num == 4)
         {
-            SceneManager.LoadScene(nextScene[Choice_num]);
 
+            fading.Fade(Fading.type.FadeOut);
+            fading.OnFadeEnd.AddListener(() => SceneManager.LoadScene(nextScene[Choice_num]));
         }
         else if (Choice_num == 5)
         {
-            SceneManager.LoadScene(nextScene[Choice_num]);
+
+            fading.Fade(Fading.type.FadeOut);
+            fading.OnFadeEnd.AddListener(() => SceneManager.LoadScene(nextScene[Choice_num]));
         }
 
 
     }
-    public void Cancell()
-    {
-        Panel.SetActive(false);
-    }
-
+  
 
 
 }
