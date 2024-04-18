@@ -8,7 +8,7 @@ using UnityEditor;
 
 public class Inventry : SlotManager
 {
-    int selected_slot_index = 0;
+        
 
 
 }

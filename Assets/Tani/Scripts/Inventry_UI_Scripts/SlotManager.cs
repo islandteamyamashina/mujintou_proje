@@ -428,7 +428,7 @@ public class SlotManager : MonoBehaviour
     /// <summary>
     /// Add item to slot if there is empty slot
     /// </summary>
-    public bool GetItem(Items.Item_ID id,int num)
+    public  bool GetItem(Items.Item_ID id,int num,bool visualize = false)
     {
         if (num == 0) return true;
         
@@ -439,6 +439,10 @@ public class SlotManager : MonoBehaviour
                 if (CanSlotOverlapItem(i, id, num))
                 {
                     ChangeSlotItemAmount(item_list[i].amount + num, i);
+                    if (visualize)
+                    {
+                        PlayerInfo.Instance.ItemViewVisualize(id, num);
+                    }
                     return true;
                 }
             }
@@ -448,12 +452,18 @@ public class SlotManager : MonoBehaviour
         if (slot)
         {
             SetItemToSlot(id, num, slot.Slot_index);
+            if (visualize)
+            {
+                PlayerInfo.Instance.ItemViewVisualize(id, num);
+            }
             return true;
         }else
         {
             return false;
         }
     }
+
+    
 
     /// <summary>
     /// return item amount in slots

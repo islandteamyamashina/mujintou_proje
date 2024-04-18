@@ -65,9 +65,6 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] private Text action_value_text;
     [SerializeField] private List<TextureData> textureDatas;
     [SerializeField] private SlotManager inventry;
-    [SerializeField] private Fading fade;
-    [SerializeField] private SceneObject base_daytime;
-    [SerializeField] private SceneObject base_night;
     [SerializeField] private Image weather_image;
     [SerializeField] private List<Sprite> SunnyCloudyRainy;
 
@@ -84,6 +81,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     private int fire_value = 0;
     private int day = 2;
     private List<Texture2D> cursor_textures;
+    private List<Coroutine> coroutines;
 
     [SerializeField] private int first_item = 0;
 
@@ -224,7 +222,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         Inventry.GetItem(Items.Item_ID.item_mat_magma, 3);
         Inventry.GetItem(Items.Item_ID.item_craft_onFireSet, 1);
         Inventry.GetItem(Items.Item_ID.item_special_lighter, 1);
-        Inventry.GetItem(Items.Item_ID.item_mat_branch, 5);
+        Inventry.GetItem(Items.Item_ID.item_mat_branch, 5,true);
 
     }
 
@@ -347,8 +345,11 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         Day = (day + 1,true);
         weather = (Weather)((int)Random.Range(0, (int)Weather.Weather_Max));
         SetWeatherIcon();
-        if(IsPlayerConditionEqualTo(Condition.Hungry) &&
-            IsPlayerConditionEqualTo(Condition.Thirsty))
+
+
+        //状態付与
+        if (IsPlayerConditionEqualTo(Condition.Hungry) &&
+         IsPlayerConditionEqualTo(Condition.Thirsty))
         {
             AddPlayerCondition(Condition.ThirstyAndHungry);
         }
@@ -356,6 +357,17 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         {
             EraseCondition(Condition.ThirstyAndHungry);
         }
+
+        if (Thirst <= 30)
+            AddPlayerCondition(Condition.Thirsty);
+        else
+            EraseCondition(Condition.Thirsty);
+
+        if (Hunger <= 30)
+            AddPlayerCondition(Condition.Hungry);
+        else
+            EraseCondition(Condition.Hungry);
+
 
         for (int i = 0; i < (int)Condition.CONDIITON_MAX; i++)
         {
@@ -385,8 +397,9 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
                         break;
                 }
             }
-
         }
+        
+
     }
 
     public uint GetConditionRawData()
@@ -450,7 +463,21 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         weather_image.sprite = SunnyCloudyRainy[(int)weather];
     }
 
+    IEnumerator MoveImage()
+    {
+        yield return null;
+        print($"リストのなかは{coroutines.Count}個");
+        yield return null;
+    }
+    public void ItemViewVisualize(Items.Item_ID id, int num)
+    {
+        print(MoveImage());
+        coroutines.Add(StartCoroutine(MoveImage()));
 
+
+        
+    }
+    
     void LoadData()
     {
         SaveData data = DataManager.Instance.Load();
