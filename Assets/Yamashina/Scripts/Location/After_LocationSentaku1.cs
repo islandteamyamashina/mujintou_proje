@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.UIElements.Experimental;
 
 public class After_LocationSentaku1 : MonoBehaviour
 {
@@ -32,8 +33,9 @@ public class After_LocationSentaku1 : MonoBehaviour
     {
 
         Syupatsu.interactable = false;
+        fading= GameObject.FindWithTag("GameController").GetComponent<Fading>();
 
-      
+
 
 
 

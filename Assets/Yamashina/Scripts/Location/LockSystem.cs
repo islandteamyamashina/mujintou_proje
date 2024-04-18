@@ -37,7 +37,7 @@ public class LockSystem : MonoBehaviour
         
     {
         //êÏï”
-        if (PlayerInfo.Instance.ActionValue >= First_unLocknum)
+        if (PlayerInfo.Instance.MaxActionValue >= First_unLocknum)
         {
             Debug.Log(PlayerInfo.Instance.ActionValue >= First_unLocknum);
             after_.button_Kawabe.interactable = true;
@@ -45,13 +45,13 @@ public class LockSystem : MonoBehaviour
 
 
         }
-        else if (PlayerInfo.Instance.ActionValue < First_unLocknum)
+        else if (PlayerInfo.Instance.MaxActionValue < First_unLocknum)
         {
             after_.button_Kawabe.interactable = false;
             after_.buttons[2].GetComponent<Image>().sprite = image_Lock[0];
         }
         //éRäx
-        if (PlayerInfo.Instance.ActionValue >= Second_unLocknum)
+        if (PlayerInfo.Instance.MaxActionValue >= Second_unLocknum)
         {
 
             after_.button_Sangaku.interactable = true;
@@ -60,13 +60,13 @@ public class LockSystem : MonoBehaviour
 
 
         }
-        else if (PlayerInfo.Instance.ActionValue < Second_unLocknum)
+        else if (PlayerInfo.Instance.MaxActionValue < Second_unLocknum)
         {
             after_.button_Sangaku.interactable = false;
             after_.buttons[3].GetComponent<Image>().sprite = image_Lock[0];
         }
         //âŒå˚
-        if (PlayerInfo.Instance.ActionValue >= Third_unLocknum)
+        if (PlayerInfo.Instance.MaxActionValue >= Third_unLocknum)
         {
             after_.button_Kakou.interactable = true;
 
@@ -75,21 +75,21 @@ public class LockSystem : MonoBehaviour
 
 
         }
-        else if (PlayerInfo.Instance.ActionValue < Third_unLocknum)
+        else if (PlayerInfo.Instance.MaxActionValue < Third_unLocknum)
         {
             after_.button_Kakou.interactable = true;
 
             after_.buttons[4].GetComponent<Image>().sprite = image_Lock[1];
         }
         //ì¥åA
-        if (PlayerInfo.Instance.ActionValue >= Final_unLocknum)
+        if (PlayerInfo.Instance.MaxActionValue >= Final_unLocknum)
         {
             after_.button_Doukutu.interactable = true;
 
             after_.buttons[5].GetComponent<Image>().sprite = after_.image[5];
             Debug.Log("çsìÆílÇÕ" + PlayerInfo.Instance.ActionValue);
         }
-        else if (PlayerInfo.Instance.ActionValue < Final_unLocknum)
+        else if (PlayerInfo.Instance.MaxActionValue < Final_unLocknum)
         {
 
             after_.button_Doukutu.interactable = true;
