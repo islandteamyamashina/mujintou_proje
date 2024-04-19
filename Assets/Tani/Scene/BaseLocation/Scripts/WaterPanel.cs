@@ -44,7 +44,7 @@ public class WaterPanel : PanelBase
 
         if(info.Thirst + waterAmountPerOnce >= 100)
         {
-            info.Water -= 100 - waterAmountPerOnce;
+            info.Water -= 100 - info.Thirst;
             info.Thirst = 100;
         }
         else
