@@ -36,11 +36,13 @@ public class SlotManager : MonoBehaviour
 
 
 
+
     private Vector2Int slot_rect = new Vector2Int(0, 0);
     protected Slot[] _Slots = null;
     protected (Items.Item_ID id, int amount)[] item_list = null;
     private float active_range = 0;
-
+    private bool is_running_item_visualizing = false;
+    private Queue<IEnumerator> visualize_coroutines; 
     
 
     virtual protected void Awake()
@@ -441,7 +443,7 @@ public class SlotManager : MonoBehaviour
                     ChangeSlotItemAmount(item_list[i].amount + num, i);
                     if (visualize)
                     {
-                        //PlayerInfo.Instance.ItemViewVisualize(id, num);
+                        ItemViewVisualize(id, num);
                     }
                     return true;
                 }
@@ -606,6 +608,32 @@ public class SlotManager : MonoBehaviour
             if (int.Parse(line[0]) == (int)Items.Item_ID.EmptyObject) continue;
             SetItemToSlot((Items.Item_ID)int.Parse(line[0]), int.Parse(line[1]), i);
         }
+    }
+
+    IEnumerator MoveImage(Items.Item_ID id, int num)
+    {
+        print("Start ItemVisualize");
+        GameObject image = (GameObject)Instantiate(Resources.Load("image_prefab"), transform.parent);
+        image.transform.localPosition = new Vector3(300, 0, 0);
+        yield return null;
+
+      
+
+    }
+    public void ItemViewVisualize(Items.Item_ID id, int num)
+    {
+     
+
+        if(!is_running_item_visualizing)
+        {
+            StartCoroutine(MoveImage(id,num));
+            is_running_item_visualizing = true;
+        }
+        else
+        {
+            visualize_coroutines.Enqueue(MoveImage(id,num));
+        }
+
 
 
     }
@@ -636,13 +664,15 @@ class SlotManagerInspector : Editor
         var manager = target as SlotManager;
         property_slot_editable = serializedObject.FindProperty("slot_data_editable");
 
+
     }
 
     public override void OnInspectorGUI()
     {
-        //  base.OnInspectorGUI();
+        // base.OnInspectorGUI();
         serializedObject.Update();
-        
+
+     
         var manager = target as SlotManager;
         using (var check = new EditorGUI.ChangeCheckScope())
         {
@@ -677,7 +707,9 @@ class SlotManagerInspector : Editor
 
         }
 
+      
 
+        
         serializedObject.ApplyModifiedProperties();
 
     }

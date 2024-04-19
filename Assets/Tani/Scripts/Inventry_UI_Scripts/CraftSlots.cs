@@ -399,6 +399,7 @@ class CraftSlotsInspector : Editor
     {
         //  base.OnInspectorGUI();
         serializedObject.Update();
+      
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("Slots_Main"), new GUIContent("ï\é¶ÇÃêÿÇËë÷Ç¶å≥"));
         bool use_slotdata_maintaining = true;

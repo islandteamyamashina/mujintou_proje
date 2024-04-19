@@ -81,7 +81,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     private int fire_value = 0;
     private int day = 2;
     private List<Texture2D> cursor_textures;
-    private List<Coroutine> coroutines = new List<Coroutine>();
+
 
     [SerializeField] private int first_item = 0;
 
@@ -466,28 +466,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         weather_image.sprite = SunnyCloudyRainy[(int)weather];
     }
 
-    IEnumerator MoveImage()
-    {
-        print($"リストのなかは{coroutines.Count}個");
-        if(coroutines.Count > 0)
-        {
-            StopCoroutine(coroutines[coroutines.Count - 1]);
-        }
-        yield return null;
-
-        print(Time.time);
-        yield return new WaitForSeconds(1);
-        coroutines.RemoveAt(0);
-       
-    }
-    public void ItemViewVisualize(Items.Item_ID id, int num)
-    {
-
-        coroutines.Add(StartCoroutine(MoveImage()));
-
-
-
-    }
+    
 
     void LoadData()
     {
