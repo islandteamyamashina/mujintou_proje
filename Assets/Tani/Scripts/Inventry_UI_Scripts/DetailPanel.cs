@@ -35,15 +35,15 @@ public class DetailPanel : MonoBehaviour
         }
 
         Use_Button.onClick.AddListener(() => 
-        { 
-            SlotManager.selectedItem.slotManager.UseSlotItem(SlotManager.selectedItem.index);
+        {
+            Items.Item_ID id = SlotManager.selectedItem.slotManager.GetSlotItem(SlotManager.selectedItem.index).Value.id;
+            SlotManager affiliation = SlotManager.selectedItem.slotManager;
+            int index = SlotManager.selectedItem.index;
 
-            if (!SlotManager.selectedItem.slotManager)
-            {
-                print("なし"); return;
-            }
-            var id = SlotManager.selectedItem.slotManager.GetSlotItem(SlotManager.selectedItem.index).Value.id;
-            print($"id : {id}");
+            if (!affiliation) return;
+
+            affiliation.UseSlotItem(index);
+
             //Keyにアイテムがなかったらスキップ
             if (!foodUsageLog.ContainsKey(id)) {return; }
             if(  foodUsageLog[id] == false)
@@ -53,15 +53,13 @@ public class DetailPanel : MonoBehaviour
                 
             }
 
-            foreach (var item in foodUsageLog)
-            {
-                print( item.Key+ ":"+ item.Value);
-            }
+
         });
     }
 
     private void Update()
     {
+
         if (SlotManager.selectedItem.slotManager)
         {
             //指定したスロットにアイテムがなければreturn
