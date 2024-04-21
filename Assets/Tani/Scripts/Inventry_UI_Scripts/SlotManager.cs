@@ -520,6 +520,83 @@ public class SlotManager : MonoBehaviour
             info.Health += item_data.Health_Change;
             info.Hunger += item_data.Hunger_Change;
             info.Thirst += item_data.Thirst_Chage;
+            switch (item_data.item_ID)
+            {
+                case Items.Item_ID.item_mat_shell:
+                    {
+                        float probability = 0.05f;
+                        if(Random.value < probability)
+                        {
+                            PlayerInfo.Instance.AddPlayerCondition(PlayerInfo.Condition.Poisoned);
+                        }
+                        break;
+                    }
+                case Items.Item_ID.item_mat_snake:
+                    {
+                        float probability = 0.05f;
+                        if (Random.value < probability)
+                        {
+                            PlayerInfo.Instance.AddPlayerCondition(PlayerInfo.Condition.Poisoned);
+                        }
+                        break;
+                    }
+                case Items.Item_ID.item_mat_stMash:
+                    {
+                        float probability = 0.05f;
+                        if (Random.value < probability)
+                        {
+                            PlayerInfo.Instance.AddPlayerCondition(PlayerInfo.Condition.Poisoned);
+                        }
+                        break;
+                    }
+                case Items.Item_ID.item_mat_herb:
+                    {
+                        float probability = 0.8f;
+                        if (Random.value < probability)
+                        {
+                            PlayerInfo.Instance.EraseCondition(PlayerInfo.Condition.Poisoned);
+                        }
+                        break;
+                    }
+                case Items.Item_ID.item_craft_water:
+                    {
+                        float probability = 0.05f;
+                        if (Random.value < probability)
+                        {
+                            PlayerInfo.Instance.AddPlayerCondition(PlayerInfo.Condition.Poisoned);
+                        }
+                        break;
+                    }
+                case Items.Item_ID.item_craft_bakedSnake:
+                    {
+                        float probability = 0.5f;
+                        if (Random.value < probability)
+                        {
+                            PlayerInfo.Instance.EraseCondition(PlayerInfo.Condition.Poisoned);
+                        }
+                        break;
+                    }
+                case Items.Item_ID.item_craft_DIYmedicine:
+                    {
+                        float probability = 1f;
+                        if (Random.value < probability)
+                        {
+                            PlayerInfo.Instance.EraseCondition(PlayerInfo.Condition.Poisoned);
+                        }
+                        break;
+                    }
+                case Items.Item_ID.item_special_medicine:
+                    {
+                        float probability = 1f;
+                        if (Random.value < probability)
+                        {
+                            PlayerInfo.Instance.EraseCondition(PlayerInfo.Condition.Poisoned);
+                        }
+                        break;
+                    }
+                default:
+                    break;
+            }
         }
         ChangeSlotItemAmount(item_list[index].amount - 1, index);
         _Slots[index].gameObject.GetComponent<Selectable>().Select();
