@@ -268,7 +268,7 @@ public class EventPanelBase : MonoBehaviour
                 {
                     //‚¢‚­‚ÂŠl“¾‚Å‚«‚é‚©
                     int num = n.range_min + Mathf.CeilToInt(Random.value * (n.range_max - n.range_min));
-                    if (info.Inventry.GetItem(n.id, num))
+                    if (info.Inventry.GetItem(n.id,num,true))
                     {
                         result_text += info.Inventry.GetItemName(n.id) + $"‚ð{num}ŒÂŠl“¾!\n";
                     }
