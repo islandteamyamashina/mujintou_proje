@@ -99,7 +99,7 @@ public class CreditPanel1 : MonoBehaviour
 
         //シングルトン
         PlayerInfo.Instance.SwitchUIVisibility();
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        //SceneManager.sceneLoaded += OnSceneLoaded;
 
 
 
@@ -117,10 +117,10 @@ public class CreditPanel1 : MonoBehaviour
         //eventTrigger_Continue_.enabled = true;
 
     }
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        PlayerInfo.Instance.SwitchUIVisibility(); ;
-    }
+    //void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+    //    PlayerInfo.Instance.SwitchUIVisibility(); ;
+    //}
     public virtual void MainView()//メイン画面のみ表示
     {
         if (startPanel.activeSelf)
