@@ -67,6 +67,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] private SlotManager inventry;
     [SerializeField] private Image weather_image;
     [SerializeField] private List<Sprite> SunnyCloudyRainy;
+    [SerializeField] private GameObject image_prefab;
 
 
     private int _player_Health;
@@ -81,9 +82,11 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     private int fire_value = 0;
     private int day = 2;
     private List<Texture2D> cursor_textures;
+    private bool is_running_item_visualizing = false;
+    private Queue<IEnumerator> visualize_coroutines = new Queue<IEnumerator>();
 
 
-    [SerializeField] private int first_item = 0;
+   
 
     public int Health
     {
@@ -218,12 +221,12 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         this.inventry.SwitchVisible();
 
 
-        Inventry.GetItem(Items.Item_ID.item_mat_coconut,3);
-        Inventry.GetItem(Items.Item_ID.item_mat_magma, 3);
-        Inventry.GetItem(Items.Item_ID.item_craft_onFireSet, 1);
-        Inventry.GetItem(Items.Item_ID.item_special_lighter, 1);
-        Inventry.GetItem((Items.Item_ID)34, 1);
-        Inventry.GetItem(Items.Item_ID.item_mat_branch, 5,true);
+        Inventry.GetItem(Items.Item_ID.item_mat_coconut,3, true);
+        Inventry.GetItem(Items.Item_ID.item_mat_magma, 3, true);
+        Inventry.GetItem(Items.Item_ID.item_craft_onFireSet, 1, true);
+        Inventry.GetItem(Items.Item_ID.item_special_lighter, 1, true);
+        Inventry.GetItem((Items.Item_ID)34, 1, true);
+        Inventry.GetItem(Items.Item_ID.item_mat_branch, 10,true);
 
        
         
@@ -335,10 +338,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         _player_condition &= ~((uint)1 << (int)condition);
     }
 
-    //実行は行動値が減る毎にするか
-    //行動値を残して休息した場合、マイナスの効果は受けず(体調不良による体力減少など)
-    //プラスの効果湧き水が増えるなどは行動値分実行される
-    //焚火値の減少は例外として
+
     public void DoAction()
     { 
     
@@ -466,7 +466,75 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         weather_image.sprite = SunnyCloudyRainy[(int)weather];
     }
 
-    
+    IEnumerator MoveImage(Items.Item_ID id, int num)
+    {
+
+        (GameObject,Image)[] objects = new (GameObject, Image)[num];
+        Sprite sprite = SlotManager.GetItemData(id).icon;
+        // -160  <<  320  width : 480 
+        float height = num > 6 ? 480.0f / num - 1 : 80;
+        for (int i = 0; i < num; i++)
+        {
+            objects[i].Item1 = Instantiate<GameObject>(image_prefab);
+            objects[i].Item1.transform.SetParent(gameObject.transform.GetChild(0).GetChild(0));
+            objects[i].Item1.transform.SetAsFirstSibling();
+            objects[i].Item1.transform.localPosition = new Vector3(550, -160 + height * i, 0);
+            objects[i].Item2 = objects[i].Item1.GetComponent<Image>();
+            objects[i].Item2.sprite = sprite;
+        }
+
+        yield return  new WaitForSeconds(1.5f);
+
+        int sliding_speed = 320;
+        while(objects[num - 1].Item1 != null)
+        {
+            for (int i = 0; i < num; i++)
+            {
+                if (!objects[i].Item1) continue;
+                objects[i].Item1.transform.Translate(0, -sliding_speed * Time.deltaTime, 0);
+                var color = objects[i].Item2.color;
+                color.a = Mathf.Clamp01((objects[i].Item1.transform.localPosition.y + 250) / 150);
+                if(color.a == 0)
+                {
+                    Destroy(objects[i].Item1);
+                    objects[i].Item1 = null;
+                    continue;
+                }
+                objects[i].Item2.color = color;
+                
+            }
+
+            yield return null;
+        }
+
+
+        if(visualize_coroutines.Count > 0)
+        {
+            StartCoroutine(visualize_coroutines.Dequeue());
+        }
+        else
+        {
+            is_running_item_visualizing = false;
+        }
+    }
+    public void ItemViewVisualize(Items.Item_ID id, int num)
+    {
+
+
+        if (!is_running_item_visualizing)
+        {
+            StartCoroutine(MoveImage(id, num));
+            is_running_item_visualizing = true;
+        }
+        else
+        {
+            visualize_coroutines.Enqueue(MoveImage(id, num));
+        }
+
+
+
+    }
+
 
     void LoadData()
     {
