@@ -182,6 +182,15 @@ public class EventPanelBase : MonoBehaviour
                 {
                     return 0;
                 }
+            case 1011:
+                if (info.Day.day >= 10 && info.Thirst <= 20)
+                {
+                    return 15;
+                }
+                else
+                {
+                    return 0;
+                }
             default:
                 return 1;
         }
@@ -268,14 +277,17 @@ public class EventPanelBase : MonoBehaviour
                 {
                     //‚¢‚­‚ÂŠl“¾‚Å‚«‚é‚©
                     int num = n.range_min + Mathf.CeilToInt(Random.value * (n.range_max - n.range_min));
-                    if (info.Inventry.GetItem(n.id,num,true))
+                    if (PlayerInfo.Instance.Inventry.GetNullSlot())
                     {
-                        result_text += info.Inventry.GetItemName(n.id) + $"‚ğ{num}ŒÂŠl“¾!\n";
+                        result_text += PlayerInfo.Instance.Inventry.GetItemName(n.id) + $"‚ğ{num}ŒÂŠl“¾!\n";
+                        event_text_control.EndEvent.AddListener(() => info.Inventry.GetItem(n.id, num, true));
                     }
                     else
                     {
-                        result_text += info.Inventry.GetItemName(n.id) + $"{num}ŒÂ‚Í‚¿Ø‚ê‚È‚©‚Á‚½!\n";
+                        result_text += PlayerInfo.Instance.Inventry.GetItemName(n.id) + $"{num}ŒÂ‚Í‚¿Ø‚ê‚È‚©‚Á‚½!\n";
                     }
+                    
+                    
                 }
             }
             event_text_control.AddTextData(result_text);
@@ -296,6 +308,7 @@ public class EventPanelBase : MonoBehaviour
         StartEvent(endEventData);
     }
 
+   
      void SelectChoise0() { ChoiseSelected(0); }
     void SelectChoise1() { ChoiseSelected(1); }
     void SelectChoise2() { ChoiseSelected(2); }
