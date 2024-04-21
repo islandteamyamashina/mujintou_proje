@@ -182,7 +182,11 @@ public class MakeFire : MonoBehaviour
                 3 => thirst_Change_Lighter,
                 _ => 0
             };
+            if( selectedType == 2)
+            {
+                slotManager.ClearSlot(0);
 
+            }
             PlayerInfo.Instance.Fire += 30;
             Fire_Icon_Middle.fillAmount = 0;
         });
