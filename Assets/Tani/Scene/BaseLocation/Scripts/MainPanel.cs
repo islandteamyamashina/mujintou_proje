@@ -5,19 +5,13 @@ using UnityEngine.UI;
 
 public class MainPanel : PanelBase
 {
-    [SerializeField]
-    Image MainBG;
-
-    [SerializeField]
-    List<Sprite> images;
+   
 
 
     protected override void Awake()
     {
         //ƒpƒlƒ‹ŠÖŒW
 
-        //GameObject.Find("BGM_ob").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipsBGM[1];
-        //GameObject.Find("BGM_ob").GetComponent<AudioSource>().Play();
         
     }
 
@@ -32,9 +26,5 @@ public class MainPanel : PanelBase
         
     }
 
-    public void ChageImage(int index)
-    {
 
-        MainBG.sprite = images[index];
-    }
 }
