@@ -28,6 +28,7 @@ public class After_LocationSentaku1 : MonoBehaviour
     private int num;
     private int Choice_num;
 
+    LockSystem lockSystem;
 
     void Start()
     {
@@ -35,7 +36,7 @@ public class After_LocationSentaku1 : MonoBehaviour
         Syupatsu.interactable = false;
         fading= GameObject.FindWithTag("GameController").GetComponent<Fading>();
 
-
+        lockSystem = GetComponent<LockSystem>();
 
 
 
@@ -68,7 +69,7 @@ public class After_LocationSentaku1 : MonoBehaviour
                 {
                     Syupatsu.interactable = true;
 
-                    if (i != num)
+                    if (i != num && lockSystem.isOpen[i])
 
                     {
                         buttons[i].GetComponent<Image>().sprite = image[i];
@@ -108,7 +109,7 @@ public class After_LocationSentaku1 : MonoBehaviour
                 {
                     Syupatsu.interactable = true;
 
-                    if (i != num)
+                    if (i != num && lockSystem.isOpen[i])
                     {
                         buttons[i].GetComponent<Image>().sprite = image[i];
                     }
@@ -156,7 +157,7 @@ public class After_LocationSentaku1 : MonoBehaviour
                 {
                     Syupatsu.interactable = true;
 
-                    if (i != num)
+                    if (i != num && lockSystem.isOpen[i])
                     {
                         buttons[i].GetComponent<Image>().sprite = image[i];
 
@@ -191,7 +192,7 @@ public class After_LocationSentaku1 : MonoBehaviour
                 {
                     Syupatsu.interactable = true;
 
-                    if (i != num)
+                    if (i != num && lockSystem.isOpen[i])
                     {
                         buttons[i].GetComponent<Image>().sprite = image[i];
 
@@ -227,7 +228,7 @@ public class After_LocationSentaku1 : MonoBehaviour
                 {
                     Syupatsu.interactable = true;
 
-                    if (i != num )
+                    if (i != num && lockSystem.isOpen[i])
                     {
                         buttons[i].GetComponent<Image>().sprite = image[i];
 
@@ -262,7 +263,7 @@ public class After_LocationSentaku1 : MonoBehaviour
                 {
                     Syupatsu.interactable = true;
 
-                    if (i != num)
+                    if (i != num && lockSystem.isOpen[i])
                     {
                         buttons[i].GetComponent<Image>().sprite = image[i];
 
