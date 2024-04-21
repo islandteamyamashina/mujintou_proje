@@ -310,7 +310,7 @@ public class CraftSlots : SlotManager
         #endregion
         recipes.Clear();
         string raw_text = recipe_book.text;
-        var str_per_line = raw_text.Split("\n");
+        var str_per_line = raw_text.Split(char.Parse("\n"));
         foreach(var line in str_per_line)
         {
             if (line.Contains("IGNORE")) continue;
