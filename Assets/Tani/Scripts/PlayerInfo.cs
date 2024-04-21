@@ -246,7 +246,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     private void Start()
     {
-        StartGame(true);
+    
 
         cursor_textures = new List<Texture2D>();
         foreach (var n in textureDatas)
