@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class BaseLocationDaytimeController : MonoBehaviour
 {
@@ -31,7 +32,13 @@ public class BaseLocationDaytimeController : MonoBehaviour
     {
      
     }
-    
+    private void Awake()
+    {
+        ((LockSystem)GameObject.FindAnyObjectByType(typeof(LockSystem))).gameObject.transform.parent.parent.gameObject.SetActive(true);
+        ((LockSystem)GameObject.FindAnyObjectByType(typeof(LockSystem))).gameObject.transform.parent.parent.gameObject.SetActive(false);
+
+    }
+
     public void ActivatePanelSingle(int index)
     {
         if (index >= panels.Count) return;

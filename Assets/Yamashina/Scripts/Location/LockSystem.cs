@@ -20,30 +20,40 @@ public class LockSystem : MonoBehaviour
     {
         Debug.Log("行動値は" + PlayerInfo.Instance.ActionValue);
 
-        after_.button_Kawabe.interactable = false;
-        after_.button_Doukutu.interactable = false;
-        after_.button_Sangaku.interactable = false;
-        after_.button_Kakou.interactable = false;
-        after_.buttons[2].GetComponent<Image>().sprite = image_Lock[0];
-        after_.buttons[3].GetComponent<Image>().sprite = image_Lock[0];
-        after_.buttons[4].GetComponent<Image>().sprite = image_Lock[1];
-        after_.buttons[5].GetComponent<Image>().sprite = image_Lock[2];
+      
 
-        PlayerInfo.Instance.OnMaxActionValueChange.AddListener(() => Lock());
         System.Array.Fill(isOpen, false);
         isOpen[0] = true;
         isOpen[1] = true;
     }
 
-    private void Update()
-    {
+    //private void /*Update*/()
+    //{
         
-    }
+    //}
+    private void Awake()
+    {
+        PlayerInfo.Instance.OnMaxActionValueChange.AddListener(() => Lock());
+        after_.buttons[2].GetComponent<Image>().sprite = image_Lock[0];
+        after_.buttons[3].GetComponent<Image>().sprite = image_Lock[0];
+        after_.buttons[4].GetComponent<Image>().sprite = image_Lock[1];
+        after_.buttons[5].GetComponent<Image>().sprite = image_Lock[2];
+        after_.button_Kawabe.interactable = false;
+        after_.button_Doukutu.interactable = false;
+        after_.button_Sangaku.interactable = false;
+        after_.button_Kakou.interactable = false;
 
+        Lock();
+    }
+    private void OnEnable()
+    {
+        Lock();
+    }
 
     void Lock()
         
     {
+        Debug.Log($"現在の行動値: {PlayerInfo.Instance.MaxActionValue}");
         //川辺
         if (PlayerInfo.Instance.MaxActionValue >= First_unLocknum)
         {
@@ -53,11 +63,11 @@ public class LockSystem : MonoBehaviour
             isOpen[2] = true;
 
         }
-        else if (PlayerInfo.Instance.MaxActionValue < First_unLocknum)
-        {
-            after_.button_Kawabe.interactable = false;
-            after_.buttons[2].GetComponent<Image>().sprite = image_Lock[0];
-        }
+        //else if (PlayerInfo.Instance.MaxActionValue < First_unLocknum)
+        //{
+        //    after_.button_Kawabe.interactable = false;
+        //    after_.buttons[2].GetComponent<Image>().sprite = image_Lock[0];
+        //}
         //山岳
         if (PlayerInfo.Instance.MaxActionValue >= Second_unLocknum)
         {
@@ -68,11 +78,11 @@ public class LockSystem : MonoBehaviour
             isOpen[3] = true;
 
         }
-        else if (PlayerInfo.Instance.MaxActionValue < Second_unLocknum)
-        {
-            after_.button_Sangaku.interactable = false;
-            after_.buttons[3].GetComponent<Image>().sprite = image_Lock[0];
-        }
+        //else if (PlayerInfo.Instance.MaxActionValue < Second_unLocknum)
+        //{
+        //    after_.button_Sangaku.interactable = false;
+        //    after_.buttons[3].GetComponent<Image>().sprite = image_Lock[0];
+        //}
         //火口
         if (PlayerInfo.Instance.MaxActionValue >= Third_unLocknum)
         {
@@ -83,12 +93,12 @@ public class LockSystem : MonoBehaviour
 
             isOpen[4] = true;
         }
-        else if (PlayerInfo.Instance.MaxActionValue < Third_unLocknum)
-        {
-            after_.button_Kakou.interactable = true;
+        //else if (PlayerInfo.Instance.MaxActionValue < Third_unLocknum)
+        //{
+        //    after_.button_Kakou.interactable = true;
 
-            after_.buttons[4].GetComponent<Image>().sprite = image_Lock[1];
-        }
+        //    after_.buttons[4].GetComponent<Image>().sprite = image_Lock[1];
+        //}
         //洞窟
         if (PlayerInfo.Instance.MaxActionValue >= Final_unLocknum)
         {
@@ -98,14 +108,14 @@ public class LockSystem : MonoBehaviour
             Debug.Log("行動値は" + PlayerInfo.Instance.ActionValue);
             isOpen[5] = true;
         }
-        else if (PlayerInfo.Instance.MaxActionValue < Final_unLocknum)
-        {
+        //else if (PlayerInfo.Instance.MaxActionValue < Final_unLocknum)
+        //{
 
-            after_.button_Doukutu.interactable = true;
+        //    after_.button_Doukutu.interactable = true;
 
-            after_.buttons[5].GetComponent<Image>().sprite = image_Lock[2];
+        //    after_.buttons[5].GetComponent<Image>().sprite = image_Lock[2];
 
-        }
+        //}
 
     }
 }
