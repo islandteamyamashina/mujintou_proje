@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -16,6 +17,7 @@ public class RouteSentaku : Event_Text
     [SerializeField] GameObject BG2;
     [SerializeField] GameObject Loadimage;
     [SerializeField] GameObject ItemPrefab;
+    [SerializeField][Tooltip("Ç∆Ç—êÊÇÃÉVÅ[Éì")] SceneObject scene;
     int item_ID;
     int get_Num;
 
@@ -230,6 +232,10 @@ public class RouteSentaku : Event_Text
 
     void nextEvent(int event_num)
     {
+        if(event_num == 13)
+        {
+            SceneManager.LoadScene(scene);
+        }
         Loadimage.SetActive(true);
         event_manage.now_event_num = event_num;
         //textControl.ResetTextData();
