@@ -14,13 +14,16 @@ public class multiAudio : MonoBehaviour
     [SerializeField] private Slider seSlider;//SEスライダー
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] Audiovolume audioVolume;
+    [HideInInspector]
     public RectTransform fillRectTransform_BGM;
+    [HideInInspector]
     public RectTransform fillRectTransform_SE;
     public float fixedWidth = 100f;
     public float fixedHeight = 50f;
 
     void Start()
     {
+       
         // 幅と高さを固定値に設定する
         SetFixedSize();
     }
