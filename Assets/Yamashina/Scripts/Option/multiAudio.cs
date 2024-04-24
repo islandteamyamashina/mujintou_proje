@@ -10,29 +10,29 @@ public class multiAudio : MonoBehaviour
 {
 
     
-[SerializeField] private Slider bgmSlider;//BGMスライダー
-    [SerializeField] private Slider seSlider;//SEスライダー
+[SerializeField] public  Slider bgmSlider;//BGMスライダー
+    [SerializeField] public  Slider seSlider;//SEスライダー
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] Audiovolume audioVolume;
-    //[HideInInspector]
+    [HideInInspector]
     public RectTransform fillRectTransform_BGM;
-    //[HideInInspector]
+    [HideInInspector]
     public RectTransform fillRectTransform_SE;
     public float fixedWidth = 100f;
     public float fixedHeight = 50f;
 
     void Start()
     {
-       
+    
         // 幅と高さを固定値に設定する
         SetFixedSize();
     }
-    //private void OnEnable()
-    //{
-    //    fillRectTransform_BGM = GameObject.FindGameObjectWithTag("BGM_Rect").GetComponent<RectTransform>();
-    //    fillRectTransform_SE = GameObject.FindGameObjectWithTag("SE_Rect").GetComponent<RectTransform>();
-
-    //}
+    private void OnEnable()
+    {
+        //    fillRectTransform_BGM = GameObject.FindGameObjectWithTag("BGM_Rect").GetComponent<RectTransform>();
+        //    fillRectTransform_SE = GameObject.FindGameObjectWithTag("SE_Rect").GetComponent<RectTransform>();
+       
+    }
     // 幅と高さを固定値に設定するメソッド
     void SetFixedSize()
     {
@@ -43,7 +43,7 @@ public class multiAudio : MonoBehaviour
         fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fixedHeight);
     }
 
-    public void BgmVolume()
+    public void BgmVolume(float value)
     {
         float a = bgmSlider.value;
         bgmSlider.fillRect = fillRectTransform_BGM;
@@ -55,7 +55,7 @@ public class multiAudio : MonoBehaviour
         print(a);
     }
 
-    public void SeVolume()
+    public void SeVolume(float value)
     {
         float b = seSlider.value;
         seSlider.fillRect = fillRectTransform_SE;
@@ -86,6 +86,7 @@ public class multiAudio : MonoBehaviour
     {
         bgmSlider.value = PlayerPrefs.GetFloat("bgmSliderValue", 1.0f);
 
+   bgmSlider.GetComponent<Slider>().onValueChanged.AddListener(BgmVolume);
         float a = bgmSlider.value;
         Audiovolume.instance.SetBgmVolume(a);
         print(a);
@@ -93,6 +94,8 @@ public class multiAudio : MonoBehaviour
 
     public void SeLoadSlider()
     {
+        seSlider.GetComponent<Slider>().onValueChanged.AddListener(SeVolume);
+
         seSlider.value = PlayerPrefs.GetFloat("seSliderValue", 1.0f);
         float b = seSlider.value;
         Audiovolume.instance.SetSeVolume(b);
