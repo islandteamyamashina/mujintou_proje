@@ -27,12 +27,12 @@ public class multiAudio : MonoBehaviour
         // 幅と高さを固定値に設定する
         SetFixedSize();
     }
-    private void OnEnable()
-    {
-        fillRectTransform_BGM = GameObject.FindGameObjectWithTag("BGM_Rect").GetComponent<RectTransform>();
-        fillRectTransform_SE = GameObject.FindGameObjectWithTag("SE_Rect").GetComponent<RectTransform>();
+    //private void OnEnable()
+    //{
+    //    fillRectTransform_BGM = GameObject.FindGameObjectWithTag("BGM_Rect").GetComponent<RectTransform>();
+    //    fillRectTransform_SE = GameObject.FindGameObjectWithTag("SE_Rect").GetComponent<RectTransform>();
 
-    }
+    //}
     // 幅と高さを固定値に設定するメソッド
     void SetFixedSize()
     {
