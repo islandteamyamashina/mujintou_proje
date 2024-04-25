@@ -12,7 +12,7 @@ public class multiAudio : MonoBehaviour
     
 [SerializeField] public  Slider bgmSlider;//BGMスライダー
     [SerializeField] public  Slider seSlider;//SEスライダー
-    [SerializeField] AudioMixer audioMixer;
+    [SerializeField]  public AudioMixer audioMixer;
     [SerializeField] Audiovolume audioVolume;
     [HideInInspector]
     public RectTransform fillRectTransform_BGM;
@@ -23,9 +23,10 @@ public class multiAudio : MonoBehaviour
 
     void Start()
     {
-    
-        // 幅と高さを固定値に設定する
-        SetFixedSize();
+        //bgmSlider.fillRect = fillRectTransform_BGM;
+
+        //// 幅と高さを固定値に設定する
+        //SetFixedSize();
     }
     private void OnEnable()
     {
@@ -34,42 +35,18 @@ public class multiAudio : MonoBehaviour
        
     }
     // 幅と高さを固定値に設定するメソッド
-    void SetFixedSize()
-    {
+    //void SetFixedSize()
+    //{
         // 幅と高さを設定する
-        fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, fixedWidth);
-        fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fixedHeight);
-        fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, fixedWidth);
-        fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fixedHeight);
-    }
+    //    fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, fixedWidth);
+    //    fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fixedHeight);
+    //    fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, fixedWidth);
+    //    fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fixedHeight);
+    ////}
 
-    public void BgmVolume(float value)
-    {
-        float a = bgmSlider.value;
-        bgmSlider.fillRect = fillRectTransform_BGM;
+   
 
-        Audiovolume.instance.SetBgmVolume(a);
-        audioMixer.SetFloat("BGM", ConvertVolumeToDb(bgmSlider.value));
-
-        BgmSave();
-        print(a);
-    }
-
-    public void SeVolume(float value)
-    {
-        float b = seSlider.value;
-        seSlider.fillRect = fillRectTransform_SE;
-        Audiovolume.instance.SetSeVolume(b);
-        audioMixer.SetFloat("SE", ConvertVolumeToDb(seSlider.value));
-        //セーブ
-        SeSave();
-
-        //audioSourceBGM = GameObject.Find("BGM_ob").GetComponent<AudioSource>();
-        //audioSourceSE= GameObject.Find("SE_ob").GetComponent<AudioSource>();
-
-
-        print(b);
-    }
+   
     public void BgmSave()
     {
         PlayerPrefs.SetFloat("bgmSliderValue", bgmSlider.value);
@@ -86,7 +63,7 @@ public class multiAudio : MonoBehaviour
     {
         bgmSlider.value = PlayerPrefs.GetFloat("bgmSliderValue", 1.0f);
 
-   bgmSlider.GetComponent<Slider>().onValueChanged.AddListener(BgmVolume);
+   //bgmSlider.GetComponent<Slider>().onValueChanged.AddListener(BgmVolume);
         float a = bgmSlider.value;
         Audiovolume.instance.SetBgmVolume(a);
         print(a);
@@ -94,7 +71,7 @@ public class multiAudio : MonoBehaviour
 
     public void SeLoadSlider()
     {
-        seSlider.GetComponent<Slider>().onValueChanged.AddListener(SeVolume);
+        //seSlider.GetComponent<Slider>().onValueChanged.AddListener(SeVolume);
 
         seSlider.value = PlayerPrefs.GetFloat("seSliderValue", 1.0f);
         float b = seSlider.value;
