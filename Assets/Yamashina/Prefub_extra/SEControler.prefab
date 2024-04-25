@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 927982926612203524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1784.4725, y: -631.6797, z: -6018.494}
-  m_LocalScale: {x: 60, y: 60, z: 60}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -48,12 +48,11 @@ MonoBehaviour:
   audioSourceBGM: {fileID: 0}
   audioClipsBGM:
   - {fileID: 8300000, guid: 76724254b82a7394fb2775367022597f, type: 3}
-  - {fileID: 8300000, guid: fa1a2b2d6c5c1f34f84d31e33761e406, type: 3}
   audioSourceSE: {fileID: 0}
   audioClipSE:
-  - {fileID: 8300000, guid: 40f354603b175214a879482bcb4e7f9a, type: 3}
-  - {fileID: 8300000, guid: 063e20796bc9bc44c8de1d9282bf351d, type: 3}
-  - {fileID: 8300000, guid: 063e20796bc9bc44c8de1d9282bf351d, type: 3}
+  - {fileID: 8300000, guid: 6fbe741e5d09c7e4a955444d68a29728, type: 3}
+  - {fileID: 8300000, guid: a67ab5f1ca9ab2b42b870d9fe94f65b4, type: 3}
+  - {fileID: 8300000, guid: de49cdef96e8d48419c19401527b9113, type: 3}
 --- !u!114 &927982926612203526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,5 +67,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmSlider: {fileID: 0}
   seSlider: {fileID: 0}
-  audioMixer: {fileID: 24100000, guid: 201275a464147634591467b51401d7de, type: 2}
   audioVolume: {fileID: 927982926612203521}
+  fillRectTransform_BGM: {fileID: 0}
+  fillRectTransform_SE: {fileID: 0}
+  fixedWidth: 163
+  fixedHeight: 10
