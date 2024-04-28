@@ -11,6 +11,7 @@ public class RouteSentaku : Event_Text
 {
     [SerializeField] Button Route1;
     [SerializeField] Button Route2;
+    [SerializeField] GameObject Route3;
     [SerializeField] GameObject Route1_text;
     [SerializeField] GameObject Route2_text;
     [SerializeField] GameObject BG_cover;
@@ -20,6 +21,8 @@ public class RouteSentaku : Event_Text
     [SerializeField][Tooltip("とび先のシーン")] SceneObject scene;
     int item_ID;
     int get_Num;
+    int deep = 0;
+    [SerializeField] float deep_Light;
 
 
     Color color;
@@ -44,33 +47,35 @@ public class RouteSentaku : Event_Text
         Route1_text.SetActive(false);
         Route2_text.SetActive(false);
 
-        if (PlayerInfo.Instance.Inventry.GetItemAmount((Items.Item_ID)event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Zyouken) >= event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Zyouken_num || event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Zyouken_num == 0)
-        {
+        //if (PlayerInfo.Instance.Inventry.GetItemAmount((Items.Item_ID)event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Zyouken) >= event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Zyouken_num || event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Zyouken_num == 0)
+        //{
             // Route1にマウスオーバー時のイベントを追加
             EventTrigger trigger1 = Route1.gameObject.AddComponent<EventTrigger>();
             trigger1.triggers.Add(new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter });
             trigger1.triggers[0].callback.AddListener((data) => { OnRouteEnter(Route1); });
             trigger1.triggers.Add(new EventTrigger.Entry { eventID = EventTriggerType.PointerExit });
             trigger1.triggers[1].callback.AddListener((data) => { OnRouteExit(Route1); });
-        }
-        else
-        {
-            Route1.interactable = false;
-        }
+        //}
+        //else
+        //{
+        //    Route1.interactable = false;
+        //}
 
-        if (PlayerInfo.Instance.Inventry.GetItemAmount((Items.Item_ID)event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Zyouken) >= event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Zyouken_num || event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Zyouken_num == 0)
-        {
+        //if (PlayerInfo.Instance.Inventry.GetItemAmount((Items.Item_ID)event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Zyouken) >= event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Zyouken_num || event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Zyouken_num == 0)
+        //{
             // Route2にマウスオーバー時のイベントを追加
             EventTrigger trigger2 = Route2.gameObject.AddComponent<EventTrigger>();
             trigger2.triggers.Add(new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter });
             trigger2.triggers[0].callback.AddListener((data) => { OnRouteEnter(Route2); });
             trigger2.triggers.Add(new EventTrigger.Entry { eventID = EventTriggerType.PointerExit });
             trigger2.triggers[1].callback.AddListener((data) => { OnRouteExit(Route2); });
-        }
-        else
-        {
-            Route2.interactable = false;
-        }
+        //}
+        //else
+        //{
+        //    Route2.interactable = false;
+        //}
+
+        Route3.SetActive(false);
     }
 
     void OnRouteEnter(Button button)
@@ -101,7 +106,7 @@ public class RouteSentaku : Event_Text
     public void ChoiseRoute1()
     {
         textControl.ResetTextData();
-        StartCoroutine(appearBGcover());
+        //StartCoroutine(appearBGcover());
         addMainSentence(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Result1);
         changCondirion(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_health, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_hunger, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_warter);
         getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1_num);
@@ -112,11 +117,12 @@ public class RouteSentaku : Event_Text
         Route1.interactable = false; 
         Route2.interactable = false;
         //textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
+        deep++;
     }
     public void ChoiseRoute2()
     {
         textControl.ResetTextData();
-        StartCoroutine(appearBGcover());
+        //StartCoroutine(appearBGcover());
         addMainSentence(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Result1);
         changCondirion(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_health, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_hunger, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_warter);
         getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1_num);
@@ -127,11 +133,12 @@ public class RouteSentaku : Event_Text
         Route1.interactable = false; 
         Route2.interactable = false;
         textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
+        deep++;
     }
     public void ChoiseRoute3()
     {
         textControl.ResetTextData();
-        StartCoroutine(appearBGcover());
+        //StartCoroutine(appearBGcover());
         addMainSentence(event_manage.eventDatas[event_manage.now_event_num].Cancel_Result);
         next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Cancel_Next_Ivent_ID;
         ID_change_Event_num();
@@ -139,23 +146,24 @@ public class RouteSentaku : Event_Text
         Route1.interactable = false; 
         Route2.interactable = false;
         textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
+        deep--;
     }
 
-    IEnumerator appearBGcover()
-    {
-        while (true)
-        {
-            Color BG_cover_color;
-             BG_cover_color = BG_cover.GetComponent<Image>().color;
-            BG_cover_color.a += 0.05f;
-            BG_cover.GetComponent<Image>().color = BG_cover_color;
-            if (BG_cover.GetComponent<Image>().color.a < 0.7f)
-            {
-                break;
-            }
-            yield return null;
-        }
-    }
+    //IEnumerator appearBGcover()
+    //{
+    //    while (true)
+    //    {
+    //        Color BG_cover_color;
+    //         BG_cover_color = BG_cover.GetComponent<Image>().color;
+    //        BG_cover_color.a += 0.05f;
+    //        BG_cover.GetComponent<Image>().color = BG_cover_color;
+    //        if (BG_cover.GetComponent<Image>().color.a < 0.7f)
+    //        {
+    //            break;
+    //        }
+    //        yield return null;
+    //    }
+    //}
 
     //　本文、体力変化、アイテムゲットの順番
 
@@ -232,7 +240,7 @@ public class RouteSentaku : Event_Text
 
     void nextEvent(int event_num)
     {
-        if(event_num == 13)
+        if(event_num == 12)
         {
             SceneManager.LoadScene(scene);
         }
@@ -241,6 +249,20 @@ public class RouteSentaku : Event_Text
         //textControl.ResetTextData();
         textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
         Invoke("eventStart", 2);
+
+        if(deep > 0)
+        {
+            Route3.SetActive(true);
+        }
+        else
+        {
+            Route3.SetActive(false);
+        }
+
+        Color BG_cover_color;
+        BG_cover_color = BG_cover.GetComponent<Image>().color;
+        BG_cover_color.a += deep_Light * deep;
+        BG_cover.GetComponent<Image>().color = BG_cover_color;
     }
 
     void eventStart()
