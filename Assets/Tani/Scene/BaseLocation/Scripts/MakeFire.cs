@@ -92,7 +92,7 @@ public class MakeFire : MonoBehaviour
                             PlayerInfo.Instance.Thirst >= -thirst_Change_Lighter),
             _=> false
         };
-        MakeFireButton.interactable = PlayerInfo.Instance.Fire == 0 && MakeFireButton.interactable;
+        MakeFireButton.interactable = PlayerInfo.Instance.Fire == 0 && selectedType != 0;
         if(slotManager.GetSlotItem(0).Value.id != Items.Item_ID.EmptyObject)
         {
             var color = trans1.color;
