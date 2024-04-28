@@ -184,7 +184,7 @@ public class MakeFire : MonoBehaviour
             };
             if( selectedType == 2)
             {
-                slotManager.ClearSlot(0);
+                slotManager.ChangeSlotItemAmount(slotManager.GetSlotItem(0).Value.amount - 1, 0);
 
             }
             PlayerInfo.Instance.Fire += 30;

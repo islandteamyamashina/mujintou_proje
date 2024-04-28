@@ -57,7 +57,10 @@ public class CraftPanel : PanelBase
             {
                 discriptions[i].text = SlotManager.GetItemData(data.Value.id).item_name;
             }
-
+            else
+            {
+                discriptions[i].text = "";
+            }
 
         }
     }

@@ -253,9 +253,9 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         {
 
             cursor_textures.Add(ResizeTexture(n.width, n.height, n.cursor));
-
+            
         }
-
+        SetMouseCursor(0);
         SetWeatherIcon();
     }
 
@@ -574,7 +574,10 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     }
 
 
-
+    public void OnVisibilityChanged()
+    {
+        SlotManager.selectedItem.slotManager = null;
+    }
 
 }
 
@@ -585,3 +588,4 @@ public class TextureData
     public int width;
     public int height;
 }
+

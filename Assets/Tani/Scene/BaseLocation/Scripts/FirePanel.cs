@@ -22,6 +22,10 @@ public class FirePanel : PanelBase
     [SerializeField]
     Image fire_icon_middle;
 
+    protected override void Start()
+    {
+        SetSortOrder(OrderOfUI.NormalPanel);
+    }
     private void OnEnable()
     {
         SetFirePanelActivate(0);
