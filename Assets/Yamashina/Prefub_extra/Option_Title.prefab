@@ -167,10 +167,10 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: multiAudio, Assembly-CSharp
+      - m_Target: {fileID: 464885823}
+        m_TargetAssemblyTypeName: Option_bridge, Assembly-CSharp
         m_MethodName: BgmVolume
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -437,8 +437,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5, y: -0.000002861023}
-  m_SizeDelta: {x: -10, y: -0.0000019073}
+  m_AnchoredPosition: {x: 0.75, y: -0.000002861023}
+  m_SizeDelta: {x: 1.5, y: -0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5743363427882735347
 GameObject:
@@ -732,6 +732,7 @@ GameObject:
   - component: {fileID: 5743363428146210276}
   - component: {fileID: 5743363428146210278}
   - component: {fileID: 5743363428146210279}
+  - component: {fileID: 464885823}
   m_Layer: 5
   m_Name: Option_Title
   m_TagString: Untagged
@@ -802,6 +803,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 3
+--- !u!114 &464885823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5743363428146210277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32efadc3de93c0948810216d96b8e304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 201275a464147634591467b51401d7de, type: 2}
+  bgmSlider: {fileID: 1696978078318026791}
+  seSlider: {fileID: 5743363428963535201}
+  multiAudio: {fileID: 0}
 --- !u!1 &5743363428177442296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,9 +1105,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 6.300003, y: 0}
   m_SizeDelta: {x: 7, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1.4179192, y: 0.5}
 --- !u!222 &5743363428578171219
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1300,10 +1317,10 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: multiAudio, Assembly-CSharp
+      - m_Target: {fileID: 464885823}
+        m_TargetAssemblyTypeName: Option_bridge, Assembly-CSharp
         m_MethodName: SeVolume
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
