@@ -10,7 +10,29 @@ public class Option_bridge : MonoBehaviour
     [SerializeField] public Slider bgmSlider;//BGMスライダー
     [SerializeField] public Slider seSlider;//SEスライダー
     [SerializeField] multiAudio multiAudio;
-  
+
+    void Start()
+    {
+        bgmSlider.fillRect = multiAudio.fillRectTransform_BGM;
+        seSlider.fillRect = multiAudio.fillRectTransform_SE;
+        //fillRectTransform_BGM = GameObject.FindGameObjectWithTag("BGM_Rect").GetComponent<RectTransform>();
+        //fillRectTransform_SE = GameObject.FindGameObjectWithTag("SE_Rect").GetComponent<RectTransform>();
+
+
+        //// 幅と高さを固定値に設定する
+        SetFixedSize();
+    }
+
+    // 幅と高さを固定値に設定するメソッド
+    void SetFixedSize()
+    {
+        //幅と高さを設定する
+        multiAudio.fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,multiAudio. fixedWidth);
+        multiAudio.fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, multiAudio.fixedHeight);
+        multiAudio.fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, multiAudio.fixedWidth);
+        multiAudio.fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, multiAudio.fixedHeight);
+    }
+
     // Start is called before the first frame update
     public void BgmVolume(float value)
     {
