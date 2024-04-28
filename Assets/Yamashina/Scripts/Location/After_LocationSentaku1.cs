@@ -21,7 +21,7 @@ public class After_LocationSentaku1 : MonoBehaviour
     [SerializeField] public Sprite[] image;
     [SerializeField] public Sprite[] image_c;
     [SerializeField] public Fading fading;
-   
+    [SerializeField] SceneObject Doukutu;
     [SerializeField] SceneObject[] nextScene;
 
     [SerializeField] Button Syupatsu;
@@ -38,10 +38,17 @@ public class After_LocationSentaku1 : MonoBehaviour
 
         lockSystem = GetComponent<LockSystem>();
 
-
+       
 
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            fading.OnFadeEnd.AddListener(() => SceneManager.LoadScene(Doukutu));
 
+        }
+    }
 
 
 
@@ -271,7 +278,7 @@ public class After_LocationSentaku1 : MonoBehaviour
                     //Syupatsu.interactable = false;
 
                 }
-
+                
 
                 break;
         }
@@ -314,6 +321,7 @@ public class After_LocationSentaku1 : MonoBehaviour
 
             fading.Fade(Fading.type.FadeOut);
             fading.OnFadeEnd.AddListener(() => SceneManager.LoadScene(nextScene[Choice_num]));
+
         }
 
 
