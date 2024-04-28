@@ -12,6 +12,32 @@ public class multiAudio : MonoBehaviour
     [SerializeField] public Slider seSlider;//SEスライダー
 
     [SerializeField] Audiovolume audioVolume;
+    [SerializeField] public RectTransform fillRectTransform_BGM;
+    [SerializeField] public RectTransform fillRectTransform_SE;
+    [SerializeField] public float fixedWidth = 100f;
+    [SerializeField] public float fixedHeight = 50f;
+
+    void Start()
+{
+    bgmSlider.fillRect = fillRectTransform_BGM;
+seSlider.fillRect = fillRectTransform_SE;   
+    //fillRectTransform_BGM = GameObject.FindGameObjectWithTag("BGM_Rect").GetComponent<RectTransform>();
+    //fillRectTransform_SE = GameObject.FindGameObjectWithTag("SE_Rect").GetComponent<RectTransform>();
+
+
+    //// 幅と高さを固定値に設定する
+    SetFixedSize();
+}
+
+// 幅と高さを固定値に設定するメソッド
+void SetFixedSize()
+{
+    //幅と高さを設定する
+    fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, fixedWidth);
+    fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fixedHeight);
+    fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, fixedWidth);
+    fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fixedHeight);
+}
 
 
 
