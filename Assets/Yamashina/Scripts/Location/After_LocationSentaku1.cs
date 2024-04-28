@@ -45,7 +45,7 @@ public class After_LocationSentaku1 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            fading.OnFadeEnd.AddListener(() => SceneManager.LoadScene(Doukutu));
+            SceneManager.LoadScene(Doukutu);
 
         }
     }
