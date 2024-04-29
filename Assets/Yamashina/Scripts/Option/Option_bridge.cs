@@ -26,7 +26,7 @@ public class Option_bridge : MonoBehaviour
         //seSlider.fillRect = fillRectTransform_SE;
         fillRectTransform_BGM = GameObject.FindGameObjectWithTag("BGM_Rect").GetComponent<RectTransform>();
         fillRectTransform_SE = GameObject.FindGameObjectWithTag("SE_Rect").GetComponent<RectTransform>();
-        SetFixedSize();
+        //SetFixedSize();
 
         BgmLoadSlider();
         SeLoadSlider();

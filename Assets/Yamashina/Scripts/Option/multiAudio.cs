@@ -13,16 +13,8 @@ public class multiAudio : MonoBehaviour
     [SerializeField] Audiovolume audioVolume;
     
 
-//    void Start()
-//{
-
-//        bgmSlider = GameObject.FindGameObjectWithTag("BGMSlider").GetComponent<Slider>();
-//        seSlider = GameObject.FindGameObjectWithTag("SESlider").GetComponent<Slider>();
 
 
-//        //// 幅と高さを固定値に設定する
-//        //    SetFixedSize();
-//    }
 
     // 幅と高さを固定値に設定するメソッド
 //    void SetFixedSize()
