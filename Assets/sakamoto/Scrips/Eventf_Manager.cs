@@ -80,8 +80,8 @@ public class Event_Manage : MonoBehaviour
         }
         Debug.Log("‚»‚Ì‘¼");
 
-        multi.BgmLoadSlider();
-        multi.SeLoadSlider();
+        //multi.BgmLoadSlider();
+        //multi.SeLoadSlider();
 
 
     }

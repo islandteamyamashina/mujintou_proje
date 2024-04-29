@@ -22,10 +22,14 @@ public class Option_bridge : MonoBehaviour
     void Start()
     {
         multiAudio = GameObject.FindGameObjectWithTag("SoundControler").GetComponent<multiAudio>();
+        //bgmSlider.fillRect = fillRectTransform_BGM;
+        //seSlider.fillRect = fillRectTransform_SE;
+        fillRectTransform_BGM = GameObject.FindGameObjectWithTag("BGM_Rect").GetComponent<RectTransform>();
+        fillRectTransform_SE = GameObject.FindGameObjectWithTag("SE_Rect").GetComponent<RectTransform>();
         SetFixedSize();
 
-        multiAudio.BgmLoadSlider();
-        multiAudio.SeLoadSlider();
+        BgmLoadSlider();
+        SeLoadSlider();
         //bgmSlider.fillRect = multiAudio.fillRectTransform_BGM;
         //seSlider.fillRect = multiAudio.fillRectTransform_SE;
         ////fillRectTransform_BGM = GameObject.FindGameObjectWithTag("BGM_Rect").GetComponent<RectTransform>();
@@ -39,11 +43,9 @@ public class Option_bridge : MonoBehaviour
         //    SetFixedSize();
         //}
     }
-    private void Update()
+    private void OnEnable()
     {
-        fillRectTransform_BGM = GameObject.FindGameObjectWithTag("BGM_Rect").GetComponent<RectTransform>();
-        fillRectTransform_SE = GameObject.FindGameObjectWithTag("SE_Rect").GetComponent<RectTransform>();
-
+        
         if (gameObject.activeSelf)
         {
 
@@ -63,14 +65,14 @@ public class Option_bridge : MonoBehaviour
 
     }
     // 幅と高さを固定値に設定するメソッド
-    //void SetFixedSize()
-    //{
-    //    //幅と高さを設定する
-    //    multiAudio.fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,multiAudio. fixedWidth);
-    //    multiAudio.fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, multiAudio.fixedHeight);
-    //    multiAudio.fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, multiAudio.fixedWidth);
-    //    multiAudio.fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, multiAudio.fixedHeight);
-    //}
+    void SetFixedSize()
+    {
+        //幅と高さを設定する
+        fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, fixedWidth);
+        fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fixedHeight);
+        fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, fixedWidth);
+        fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fixedHeight);
+    }
 
     // Start is called before the first frame update
     public void BgmVolume(float value)
@@ -87,10 +89,10 @@ public class Option_bridge : MonoBehaviour
     public void SeVolume(float value)
     {
        
-        float b = multiAudio.seSlider.value;
+        float b = seSlider.value;
 
         Audiovolume.instance.SetSeVolume(b);
-        audioMixer.SetFloat("SE", multiAudio.ConvertVolumeToDb(multiAudio.seSlider.value));
+        audioMixer.SetFloat("SE", multiAudio.ConvertVolumeToDb(seSlider.value));
         //セーブ
         SeSave();
        
@@ -121,13 +123,27 @@ public class Option_bridge : MonoBehaviour
 
 
     // 幅と高さを固定値に設定するメソッド
-    void SetFixedSize()
+    
+
+
+    public void BgmLoadSlider()
     {
-        //幅と高さを設定する
-        fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, fixedWidth);
-        fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fixedHeight);
-        fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, fixedWidth);
-        fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fixedHeight);
+        bgmSlider.value = PlayerPrefs.GetFloat("bgmSliderValue", 1.0f);
+
+        //bgmSlider.GetComponent<Slider>().onValueChanged.AddListener(BgmVolume);
+        float a = bgmSlider.value;
+        Audiovolume.instance.SetBgmVolume(a);
+        print(a);
+    }
+
+    public void SeLoadSlider()
+    {
+        //seSlider.GetComponent<Slider>().onValueChanged.AddListener(SeVolume);
+
+        seSlider.value = PlayerPrefs.GetFloat("seSliderValue", 1.0f);
+        float b = seSlider.value;
+        Audiovolume.instance.SetSeVolume(b);
+        print(b);
     }
 
 }

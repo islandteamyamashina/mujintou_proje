@@ -8,22 +8,21 @@ using UnityEngine.UI;
 
 public class multiAudio : MonoBehaviour
 {
-    [SerializeField] public Slider bgmSlider;//BGMスライダー
-    [SerializeField] public Slider seSlider;//SEスライダー
+    
 
     [SerializeField] Audiovolume audioVolume;
     
 
-    void Update()
-{
+//    void Start()
+//{
 
-         bgmSlider = GameObject.FindGameObjectWithTag("BGMSlider").GetComponent<Slider>();
-            seSlider = GameObject.FindGameObjectWithTag("SESlider").GetComponent<Slider>();
+//        bgmSlider = GameObject.FindGameObjectWithTag("BGMSlider").GetComponent<Slider>();
+//        seSlider = GameObject.FindGameObjectWithTag("SESlider").GetComponent<Slider>();
 
 
-        //// 幅と高さを固定値に設定する
-        //    SetFixedSize();
-    }
+//        //// 幅と高さを固定値に設定する
+//        //    SetFixedSize();
+//    }
 
     // 幅と高さを固定値に設定するメソッド
 //    void SetFixedSize()
@@ -39,27 +38,6 @@ public class multiAudio : MonoBehaviour
 
    
 
-   
-
-    public void BgmLoadSlider()
-    {
-        bgmSlider.value = PlayerPrefs.GetFloat("bgmSliderValue", 1.0f);
-
-   //bgmSlider.GetComponent<Slider>().onValueChanged.AddListener(BgmVolume);
-        float a = bgmSlider.value;
-        Audiovolume.instance.SetBgmVolume(a);
-        print(a);
-    }
-
-    public void SeLoadSlider()
-    {
-        //seSlider.GetComponent<Slider>().onValueChanged.AddListener(SeVolume);
-
-        seSlider.value = PlayerPrefs.GetFloat("seSliderValue", 1.0f);
-        float b = seSlider.value;
-        Audiovolume.instance.SetSeVolume(b);
-        print(b);
-    }
     public float ConvertVolumeToDb(float volume)
     {
         return Mathf.Clamp(Mathf.Log10(Mathf.Clamp(volume, 0f, 1f)) * 20f, -80f, 0f);
