@@ -63,10 +63,8 @@ public class Audiovolume : MonoBehaviour
 
 
     public AudioSource audioSourceBGM;//BGMスピーカー
-    public AudioClip[] audioClipsBGM;//BGMの素材
 
     public AudioSource audioSourceSE;//SoundEffectのスピーカー
-    public AudioClip[] audioClipSE;//ならす音源
 
     public void SetBgmVolume(float bgmVolume)
     {

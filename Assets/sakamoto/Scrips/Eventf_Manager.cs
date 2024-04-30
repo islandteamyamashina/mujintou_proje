@@ -9,17 +9,13 @@ public class Event_Manage : MonoBehaviour
     public int start_event_num;
     public int now_event_num;
     [SerializeField] int start_area;
-    [SerializeField] Audiovolume audiovolume;
     [SerializeField] multiAudio multi;
     // Start is called before the first frame update
     void Awake()
     {
         Camera camera = GameObject.Find("Main Camera").GetComponent<Camera>();
         multi.BGM_0();
-        audiovolume.audioSourceBGM = GameObject.FindWithTag("BGM").GetComponent<AudioSource>();
-        audiovolume.audioSourceSE = GameObject.FindWithTag("SE").GetComponent<AudioSource>();
-       
-
+        
         if (start_area == 0)
         {
             start_event_num = Random.Range(-1, 2) + 1;
@@ -42,23 +38,23 @@ public class Event_Manage : MonoBehaviour
         now_event_num = 0;
         Debug.Log(eventDatas[start_event_num].Main_Text);
 
-        if (audiovolume.audioClipsBGM != null)
+        if (multi.audioClipsBGM != null)
         {
-            Debug.Log(audiovolume.audioClipsBGM.Length);
+            Debug.Log(multi.audioClipsBGM.Length);
         }
         else
         {
             Debug.Log("audioClipsBGM is Null!");
         }
-        if (audiovolume.audioClipSE != null)
+        if (multi.audioClipSE != null)
         {
-            Debug.Log(audiovolume.audioClipSE.Length);
+            Debug.Log(multi.audioClipSE.Length);
         }
         else
         {
             Debug.Log("audioClipSE is Null!");
         }
-        if (audiovolume.audioClipsBGM != null)
+        if (multi.audioClipsBGM != null)
         {
             //audiovolume.audioSourceBGM.clip = audiovolume.audioClipsBGM[1];
             //audiovolume.audioSourceBGM.Play();
@@ -68,7 +64,7 @@ public class Event_Manage : MonoBehaviour
 
             Debug.Log("audioSourceBGM is Null!");
         }
-        if (audiovolume.audioClipSE != null)
+        if (multi.audioClipSE != null)
         {
             //audiovolume.audioSourceSE.clip = audiovolume.audioClipsBGM[1];
             //audiovolume.audioSourceSE.Play();

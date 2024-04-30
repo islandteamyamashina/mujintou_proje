@@ -21,7 +21,9 @@ public class Option_bridge : MonoBehaviour
 
     void Start()
     {
-        multiAudio = GameObject.FindGameObjectWithTag("SoundControler").GetComponent<multiAudio>();
+        Audiovolume.instance.audioSourceBGM = GameObject.FindWithTag("BGM").GetComponent<AudioSource>();
+        Audiovolume.instance.audioSourceSE = GameObject.FindWithTag("SE").GetComponent<AudioSource>();
+
         //bgmSlider.fillRect = fillRectTransform_BGM;
         //seSlider.fillRect = fillRectTransform_SE;
         fillRectTransform_BGM = GameObject.FindGameObjectWithTag("BGM_Rect").GetComponent<RectTransform>();
@@ -48,6 +50,7 @@ public class Option_bridge : MonoBehaviour
         
         if (gameObject.activeSelf)
         {
+            multiAudio = GetComponent<multiAudio>();
 
             bgmSlider = GameObject.FindGameObjectWithTag("BGMSlider").GetComponent<Slider>();
             seSlider = GameObject.FindGameObjectWithTag("SESlider").GetComponent<Slider>();
@@ -60,8 +63,7 @@ public class Option_bridge : MonoBehaviour
         }
 
 
-        trigger.triggers.Add(new EventTrigger.Entry { eventID = EventTriggerType.PointerClick });
-        trigger.triggers[0].callback.AddListener((data) => { multiAudio.SE_0(); });
+      
 
     }
     // 幅と高さを固定値に設定するメソッド

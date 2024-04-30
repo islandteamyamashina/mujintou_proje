@@ -14623,7 +14623,7 @@ Transform:
   - {fileID: 5750247054070604250}
   - {fileID: 7437102189992564805}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4325702225854922408
 MonoBehaviour:
@@ -15580,6 +15580,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4716655546215748943, guid: 91221296759c3c9439a0ffc2d6e495bf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4716655546215748943, guid: 91221296759c3c9439a0ffc2d6e495bf, type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 0}
@@ -15606,6 +15610,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4325702225854922409}
     m_Modifications:
+    - target: {fileID: 8672686743302864288, guid: 4f5411b10ad2d7e4789556fc4f01c288, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8672686743302864289, guid: 4f5411b10ad2d7e4789556fc4f01c288, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -15753,7 +15761,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 927982926612203526, guid: adb71b610ed55bb44b9ad2f30958a1e4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

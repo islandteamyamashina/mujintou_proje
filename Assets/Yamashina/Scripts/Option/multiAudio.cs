@@ -8,27 +8,28 @@ using UnityEngine.UI;
 
 public class multiAudio : MonoBehaviour
 {
-    
 
-    [SerializeField] Audiovolume audioVolume;
-    
 
+
+    public AudioClip[] audioClipsBGM;//BGMの素材
+
+    public AudioClip[] audioClipSE;//ならす音源
 
 
 
     // 幅と高さを固定値に設定するメソッド
-//    void SetFixedSize()
-//{
-//    //幅と高さを設定する
-//    fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, fixedWidth);
-//    fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fixedHeight);
-//    fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, fixedWidth);
-//    fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fixedHeight);
-//}
+    //    void SetFixedSize()
+    //{
+    //    //幅と高さを設定する
+    //    fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, fixedWidth);
+    //    fillRectTransform_BGM.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fixedHeight);
+    //    fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, fixedWidth);
+    //    fillRectTransform_SE.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fixedHeight);
+    //}
 
 
 
-   
+
 
     public float ConvertVolumeToDb(float volume)
     {
@@ -36,37 +37,37 @@ public class multiAudio : MonoBehaviour
     }
     public void SE_0()
     {
-        GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipSE[0];
-        audioVolume.audioClipSE = GameObject.FindWithTag("SoundControler").GetComponent<Audiovolume>().audioClipSE;
+        GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = audioClipSE[0];
+        audioClipSE = GetComponent<multiAudio>().audioClipSE;
 
-        GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(Audiovolume.instance.audioClipSE[0]);
+        GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(audioClipSE[0]);
     }
     public void SE_1()
     {
-        GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipSE[1];
-        audioVolume.audioClipSE = GameObject.FindWithTag("SoundControler").GetComponent<Audiovolume>().audioClipSE;
+        GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = audioClipSE[1];
+        audioClipSE = GetComponent<multiAudio>().audioClipSE;
 
-        GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(Audiovolume.instance.audioClipSE[1]);
+        GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(audioClipSE[1]);
     }
     public void SE_2()
     {
-        GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipSE[2];
-        audioVolume.audioClipSE = GameObject.FindWithTag("SoundControler").GetComponent<Audiovolume>().audioClipSE;
+        GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = audioClipSE[2];
+        audioClipSE = GetComponent<multiAudio>().audioClipSE;
 
-        GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(Audiovolume.instance.audioClipSE[2]);
+        GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(audioClipSE[2]);
 
     }
     public void BGM_0()
     {
-        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipsBGM[0];
-        audioVolume.audioClipsBGM = GameObject.FindWithTag("SoundControler").GetComponent<Audiovolume>().audioClipsBGM;
+        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().clip = audioClipsBGM[0];
+       audioClipsBGM =GetComponent<multiAudio>().audioClipsBGM;
 
         GameObject.FindWithTag("BGM").GetComponent<AudioSource>().Play();
     }
     public void BGM_1()
     {
-        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().clip = Audiovolume.instance.audioClipsBGM[1];
-        audioVolume.audioClipsBGM = GameObject.FindWithTag("SoundControler").GetComponent<Audiovolume>().audioClipsBGM;
+        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().clip = audioClipsBGM[1];
+        audioClipsBGM = GetComponent<multiAudio>().audioClipsBGM;
         GameObject.FindWithTag("BGM").GetComponent<AudioSource>().Play();
     }
 
