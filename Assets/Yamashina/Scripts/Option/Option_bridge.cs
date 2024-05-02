@@ -13,7 +13,6 @@ public class Option_bridge : MonoBehaviour
     [SerializeField] public Slider bgmSlider;//BGMスライダー
     [SerializeField] public Slider seSlider;//SEスライダー
     [SerializeField] multiAudio multiAudio;
-    [SerializeField] public EventTrigger trigger;
     [SerializeField] public RectTransform fillRectTransform_BGM;
     [SerializeField] public RectTransform fillRectTransform_SE;
     [SerializeField] public float fixedWidth = 100f;
