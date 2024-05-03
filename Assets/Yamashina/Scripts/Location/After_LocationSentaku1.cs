@@ -25,7 +25,7 @@ public class After_LocationSentaku1 : MonoBehaviour
     [SerializeField] SceneObject[] nextScene;
 
     [SerializeField] Button Syupatsu;
-    private int num;
+    [SerializeField] public int num;
     private int Choice_num;
 
     LockSystem lockSystem;
@@ -38,7 +38,7 @@ public class After_LocationSentaku1 : MonoBehaviour
 
         lockSystem = GetComponent<LockSystem>();
 
-       
+        
 
     }
     private void Update()
@@ -51,7 +51,10 @@ public class After_LocationSentaku1 : MonoBehaviour
     }
 
 
-
+    private void OnEnable()
+    {
+       
+    }
 
 
     public void Sentakuplaces(int num)
@@ -278,7 +281,24 @@ public class After_LocationSentaku1 : MonoBehaviour
                     //Syupatsu.interactable = false;
 
                 }
-                
+
+
+                break;
+
+            case 6:
+                num = 6;    
+                for (int i = 0; i < buttons.Length; i++)
+                {
+                    Syupatsu.interactable = true;
+
+                    if (i != num && lockSystem.isOpen[i])
+                    {
+                        buttons[i].GetComponent<Image>().sprite = image[i];
+
+                    }
+                    //Syupatsu.interactable = false;
+
+                }
 
                 break;
         }
