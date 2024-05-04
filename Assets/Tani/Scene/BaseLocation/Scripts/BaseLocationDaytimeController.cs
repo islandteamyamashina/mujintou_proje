@@ -17,7 +17,7 @@ public class BaseLocationDaytimeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerInfo.Instance.SetUIVisibility(true);
+
         var fade =  ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
         fade.Fade(Fading.type.FadeIn);
         var areaNameShow = (AreaNameText)GameObject.FindAnyObjectByType(typeof(AreaNameText));

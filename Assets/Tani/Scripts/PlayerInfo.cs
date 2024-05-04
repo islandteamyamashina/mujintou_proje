@@ -58,15 +58,11 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     [Space]
     [Header("�e�X�g��")]
-    [SerializeField] private Text status_text;
-    [SerializeField] private Text condition_text;
-    [SerializeField] private Text weather_text;
     [SerializeField] private Text day_text;
-    [SerializeField] private Text action_value_text;
     [SerializeField] private List<TextureData> textureDatas;
     [SerializeField] private SlotManager inventry;
-    [SerializeField] private Image weather_image;
-    [SerializeField] private List<Sprite> SunnyCloudyRainy;
+   // [SerializeField] private Image weather_image;
+    public List<Sprite> SunnyCloudyRainy;
     [SerializeField] private GameObject image_prefab;
     [SerializeField] private bool Excute_StartGame_FuncHere = false;
 
@@ -236,8 +232,6 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     protected override void Awake()
     {
         base.Awake();
-        OnActionValueChange.AddListener(() => { action_value_text.text = $"{ActionValue} / {MaxActionValue}"; });
-        OnMaxActionValueChange.AddListener(() => { action_value_text.text = $"{ActionValue} / {MaxActionValue}"; });
 
         
 
@@ -260,8 +254,6 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
             cursor_textures.Add(ResizeTexture(n.width, n.height, n.cursor));
             
         }
-        //SetMouseCursor(0);
-        SetWeatherIcon();
     }
 
     
@@ -271,26 +263,6 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         {
             SavePalyerData();
         }
-        if (status_text && condition_text)
-        {
-            if (weather_text && day_text)
-            {
-                status_text.text = $"Health : {_player_Health},Hunger : {_player_Hunger},Thirst : {_player_Thirst},Luck : {_player_Luck}";
-                string str = "";
-                for (int i = 0; i < (int)Condition.CONDIITON_MAX; i++)
-                {
-                    if (IsPlayerConditionEqualTo((Condition)i))
-                    {
-                        str += $"{(Condition)i},";
-                    }
-                }
-
-                condition_text.text = str;
-
-                weather_text.text = $"{weather}";
-                day_text.text = $"{Day.day}";
-            }
-        }
 
 
         if (Input.GetKeyDown(KeyCode.X))
@@ -299,11 +271,11 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
             Health = 100;
             Hunger = 100;
             Thirst = 100;
-            SetMouseCursor(null);
             ResetCondition();
         }
     }
 
+    #region Condition
     public enum Condition
     {
         Good, Poisoned, Thirsty, Hungry, ThirstyAndHungry, CONDIITON_MAX
@@ -342,7 +314,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     {
         _player_condition &= ~((uint)1 << (int)condition);
     }
-
+    #endregion 
 
     public void DoAction()
     { 
@@ -352,7 +324,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         Water += water_gain;
         Day = (day + 1,true);
         weather = (Weather)((int)Random.Range(0, (int)Weather.Weather_Max));
-        SetWeatherIcon();
+
 
 
         //状態付与
@@ -458,17 +430,12 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     public void SwitchUIVisibility()
     {
-        gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(!gameObject.transform.GetChild(0).GetChild(0).gameObject.activeSelf);
+        Debug.LogError("この関数は廃止しました詳細は聞いてください");
 
     }
     public void SetUIVisibility(bool visible)
     {
-        gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(visible);
-    }
-
-    public void SetWeatherIcon()
-    {
-        weather_image.sprite = SunnyCloudyRainy[(int)weather];
+        Debug.LogError("この関数は廃止しました詳細は聞いてください");
     }
 
     IEnumerator MoveImage(Items.Item_ID id, int num)
