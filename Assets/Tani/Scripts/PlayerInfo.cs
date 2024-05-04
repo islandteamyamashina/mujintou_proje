@@ -68,6 +68,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] private Image weather_image;
     [SerializeField] private List<Sprite> SunnyCloudyRainy;
     [SerializeField] private GameObject image_prefab;
+    [SerializeField] private bool Excute_StartGame_FuncHere = false;
 
 
     private int _player_Health;
@@ -246,6 +247,10 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     private void Start()
     {
+        if (Excute_StartGame_FuncHere)
+        {
+            StartGame(true);
+        }
     
 
         cursor_textures = new List<Texture2D>();
@@ -255,7 +260,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
             cursor_textures.Add(ResizeTexture(n.width, n.height, n.cursor));
             
         }
-        SetMouseCursor(0);
+        //SetMouseCursor(0);
         SetWeatherIcon();
     }
 

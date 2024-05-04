@@ -34,8 +34,8 @@ public class BaseLocationDaytimeController : MonoBehaviour
     }
     private void Awake()
     {
-        ((LockSystem)GameObject.FindAnyObjectByType(typeof(LockSystem))).gameObject.transform.parent.parent.gameObject.SetActive(true);
-        ((LockSystem)GameObject.FindAnyObjectByType(typeof(LockSystem))).gameObject.transform.parent.parent.gameObject.SetActive(false);
+        //((LockSystem)GameObject.FindAnyObjectByType(typeof(LockSystem))).gameObject.transform.parent.parent.gameObject.SetActive(true);
+        //((LockSystem)GameObject.FindAnyObjectByType(typeof(LockSystem))).gameObject.transform.parent.parent.gameObject.SetActive(false);
 
     }
 
