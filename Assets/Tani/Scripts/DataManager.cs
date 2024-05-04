@@ -13,7 +13,14 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     string default_fileName = "default_save_data.json";
     string folderPath;
    
-    List<string> DeleteWhenIntialized = new() { "PlayerInventryData.txt", "BaseLocationStorageSlotData.txt", "FoodUsageLog.txt" , "CraftPanelItemData.txt" , "cookngSlotData.txt" };
+    List<string> DeleteWhenIntialized = new() { 
+        "PlayerInventryData.txt",
+        "BaseLocationStorageSlotData.txt", 
+        "FoodUsageLog.txt" ,
+        "CraftPanelItemData.txt" , 
+        "cookngSlotData.txt",
+        "MakeFireSlotData.txt"
+    };
     //-------------------------------------------------------------------
     // 開始時にファイルチェック、読み込み
     protected override void Awake()

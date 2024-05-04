@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class CookingPanel : PanelBase
 {
+    [SerializeField]
+    List<Text> discriptions;
+    [SerializeField]
+    CraftSlots craftslots;
     protected override void Awake()
     {
         OnStateChange.AddListener((enable) =>
@@ -32,6 +36,21 @@ public class CookingPanel : PanelBase
         {
             gameObject.SetActive(false);
 
+        }
+
+        for (int i = 0; i < discriptions.Count; i++)
+        {
+            var data = craftslots.GetSlotItem(i);
+            if (!data.HasValue) return;
+
+            if (data.Value.id != Items.Item_ID.EmptyObject)
+            {
+                discriptions[i].text = SlotManager.GetItemData(data.Value.id).item_name;
+            }
+            else
+            {
+                discriptions[i].text = "";
+            }
         }
     }
 }
