@@ -76,8 +76,7 @@ public class CreditPanel1 : MonoBehaviour
 
     void Start()//Žn‚Ü‚é‚Æ‚«
     {
-        multi.BGM_0();
-        
+        multi.ChooseSongs_BGM(0);
 
         //multi.playse();
 
