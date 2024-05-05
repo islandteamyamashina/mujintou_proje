@@ -35,53 +35,40 @@ public class multiAudio : MonoBehaviour
     {
         return Mathf.Clamp(Mathf.Log10(Mathf.Clamp(volume, 0f, 1f)) * 20f, -80f, 0f);
     }
-
-
-    public void ChooseSongs_BGM(int num)
+    public void SE_0()
     {
-        switch (num)
-        {
-            case 0:
-                GameObject.FindWithTag("BGM").GetComponent<AudioSource>().clip = audioClipsBGM[num];
-                audioClipsBGM = GetComponent<multiAudio>().audioClipsBGM;
+        GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = audioClipSE[0];
+        audioClipSE = GetComponent<multiAudio>().audioClipSE;
 
-                GameObject.FindWithTag("BGM").GetComponent<AudioSource>().Play();
-                break;
-            case 1:
-                GameObject.FindWithTag("BGM").GetComponent<AudioSource>().clip = audioClipsBGM[num];
-                audioClipsBGM = GetComponent<multiAudio>().audioClipsBGM;
-
-                GameObject.FindWithTag("BGM").GetComponent<AudioSource>().Play();
-                break;
-        }
+        GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(audioClipSE[0]);
     }
-
-
-    public void ChooseSongs_SE(int num)
+    public void SE_1()
     {
-        switch (num)
-        {
-            case 0:
-                GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = audioClipSE[num];
-                audioClipSE = GetComponent<multiAudio>().audioClipSE;
+        GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = audioClipSE[1];
+        audioClipSE = GetComponent<multiAudio>().audioClipSE;
 
-                GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(audioClipSE[num]);
-                break;
-            case 1:
-                GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = audioClipSE[num];
-                audioClipSE = GetComponent<multiAudio>().audioClipSE;
-
-                GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(audioClipSE[num]);
-                break;
-                case 2:
-                GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = audioClipSE[num];
-                audioClipSE = GetComponent<multiAudio>().audioClipSE;
-
-                GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(audioClipSE[num]);
-                break;
-
-        }
+        GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(audioClipSE[1]);
     }
+    public void SE_2()
+    {
+        GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = audioClipSE[2];
+        audioClipSE = GetComponent<multiAudio>().audioClipSE;
 
+        GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(audioClipSE[2]);
+
+    }
+    public void BGM_0()
+    {
+        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().clip = audioClipsBGM[0];
+       audioClipsBGM =GetComponent<multiAudio>().audioClipsBGM;
+
+        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().Play();
+    }
+    public void BGM_1()
+    {
+        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().clip = audioClipsBGM[1];
+        audioClipsBGM = GetComponent<multiAudio>().audioClipsBGM;
+        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().Play();
+    }
 
 }
