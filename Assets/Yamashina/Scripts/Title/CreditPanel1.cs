@@ -97,7 +97,6 @@ public class CreditPanel1 : MonoBehaviour
         CreditButton.SetActive(true);
 
         //ƒVƒ“ƒOƒ‹ƒgƒ“
-        PlayerInfo.Instance.SetUIVisibility(false);
         //SceneManager.sceneLoaded += OnSceneLoaded;
 
 
