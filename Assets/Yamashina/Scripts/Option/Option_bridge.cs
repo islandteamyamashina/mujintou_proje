@@ -9,7 +9,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class Option_bridge : MonoBehaviour
 {
-    [SerializeField] public AudioMixer audioMixer;
+    //[SerializeField] public AudioMixer audioMixer;
     [SerializeField] public Slider bgmSlider;//BGMスライダー
     [SerializeField] public Slider seSlider;//SEスライダー
     [SerializeField] multiAudio multiAudio;
@@ -81,7 +81,7 @@ public class Option_bridge : MonoBehaviour
         float a = bgmSlider.value;
 
         Audiovolume.instance.SetBgmVolume(a);
-        audioMixer.SetFloat("BGM", multiAudio.ConvertVolumeToDb(bgmSlider.value));
+        //audioMixer.SetFloat("BGM", multiAudio.ConvertVolumeToDb(bgmSlider.value));
 
         BgmSave();
         print(a);
@@ -93,7 +93,7 @@ public class Option_bridge : MonoBehaviour
         float b = seSlider.value;
 
         Audiovolume.instance.SetSeVolume(b);
-        audioMixer.SetFloat("SE", multiAudio.ConvertVolumeToDb(seSlider.value));
+        //audioMixer.SetFloat("SE", multiAudio.ConvertVolumeToDb(seSlider.value));
         //セーブ
         SeSave();
        
