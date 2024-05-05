@@ -39,23 +39,38 @@ public class EventSceneControllerBase : MonoBehaviour
     }
 
 
+
+
+    public void RestartEvent_NoMovingImage()
+    {
+        fading.Fade(Fading.type.FadeOut);
+        fading.OnFadeEnd.AddListener(() =>
+        {
+            StartCoroutine(FadeinAfterOneFrame());
+
+        });
+    }
+
+    IEnumerator FadeinAfterOneFrame()
+    {
+        yield return null;
+        fading.Fade(Fading.type.FadeIn);
+        eventPanel.SetRandomEvent();
+
+    }
+
     public void RestartEvent()
     {
         //フェード終了時に呼ばれる
-        //fading.OnFadeEnd.AddListener(() =>
-        //{
-        //    imageInMoveing.SetActive(true);
-        //    StartCoroutine(HideMovingImage());
-            
-        //});
+        fading.OnFadeEnd.AddListener(() =>
+        {
+            imageInMoveing.SetActive(true);
+            StartCoroutine(HideMovingImage());
+
+        });
         fading.Fade(Fading.type.FadeOut);
-        fading.OnFadeEnd.AddListener(() => {
-            eventPanel.SetRandomEvent();
-
-        }) ;
-
-
     }
+
     IEnumerator HideMovingImage()
     {
         yield return new WaitForSeconds(1.5f);

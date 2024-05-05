@@ -16,7 +16,7 @@ public class ContinueExploreButton : MonoBehaviour
         }
         //print("Continue explore");
         GetComponent<Button>().interactable = PlayerInfo.Instance.ActionValue >= 1;
-        GetComponent<Button>().onClick.AddListener(event_controller.RestartEvent);
+        GetComponent<Button>().onClick.AddListener(event_controller.RestartEvent_NoMovingImage);
     }
 
   
