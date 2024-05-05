@@ -42,15 +42,19 @@ public class EventSceneControllerBase : MonoBehaviour
     public void RestartEvent()
     {
         //フェード終了時に呼ばれる
-        fading.OnFadeEnd.AddListener(() =>
-        {
-            imageInMoveing.SetActive(true);
-            StartCoroutine(HideMovingImage());
+        //fading.OnFadeEnd.AddListener(() =>
+        //{
+        //    imageInMoveing.SetActive(true);
+        //    StartCoroutine(HideMovingImage());
             
-        });
+        //});
         fading.Fade(Fading.type.FadeOut);
+        fading.OnFadeEnd.AddListener(() => {
+            eventPanel.SetRandomEvent();
 
-        
+        }) ;
+
+
     }
     IEnumerator HideMovingImage()
     {

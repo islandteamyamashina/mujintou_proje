@@ -300,7 +300,6 @@ public class EventPanelBase : MonoBehaviour
 
     void ONEndEvent()
     {
-        print("event end");
         event_text_control.ClickEventAfterTextsEnd.RemoveListener(ONEndEvent);
        
 

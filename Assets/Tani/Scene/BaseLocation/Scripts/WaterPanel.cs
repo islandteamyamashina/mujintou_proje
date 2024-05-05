@@ -31,7 +31,7 @@ public class WaterPanel : PanelBase
     protected override void Update()
     {
         int prev = info.Thirst;
-        water_value_text.text = $"<b>{prev}%  >>  {Mathf.Clamp(prev + waterAmountPerOnce, 0, 100)}%</b>";
+        water_value_text.text = $"<b>{prev}% ÅÀ {Mathf.Clamp(prev + waterAmountPerOnce, 0, 100)}%</b>";
         spring_water_text.text = $"íôêÖ : {info.Water}";
 
         PourButton.interactable = PlayerInfo.Instance.Water >= 30 &&
