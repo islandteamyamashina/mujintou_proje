@@ -14,8 +14,8 @@ public class Event_Manage : MonoBehaviour
     void Awake()
     {
         Camera camera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        multi.BGM_0();
-        
+        multi.ChooseSongs_BGM(0);
+
         if (start_area == 0)
         {
             start_event_num = Random.Range(-1, 2) + 1;

@@ -330,7 +330,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 1.4625092, y: 0.10000038}
   m_SizeDelta: {x: -2.925, y: -2.46}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -405,8 +405,8 @@ RectTransform:
   m_Father: {fileID: 3199179705219310807}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -233.74481, y: 5.3356}
   m_SizeDelta: {x: 11.9482, y: -16.7987}
   m_Pivot: {x: -20.929626, y: 0.22036555}
@@ -643,7 +643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3199179704467489454
 RectTransform:
   m_ObjectHideFlags: 0
@@ -653,7 +653,7 @@ RectTransform:
   m_GameObject: {fileID: 3199179704467489455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.013888889, y: 0.013888889, z: 0.013888889}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5195158439073324105}
@@ -719,11 +719,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32efadc3de93c0948810216d96b8e304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: 201275a464147634591467b51401d7de, type: 2}
   bgmSlider: {fileID: 8385037251334506349}
   seSlider: {fileID: 3199179703649054251}
   multiAudio: {fileID: 0}
-  trigger: {fileID: 3199179705451531853}
   fillRectTransform_BGM: {fileID: 6935442935709329399}
   fillRectTransform_SE: {fileID: 3199179703866127414}
   fixedWidth: 100
@@ -752,6 +750,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6cc13882276a847a9dc7d63eaf9ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClipsBGM:
+  - {fileID: 8300000, guid: fa1a2b2d6c5c1f34f84d31e33761e406, type: 3}
+  audioClipSE:
+  - {fileID: 8300000, guid: f55484fefd9d6e8479093307090b3de9, type: 3}
+  - {fileID: 8300000, guid: e515310e7e8a94349ae04619bbee83fe, type: 3}
+  - {fileID: 8300000, guid: a67ab5f1ca9ab2b42b870d9fe94f65b4, type: 3}
 --- !u!1 &3199179704704635570
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,7 +866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -2.8907, y: 0}
+  m_AnchoredPosition: {x: -2.8907013, y: 0}
   m_SizeDelta: {x: 5.7816, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3199179705219310792
@@ -1001,10 +1005,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 6362670637906426046}
           m_TargetAssemblyTypeName: multiAudio, Assembly-CSharp
-          m_MethodName: playse
-          m_Mode: 1
+          m_MethodName: ChooseSongs_SE
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1047,7 +1051,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -1.3230972, y: 0}
   m_SizeDelta: {x: 2.6452, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1309,7 +1313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title:
     m_SceneName: Title_scene
-  switchActivate: {fileID: 0}
+  switchActivate: {fileID: 1968985528}
 --- !u!114 &1744562073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1496,8 +1500,8 @@ RectTransform:
   m_Father: {fileID: 5715819956123344616}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -2.800003, y: -0.00000667572}
   m_SizeDelta: {x: 15, y: -0.000017166}
   m_Pivot: {x: 0.5, y: 0.5}
