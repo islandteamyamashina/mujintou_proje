@@ -19,7 +19,8 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
         "FoodUsageLog.txt" ,
         "CraftPanelItemData.txt" , 
         "cookngSlotData.txt",
-        "MakeFireSlotData.txt"
+        "MakeFireSlotData.txt",
+        "AddFireSlotData.txt"
     };
     //-------------------------------------------------------------------
     // 開始時にファイルチェック、読み込み
