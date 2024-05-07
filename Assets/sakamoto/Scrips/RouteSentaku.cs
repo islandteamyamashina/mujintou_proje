@@ -110,6 +110,7 @@ public class RouteSentaku : Event_Text
         addMainSentence(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Result1);
         changCondirion(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_health, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_hunger, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_warter);
         getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1_num);
+        getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward2, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward2_num);
         next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Next_Ivent_ID;
         ID_change_Event_num();
         BG2.SetActive(true);
@@ -126,6 +127,7 @@ public class RouteSentaku : Event_Text
         addMainSentence(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Result1);
         changCondirion(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_health, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_hunger, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_warter);
         getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1_num);
+        getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward2, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward2_num);
         next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Next_Ivent_ID;
         ID_change_Event_num();
         BG2.SetActive(true);
@@ -197,14 +199,16 @@ public class RouteSentaku : Event_Text
     //アイテムゲット
     void getItems(int Item_ID, int get_num)
     {
-        string Item_name;
-        PlayerInfo.Instance.Inventry.GetItem((Items.Item_ID)Item_ID, get_num);
-        Item_name = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)Item_ID);
-        textControl.AddTextData($"{Item_name}を{get_num}つ手に入れました。");
-        item_ID = Item_ID;
-        get_Num = get_num;
+        if (get_num != 0)
+        {
+            string Item_name;
+            PlayerInfo.Instance.Inventry.GetItem((Items.Item_ID)Item_ID, get_num);
+            Item_name = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)Item_ID);
+            textControl.AddTextData($"{Item_name}を{get_num}つ手に入れました。");
+            item_ID = Item_ID;
+            get_Num = get_num;
+        }
         textControl.ClickEventAfterTextsEnd.AddListener(DisplayGetItem);
-
     }
 
     void DisplayGetItem()
@@ -240,7 +244,7 @@ public class RouteSentaku : Event_Text
 
     void nextEvent(int event_num)
     {
-        if(event_num == 12)
+        if(event_num == 13)
         {
             SceneManager.LoadScene(scene);
         }
