@@ -207,8 +207,13 @@ public class RouteSentaku : Event_Text
             textControl.AddTextData($"{Item_name}‚ğ{get_num}‚Âè‚É“ü‚ê‚Ü‚µ‚½B");
             item_ID = Item_ID;
             get_Num = get_num;
+            textControl.ClickEventAfterTextsEnd.AddListener(DisplayGetItem);
         }
-        textControl.ClickEventAfterTextsEnd.AddListener(DisplayGetItem);
+        else
+        {
+            textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
+            textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
+        }
     }
 
     void DisplayGetItem()
@@ -244,7 +249,7 @@ public class RouteSentaku : Event_Text
 
     void nextEvent(int event_num)
     {
-        if(event_num == 13)
+        if(event_num == 12)
         {
             SceneManager.LoadScene(scene);
         }
