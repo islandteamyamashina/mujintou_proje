@@ -257,7 +257,7 @@ public class RouteSentaku : Event_Text
         event_manage.now_event_num = event_num;
         //textControl.ResetTextData();
         textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
-        Invoke("eventStart", 2);
+        Invoke("eventStart", 3.3f);
 
         if(deep > 0)
         {
