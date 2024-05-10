@@ -191,6 +191,22 @@ public class EventPanelBase : MonoBehaviour
                 {
                     return 0;
                 }
+            case 1010:
+                return info.weather == PlayerInfo.Weather.Rainy ? 1 : 0;
+            case 1004:
+                return info.weather == PlayerInfo.Weather.Sunny ? 1 : 0;
+            case 3005:
+                return info.weather == PlayerInfo.Weather.Rainy ? 1 : 0;
+            case 3010:
+                return info.weather == PlayerInfo.Weather.Rainy ? 1 : 0;
+            case 4011:
+                return info.weather == PlayerInfo.Weather.Rainy ? 1 : 0;
+            case 4013:
+                return info.weather == PlayerInfo.Weather.Rainy ? 1 : 0;
+            case 4012:
+                return info.weather == PlayerInfo.Weather.Sunny ? 1 : 0;
+            case 6010:
+                return info.weather == PlayerInfo.Weather.Rainy ? 1 : 0;
             default:
                 return 1;
         }
