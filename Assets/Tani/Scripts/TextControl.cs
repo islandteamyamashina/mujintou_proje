@@ -88,9 +88,9 @@ public class TextControl : MonoBehaviour
         switch (inputType)
         {
             case TextInputType.None:
-                strs.Clear();
-                text.text = "";
-                is_one_sentence_end = true;
+                //strs.Clear();
+                //text.text = "";
+                //is_one_sentence_end = true;
                 break;
             case TextInputType.DefaultText:
                 strs.Clear();

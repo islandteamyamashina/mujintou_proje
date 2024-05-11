@@ -72,4 +72,9 @@ public class Fading : MonoBehaviour
         OnFadeEnd.RemoveAllListeners();
     }
 
+    public void SetFadeImageActivaton(bool isActive)
+    {
+        fade_image.gameObject.SetActive(isActive);
+    }
+
 }
