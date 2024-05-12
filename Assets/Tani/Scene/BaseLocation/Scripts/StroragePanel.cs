@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StroragePanel : PanelBase
 {
+    [SerializeField]
+    Button close_button;
     protected override void Awake()
     {
         OnStateChange.AddListener((enable) =>
@@ -17,6 +20,7 @@ public class StroragePanel : PanelBase
 
             }
         });
+        close_button.onClick.AddListener(() => PlayerInfo.Instance.Inventry.SwitchVisible());
     }
 
 

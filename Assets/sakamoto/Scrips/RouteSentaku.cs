@@ -251,6 +251,9 @@ public class RouteSentaku : Event_Text
     {
         if(event_num == 12)
         {
+            print(PlayerInfo.Instance.Day.isDayTime);
+            PlayerInfo.Instance.DoAction();
+            print(PlayerInfo.Instance.Day.isDayTime);
             SceneManager.LoadScene(scene);
         }
         Loadimage.SetActive(true);

@@ -195,7 +195,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     public void StartGame(bool override_current_data = false)
     {
-        if (DataManager.Instance.DoesSaveExist())
+        if (DataManager.DoesSaveExist())
         {
             
             print("save exist");
@@ -218,15 +218,19 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         this.inventry.SwitchVisible();
 
 
-        Inventry.GetItem(Items.Item_ID.item_mat_coconut,3, true);
-        Inventry.GetItem(Items.Item_ID.item_mat_magma, 3, true);
-        Inventry.GetItem(Items.Item_ID.item_craft_onFireSet, 1, true);
-        Inventry.GetItem(Items.Item_ID.item_special_lighter, 1, true);
-        Inventry.GetItem((Items.Item_ID)34, 1, true);
-        Inventry.GetItem(Items.Item_ID.item_mat_branch, 10,true);
+        Inventry.GetItem(Items.Item_ID.item_mat_coconut,3);
+        Inventry.GetItem(Items.Item_ID.item_mat_magma, 3);
+        Inventry.GetItem(Items.Item_ID.item_craft_onFireSet, 1);
+        Inventry.GetItem(Items.Item_ID.item_special_lighter, 1);
+        Inventry.GetItem((Items.Item_ID)34, 1);
+        Inventry.GetItem(Items.Item_ID.item_mat_branch, 10);
+        Inventry.GetItem(Items.Item_ID.item_craft_water, 3);
+        Inventry.GetItem(Items.Item_ID.item_mat_shell, 3);
+        Inventry.GetItem(Items.Item_ID.item_mat_crab, 3);
+        Inventry.GetItem(Items.Item_ID.item_mat_stone, 5);
 
-       
-        
+
+
     }
 
     protected override void Awake()
@@ -427,17 +431,6 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
     }
-
-    public void SwitchUIVisibility()
-    {
-        Debug.LogError("この関数は廃止しました詳細は聞いてください");
-
-    }
-    public void SetUIVisibility(bool visible)
-    {
-        Debug.LogError("この関数は廃止しました詳細は聞いてください");
-    }
-
     IEnumerator MoveImage(Items.Item_ID id, int num)
     {
 
@@ -544,6 +537,14 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     {
         SetMouseCursor(null);
     }
+
+    public void DestroySelf()
+    {
+        SavePalyerData();
+        Destroy(gameObject);
+
+    }
+
 
 
     public void OnVisibilityChanged()

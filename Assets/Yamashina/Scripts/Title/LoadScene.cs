@@ -17,7 +17,7 @@ public class LoadScene : MonoBehaviour
         ColorUtility.TryParseHtmlString(colorString2, out newColor2); // êVÇµÇ≠ColorÇçÏê¨
         Text.color = newColor2;
        
-            if (!DataManager.Instance.DoesSaveExist())
+            if (!DataManager.DoesSaveExist())
             {
 
                 //image.SetActive(true);
@@ -51,11 +51,12 @@ public class LoadScene : MonoBehaviour
     [SerializeField] EventTrigger eventTrigger;
     [SerializeField] Button continueButton;
     [SerializeField] CreditPanel1 CreditPanel1;
+   [SerializeField] GameObject playerInfo;
     //[SerializeField] GameObject image;
     // Update is called once per frame
     public void Text_of_each_places(int num = 0)
     {
-        if (!DataManager.Instance.DoesSaveExist())
+        if (!DataManager.DoesSaveExist())
         {
             AfterStart();
 
@@ -71,6 +72,7 @@ public class LoadScene : MonoBehaviour
     public void AfterStart(int num = 0)
     {
         fade.scene_name_num = num;
+        Instantiate(playerInfo);
         PlayerInfo.Instance.StartGame(true);
 
         fade.feadout_f = true;
@@ -89,7 +91,7 @@ public class LoadScene : MonoBehaviour
     }
     public void Continue(int num)
     {
-        if (!DataManager.Instance.DoesSaveExist())
+        if (!DataManager.DoesSaveExist())
         {
 
             //image.SetActive(true);
@@ -103,7 +105,7 @@ public class LoadScene : MonoBehaviour
         else
         {
             fade.scene_name_num = num;
-
+            Instantiate(playerInfo);
             PlayerInfo.Instance.StartGame(false);
             fade.feadout_f = true;
             if (fade.feadout_f == false)

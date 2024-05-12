@@ -9,6 +9,8 @@ public class CraftPanel : PanelBase
     CraftSlots craftslots;
     [SerializeField]
     List<Text> discriptions;
+    [SerializeField]
+    Button close_button;
     protected override  void Awake()
     {
         OnStateChange.AddListener((enable) =>
@@ -22,6 +24,7 @@ public class CraftPanel : PanelBase
 
             }
         });
+        close_button.onClick.AddListener(() => { PlayerInfo.Instance.Inventry.SwitchVisible(); });
     }
 
 

@@ -9,6 +9,8 @@ public class CookingPanel : PanelBase
     List<Text> discriptions;
     [SerializeField]
     CraftSlots craftslots;
+    [SerializeField]
+    Button close_button;
     protected override void Awake()
     {
         OnStateChange.AddListener((enable) =>
@@ -22,6 +24,7 @@ public class CookingPanel : PanelBase
 
             }
         });
+        close_button.onClick.AddListener(() => PlayerInfo.Instance.Inventry.SwitchVisible());
     }
     protected override void Start()
     {
