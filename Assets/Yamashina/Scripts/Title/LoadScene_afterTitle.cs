@@ -17,6 +17,7 @@ public class LoadScene_afterTitle : MonoBehaviour
     public void Load()
     {
         switchActivate.SwitchActiveSelf();
+        PlayerInfo.Instance.DestroySelf();
         SceneManager.LoadScene(Title);
         //SceneManager.sceneLoaded += OnSceneLoaded;
     }
