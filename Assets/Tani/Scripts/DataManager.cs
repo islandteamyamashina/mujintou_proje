@@ -72,6 +72,10 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
         }
     }
 
+    static void ErasePlayerSaveData()
+    {
+        File.Delete(Application.streamingAssetsPath + "/Saves/Data.json");
+    }
     
 
     protected override void OnDestroy()
@@ -79,9 +83,9 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
         base.OnDestroy();
     }
 
-    public bool DoesSaveExist()
+    static public bool DoesSaveExist()
     {
-        return File.Exists(filepath);
+        return File.Exists(Application.streamingAssetsPath + "/Saves/Data.json");
     }
 
 }
