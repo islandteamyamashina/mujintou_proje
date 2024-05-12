@@ -224,9 +224,13 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         Inventry.GetItem(Items.Item_ID.item_special_lighter, 1, true);
         Inventry.GetItem((Items.Item_ID)34, 1, true);
         Inventry.GetItem(Items.Item_ID.item_mat_branch, 10,true);
+        Inventry.GetItem(Items.Item_ID.item_craft_water, 3);
+        Inventry.GetItem(Items.Item_ID.item_mat_shell, 3);
+        Inventry.GetItem(Items.Item_ID.item_mat_crab, 3);
+        Inventry.GetItem(Items.Item_ID.item_mat_stone, 5);
 
-       
-        
+
+
     }
 
     protected override void Awake()
@@ -543,6 +547,13 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     public void OnUnhover()
     {
         SetMouseCursor(null);
+    }
+
+    public void DestroySelef()
+    {
+        SavePalyerData();
+        Destroy(gameObject);
+
     }
 
 
