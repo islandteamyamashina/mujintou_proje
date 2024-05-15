@@ -19,8 +19,11 @@ public class RouteSentaku : Event_Text
     [SerializeField] GameObject Loadimage;
     [SerializeField] GameObject ItemPrefab;
     [SerializeField][Tooltip("とび先のシーン")] SceneObject scene;
-    int item_ID;
-    int get_Num;
+    //入手したアイテムの種類
+    int[] item_ID;
+    //入手したアイテムの数
+    int[] get_Num;
+    //洞窟でどれだけ奥に進んだか
     int deep = 0;
     [SerializeField] float deep_Light;
 
@@ -43,6 +46,10 @@ public class RouteSentaku : Event_Text
     //ChatGPT作
     void Start()
     {
+        //配列の初期化
+        item_ID = new int[2];
+        get_Num = new int[2];
+
         Route1.image.color = Route2.image.color = normalColor;
         Route1_text.SetActive(false);
         Route2_text.SetActive(false);
@@ -105,48 +112,65 @@ public class RouteSentaku : Event_Text
     }
     public void ChoiseRoute1()
     {
+        //ボタンの機能提出
+        Route1.interactable = false;
+        Route2.interactable = false;
+
         textControl.ResetTextData();
         //StartCoroutine(appearBGcover());
         addMainSentence(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Result1);
         changCondirion(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_health, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_hunger, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_warter);
-        getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1_num);
-        getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward2, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward2_num);
+        if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward2 == 0)
+        {
+            getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1_num);
+        }
+        else
+        {
+            getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward1_num,
+                     event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward2, event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Reward2_num);
+        }
         next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Next_Ivent_ID;
         ID_change_Event_num();
         BG2.SetActive(true);
-        //ボタンの機能提出
-        Route1.interactable = false; 
-        Route2.interactable = false;
         //textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
         deep++;
     }
     public void ChoiseRoute2()
     {
+        //ボタンの機能提出
+        Route1.interactable = false;
+        Route2.interactable = false;
+
         textControl.ResetTextData();
         //StartCoroutine(appearBGcover());
         addMainSentence(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Result1);
         changCondirion(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_health, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_hunger, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_warter);
-        getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1_num);
-        getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward2, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward2_num);
+        if (event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward2 == 0)
+        {
+            getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1_num);
+        }
+        else
+        {
+            getItems(event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward1_num,
+                     event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward2, event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Reward2_num);
+        }
         next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_Next_Ivent_ID;
         ID_change_Event_num();
         BG2.SetActive(true);
-        //ボタンの機能提出
-        Route1.interactable = false; 
-        Route2.interactable = false;
         //textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
         deep++;
     }
     public void ChoiseRoute3()
     {
+        //ボタンの機能提出
+        Route1.interactable = false;
+        Route2.interactable = false;
+
         textControl.ResetTextData();
         //StartCoroutine(appearBGcover());
         addMainSentence(event_manage.eventDatas[event_manage.now_event_num].Cancel_Result);
         next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Cancel_Next_Ivent_ID;
         ID_change_Event_num();
-        //ボタンの機能提出
-        Route1.interactable = false; 
-        Route2.interactable = false;
         textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
         deep--;
     }
@@ -199,45 +223,93 @@ public class RouteSentaku : Event_Text
     //アイテムゲット
     void getItems(int Item_ID, int get_num)
     {
-        if (get_num != 0)
+        if(Item_ID != 0)
         {
             string Item_name;
             PlayerInfo.Instance.Inventry.GetItem((Items.Item_ID)Item_ID, get_num);
             Item_name = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)Item_ID);
             textControl.AddTextData($"{Item_name}を{get_num}つ手に入れました。");
-            item_ID = Item_ID;
-            get_Num = get_num;
+            item_ID[0] = Item_ID;
+            get_Num[0] = get_num;
             textControl.ClickEventAfterTextsEnd.AddListener(DisplayGetItem);
-            Debug.Log("DisplayGetItemに通したよ");
         }
         else
         {
             textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
             textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
+
         }
     }
 
+    void getItems(int Item_ID, int Get_num, int itemID, int getNum)
+    {
+        string[] Item_name = new string[2];
+        PlayerInfo.Instance.Inventry.GetItem((Items.Item_ID)Item_ID, Get_num);
+        PlayerInfo.Instance.Inventry.GetItem((Items.Item_ID)itemID, getNum);
+        Item_name[0] = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)Item_ID);
+        Item_name[1] = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)itemID);
+        textControl.AddTextData($"{Item_name[0]}を{Get_num}つ手に入れました。\n{Item_name[1]}を{getNum}つ手に入れました。");
+        //textControl.AddTextData($"{Item_name[1]}を{getNum}つ手に入れました。");
+        item_ID[0] = Item_ID;
+        get_Num[0] = Get_num;
+        item_ID[1] = itemID;
+        get_Num[1] = getNum;
+        textControl.ClickEventAfterTextsEnd.AddListener(DisplayGetItem2);
+
+    }
+
+
     void DisplayGetItem()
     {
-        Debug.Log("DisplayGetItemに入ったよ");
         StartCoroutine(displayGetItem());
-        Debug.Log("DisplayGetItem通ったよ");
     }
     IEnumerator displayGetItem()
     {
-        for (int i = 0; i < get_Num; i++)
+        for (int i = 0; i < get_Num[0]; i++)
         {
             yield return new WaitForSeconds(0.2f);
             //生成位置
-            Vector3 pos = new Vector3(570, -250 + 125f * i, 0.0f);
+            Vector3 pos = new Vector3(550, -250 + 125f * (i + 1), 0.0f);
             //プレハブを指定位置に生成
             Instantiate(ItemPrefab, pos, Quaternion.identity);
             GameObject obj = Instantiate(ItemPrefab, pos, Quaternion.identity);
             obj.transform.SetParent(Route1.image.canvas.gameObject.transform);
             obj.transform.localScale = Vector3.one;
             obj.transform.localPosition = pos;
-            obj.GetComponent<Image>().sprite = SlotManager.GetItemData((Items.Item_ID)item_ID).icon;
-            obj.transform.GetChild(0).gameObject.GetComponent<Text>().text = PlayerInfo.Instance.Inventry.GetItemAmount((Items.Item_ID)item_ID).ToString();
+            obj.GetComponent<Image>().sprite = SlotManager.GetItemData((Items.Item_ID)item_ID[0]).icon;
+            obj.transform.GetChild(0).gameObject.GetComponent<Text>().text = PlayerInfo.Instance.Inventry.GetItemAmount((Items.Item_ID)item_ID[0]).ToString();
+        }
+        textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
+        textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
+        
+    }
+    void DisplayGetItem2()
+    {
+        StartCoroutine(displayGetItem2());
+    }
+    IEnumerator displayGetItem2()
+    {
+        for (int i = 0; i < get_Num[0] + get_Num[1]; i++)
+        {
+            yield return new WaitForSeconds(0.2f);
+            //生成位置
+            Vector3 pos = new Vector3(550, -250 + 125f * (i + 1), 0.0f);
+            //プレハブを指定位置に生成
+            Instantiate(ItemPrefab, pos, Quaternion.identity);
+            GameObject obj = Instantiate(ItemPrefab, pos, Quaternion.identity);
+            obj.transform.SetParent(Route1.image.canvas.gameObject.transform);
+            obj.transform.localScale = Vector3.one;
+            obj.transform.localPosition = pos;
+            if (i < get_Num[0])
+            {
+                obj.GetComponent<Image>().sprite = SlotManager.GetItemData((Items.Item_ID)item_ID[0]).icon;
+                obj.transform.GetChild(0).gameObject.GetComponent<Text>().text = PlayerInfo.Instance.Inventry.GetItemAmount((Items.Item_ID)item_ID[0]).ToString();
+            }
+            else
+            {
+                obj.GetComponent<Image>().sprite = SlotManager.GetItemData((Items.Item_ID)item_ID[1]).icon;
+                obj.transform.GetChild(0).gameObject.GetComponent<Text>().text = PlayerInfo.Instance.Inventry.GetItemAmount((Items.Item_ID)item_ID[1]).ToString();
+            }
         }
         textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
         textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
@@ -276,7 +348,7 @@ public class RouteSentaku : Event_Text
 
         Color BG_cover_color;
         BG_cover_color = BG_cover.GetComponent<Image>().color;
-        BG_cover_color.a += deep_Light * deep;
+        BG_cover_color.a = deep_Light * deep;
         BG_cover.GetComponent<Image>().color = BG_cover_color;
     }
 
