@@ -12,8 +12,8 @@ public class RouteSentaku : Event_Text
     [SerializeField] Button Route1;
     [SerializeField] Button Route2;
     [SerializeField] GameObject Route3;
-    [SerializeField] GameObject Route1_text;
-    [SerializeField] GameObject Route2_text;
+    [SerializeField] GameObject Route1Image;
+    [SerializeField] GameObject Route2Image;
     [SerializeField] GameObject BG_cover;
     [SerializeField] GameObject BG2;
     [SerializeField] GameObject Loadimage;
@@ -29,7 +29,7 @@ public class RouteSentaku : Event_Text
 
 
     Color color;
-    Color normalColor = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+    Color normalColor = new Color(1.0f, 1.0f, 1.0f, 0.3f);
     Color highlightColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
     //[SerializeField, Header("inventoryマネージャー取得してね")] InventoryManagerVer cpInventoryManager;
@@ -51,8 +51,8 @@ public class RouteSentaku : Event_Text
         get_Num = new int[2];
 
         Route1.image.color = Route2.image.color = normalColor;
-        Route1_text.SetActive(false);
-        Route2_text.SetActive(false);
+        Route1Image.SetActive(false);
+        Route2Image.SetActive(false);
 
         //if (PlayerInfo.Instance.Inventry.GetItemAmount((Items.Item_ID)event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Zyouken) >= event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Zyouken_num || event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_Zyouken_num == 0)
         //{
@@ -90,11 +90,11 @@ public class RouteSentaku : Event_Text
         button.image.color = highlightColor;
         if(button == Route1)
         {
-            Route1_text.SetActive(true);
+            Route1Image.SetActive(true);
         }
         if(button == Route2) 
         { 
-            Route2_text.SetActive(true);
+            Route2Image.SetActive(true);
         }
     }
 
@@ -103,11 +103,11 @@ public class RouteSentaku : Event_Text
         button.image.color = normalColor;
         if (button == Route1)
         {
-            Route1_text.SetActive(false);
+            Route1Image.SetActive(false);
         }
         if (button == Route2)
         {
-            Route2_text.SetActive(false);
+            Route2Image.SetActive(false);
         }
     }
     public void ChoiseRoute1()
