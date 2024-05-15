@@ -134,7 +134,7 @@ public class RouteSentaku : Event_Text
         //ボタンの機能提出
         Route1.interactable = false; 
         Route2.interactable = false;
-        textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
+        //textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
         deep++;
     }
     public void ChoiseRoute3()
@@ -208,6 +208,7 @@ public class RouteSentaku : Event_Text
             item_ID = Item_ID;
             get_Num = get_num;
             textControl.ClickEventAfterTextsEnd.AddListener(DisplayGetItem);
+            Debug.Log("DisplayGetItemに通したよ");
         }
         else
         {
@@ -218,7 +219,9 @@ public class RouteSentaku : Event_Text
 
     void DisplayGetItem()
     {
+        Debug.Log("DisplayGetItemに入ったよ");
         StartCoroutine(displayGetItem());
+        Debug.Log("DisplayGetItem通ったよ");
     }
     IEnumerator displayGetItem()
     {
@@ -228,7 +231,7 @@ public class RouteSentaku : Event_Text
             //生成位置
             Vector3 pos = new Vector3(570, -250 + 125f * i, 0.0f);
             //プレハブを指定位置に生成
-            //Instantiate(ItemPrefab, pos, Quaternion.identity);
+            Instantiate(ItemPrefab, pos, Quaternion.identity);
             GameObject obj = Instantiate(ItemPrefab, pos, Quaternion.identity);
             obj.transform.SetParent(Route1.image.canvas.gameObject.transform);
             obj.transform.localScale = Vector3.one;
@@ -256,11 +259,11 @@ public class RouteSentaku : Event_Text
             print(PlayerInfo.Instance.Day.isDayTime);
             SceneManager.LoadScene(scene);
         }
-        Loadimage.SetActive(true);
+        //Loadimage.SetActive(true);
         event_manage.now_event_num = event_num;
         //textControl.ResetTextData();
         textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
-        Invoke("eventStart", 3.3f);
+        Invoke("eventStart", 0.3f);
 
         if(deep > 0)
         {
