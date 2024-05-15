@@ -264,7 +264,8 @@ public class RouteSentaku : Event_Text
         StartCoroutine(displayGetItem());
     }
     IEnumerator displayGetItem()
-    {
+    {       
+        textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
         for (int i = 0; i < get_Num[0]; i++)
         {
             yield return new WaitForSeconds(0.2f);
@@ -279,9 +280,9 @@ public class RouteSentaku : Event_Text
             obj.GetComponent<Image>().sprite = SlotManager.GetItemData((Items.Item_ID)item_ID[0]).icon;
             obj.transform.GetChild(0).gameObject.GetComponent<Text>().text = PlayerInfo.Instance.Inventry.GetItemAmount((Items.Item_ID)item_ID[0]).ToString();
         }
-        textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
+
         textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
-        
+
     }
     void DisplayGetItem2()
     {
@@ -289,6 +290,7 @@ public class RouteSentaku : Event_Text
     }
     IEnumerator displayGetItem2()
     {
+        textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
         for (int i = 0; i < get_Num[0] + get_Num[1]; i++)
         {
             yield return new WaitForSeconds(0.2f);
@@ -311,7 +313,6 @@ public class RouteSentaku : Event_Text
                 obj.transform.GetChild(0).gameObject.GetComponent<Text>().text = PlayerInfo.Instance.Inventry.GetItemAmount((Items.Item_ID)item_ID[1]).ToString();
             }
         }
-        textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
         textControl.ClickEventAfterTextsEnd.AddListener(Nextevent);
         
     }
