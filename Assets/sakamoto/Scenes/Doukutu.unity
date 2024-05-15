@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420037}
   - component: {fileID: 519420038}
+  - component: {fileID: 519420039}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -485,6 +486,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectPanal: {fileID: 1523528351}
   damage_f: 0
+--- !u!81 &519420039
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
 --- !u!1 &563692472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,8 +1090,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3120181240790273060, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 141.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120181240790273060, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 133.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120181240790273060, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 567.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120181240790273060, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -286.1
+      value: -291.8
       objectReference: {fileID: 0}
     - target: {fileID: 7850399625113772841, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
       propertyPath: m_Name
@@ -1112,19 +1133,19 @@ PrefabInstance:
       objectReference: {fileID: 1101692254}
     - target: {fileID: 1875095434272811927, guid: e432429a349a46843bc8606bf96b7b88, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 78.0386
+      value: 80.1598
       objectReference: {fileID: 0}
     - target: {fileID: 1875095434272811927, guid: e432429a349a46843bc8606bf96b7b88, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 79.3125
+      value: 77.1875
       objectReference: {fileID: 0}
     - target: {fileID: 1875095434272811927, guid: e432429a349a46843bc8606bf96b7b88, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -631.7073
+      value: -631.66
       objectReference: {fileID: 0}
     - target: {fileID: 1875095434272811927, guid: e432429a349a46843bc8606bf96b7b88, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -364.45395
+      value: -364.45
       objectReference: {fileID: 0}
     - target: {fileID: 2043602302156366006, guid: e432429a349a46843bc8606bf96b7b88, type: 3}
       propertyPath: multi

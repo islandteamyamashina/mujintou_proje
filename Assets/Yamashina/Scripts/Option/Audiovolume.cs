@@ -11,6 +11,8 @@ public class Audiovolume : MonoBehaviour
     public static Audiovolume instance;
     private void Awake()
     {
+      audioSourceBGM.volume = GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume;
+       audioSourceSE.volume = GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume;
 
         if (instance == null)
         {

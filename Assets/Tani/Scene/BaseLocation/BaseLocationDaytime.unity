@@ -4048,21 +4048,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 319469875, guid: 53ebee9855378614da86c4e5d6e9aab8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2035187414, guid: 53ebee9855378614da86c4e5d6e9aab8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2035187415, guid: 53ebee9855378614da86c4e5d6e9aab8, type: 3}
-      propertyPath: m_FontData.m_HorizontalOverflow
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4325702225854922408, guid: 53ebee9855378614da86c4e5d6e9aab8, type: 3}
-      propertyPath: day_text
-      value: 
+      propertyPath: Excute_StartGame_FuncHere
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4325702225854922409, guid: 53ebee9855378614da86c4e5d6e9aab8, type: 3}
       propertyPath: m_RootOrder
@@ -4111,14 +4099,6 @@ PrefabInstance:
     - target: {fileID: 4325702225854922415, guid: 53ebee9855378614da86c4e5d6e9aab8, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5750247054070604251, guid: 53ebee9855378614da86c4e5d6e9aab8, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7437102189992564804, guid: 53ebee9855378614da86c4e5d6e9aab8, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6772,14 +6752,14 @@ MonoBehaviour:
     locking_sprite: {fileID: 21300000, guid: 4ccf960e2b0dd1a4bbc335fdbc16ac48, type: 3}
     necessary_action_value: 8
     distination:
-      m_SceneName: VolcanoEvent_shibata
+      m_SceneName: volcanoEvent
   - button: {fileID: 4285541736685294681}
     on_hover_sprite: {fileID: 21300000, guid: a74437b3f3180b3498b4f46e6e6a7249, type: 3}
     on_unhover_sprite: {fileID: 21300000, guid: 79bf5ddc9bf03364eb2b40eb18f69efc, type: 3}
     locking_sprite: {fileID: 21300000, guid: b22aafc77f900344faaee6d7ab91ac43, type: 3}
     necessary_action_value: 8
     distination:
-      m_SceneName: VolcanoEvent_shibata
+      m_SceneName: caveEvent
   depature_button: {fileID: 5298055615576302091}
   fading: {fileID: 964864656}
 --- !u!1 &1265888926
