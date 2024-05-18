@@ -72,7 +72,7 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
         }
     }
 
-    static void ErasePlayerSaveData()
+    static public void ErasePlayerSaveData()
     {
         File.Delete(Application.streamingAssetsPath + "/Saves/Data.json");
     }
