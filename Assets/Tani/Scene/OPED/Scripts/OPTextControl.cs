@@ -26,6 +26,7 @@ namespace Opening
 
         private void Start()
         {
+
             shake = GetComponent<ShakeUI>();
             textContol = GetComponent<TextControl>();
             fading = GetComponent<Fading>();
