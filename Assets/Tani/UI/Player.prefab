@@ -14223,7 +14223,6 @@ GameObject:
   - component: {fileID: 4325702225854922409}
   - component: {fileID: 4325702225854922408}
   - component: {fileID: 4325702225854922410}
-  - component: {fileID: 3917898860665004732}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -14249,7 +14248,7 @@ Transform:
   - {fileID: 7437102189992564805}
   - {fileID: 4587938212615726220}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4325702225854922408
 MonoBehaviour:
@@ -14291,7 +14290,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 95eea5913749efd418c66176e478500e, type: 3}
   - {fileID: 21300000, guid: 358b36aeedd3fb2479e05eb05e566ef4, type: 3}
   image_prefab: {fileID: 6551137836290588583, guid: 5c046803548a92b45ad2fc6d4396889d, type: 3}
-  Excute_StartGame_FuncHere: 0
+  Excute_StartGame_FuncHere: 1
 --- !u!114 &4325702225854922410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14316,14 +14315,6 @@ MonoBehaviour:
     water: 0
     action: 0
     max_action: 0
---- !u!81 &3917898860665004732
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4325702225854922415}
-  m_Enabled: 1
 --- !u!1 &4325702226427512686
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class Fading : MonoBehaviour
     [SerializeField]
     Image fade_image;
     [SerializeField,Min(0)]
-    float fading_time = 1.0f;
+    public float fading_time = 1.0f;
 
 
     public UnityEvent OnFadeEnd { get; set; } = new UnityEvent();
