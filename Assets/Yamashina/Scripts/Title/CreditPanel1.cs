@@ -28,27 +28,56 @@ public class CreditPanel1 : MonoBehaviour
     [SerializeField] float StartPanel_End_X;
     [SerializeField] float StartPanel_End_Y;
     [SerializeField] float StartPanel_End_Z;
-
+    [SerializeField] float startButton_X;
+    [SerializeField] float startButton_Y;
+    [SerializeField] float startButton_Z;
+    [SerializeField] float startButton_End_X;
+    [SerializeField] float startButton_End_Y;
+    [SerializeField] float startButton_End_Z;
     [SerializeField] float OptionPanel_X;
     [SerializeField] float OptionPanel_Y;
     [SerializeField] float OptionPanel_Z;
     [SerializeField] float OptionPanel_End_X;
-    [SerializeField]float OptionPanel_End_Y;
+    [SerializeField] float OptionPanel_End_Y;
     [SerializeField] float OptionPanel_End_Z;
+    [SerializeField] float OptionButton_X;
+    [SerializeField] float OptionButton_Y;
+    [SerializeField] float OptionButton_Z;
+    [SerializeField] float OptionButton_End_X;
+    [SerializeField] float OptionButton_End_Y;
+    [SerializeField] float OptionButton_End_Z;
 
     [SerializeField] float CreditPanel_X;
-    [SerializeField]float CreditPanel_Y;
+    [SerializeField] float CreditPanel_Y;
     [SerializeField] float CreditPanel_Z;
     [SerializeField] float CreditPanel_End_X;
     [SerializeField] float CreditPanel_End_Y;
     [SerializeField] float CreditPanel_End_Z;
 
-    [SerializeField] float QuitPanel_X; 
-    [SerializeField] float QuitPanel_Y; 
+    [SerializeField] float CreditButton_X;
+    [SerializeField] float CreditButton_Y;
+    [SerializeField] float CreditButton_Z;
+    [SerializeField] float CreditButton_End_X;
+    [SerializeField] float CreditButton_End_Y;
+    [SerializeField] float CreditButton_End_Z;
+    [SerializeField] float QuitPanel_X;
+    [SerializeField] float QuitPanel_Y;
     [SerializeField] float QuitPanel_Z;
     [SerializeField] float QuitPanel_End_X;
-    [SerializeField]float QuitPanel_End_Y;
+    [SerializeField] float QuitPanel_End_Y;
     [SerializeField] float QuitPanel_End_Z;
+    [SerializeField] float QuitButton_X;
+    [SerializeField] float QuitButton_Y;
+    [SerializeField] float QuitButton_Z;
+    [SerializeField] float QuitButton_End_X;
+    [SerializeField] float QuitButton_End_Y;
+    [SerializeField] float QuitButton_End_Z;
+    [SerializeField] float ContinueButton_X;
+    [SerializeField] float ContinueButton_Y;
+    [SerializeField] float ContinueButton_Z;
+    [SerializeField] float ContinueButton_End_X;
+    [SerializeField] float ContinueButton_End_Y;
+    [SerializeField] float ContinueButton_End_Z;
 
     //ゲームオブジェクトのボタン(Setactive)
     [SerializeField] GameObject startButton;
@@ -384,7 +413,7 @@ public class CreditPanel1 : MonoBehaviour
         while (size3 <= 1.0f && subPanel.activeSelf)
         {
             //subPanel.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), new Vector3(1.0f, 1.0f, 1.0f), size3);
-            subPanel.transform.localPosition = Vector3.Lerp(new Vector3(CreditPanel_X, CreditPanel_Y, CreditPanel_Z), new Vector3(CreditPanel_End_X, CreditPanel_End_Y,CreditPanel_End_Z), size3);
+            subPanel.transform.localPosition = Vector3.Lerp(new Vector3(CreditPanel_X, CreditPanel_Y, CreditPanel_Z), new Vector3(CreditPanel_End_X, CreditPanel_End_Y, CreditPanel_End_Z), size3);
 
 
 
@@ -409,7 +438,9 @@ public class CreditPanel1 : MonoBehaviour
     public void StartSlideOut()//パネル縮小開始のための関数
     {
         StartCoroutine(ChangePaneltoSmallSize());
+        //StartCoroutine(ChangeButtontoSmallSize());
     }
+
 
     //パネル縮小(汎用)
     public IEnumerator ChangePaneltoSmallSize()
@@ -420,8 +451,8 @@ public class CreditPanel1 : MonoBehaviour
         var size4 = 0f;
 
 
+       
         //パネル縮小（スタートパネル）
-
 
         while (size <= 1.0f && startPanel.activeSelf)
         {
@@ -436,18 +467,36 @@ public class CreditPanel1 : MonoBehaviour
         while (size2 <= 1.0f && OptionPanel.activeSelf)
         {
             //OptionPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size2);
-            OptionPanel.transform.localPosition = Vector3.Lerp(new Vector3(OptionPanel_End_X, OptionPanel_End_Y,OptionPanel_End_Z), new Vector3(OptionPanel_X, OptionPanel_Y, OptionPanel_Z), size2);
+            OptionPanel.transform.localPosition = Vector3.Lerp(new Vector3(OptionPanel_End_X, OptionPanel_End_Y, OptionPanel_End_Z), new Vector3(OptionPanel_X, OptionPanel_Y, OptionPanel_Z), size2);
 
             size2 += speed * Time.deltaTime;
 
+
+
             yield return new WaitForSeconds(corrutin);
         }
+        //パネル縮小（オプションボタン）
+
+        //while (size2 <= 1.0f && !optionButton.activeSelf)
+        //{
+        //    optionButton.transform.localPosition = Vector3.Lerp(new Vector3(OptionButton_End_X, OptionButton_End_Y, OptionButton_End_Z), new Vector3(OptionButton_X, OptionButton_Y, OptionButton_Z), size);
+        //    size += speed * Time.deltaTime;
+        //    yield return new WaitForSeconds(corrutin);
+        //}
+        //パネル縮小（クレジットボタン）
+
+        //while (size2 <= 1.0f && !CreditButton.activeSelf)
+        //{
+        //    CreditButton.transform.localPosition = Vector3.Lerp(new Vector3(CreditButton_End_X, CreditButton_End_Y, CreditButton_End_Z), new Vector3(OptionButton_X, CreditButton_Y, CreditButton_Z), size);
+        //    size += speed * Time.deltaTime;
+        //    yield return new WaitForSeconds(corrutin);
+        //}
         //パネル縮小（クレジットパネル）
 
         while (size3 <= 1.0f && subPanel.activeSelf)
         {
             //subPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size3);
-            subPanel.transform.localPosition = Vector3.Lerp(new Vector3(CreditPanel_End_X,CreditPanel_End_Y, CreditPanel_End_Z), new Vector3(CreditPanel_X, CreditPanel_Y, CreditPanel_Z), size3);
+            subPanel.transform.localPosition = Vector3.Lerp(new Vector3(CreditPanel_End_X, CreditPanel_End_Y, CreditPanel_End_Z), new Vector3(CreditPanel_X, CreditPanel_Y, CreditPanel_Z), size3);
 
 
             size3 += speed * Time.deltaTime;
@@ -468,6 +517,24 @@ public class CreditPanel1 : MonoBehaviour
 
             yield return new WaitForSeconds(corrutin);
         }
+
+
+        //while (size2 <= 1.0f && !quitButton.activeSelf)
+
+        //{
+        //    quitButton.transform.localPosition = Vector3.Lerp(new Vector3(QuitButton_End_X, QuitButton_End_Y, QuitButton_End_Z), new Vector3(QuitButton_X, QuitButton_Y, QuitButton_Z), size);
+        //    size += speed * Time.deltaTime;
+        //    yield return new WaitForSeconds(corrutin);
+        //}
+
+        //while (size2 <= 1.0f && !ContinueButton.activeSelf)
+
+        //{
+        //    ContinueButton.transform.localPosition = Vector3.Lerp(new Vector3(ContinueButton_End_X, ContinueButton_End_Y, ContinueButton_End_Z), new Vector3(ContinueButton_X, ContinueButton_Y, ContinueButton_Z), size);
+        //    size += speed * Time.deltaTime;
+        //    yield return new WaitForSeconds(corrutin);
+        //}
+
         Debug.Log("通った");
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
@@ -477,10 +544,66 @@ public class CreditPanel1 : MonoBehaviour
 
 
     }
-    void Update()
+
+    //public IEnumerator ChangeButtontoSmallSize()
+    //{
+    //    var size = 0f;
+    //    var size2 = 0f;
+    //    var size3 = 0f;
+    //    var size4 = 0f;
+    //    //パネル縮小（スタートボタン）
+
+    //    while (size <= 1.0f && !startButton.activeSelf)
+    //    {
+    //        startButton.transform.localPosition = Vector3.Lerp(new Vector3(startButton_X, startButton_Y, startButton_Z), new Vector3(startButton_End_X, startButton_End_Y, startButton_End_Z), size);
+    //        size += speed * Time.deltaTime;
+    //        yield return new WaitForSeconds(corrutin);
+    //    }
+    //    //パネル縮小（オプションボタン）
+
+    //    while (size2 <= 1.0f &&!optionButton.activeSelf)
+    //    {
+    //        optionButton.transform.localPosition = Vector3.Lerp(new Vector3(OptionButton_X, OptionButton_Y, OptionButton_Z), new Vector3(OptionButton_End_X, OptionButton_End_Y, OptionButton_End_Z), size);
+    //        size += speed * Time.deltaTime;
+    //        yield return new WaitForSeconds(corrutin);
+    //    }
+
+
+
+    //    //パネル縮小（クレジットボタン）
+
+    //    while (size3 <= 1.0f && !CreditButton.activeSelf)
+    //    {
+    //        CreditButton.transform.localPosition = Vector3.Lerp(new Vector3(CreditButton_X, CreditButton_Y, CreditButton_Z), new Vector3(OptionButton_End_X, CreditButton_End_Y, CreditButton_End_Z), size);
+    //        size += speed * Time.deltaTime;
+    //        yield return new WaitForSeconds(corrutin);
+    //    }
+    //    while (size2 <= 1.0f && ContinueButton.activeSelf)
+
+    //    {
+    //        ContinueButton.transform.localPosition = Vector3.Lerp(new Vector3(ContinueButton_X, ContinueButton_Y, ContinueButton_Z), new Vector3(OptionButton_End_X, ContinueButton_End_Y, ContinueButton_End_Z), size);
+    //        size += speed * Time.deltaTime;
+    //        yield return new WaitForSeconds(corrutin);
+    //    }
+
+
+    //    //パネル拡大（終了パネル）
+
+    //    while (size4 <= 1.0f && !quitButton.activeSelf)
+    //    {
+
+    //        //QuitPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size4);
+    //        quitButton.transform.localPosition = Vector3.Lerp(new Vector3(QuitButton_X, QuitButton_Y, QuitButton_Z), new Vector3(QuitButton_End_X, QuitButton_End_Y, QuitButton_End_Z), size4);
+
+    //        size4 += speed * Time.deltaTime;
+
+    //        yield return new WaitForSeconds(corrutin);
+    //    }
+    //}
+        void Update()
     {
         //escapeキー対応
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1)||Input.GetKeyDown(KeyCode.Escape))
         {
             //パネル関係
             OptionPanel.SetActive(false);
