@@ -94,9 +94,10 @@ public class LoadScene : MonoBehaviour
         if (!DataManager.DoesSaveExist())
         {
 
-            //image.SetActive(true);
-
-
+            string colorString = "#999999"; // ÔF‚Ì16i”•¶š—ñ
+            Color newColor;
+            ColorUtility.TryParseHtmlString(colorString, out newColor); // V‚µ‚­Color‚ğì¬
+            Text.color = newColor;
             eventTrigger.enabled = false;
             continueButton.enabled = false;
 

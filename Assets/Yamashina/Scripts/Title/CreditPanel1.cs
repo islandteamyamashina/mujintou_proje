@@ -422,6 +422,7 @@ public class CreditPanel1 : MonoBehaviour
 
         //パネル縮小（スタートパネル）
 
+
         while (size <= 1.0f && startPanel.activeSelf)
         {
             //startPanel.transform.localScale = Vector3.Lerp(new Vector3(1.5f, 1.5f, 1.5f), new Vector3(1.0f, 1.0f, 1.0f), size);
@@ -479,7 +480,7 @@ public class CreditPanel1 : MonoBehaviour
     void Update()
     {
         //escapeキー対応
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetMouseButtonDown(1))
         {
             //パネル関係
             OptionPanel.SetActive(false);
