@@ -54,6 +54,8 @@ public class MakeFire : MonoBehaviour
     Image trans1;
     [SerializeField]
     Image trans2;
+    [SerializeField]
+    Text success_posibility_text;
 
     int selectedType = 0;//0 : なし 1 : 素手 ,2 : FireSet ,3 : Lighter
 
@@ -66,6 +68,7 @@ public class MakeFire : MonoBehaviour
         health_Change_Text.text = $"{info.Health} >> {info.Health}";
         hunger_Change_Text.text = $"{info.Hunger} >> {info.Hunger}";
         thirst_Change_Text.text = $"{info.Thirst} >> {info.Thirst}";
+        success_posibility_text.text = "";
     }
 
     private void FixedUpdate()
@@ -133,6 +136,7 @@ public class MakeFire : MonoBehaviour
             thirst_Change_Text.text = $"{info.Thirst} >> {Mathf.Clamp(info.Thirst + thirst_Change_Hand, 0, 100)}";
             SelectedResultText.text = "素手でやるしかない";
             Fire_Icon_Middle.fillAmount = 0.3f;
+            success_posibility_text.text = "成功確率 : 30%";
         });
 
         select_FireSet.onClick.AddListener(() =>
@@ -144,6 +148,7 @@ public class MakeFire : MonoBehaviour
             thirst_Change_Text.text = $"{info.Thirst} >> {Mathf.Clamp(info.Thirst + thirst_Change_FireSet, 0, 100)}";
             SelectedResultText.text = "火おこしセットを使用";
             Fire_Icon_Middle.fillAmount = 0.3f;
+            success_posibility_text.text = "成功確率 : 80%";
         });
 
         select_Lighter.onClick.AddListener(() =>
@@ -155,6 +160,7 @@ public class MakeFire : MonoBehaviour
             thirst_Change_Text.text = $"{info.Thirst} >> {Mathf.Clamp(info.Thirst + thirst_Change_Lighter, 0, 100)}";
             SelectedResultText.text = "ライターを使う";
             Fire_Icon_Middle.fillAmount = 0.3f;
+            success_posibility_text.text = "成功確率 : 100%";
         });
 
         MakeFireButton.onClick.AddListener(() =>
@@ -187,8 +193,31 @@ public class MakeFire : MonoBehaviour
                 slotManager.ChangeSlotItemAmount(slotManager.GetSlotItem(0).Value.amount - 1, 0);
 
             }
-            PlayerInfo.Instance.Fire += 30;
-            Fire_Icon_Middle.fillAmount = 0;
+
+            float random = Random.value;
+            if(random <= selectedType switch
+            {
+                1=> 0.3f,
+                2=>0.8f,
+                3=>1f,
+                _=>0
+            })
+            {
+                PlayerInfo.Instance.Fire += 30;
+                Fire_Icon_Middle.fillAmount = 0;
+                SelectedResultText.text = "火おこし成功!";
+            }
+            else
+            {
+                var info = PlayerInfo.Instance;
+                health_Change_Text.text = $"{info.Health} >> {info.Health}";
+                hunger_Change_Text.text = $"{info.Hunger} >> {info.Hunger}";
+                thirst_Change_Text.text = $"{info.Thirst} >> {info.Thirst}";
+                SelectedResultText.text = "火おこし失敗!";
+                selectedType = 0;
+                success_posibility_text.text = "";
+            }
+
         });
     }
 
