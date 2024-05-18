@@ -79,16 +79,12 @@ public class SetLocationPanelSystem : MonoBehaviour
 
     private void OnDestroy()
     {
-        try
+
+        if (PlayerInfo.InstanceNullable)
         {
             PlayerInfo.Instance.OnMaxActionValueChange.RemoveListener(UpdateButtonState);
         }
-        catch (System.Exception)
-        {
-
-            print("Ç±ÇÃÉGÉâÅ[ÇÕãCÇ…Ç∑ÇÒÇ»");
-            throw;
-        }
+        
         
     }
 }

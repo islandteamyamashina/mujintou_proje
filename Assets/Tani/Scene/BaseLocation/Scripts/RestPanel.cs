@@ -17,6 +17,8 @@ public class RestPanel : PanelBase
     int hunger_change = -30;
     [SerializeField]
     int thirst_change = -30;
+    [SerializeField]
+    Image poisonImage;
 
     PlayerInfo info;
     protected override void Start()
@@ -30,7 +32,16 @@ public class RestPanel : PanelBase
     protected override void Update()
     {
         int prev = info.Health;
-        HealthChangeText.text = $"<b>{prev}%  >>  {Mathf.Clamp(prev + (info.Day.isDayTime ? (int)(health_change * 1.5f) : health_change), 0, 100)}%</b>";
+        int poisonEffect = 0;
+        if (info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Poisoned))
+        {
+            poisonEffect = 10;
+            poisonImage.gameObject.SetActive(true);
+        }else
+        {
+            poisonImage.gameObject.SetActive(false);
+        }
+        HealthChangeText.text = $"<b>{prev}%  >>  {Mathf.Clamp(prev + (info.Day.isDayTime ? (int)(health_change * 1.5f) - poisonEffect: health_change - poisonEffect), 0, 100)}%</b>";
     }
     private void OnEnable()
     {

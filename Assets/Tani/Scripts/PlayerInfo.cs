@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
@@ -65,6 +66,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     public List<Sprite> SunnyCloudyRainy;
     [SerializeField] private GameObject image_prefab;
     [SerializeField] private bool Excute_StartGame_FuncHere = false;
+    [SerializeField] SceneObject scene;
 
 
     private int _player_Health;
@@ -81,6 +83,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     private List<Texture2D> cursor_textures;
     private bool is_running_item_visualizing = false;
     private Queue<IEnumerator> visualize_coroutines = new Queue<IEnumerator>();
+    
 
 
    
@@ -218,7 +221,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         this.inventry.SwitchVisible();
 
 
-        Inventry.GetItem(Items.Item_ID.item_mat_coconut,3);
+        Inventry.GetItem(Items.Item_ID.item_mat_coconut, 3);
         Inventry.GetItem(Items.Item_ID.item_mat_magma, 3);
         Inventry.GetItem(Items.Item_ID.item_craft_onFireSet, 1);
         Inventry.GetItem(Items.Item_ID.item_special_lighter, 1);
@@ -228,9 +231,10 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         Inventry.GetItem(Items.Item_ID.item_mat_shell, 3);
         Inventry.GetItem(Items.Item_ID.item_mat_crab, 3);
         Inventry.GetItem(Items.Item_ID.item_mat_stone, 5);
+        Inventry.GetItem(Items.Item_ID.item_craft_DIYmedicine, 2);
 
 
-
+        AddPlayerCondition(Condition.Poisoned);
     }
 
     protected override void Awake()
@@ -276,6 +280,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
             Hunger = 100;
             Thirst = 100;
             ResetCondition();
+            SceneManager.LoadScene("TrueEndingScene");
         }
     }
 
@@ -328,60 +333,6 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         Water += water_gain;
         Day = (day + 1,true);
         weather = (Weather)((int)Random.Range(0, (int)Weather.Weather_Max));
-
-
-
-        //状態付与
-        if (IsPlayerConditionEqualTo(Condition.Hungry) &&
-         IsPlayerConditionEqualTo(Condition.Thirsty))
-        {
-            AddPlayerCondition(Condition.ThirstyAndHungry);
-        }
-        else
-        {
-            EraseCondition(Condition.ThirstyAndHungry);
-        }
-
-        if (Thirst <= 30)
-            AddPlayerCondition(Condition.Thirsty);
-        else
-            EraseCondition(Condition.Thirsty);
-
-        if (Hunger <= 30)
-            AddPlayerCondition(Condition.Hungry);
-        else
-            EraseCondition(Condition.Hungry);
-
-
-        for (int i = 0; i < (int)Condition.CONDIITON_MAX; i++)
-        {
-            if (IsPlayerConditionEqualTo((Condition)i))
-            {
-                switch (i)
-                {
-                    case (int)Condition.Good:
-                        Luck += 5;
-                        break;
-                    case (int)Condition.Poisoned:
-                        int decrease_health = Random.Range(_Min_Poisoned_Damage, _Max_Poisoned_Damage + 1);
-                        Health -= decrease_health;
-                        break;
-                    case (int)Condition.Hungry:
-                        int decrease_thirst = Random.Range(_Min_Hungry_Effect, _Max_Hungry_Effect + 1);
-                        Thirst -= decrease_thirst;
-                        break;
-                    case (int)Condition.Thirsty:
-                        int decrease_hunger = Random.Range(_Min_Thirsty_Effect, _Max_Thirsty_Effect + 1);
-                        Hunger -= decrease_hunger;
-                        break;
-                    case (int)Condition.ThirstyAndHungry:
-                        decrease_health = Random.Range(_Min_HungryAndThirsty_Damage, _Max_HungryAndThirsty_Damage + 1);
-                        Health -= decrease_health;
-                        Luck = 30;
-                        break;
-                }
-            }
-        }
         
 
     }
