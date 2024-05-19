@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class AreaNameText : MonoBehaviour
 {
-    //[SerializeField]
-    //string areaName;
+
     [SerializeField]
-    Text text;
+    GameObject DayInfoPanel_prefab;
 
     float inTime = 0.75f;
     float outTime = 0.75f;
@@ -16,37 +16,14 @@ public class AreaNameText : MonoBehaviour
 
     public IEnumerator  ShowAreaText()
     {
-        text.text = PlayerInfo.Instance.Day.isDayTime ? "‹’“_(’‹)" : "‹’“_(–é)";
-        Rect canvas_size = text.canvas.pixelRect;
-        Vector3 startPos = new Vector3(canvas_size.width, canvas_size.height / 2);
-        Vector3 stayPos = new Vector3(canvas_size.width / 2, canvas_size.height / 2);
-        Vector3 endPos = new Vector3(0, canvas_size.height / 2);
-
-        float time = 0;
-        text.gameObject.SetActive(true);
-        while (true)
-        {
-            time += Time.deltaTime;
-            text.gameObject.transform.position = Vector3.Lerp(startPos, stayPos, time / inTime);
-            if (time >= inTime) break;
-            yield return null;
-        }
-        time = 0;
-        while (true)
-        {
-            time += Time.deltaTime;
-            if (time >= stayTime) break;
-            yield return null;
-        }
-        time = 0;
-        while (true)
-        {
-            time += Time.deltaTime;
-            text.gameObject.transform.position = Vector3.Lerp(stayPos, endPos, time / outTime);
-            if (time >= outTime) break;
-            yield return null;
-        }
-        Destroy(text.gameObject);
+        var g=  Instantiate<GameObject>(DayInfoPanel_prefab);
+        var c = g.GetComponent<Canvas>();
+        g.transform.position = new Vector3(c.pixelRect.width, c.pixelRect.height);
+        g.GetComponentInChildren<Text>().text = $"{PlayerInfo.Instance.Day.day}“ú–Ú";
+        yield return new WaitForSeconds(2f);
+        var fade = ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
+        fade.Fade(Fading.type.FadeIn);
+        Destroy(g);
 
     }
 

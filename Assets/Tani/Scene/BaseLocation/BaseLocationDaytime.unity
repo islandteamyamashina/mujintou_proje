@@ -5393,21 +5393,26 @@ MonoBehaviour:
   - {fileID: 2076124032}
   next_base_location:
     m_SceneName: BaseLocationDaytime
---- !u!4 &964864655
-Transform:
+--- !u!224 &964864655
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964864653}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 469.41574, y: 323.6133, z: 3.8008852}
+  m_LocalPosition: {x: 0, y: 0, z: 3.8008852}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 469.41574, y: 323.6133}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &964864656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5434,7 +5439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e4b54a536acf544837ace40851113e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 2088622655}
+  DayInfoPanel_prefab: {fileID: 1079381494877897405, guid: e859fef9b79c2c745aa38dbc925417e2, type: 3}
 --- !u!1001 &1003768450
 PrefabInstance:
   m_ObjectHideFlags: 0

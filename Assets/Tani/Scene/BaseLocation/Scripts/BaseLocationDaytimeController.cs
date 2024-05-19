@@ -17,19 +17,19 @@ public class BaseLocationDaytimeController : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator Start()
     {
+        if (PlayerInfo.Instance.Day.isDayTime)
+        {
+            var areaNameShow = (AreaNameText)GameObject.FindAnyObjectByType(typeof(AreaNameText));
+            IEnumerator coroutine = areaNameShow.ShowAreaText();
+            StartCoroutine(coroutine);
+        }
+        else
+        {
+            var fade = ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
+            fade.Fade(Fading.type.FadeIn);
+        }
 
-        var fade =  ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
-        fade.Fade(Fading.type.FadeIn);
-        var areaNameShow = (AreaNameText)GameObject.FindAnyObjectByType(typeof(AreaNameText));
-        IEnumerator coroutine = areaNameShow.ShowAreaText();
-        fade.OnFadeEnd.AddListener(() => { StartCoroutine(coroutine); });
-        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_torch, 5);
-        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_special_knife, 5);
-        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_DIYknife, 5);
-        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_bakedBird, 5);
-        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_DIYnet, 5);
-        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_smoke, 5);
-        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_flag, 5);
+
 
         for (int i = 0; i < panels.Count; i++)
         {

@@ -61,7 +61,7 @@ public class RestPanel : PanelBase
             info.Thirst += thirst_change;
             info.ActionValue += Mathf.CeilToInt(info.MaxActionValue / 2.0f);
             info.DoAction();
-            info.SavePalyerData();
+     
             BaseLocationDaytimeController controller = (BaseLocationDaytimeController)GameObject.FindAnyObjectByType(typeof(BaseLocationDaytimeController));
             controller.ChangeBaseLocation();
         });

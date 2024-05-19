@@ -341,7 +341,10 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         Water += water_gain;
         Day = (day + 1,true);
         weather = (Weather)((int)Random.Range(0, (int)Weather.Weather_Max));
-        
+        if (Day.isDayTime)
+        {
+            SavePalyerData();
+        }
 
     }
 
