@@ -15,7 +15,7 @@ public class BaseLocationDaytimeController : MonoBehaviour
     SceneObject next_base_location;
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
 
         var fade =  ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
@@ -24,7 +24,14 @@ public class BaseLocationDaytimeController : MonoBehaviour
         IEnumerator coroutine = areaNameShow.ShowAreaText();
         fade.OnFadeEnd.AddListener(() => { StartCoroutine(coroutine); });
 
-     
+
+        for (int i = 0; i < panels.Count; i++)
+        {
+            ActivatePanelAdditive(i);
+        }
+        yield return null;
+        DeactivateAllPanels();
+        PlayerInfo.Instance.Inventry.SetVisible(false);
     }
 
 
@@ -34,10 +41,11 @@ public class BaseLocationDaytimeController : MonoBehaviour
     }
     private void Awake()
     {
-        //((LockSystem)GameObject.FindAnyObjectByType(typeof(LockSystem))).gameObject.transform.parent.parent.gameObject.SetActive(true);
-        //((LockSystem)GameObject.FindAnyObjectByType(typeof(LockSystem))).gameObject.transform.parent.parent.gameObject.SetActive(false);
+        
 
     }
+
+    
 
     public void ActivatePanelSingle(int index)
     {

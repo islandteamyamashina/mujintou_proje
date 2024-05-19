@@ -11,6 +11,16 @@ public class CraftButton : MonoBehaviour
 
     Button button;
 
+    private void Awake()
+    {
+        
+    }
+
+    private void OnEnable()
+    {
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
