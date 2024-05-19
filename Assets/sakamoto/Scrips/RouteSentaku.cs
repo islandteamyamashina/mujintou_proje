@@ -325,32 +325,36 @@ public class RouteSentaku : Event_Text
 
     void nextEvent(int event_num)
     {
-        if(event_num == 12)
+        if (event_num == 12)
         {
             print(PlayerInfo.Instance.Day.isDayTime);
             PlayerInfo.Instance.DoAction();
             print(PlayerInfo.Instance.Day.isDayTime);
-            SceneManager.LoadScene(scene);
-        }
-        //Loadimage.SetActive(true);
-        event_manage.now_event_num = event_num;
-        //textControl.ResetTextData();
-        textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
-        Invoke("eventStart", 0.3f);
-
-        if(deep > 0)
-        {
-            Route3.SetActive(true);
+            Loadimage.SetActive(true);
+            Invoke("goToKyotenn", 3.0f);
         }
         else
         {
-            Route3.SetActive(false);
-        }
+            //Loadimage.SetActive(true);
+            event_manage.now_event_num = event_num;
+            //textControl.ResetTextData();
+            textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
+            Invoke("eventStart", 0.3f);
 
-        Color BG_cover_color;
-        BG_cover_color = BG_cover.GetComponent<Image>().color;
-        BG_cover_color.a = deep_Light * deep;
-        BG_cover.GetComponent<Image>().color = BG_cover_color;
+            if (deep > 0)
+            {
+                Route3.SetActive(true);
+            }
+            else
+            {
+                Route3.SetActive(false);
+            }
+
+            Color BG_cover_color;
+            BG_cover_color = BG_cover.GetComponent<Image>().color;
+            BG_cover_color.a = deep_Light * deep;
+            BG_cover.GetComponent<Image>().color = BG_cover_color;
+        }
     }
 
     void eventStart()
@@ -377,6 +381,11 @@ public class RouteSentaku : Event_Text
                 break;
             }
         }
+    }
 
+    //‹’“_‚É–ß‚é
+    void goToKyotenn()
+    {
+        SceneManager.LoadScene(scene);
     }
 }
