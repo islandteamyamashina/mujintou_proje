@@ -66,7 +66,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     public List<Sprite> SunnyCloudyRainy;
     [SerializeField] private GameObject image_prefab;
     [SerializeField] private bool Excute_StartGame_FuncHere = false;
-    [SerializeField] SceneObject scene;
+    [SerializeField] SceneObject true_end;
+    [SerializeField] SceneObject bad_end;
 
 
     private int _player_Health;
@@ -281,6 +282,11 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
             Thirst = 100;
             ResetCondition();
             SceneManager.LoadScene("TrueEndingScene");
+        }
+
+        if(Health == 0)
+        {
+            SceneManager.LoadScene(bad_end);
         }
     }
 
