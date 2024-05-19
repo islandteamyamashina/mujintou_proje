@@ -34,8 +34,8 @@ public class EDTextFlow : MonoBehaviour
         if (PlayerInfo.InstanceNullable)
         {
             PlayerInfo.Instance.DestroySelf();
-            DataManager.ErasePlayerSaveData();
         }
+        DataManager.ErasePlayerSaveData();
         tall_image_obj.gameObject.SetActive(false);
         TextBG.SetActive(false);
         fade.fading_time = 3f;
