@@ -110,6 +110,7 @@ public class RouteSentaku : Event_Text
             Route2Image.SetActive(false);
         }
     }
+    
     public void ChoiseRoute1()
     {
         //ボタンの機能提出
@@ -168,6 +169,8 @@ public class RouteSentaku : Event_Text
 
         textControl.ResetTextData();
         //StartCoroutine(appearBGcover());
+        changCondirion(-5, 0, 0);
+
         addMainSentence(event_manage.eventDatas[event_manage.now_event_num].Cancel_Result);
         next_num_tnp = event_manage.eventDatas[event_manage.now_event_num].Cancel_Next_Ivent_ID;
         ID_change_Event_num();
@@ -225,10 +228,16 @@ public class RouteSentaku : Event_Text
     {
         if(Item_ID != 0)
         {
-            string Item_name;
-            PlayerInfo.Instance.Inventry.GetItem((Items.Item_ID)Item_ID, get_num);
+            string Item_name;      
             Item_name = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)Item_ID);
-            textControl.AddTextData($"{Item_name}を{get_num}つ手に入れました。");
+            if (PlayerInfo.Instance.Inventry.GetItem((Items.Item_ID)Item_ID, get_num))
+            {
+                textControl.AddTextData($"{Item_name}を{get_num}つ獲得！");
+            }
+            else
+            {
+                textControl.AddTextData($"{Item_name}を{get_num}個は持ちきれなかった。");
+            }
             item_ID[0] = Item_ID;
             get_Num[0] = get_num;
             textControl.ClickEventAfterTextsEnd.AddListener(DisplayGetItem);
@@ -244,11 +253,28 @@ public class RouteSentaku : Event_Text
     void getItems(int Item_ID, int Get_num, int itemID, int getNum)
     {
         string[] Item_name = new string[2];
-        PlayerInfo.Instance.Inventry.GetItem((Items.Item_ID)Item_ID, Get_num);
-        PlayerInfo.Instance.Inventry.GetItem((Items.Item_ID)itemID, getNum);
+
         Item_name[0] = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)Item_ID);
+        if (PlayerInfo.Instance.Inventry.GetItem((Items.Item_ID)Item_ID, Get_num))
+        {
+            textControl.AddTextData($"{Item_name[0]}を{Get_num}つ獲得！");
+        }
+        else
+        {
+            textControl.AddTextData($"{Item_name[0]}を{Get_num}個は持ちきれなかった。");
+        }
+
+
         Item_name[1] = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)itemID);
-        textControl.AddTextData($"{Item_name[0]}を{Get_num}つ手に入れました。\n{Item_name[1]}を{getNum}つ手に入れました。");
+        if (PlayerInfo.Instance.Inventry.GetItem((Items.Item_ID)itemID, getNum))
+        {
+            textControl.AddTextData($"{Item_name[1]}を{getNum}つ獲得！");
+        }
+        else
+        {
+            textControl.AddTextData($"{Item_name[1]}を{getNum}個は持ちきれなかった。");
+        }
+
         //textControl.AddTextData($"{Item_name[1]}を{getNum}つ手に入れました。");
         item_ID[0] = Item_ID;
         get_Num[0] = Get_num;
