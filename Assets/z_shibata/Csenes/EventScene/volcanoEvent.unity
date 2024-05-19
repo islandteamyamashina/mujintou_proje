@@ -1146,6 +1146,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4325702225854922408, guid: 53ebee9855378614da86c4e5d6e9aab8, type: 3}
+      propertyPath: Excute_StartGame_FuncHere
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4325702225854922409, guid: 53ebee9855378614da86c4e5d6e9aab8, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2288,7 +2292,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 03576835119cc954cb51b03930eb8325, type: 2}
   - {fileID: 11400000, guid: c3e5990e669a3ac4ca31840e26e82de8, type: 2}
   buttons_prefab_parent: {fileID: 839095153}
-  endEventData: {fileID: 11400000, guid: 365be53dabee2b14ea1371cd81a275ae, type: 2}
+  endEventData: {fileID: 11400000, guid: a7b58e5acc7db964bb94f718c87b3414, type: 2}
 --- !u!114 &1721667514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2531,6 +2535,8 @@ MonoBehaviour:
   badEnd:
     m_SceneName: Bad_End
   volcanoEvent:
+    m_SceneName: 
+  caveEvent:
     m_SceneName: 
 --- !u!1 &2005662520
 GameObject:
