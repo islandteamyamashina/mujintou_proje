@@ -71,7 +71,7 @@ public class MakeFire : MonoBehaviour
         success_posibility_text.text = "";
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         select_FireSet.interactable = slotManager.GetSlotItem(0).Value.id == Items.Item_ID.item_craft_onFireSet;
         select_Lighter.interactable = slotManager.GetSlotItem(1).Value.id == Items.Item_ID.item_special_lighter;

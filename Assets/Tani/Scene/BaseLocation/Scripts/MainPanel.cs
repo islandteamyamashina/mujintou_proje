@@ -24,8 +24,10 @@ public class MainPanel : PanelBase
         SetSortOrder(OrderOfUI.MainPanel);
     }
 
-    private void FixedUpdate()
+    protected override void Update()
     {
+        base.Update();
+
         if(info.Fire != 0 && current_sprite_index != 1)
         {
             bg_image_obj.sprite = extra_sprites[1];
