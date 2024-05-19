@@ -116,6 +116,8 @@ public class RouteSentaku : Event_Text
         //ボタンの機能提出
         Route1.interactable = false;
         Route2.interactable = false;
+        //インベントリをロック
+        PlayerInfo.Instance.SetInventryLock(true);
 
         textControl.ResetTextData();
         //StartCoroutine(appearBGcover());
@@ -141,6 +143,8 @@ public class RouteSentaku : Event_Text
         //ボタンの機能提出
         Route1.interactable = false;
         Route2.interactable = false;
+        //インベントリをロック
+        PlayerInfo.Instance.SetInventryLock(true);
 
         textControl.ResetTextData();
         //StartCoroutine(appearBGcover());
@@ -166,6 +170,8 @@ public class RouteSentaku : Event_Text
         //ボタンの機能提出
         Route1.interactable = false;
         Route2.interactable = false;
+        //インベントリをロック
+        PlayerInfo.Instance.SetInventryLock(true);
 
         textControl.ResetTextData();
         //StartCoroutine(appearBGcover());
@@ -356,8 +362,9 @@ public class RouteSentaku : Event_Text
             print(PlayerInfo.Instance.Day.isDayTime);
             PlayerInfo.Instance.DoAction();
             print(PlayerInfo.Instance.Day.isDayTime);
-            Loadimage.SetActive(true);
+            Loadimage.SetActive(true);      
             Invoke("goToKyotenn", 3.0f);
+
         }
         else
         {
@@ -392,6 +399,8 @@ public class RouteSentaku : Event_Text
         //ボタンの機能再開
         Route1.interactable = true;
         Route2.interactable = true;
+        //インベントリをアンロック
+        PlayerInfo.Instance.SetInventryLock(false);
     }
 
     //イベントIDとリストのナンバーの紐づけ
@@ -412,6 +421,8 @@ public class RouteSentaku : Event_Text
     //拠点に戻る
     void goToKyotenn()
     {
+        //インベントリをアンロック
+        PlayerInfo.Instance.SetInventryLock(false);
         SceneManager.LoadScene(scene);
     }
 }
