@@ -32,8 +32,9 @@ public class FirePanel : PanelBase
         fire_icon_middle.fillAmount = 0;
         
     }
-    private void FixedUpdate()
+    protectedÅ@override void Update()
     {
+        base.Update();
         ToMakeFire.gameObject.SetActive(PlayerInfo.Instance.Fire == 0);
         ToAddFire.gameObject.SetActive(PlayerInfo.Instance.Fire != 0);
         fire_icon_front.fillAmount = PlayerInfo.Instance.Fire / 100.0f;
