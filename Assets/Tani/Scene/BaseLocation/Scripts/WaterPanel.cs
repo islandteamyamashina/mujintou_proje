@@ -24,10 +24,20 @@ public class WaterPanel : PanelBase
         SetSortOrder(OrderOfUI.NormalPanel);
         DrinkButton.onClick.AddListener(DrinkWater);
         PourButton.onClick.AddListener(PourWater);
-        
+
+        PourButton.interactable = PlayerInfo.Instance.Water >= 30 &&
+                    PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_bottle) >= 1;
+        DrinkButton.interactable = info.Water >= waterAmountPerOnce;
+
     }
 
-    
+    protected override void Awake()
+    {
+        base.Awake();
+
+    }
+
+
     protected override void Update()
     {
         int prev = info.Thirst;

@@ -22,9 +22,22 @@ public class FirePanel : PanelBase
     [SerializeField]
     Image fire_icon_middle;
 
+    bool isFirst = true;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        fire_icon_front.fillAmount = PlayerInfo.Instance.Fire / 100.0f;
+        ToCooking.interactable = PlayerInfo.Instance.Fire != 0;
+    }
     protected override void Start()
     {
+
         SetSortOrder(OrderOfUI.NormalPanel);
+        SetFirePanelActivate(0);
+        SetFirePanelActivate(1);
+        SetFirePanelActivate(2);
+
     }
     private void OnEnable()
     {
@@ -46,6 +59,12 @@ public class FirePanel : PanelBase
         for (int i = 0; i < fire_panels.Count; i++)
         {
             fire_panels[i].SetActive(false);
+        }
+        if(index == 1)
+        {
+            if(!isFirst)
+                fire_panels[1].GetComponent<MakeFire>().Init();
+            isFirst = false;
         }
         fire_panels[index].SetActive(true);
     }

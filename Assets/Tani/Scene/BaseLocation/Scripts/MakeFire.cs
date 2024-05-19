@@ -59,6 +59,8 @@ public class MakeFire : MonoBehaviour
 
     int selectedType = 0;//0 : ‚È‚µ 1 : ‘fŽè ,2 : FireSet ,3 : Lighter
 
+
+    
     private void OnEnable()
     {
         selectedType = 0;
@@ -69,6 +71,35 @@ public class MakeFire : MonoBehaviour
         hunger_Change_Text.text = $"{info.Hunger} >> {info.Hunger}";
         thirst_Change_Text.text = $"{info.Thirst} >> {info.Thirst}";
         success_posibility_text.text = "";
+
+       
+  
+
+    }
+
+    public void Init()
+    {
+        select_FireSet.interactable = slotManager.GetSlotItem(0).Value.id == Items.Item_ID.item_craft_onFireSet;
+        select_Lighter.interactable = slotManager.GetSlotItem(1).Value.id == Items.Item_ID.item_special_lighter;
+        MakeFireButton.interactable = selectedType switch
+        {
+            0 => false,
+
+            1 => PlayerInfo.Instance.Health >= -health_Change_Hand &&
+                             (PlayerInfo.Instance.Hunger >= -hunger_Change_Hand &&
+                             PlayerInfo.Instance.Thirst >= -thirst_Change_Hand),
+
+            2 => (slotManager.GetSlotItem(0).Value.id == Items.Item_ID.item_craft_onFireSet &&
+                            PlayerInfo.Instance.Health >= -health_Change_FireSet) &&
+                            (PlayerInfo.Instance.Hunger >= -hunger_Change_FireSet &&
+                            PlayerInfo.Instance.Thirst >= -thirst_Change_FireSet),
+
+            3 => (slotManager.GetSlotItem(1).Value.id == Items.Item_ID.item_special_lighter &&
+                             PlayerInfo.Instance.Health >= -health_Change_Lighter) &&
+                             (PlayerInfo.Instance.Hunger >= -hunger_Change_Lighter &&
+                             PlayerInfo.Instance.Thirst >= -thirst_Change_Lighter),
+            _ => false
+        };
     }
 
     private void Update()
@@ -127,6 +158,8 @@ public class MakeFire : MonoBehaviour
 
     private void Awake()
     {
+    
+
         select_hand.onClick.AddListener(() =>
         {
             var info = PlayerInfo.Instance;

@@ -40,17 +40,15 @@ public class CraftPanel : PanelBase
         }
 
     }
-
-    // Update is called once per frame
     protected override void Update()
     {
+        base.Update();
+
         if (gameObject.activeSelf && !PlayerInfo.Instance.Inventry.GetVisibility())
         {
             gameObject.SetActive(false);
         }
-    }
-    private void FixedUpdate()
-    {
+
         for (int i = 0; i < discriptions.Count; i++)
         {
             var data = craftslots.GetSlotItem(i);
