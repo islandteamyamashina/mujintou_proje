@@ -23,7 +23,13 @@ public class BaseLocationDaytimeController : MonoBehaviour
         var areaNameShow = (AreaNameText)GameObject.FindAnyObjectByType(typeof(AreaNameText));
         IEnumerator coroutine = areaNameShow.ShowAreaText();
         fade.OnFadeEnd.AddListener(() => { StartCoroutine(coroutine); });
-
+        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_torch, 5);
+        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_special_knife, 5);
+        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_DIYknife, 5);
+        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_bakedBird, 5);
+        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_DIYnet, 5);
+        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_smoke, 5);
+        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_flag, 5);
 
         for (int i = 0; i < panels.Count; i++)
         {
@@ -37,7 +43,7 @@ public class BaseLocationDaytimeController : MonoBehaviour
 
     void Update()
     {
-     
+       
     }
     private void Awake()
     {
