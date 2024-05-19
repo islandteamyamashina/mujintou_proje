@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -8,31 +7,42 @@ using UnityEngine.UI;
 
 public class LoadScene : MonoBehaviour
 {
-
     private void Start()
     {
 
-        string colorString2 = "#4D4D4D"; // 赤色の16進数文字列
-        Color newColor2;
-        ColorUtility.TryParseHtmlString(colorString2, out newColor2); // 新しくColorを作成
-        Text.color = newColor2;
-       
-            if (!DataManager.DoesSaveExist())
-            {
 
-                //image.SetActive(true);
 
-                string colorString = "#999999"; // 赤色の16進数文字列
+
+        if (!DataManager.DoesSaveExist())
+        {
+            Debug.Log(DataManager.DoesSaveExist());
+            //image.SetActive(true);
+
+            string colorString = "#999999"; // 灰色の16進数文字列
                 Color newColor;
                 ColorUtility.TryParseHtmlString(colorString, out newColor); // 新しくColorを作成
                 Text.color = newColor;
-                eventTrigger.enabled = false;
-                continueButton.enabled = false;
+            Debug.Log(newColor);
 
+            eventTrigger.enabled = false;
+            continueButton.interactable = false;
+
+ 
             Debug.Log("通った");
             }
-            
-        
+        else
+        {
+            string colorString2 = "#4D4D4D"; // 黒色（ほかのボタンの通常色（の16進数文字列
+            Color newColor2;
+            ColorUtility.TryParseHtmlString(colorString2, out newColor2); // 新しくColorを作成
+            Text.color = newColor2;
+            Debug.Log(newColor2);
+            Debug.Log("通った");
+
+        }
+      
+        //SceneManager.activeSceneChanged += AfterTrueEndScene;
+
 
         //image.SetActive(false);
         //if (CreditPanel1 = null)
@@ -119,12 +129,50 @@ public class LoadScene : MonoBehaviour
         }
 
 
-        //public void VolumeSave_loadsecene(Scene scene)
-        //{
-        //    multiAudio.BgmSave();
-        //    multiAudio.SeSave();
-        //}
+
 
     }
-    }
+    //private void Awake()
+    //{
+    //    if (!DataManager.DoesSaveExist())
+    //    {
+    //        Debug.Log(DataManager.DoesSaveExist());
+    //        //image.SetActive(true);
+
+    //        string colorString = "#999999"; // 灰色の16進数文字列
+    //        Color newColor;
+    //        ColorUtility.TryParseHtmlString(colorString, out newColor); // 新しくColorを作成
+    //        Text.color = newColor;
+    //        Debug.Log(newColor);
+
+    //        eventTrigger.enabled = false;
+    //        continueButton.interactable = false;
+
+
+    //        Debug.Log("通った");
+    //    }
+    //}
+       
+    
+    // void AfterTrueEndScene(Scene scene, Scene nextScene)
+    //{
+    //    Debug.Log(nextScene.name);
+    //    if (!DataManager.DoesSaveExist()&&nextScene.name== "Title")
+    //    {
+
+    //        //image.SetActive(true);
+
+    //        string colorString = "#999999"; // 赤色の16進数文字列
+    //        Color newColor;
+    //        ColorUtility.TryParseHtmlString(colorString, out newColor); // 新しくColorを作成
+    //        Text.color = newColor;
+    //        //eventTrigger.enabled = false;
+    //        //continueButton.enabled = false;
+
+
+    //        Debug.Log("通った");
+    //    }
+    //}
+
+}
 
