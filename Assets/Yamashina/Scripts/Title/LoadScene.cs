@@ -29,7 +29,7 @@ public class LoadScene : MonoBehaviour
                 eventTrigger.enabled = false;
                 continueButton.enabled = false;
 
-
+            Debug.Log("’Ê‚Á‚½");
             }
             
         
@@ -100,6 +100,7 @@ public class LoadScene : MonoBehaviour
             Text.color = newColor;
             eventTrigger.enabled = false;
             continueButton.enabled = false;
+            Debug.Log("’Ê‚Á‚½");
 
 
         }
