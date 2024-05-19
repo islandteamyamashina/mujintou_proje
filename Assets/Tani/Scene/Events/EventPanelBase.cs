@@ -239,7 +239,7 @@ public class EventPanelBase : MonoBehaviour
 
     public void ChoiseSelected(int index)
     {
-       
+        PlayerInfo.Instance.SetInventryLock(true);
         Destroy(buttons_prefab_parent.gameObject.transform.GetChild(0).gameObject);
         buttons_prefab_parent.gameObject.SetActive(false);
         event_text_control.EndEvent.RemoveAllListeners();
@@ -317,7 +317,7 @@ public class EventPanelBase : MonoBehaviour
     void ONEndEvent()
     {
         event_text_control.ClickEventAfterTextsEnd.RemoveListener(ONEndEvent);
-       
+        PlayerInfo.Instance.SetInventryLock(false);
 
 
         StartEvent(endEventData);

@@ -70,6 +70,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] SceneObject bad_end;
 
 
+
     private int _player_Health;
     private int _player_Hunger;
     private int _player_Thirst;
@@ -271,6 +272,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         if (Input.GetKeyDown(KeyCode.Return))
         {
             SavePalyerData();
+            SetInventryLock(true);
         }
 
 
@@ -332,8 +334,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     #endregion 
 
     public void DoAction()
-    { 
-    
+    {
+        
         Fire -= fire_decrease;
 
         Water += water_gain;
@@ -483,7 +485,17 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         DataManager.Instance.Save(saveData);
     }
 
-
+    public void SetInventryLock(bool b)
+    {
+        foreach (GameObject item in SceneManager.GetActiveScene().GetRootGameObjects())
+        {
+            var inv_lock = item.GetComponentInChildren<Inv_lock>();
+            if (inv_lock)
+            {
+                inv_lock.SetInventryLock(b);
+            }
+        }
+    }
 
 
     public void OnHover(int i)

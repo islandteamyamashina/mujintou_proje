@@ -10,5 +10,8 @@ public class Button_1004 : MonoBehaviour
     {
         gameObject.GetComponent<Button>().onClick.AddListener(() =>
         { ((EventSceneControllerBase)GameObject.FindAnyObjectByType(typeof(EventSceneControllerBase))).BackHome();});
+
+        //プレイヤーの行動値を-1
+        PlayerInfo.Instance.ActionValue--;
     }
 }
