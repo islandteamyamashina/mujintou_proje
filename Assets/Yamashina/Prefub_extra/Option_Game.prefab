@@ -1519,6 +1519,7 @@ GameObject:
   - component: {fileID: 4157135509257274498}
   - component: {fileID: 8385037251334506349}
   - component: {fileID: 158208990621601592}
+  - component: {fileID: 569239666994340528}
   m_Layer: 5
   m_Name: BGM_Slider
   m_TagString: BGMSlider
@@ -1613,6 +1614,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 569239666994340528}
+        m_TargetAssemblyTypeName: SliderSearchesRSP, Assembly-CSharp
+        m_MethodName: RainChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &158208990621601592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1642,6 +1655,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &569239666994340528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540734874611986159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072e3881cfae25d4bad9604966628295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6157259117792043143
 GameObject:
   m_ObjectHideFlags: 0
