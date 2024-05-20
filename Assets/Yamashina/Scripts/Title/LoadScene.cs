@@ -9,37 +9,44 @@ public class LoadScene : MonoBehaviour
 {
     private void Start()
     {
+        isstart = false;
+    }
+    private void Update()
+    {
 
 
-
-
-        if (!DataManager.DoesSaveExist())
+        if (!isstart)
         {
-            Debug.Log(DataManager.DoesSaveExist());
-            //image.SetActive(true);
+            if (!DataManager.DoesSaveExist())
+            {
+                Debug.Log(DataManager.DoesSaveExist());
+                //image.SetActive(true);
 
-            string colorString = "#999999"; // 灰色の16進数文字列
+                string colorString = "#999999"; // 灰色の16進数文字列
                 Color newColor;
                 ColorUtility.TryParseHtmlString(colorString, out newColor); // 新しくColorを作成
                 Text.color = newColor;
-            Debug.Log(newColor);
+                Debug.Log(newColor);
 
-            eventTrigger.enabled = false;
-            continueButton.interactable = false;
+                eventTrigger.enabled = false;
+                continueButton.interactable = false;
 
- 
-            Debug.Log("通った");
+
+                Debug.Log("通った");
             }
-        else
-        {
-            string colorString2 = "#4D4D4D"; // 黒色（ほかのボタンの通常色（の16進数文字列
-            Color newColor2;
-            ColorUtility.TryParseHtmlString(colorString2, out newColor2); // 新しくColorを作成
-            Text.color = newColor2;
-            Debug.Log(newColor2);
-            Debug.Log("通った");
+            else
+            {
+                string colorString2 = "#4D4D4D"; // 黒色（ほかのボタンの通常色（の16進数文字列
+                Color newColor2;
+                ColorUtility.TryParseHtmlString(colorString2, out newColor2); // 新しくColorを作成
+                Text.color = newColor2;
+                Debug.Log(newColor2);
+                Debug.Log("通った");
 
+            }
         }
+
+       
       
         //SceneManager.activeSceneChanged += AfterTrueEndScene;
 
@@ -62,6 +69,7 @@ public class LoadScene : MonoBehaviour
     [SerializeField] Button continueButton;
     [SerializeField] CreditPanel1 CreditPanel1;
    [SerializeField] GameObject playerInfo;
+    [SerializeField] bool isstart;
     //[SerializeField] GameObject image;
     // Update is called once per frame
     public void Text_of_each_places(int num = 0)
@@ -84,7 +92,7 @@ public class LoadScene : MonoBehaviour
         fade.scene_name_num = num;
         Instantiate(playerInfo);
         PlayerInfo.Instance.StartGame(true);
-
+        isstart = true;
         fade.feadout_f = true;
         if (fade.feadout_f == false)
         {
