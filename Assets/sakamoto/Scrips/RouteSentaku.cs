@@ -364,8 +364,11 @@ public class RouteSentaku : Event_Text
             print(PlayerInfo.Instance.Day.isDayTime);
             PlayerInfo.Instance.DoAction();
             print(PlayerInfo.Instance.Day.isDayTime);
-            textControl.ClickEventAfterTextsEnd.AddListener(doukutuFinish);
-            
+            //“´ŒA‚Ìˆê”Ô‰œ
+            textControl.ResetTextData();
+            textControl.AddTextData(event_manage.eventDatas[event_manage.now_event_num].Main_Text);
+            Title_Disply(event_manage.eventDatas[event_manage.now_event_num].Event_Title);
+            textControl.ClickEventAfterTextsEnd.AddListener(toKyotenn);
         }
         else
         {
@@ -374,14 +377,14 @@ public class RouteSentaku : Event_Text
             textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
             Invoke("eventStart", 0.3f);
 
-            if (deep > 0)
-            {
-                Route3.SetActive(true);
-            }
-            else
-            {
-                Route3.SetActive(false);
-            }
+            //if (deep > 0)
+            //{
+            //    Route3.SetActive(true);
+            //}
+            //else
+            //{
+            //    Route3.SetActive(false);
+            //}
 
             Color BG_cover_color;
             BG_cover_color = BG_cover.GetComponent<Image>().color;
@@ -418,15 +421,7 @@ public class RouteSentaku : Event_Text
         }
     }
 
-    //“´ŒA‚Ìˆê”Ô‰œ
-    void doukutuFinish()
-    {
-        textControl.ResetTextData();
-        textControl.AddTextData(event_manage.eventDatas[event_manage.now_event_num].Main_Text);
-        Title_Disply(event_manage.eventDatas[event_manage.now_event_num].Event_Title);
-        textControl.ClickEventAfterTextsEnd.AddListener(toKyotenn);
-
-    }
+   
 
     //‹’“_‚É–ß‚é
 
