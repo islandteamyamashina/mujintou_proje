@@ -24,7 +24,7 @@ public class Event_Text : Text_Method
     }
 
     //テキスト表示
-    void Title_Disply(string text)
+    protected void Title_Disply(string text)
     {
         string sentence = text;
         titleObject.text = sentence;

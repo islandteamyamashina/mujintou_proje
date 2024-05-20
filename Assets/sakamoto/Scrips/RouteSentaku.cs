@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+//using static System.Net.Mime.MediaTypeNames;
 
 
 public class RouteSentaku : Event_Text
@@ -357,19 +358,18 @@ public class RouteSentaku : Event_Text
 
     void nextEvent(int event_num)
     {
+        event_manage.now_event_num = event_num;
         if (event_num == 12)
         {
             print(PlayerInfo.Instance.Day.isDayTime);
             PlayerInfo.Instance.DoAction();
             print(PlayerInfo.Instance.Day.isDayTime);
-            Loadimage.SetActive(true);      
-            Invoke("goToKyotenn", 3.0f);
-
+            textControl.ClickEventAfterTextsEnd.AddListener(doukutuFinish);
+            
         }
         else
         {
-            //Loadimage.SetActive(true);
-            event_manage.now_event_num = event_num;
+            //Loadimage.SetActive(true);         
             //textControl.ResetTextData();
             textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
             Invoke("eventStart", 0.3f);
@@ -418,7 +418,24 @@ public class RouteSentaku : Event_Text
         }
     }
 
+    //洞窟の一番奥
+    void doukutuFinish()
+    {
+        textControl.ResetTextData();
+        textControl.AddTextData(event_manage.eventDatas[event_manage.now_event_num].Main_Text);
+        Title_Disply(event_manage.eventDatas[event_manage.now_event_num].Event_Title);
+        textControl.ClickEventAfterTextsEnd.AddListener(toKyotenn);
+
+    }
+
     //拠点に戻る
+
+    void toKyotenn()
+    {
+        Loadimage.SetActive(true);
+        Invoke("goToKyotenn", 3.0f);
+    }
+
     void goToKyotenn()
     {
         //インベントリをアンロック
