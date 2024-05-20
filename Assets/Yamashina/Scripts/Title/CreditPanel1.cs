@@ -96,7 +96,7 @@ public class CreditPanel1 : MonoBehaviour
 
     //ボタン機能関連（Interactive)
     public Button start;
-
+    [SerializeField] Audiovolume audiovolume;
     //public Button Continue;
     public Button quit;
     public Button Credit;
@@ -105,6 +105,9 @@ public class CreditPanel1 : MonoBehaviour
 
     void Start()//始まるとき
     {
+        audiovolume = GameObject.FindAnyObjectByType<Audiovolume>().GetComponent<Audiovolume>();
+        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume = audiovolume.BGM;
+        GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume= audiovolume.SE;
         multi.ChooseSongs_BGM(0);
 
         //multi.playse();
