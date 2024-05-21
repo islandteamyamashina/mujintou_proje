@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
 
 public class BaseLocationDaytimeController : MonoBehaviour
 {
     [SerializeField]
     List<PanelBase> panels;
     [SerializeField]
-    SceneObject next_base_location;
+    SceneObject next_scene;
 
     // Start is called before the first frame update
     IEnumerator Start()
@@ -95,7 +94,7 @@ public class BaseLocationDaytimeController : MonoBehaviour
     public void ChangeBaseLocation()
     {
 
-        SceneManager.LoadScene(next_base_location);
+        SceneManager.LoadScene(next_scene);
     }
 }
    

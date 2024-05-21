@@ -7,33 +7,38 @@ using UnityEngine.SceneManagement;
 public class OPSkipSystem : MonoBehaviour
 {
     [SerializeField]
-    GameObject choise_buttons_parent;
-    [SerializeField]
-    Button cancel_button;
+    GameObject Skip_display_prefab;
+
 
     [SerializeField]
     SceneObject baseLocation;
     
     void Start()
     {
-        cancel_button.onClick.AddListener(() =>
-        {
-            Destroy(gameObject);
-        });
-        foreach (var button in choise_buttons_parent.GetComponentsInChildren<Button>())
-        {
-            button.onClick.AddListener(() =>
-            {
-                Items.Item_ID id = button.GetComponent<SpecialItemData>().specil_item_id;
-                PlayerInfo.Instance.Inventry.GetItem(id, 1);
-                SceneManager.LoadScene(baseLocation);
-            });
-        }
+        
     }
 
     
     public void CreatSkipMenu()
     {
+        var go =  Instantiate<GameObject>(Skip_display_prefab);
+        foreach (var button in go.GetComponentsInChildren<Button>())
+        {
+            button.onClick.AddListener(() =>
+            {
+                var data = button.gameObject.GetComponent<SpecialItemData>();
+                if (data)
+                {
+                    PlayerInfo.Instance.Inventry.GetItem(data.specil_item_id, 1);
+                    SceneManager.LoadScene(baseLocation);
+                }
+                else
+                {
+                    Destroy(go);
 
+                }
+
+            });
+        }
     }
 }
