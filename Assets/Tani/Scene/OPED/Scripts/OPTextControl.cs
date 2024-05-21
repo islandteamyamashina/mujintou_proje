@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 namespace Opening
@@ -19,11 +20,15 @@ namespace Opening
         List<Sprite> BG_images;
         [SerializeField]
         GameObject ChoiseButtonsPrefab;
+        [SerializeField]
+        GameObject PlayerPrefab;
+        [SerializeField]
+        SceneObject next_scene;
 
         TextControl textContol;
         ShakeUI shake;
         Fading fading;
-
+        PlayerInfo info;
         private void Start()
         {
 
@@ -33,6 +38,13 @@ namespace Opening
             textContol.ResetTextData();
             AddTextDataToTextControl(0);
             textContol.ClickEventAfterTextsEnd.AddListener(EventAfterFirst);
+            if (PlayerInfo.InstanceNullable)
+            {
+                PlayerInfo.Instance.DestroySelf();
+            }
+            Instantiate(PlayerPrefab);
+            info = PlayerInfo.Instance;
+            info.StartGame(true);
 
         }
 
@@ -106,6 +118,8 @@ namespace Opening
             {
                 button.onClick.AddListener(() =>
                 {
+                    var item = button.gameObject.GetComponent<SpecialItemData>().specil_item_id;
+                    info.Inventry.GetItem(item, 1);
                     Destroy(choises);
                     textContol.ResetTextData();
                     AddTextDataToTextControl(5);
@@ -136,7 +150,7 @@ namespace Opening
 
         void EventAfterSixth()
         {
-            print("sixth");
+            SceneManager.LoadScene(next_scene);
         }
 
         

@@ -318,7 +318,7 @@ public class EventPanelBase : MonoBehaviour
     {
         event_text_control.ClickEventAfterTextsEnd.RemoveListener(ONEndEvent);
         PlayerInfo.Instance.SetInventryLock(false);
-
+        PlayerInfo.Instance.CheckPlayerDeath();
 
         StartEvent(endEventData);
     }
