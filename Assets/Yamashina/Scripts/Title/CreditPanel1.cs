@@ -101,10 +101,14 @@ public class CreditPanel1 : MonoBehaviour
     public Button quit;
     public Button Credit;
     public Button option;
+    [SerializeField] Audiovolume audiovolume;
 
 
     void Start()//Žn‚Ü‚é‚Æ‚«
     {
+        audiovolume = GameObject.FindAnyObjectByType<Audiovolume>().GetComponent<Audiovolume>();
+        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume = audiovolume.BGM;
+        GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume = audiovolume.SE;
         multi.ChooseSongs_BGM(0);
 
         //multi.playse();

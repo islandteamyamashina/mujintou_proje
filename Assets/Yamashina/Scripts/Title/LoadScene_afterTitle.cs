@@ -8,17 +8,22 @@ public class LoadScene_afterTitle : MonoBehaviour
 {
     [SerializeField] SceneObject Title;
     [SerializeField] SwitchActivateSelf switchActivate;
+    [SerializeField] Audiovolume audiovolume;
 
     private void Start()
     {
-        switchActivate=GameObject.FindAnyObjectByType<SwitchActivateSelf>().GetComponent<SwitchActivateSelf>();
+        audiovolume = GameObject.FindAnyObjectByType<Audiovolume>().GetComponent<Audiovolume>();
 
+        switchActivate = GameObject.FindAnyObjectByType<SwitchActivateSelf>().GetComponent<SwitchActivateSelf>();
     }
     public void Load()
     {
         switchActivate.SwitchActiveSelf();
         PlayerInfo.Instance.DestroySelf();
         SceneManager.LoadScene(Title);
+        audiovolume.BGM = GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume;
+        audiovolume.SE = GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume;
+
         //SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
