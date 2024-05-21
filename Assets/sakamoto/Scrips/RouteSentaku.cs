@@ -353,6 +353,7 @@ public class RouteSentaku : Event_Text
     //ŽŸ‚ÌƒCƒxƒ“ƒg‚É”ò‚Î‚·
     void Nextevent()
     {
+        PlayerInfo.Instance.CheckPlayerDeath();
         nextEvent(next_num_tnp);
     }
 
