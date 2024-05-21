@@ -361,9 +361,6 @@ public class RouteSentaku : Event_Text
         event_manage.now_event_num = event_num;
         if (event_num == 12)
         {
-            print(PlayerInfo.Instance.Day.isDayTime);
-            PlayerInfo.Instance.DoAction();
-            print(PlayerInfo.Instance.Day.isDayTime);
             //“´ŒA‚Ìˆê”Ô‰œ
             textControl.ResetTextData();
             textControl.AddTextData(event_manage.eventDatas[event_manage.now_event_num].Main_Text);
@@ -427,6 +424,8 @@ public class RouteSentaku : Event_Text
 
     void toKyotenn()
     {
+        Debug.Log("DoAction‚µ‚½‚æ");
+        PlayerInfo.Instance.DoAction();
         Loadimage.SetActive(true);
         Invoke("goToKyotenn", 3.0f);
     }
