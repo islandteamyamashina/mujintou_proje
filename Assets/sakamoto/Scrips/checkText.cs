@@ -17,8 +17,8 @@ public class checkText: MonoBehaviour
     {
         for (int i = 0; i < EventList.Count; i++)
         {
-            textControl.AddTextData(EventList[0].event_title);
-            textControl.AddTextData(EventList[0].main_text);
+            textControl.AddTextData(EventList[i].event_title);
+            textControl.AddTextData(EventList[i].main_text);
             for (int j = 0; j < EventList[i].results.Count; j++)
             {
                 textControl.AddTextData(EventList[i].results[j].choise_text);
