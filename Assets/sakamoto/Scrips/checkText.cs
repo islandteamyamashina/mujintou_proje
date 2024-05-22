@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-
+using System.Diagnostics.Tracing;
 
 public class checkText: MonoBehaviour
 {
@@ -17,6 +17,7 @@ public class checkText: MonoBehaviour
     {
         for (int i = 0; i < EventList.Count; i++)
         {
+            textControl.AddTextData(EventList[i].scene_id.ToString());
             textControl.AddTextData(EventList[i].event_title);
             textControl.AddTextData(EventList[i].main_text);
             for (int j = 0; j < EventList[i].results.Count; j++)
