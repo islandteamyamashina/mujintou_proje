@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
 
 public class BaseLocationDaytimeController : MonoBehaviour
 {
     [SerializeField]
     List<PanelBase> panels;
-    //[SerializeField]
-    //SceneObject scene;
     [SerializeField]
-    SceneObject next_base_location;
+    SceneObject next_scene;
 
     // Start is called before the first frame update
     IEnumerator Start()
@@ -43,7 +40,7 @@ public class BaseLocationDaytimeController : MonoBehaviour
 
     void Update()
     {
-       
+        PlayerInfo.Instance.CheckPlayerDeath();
     }
     private void Awake()
     {
@@ -96,14 +93,8 @@ public class BaseLocationDaytimeController : MonoBehaviour
 
     public void ChangeBaseLocation()
     {
-        //var fade = ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
-        //fade.Fade(Fading.type.FadeOut);
-        //fade.OnFadeEnd.AddListener(() => 
-        //{
-        //    PlayerInfo.Instance.SetWeatherIcon();
-        //    SceneManager.LoadScene(next_base_location); 
-        //});
-        SceneManager.LoadScene(next_base_location);
+
+        SceneManager.LoadScene(next_scene);
     }
 }
    

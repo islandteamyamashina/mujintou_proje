@@ -286,10 +286,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
             SceneManager.LoadScene("TrueEndingScene");
         }
 
-        if(Health == 0)
-        {
-            SceneManager.LoadScene(bad_end);
-        }
+
     }
 
     #region Condition
@@ -517,7 +514,13 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
 
     }
 
-
+    public void CheckPlayerDeath()
+    {
+        if (Health == 0)
+        {
+            SceneManager.LoadScene(bad_end);
+        }
+    }
 
     public void OnVisibilityChanged()
     {

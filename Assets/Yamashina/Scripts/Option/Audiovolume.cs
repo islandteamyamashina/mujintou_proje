@@ -9,10 +9,18 @@ using UnityEngine.UI;
 public class Audiovolume : MonoBehaviour
 {
     public static Audiovolume instance;
+    public float BGM = 1;
+    public float SE = 1;
     private void Awake()
     {
-      audioSourceBGM.volume = GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume;
-       audioSourceSE.volume = GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume;
+        audioSourceBGM = GameObject.FindWithTag("BGM").GetComponent<AudioSource>();
+        audioSourceSE = GameObject.FindWithTag("SE").GetComponent<AudioSource>();
+
+
+        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume = audioSourceBGM.volume;
+        GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume = audioSourceSE.volume;
+        Debug.Log(GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume);
+        Debug.Log(GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume);
 
         if (instance == null)
         {
@@ -25,7 +33,7 @@ public class Audiovolume : MonoBehaviour
         }
         //if (audioClipsBGM != null)
         //{
-        //    Debug.Log(audioClipsBGM.Length);//‚±‚±‚ª’Ê‚Á‚½
+        //    Debug.Log(audioClipsBGM.Length);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê‚ï¿½ï¿½ï¿½
         //}
         //else
         //{
@@ -33,7 +41,7 @@ public class Audiovolume : MonoBehaviour
         //}
         //if (audioClipSE != null)
         //{
-        //    Debug.Log(audioClipSE.Length);//‚±‚±‚ª’Ê‚Á‚½
+        //    Debug.Log(audioClipSE.Length);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê‚ï¿½ï¿½ï¿½
         //}
         //else
         //{
@@ -59,14 +67,14 @@ public class Audiovolume : MonoBehaviour
 
         //    Debug.Log("audioSourceSE is Null!");
         //}
-        //Debug.Log("‚»‚Ì‘¼");//‚±‚±‚ª’Ê‚éHH
+        //Debug.Log("ï¿½ï¿½ï¿½Ì‘ï¿½");//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê‚ï¿½Hï¿½H
     }
 
 
 
-    public AudioSource audioSourceBGM;//BGMƒXƒs[ƒJ[
+    public AudioSource audioSourceBGM;//BGMï¿½Xï¿½sï¿½[ï¿½Jï¿½[
 
-    public AudioSource audioSourceSE;//SoundEffect‚ÌƒXƒs[ƒJ[
+    public AudioSource audioSourceSE;//SoundEffectï¿½ÌƒXï¿½sï¿½[ï¿½Jï¿½[
 
     public void SetBgmVolume(float bgmVolume)
     {
