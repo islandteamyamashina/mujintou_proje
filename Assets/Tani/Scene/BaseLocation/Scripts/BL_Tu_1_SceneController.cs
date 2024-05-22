@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TutorialController : MonoBehaviour
+public class BL_Tu_1_SceneController : MonoBehaviour
 {
     [SerializeField]
     TextControl textControl;
     [SerializeField]
     List<TextAsset> textAssets;
     [SerializeField]
-    SceneObject NextScene;
+    GameObject tips;
+
 
     private void Start()
     {
@@ -20,12 +21,9 @@ public class TutorialController : MonoBehaviour
         textControl.ClickEventAfterTextsEnd.AddListener(() =>
         {
             textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
-           
-            var fade = (Fading)GameObject.FindAnyObjectByType(typeof(Fading));
-            print(fade);
-            fade.fading_time = 1.5f;
-            fade.Fade(Fading.type.FadeOut);
-            fade.OnFadeEnd.AddListener(()=> SceneManager.LoadScene(NextScene));
+            Destroy(gameObject.transform.GetChild(0).gameObject);
+            Instantiate(tips);
+
         });
     }
 

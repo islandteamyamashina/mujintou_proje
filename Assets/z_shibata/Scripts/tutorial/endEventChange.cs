@@ -13,4 +13,17 @@ public class endEventChange : MonoBehaviour
     }
 
 
+    void SetEndEventData()
+    {
+        var eventPanelBase = GameObject.FindAnyObjectByType(typeof(EventPanelBase)) as EventPanelBase;
+        if (eventPanelBase != null)
+        {
+            eventPanelBase.endEventData = newEndEventData;
+        }
+        else
+        {
+            Debug.LogError("EventPanelBase not found");
+        }
+    }
+
 }
