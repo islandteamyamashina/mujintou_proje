@@ -14,6 +14,10 @@ public class BaseLocationDaytimeController : MonoBehaviour
     int pattern = 0;
     [SerializeField]
     GameObject BL_Tu_1_SceneControllerPrefab = null;
+    [SerializeField]
+    GameObject BL_Tu_2_SceneControllerPrefab = null;
+    [SerializeField]
+    GameObject BL_Tu_3_SceneControllerPrefab = null;
     // Start is called before the first frame update
     IEnumerator Start()
     {
@@ -50,6 +54,22 @@ public class BaseLocationDaytimeController : MonoBehaviour
                     Instantiate(BL_Tu_1_SceneControllerPrefab);
                     break;
                 }
+            case 2:
+                {
+                    PlayerInfo.Instance.DoAction();
+                    var fade = ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
+                    fade.Fade(Fading.type.FadeIn);
+                    Instantiate(BL_Tu_2_SceneControllerPrefab);
+                    break;
+                }
+            case 3:
+                {
+                    var fade = ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
+                    fade.Fade(Fading.type.FadeIn);
+                    Instantiate(BL_Tu_3_SceneControllerPrefab);
+                    break;
+                }
+
         }
        
     }
