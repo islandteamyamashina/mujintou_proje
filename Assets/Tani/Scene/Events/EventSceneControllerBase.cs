@@ -25,7 +25,11 @@ public class EventSceneControllerBase : MonoBehaviour
     [SerializeField]
     SceneObject volcanoEvent;
     [SerializeField]
-    SceneObject caveEvent;
+    SceneObject caveEvent_fire;
+    [SerializeField]
+    SceneObject caveEvent_light;
+    [SerializeField]
+    SceneObject tutorialBase;
 
     private void Awake()
     {
@@ -113,7 +117,18 @@ public class EventSceneControllerBase : MonoBehaviour
     {
 
         fading.Fade(Fading.type.FadeOut);
-        fading.OnFadeEnd.AddListener(() => { SceneManager.LoadScene(caveEvent); });
+        fading.OnFadeEnd.AddListener(() => { SceneManager.LoadScene(caveEvent_fire); });
     }
+    public void GoCave_L()
+    {
 
+        fading.Fade(Fading.type.FadeOut);
+        fading.OnFadeEnd.AddListener(() => { SceneManager.LoadScene(caveEvent_light); });
+    }
+    public void GoTutorialBase()
+    {
+
+        fading.Fade(Fading.type.FadeOut);
+        fading.OnFadeEnd.AddListener(() => { SceneManager.LoadScene(tutorialBase); });
+    }
 }
