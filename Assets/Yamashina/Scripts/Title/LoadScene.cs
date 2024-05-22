@@ -10,6 +10,7 @@ public class LoadScene : MonoBehaviour
     private void Start()
     {
         isstart = false;
+        audioVolume = GameObject.FindAnyObjectByType<Audiovolume>().GetComponent<Audiovolume>();
     }
     private void Update()
     {
@@ -30,8 +31,7 @@ public class LoadScene : MonoBehaviour
 
                 eventTrigger.enabled = false;
                 continueButton.interactable = false;
-
-
+               
                 Debug.Log("’Ê‚Á‚½");
             }
             else
@@ -70,6 +70,7 @@ public class LoadScene : MonoBehaviour
     [SerializeField] CreditPanel1 CreditPanel1;
    [SerializeField] GameObject playerInfo;
     [SerializeField] bool isstart;
+    [SerializeField]Audiovolume audioVolume;    
     //[SerializeField] GameObject image;
     // Update is called once per frame
     public void Text_of_each_places(int num = 0)
@@ -94,9 +95,13 @@ public class LoadScene : MonoBehaviour
         PlayerInfo.Instance.StartGame(true);
         isstart = true;
         fade.feadout_f = true;
+       
         if (fade.feadout_f == false)
         {
-            //PlayerInfo.Instance.gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume= audioVolume.BGM =
+           GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume=audioVolume.SE  ;
+            Debug.Log(audioVolume.BGM);
+            Debug.Log(audioVolume.SE);
 
         }
 
@@ -128,10 +133,13 @@ public class LoadScene : MonoBehaviour
             Instantiate(playerInfo);
             PlayerInfo.Instance.StartGame(false);
             fade.feadout_f = true;
+            
             if (fade.feadout_f == false)
             {
-                //PlayerInfo.Instance.gameObject.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-
+                GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume = audioVolume.BGM =
+          GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume = audioVolume.SE;
+                Debug.Log(audioVolume.BGM);
+                Debug.Log(audioVolume.SE);
             }
 
         }
