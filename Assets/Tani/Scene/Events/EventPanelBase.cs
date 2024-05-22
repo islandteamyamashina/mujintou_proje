@@ -234,6 +234,15 @@ public class EventPanelBase : MonoBehaviour
                 {
                     return 0;
                 }
+            case 9904:
+                if(PlayerInfo.Instance.ActionValue <= 2)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
             default:
                 return 1;
         }
