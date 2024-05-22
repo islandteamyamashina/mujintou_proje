@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 public class CreditPanel1 : MonoBehaviour
 {
-    //ƒpƒlƒ‹ŠÖŒW
+    //ï¿½pï¿½lï¿½ï¿½ï¿½ÖŒW
     public GameObject mainPanel;
     public GameObject subPanel;
     public GameObject OptionPanel;
@@ -19,7 +19,7 @@ public class CreditPanel1 : MonoBehaviour
     [SerializeField] float speed = 1;
 
 
-    //ƒpƒlƒ‹ƒAƒjƒ[ƒVƒ‡ƒ“
+    //ï¿½pï¿½lï¿½ï¿½ï¿½Aï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
 
     public float corrutin;
     [SerializeField] float StartPanel_X;
@@ -79,7 +79,7 @@ public class CreditPanel1 : MonoBehaviour
     [SerializeField] float ContinueButton_End_Y;
     [SerializeField] float ContinueButton_End_Z;
 
-    //ƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚Ìƒ{ƒ^ƒ“(Setactive)
+    //ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ìƒ{ï¿½^ï¿½ï¿½(Setactive)
     [SerializeField] GameObject startButton;
     [SerializeField] GameObject ContinueButton;
     [SerializeField] GameObject quitButton;
@@ -87,14 +87,14 @@ public class CreditPanel1 : MonoBehaviour
     [SerializeField] GameObject optionButton;
     [SerializeField] multiAudio multi;
 
-    //ƒ{ƒ^ƒ“‚ÌƒCƒxƒ“ƒgƒgƒŠƒK[ŠÖ˜A
+    //ï¿½{ï¿½^ï¿½ï¿½ï¿½ÌƒCï¿½xï¿½ï¿½ï¿½gï¿½gï¿½ï¿½ï¿½Kï¿½[ï¿½Ö˜A
     [SerializeField] EventTrigger eventTrigger_start;
     [SerializeField] EventTrigger eventTrigger_quit;
     [SerializeField] EventTrigger eventTrigger_Credit;
     [SerializeField] EventTrigger eventTrigger_option;
     //[SerializeField] EventTrigger eventTrigger_Continue_;
 
-    //ƒ{ƒ^ƒ“‹@”\ŠÖ˜AiInteractive)
+    //ï¿½{ï¿½^ï¿½ï¿½ï¿½@ï¿½\ï¿½Ö˜Aï¿½iInteractive)
     public Button start;
 
     //public Button Continue;
@@ -104,7 +104,7 @@ public class CreditPanel1 : MonoBehaviour
     [SerializeField] Audiovolume audiovolume;
 
 
-    void Start()//n‚Ü‚é‚Æ‚«
+    void Start()//ï¿½nï¿½Ü‚ï¿½Æ‚ï¿½
     {
         audiovolume = GameObject.FindAnyObjectByType<Audiovolume>().GetComponent<Audiovolume>();
         GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume = audiovolume.BGM;
@@ -113,7 +113,7 @@ public class CreditPanel1 : MonoBehaviour
 
         //multi.playse();
 
-        //ƒpƒlƒ‹ŠÖŒW
+        //ï¿½pï¿½lï¿½ï¿½ï¿½ÖŒW
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
         //multi.BGMSE();
@@ -121,25 +121,25 @@ public class CreditPanel1 : MonoBehaviour
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
 
-        //ƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚Ìƒ{ƒ^ƒ“(Setactive)
+        //ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ìƒ{ï¿½^ï¿½ï¿½(Setactive)
         startButton.SetActive(true);
         ContinueButton.SetActive(true);
         optionButton.SetActive(true);
         quitButton.SetActive(true);
         CreditButton.SetActive(true);
 
-        //ƒVƒ“ƒOƒ‹ƒgƒ“
+        //ï¿½Vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½gï¿½ï¿½
         //SceneManager.sceneLoaded += OnSceneLoaded;
 
 
 
-        //ƒ{ƒ^ƒ“‚ÌƒCƒxƒ“ƒgƒgƒŠƒK[ŠÖ˜A
+        //ï¿½{ï¿½^ï¿½ï¿½ï¿½ÌƒCï¿½xï¿½ï¿½ï¿½gï¿½gï¿½ï¿½ï¿½Kï¿½[ï¿½Ö˜A
         eventTrigger_start.enabled = true;
         eventTrigger_quit.enabled = true;
         eventTrigger_option.enabled = true;
         eventTrigger_Credit.enabled = true;
 
-        //ƒ{ƒ^ƒ“‹@”\ŠÖ˜AiInteractive)
+        //ï¿½{ï¿½^ï¿½ï¿½ï¿½@ï¿½\ï¿½Ö˜Aï¿½iInteractive)
         start.interactable = true;
         quit.interactable = true;
         Credit.interactable = true;
@@ -151,7 +151,7 @@ public class CreditPanel1 : MonoBehaviour
     //{
     //    PlayerInfo.Instance.SwitchUIVisibility(); ;
     //}
-    public virtual void MainView()//ƒƒCƒ“‰æ–Ê‚Ì‚İ•\¦
+    public virtual void MainView()//ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½Ê‚Ì‚İ•\ï¿½ï¿½
     {
         if (startPanel.activeSelf)
         {
@@ -184,7 +184,7 @@ public class CreditPanel1 : MonoBehaviour
             //QuitPanel.SetActive(false);
 
         }
-        //ƒpƒlƒ‹ŠÖŒW
+        //ï¿½pï¿½lï¿½ï¿½ï¿½ÖŒW
         mainPanel.SetActive(true);
 
         //subPanel.SetActive(false);
@@ -194,14 +194,14 @@ public class CreditPanel1 : MonoBehaviour
 
         Invoke(nameof(True_SetActive), 0.2f);
 
-        //ƒ{ƒ^ƒ“‹@”\ŠÖ˜AiInteractive)
+        //ï¿½{ï¿½^ï¿½ï¿½ï¿½@ï¿½\ï¿½Ö˜Aï¿½iInteractive)
         start.interactable = true;
         quit.interactable = true;
         Credit.interactable = true;
         option.interactable = true;
 
 
-        //ƒ{ƒ^ƒ“‚ÌƒCƒxƒ“ƒgƒgƒŠƒK[ŠÖ˜A
+        //ï¿½{ï¿½^ï¿½ï¿½ï¿½ÌƒCï¿½xï¿½ï¿½ï¿½gï¿½gï¿½ï¿½ï¿½Kï¿½[ï¿½Ö˜A
         eventTrigger_start.enabled = true;
         eventTrigger_quit.enabled = true;
         eventTrigger_option.enabled = true;
@@ -213,7 +213,7 @@ public class CreditPanel1 : MonoBehaviour
 
     public void True_SetActive()
     {
-        //ƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚Ìƒ{ƒ^ƒ“(Setactive)
+        //ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ìƒ{ï¿½^ï¿½ï¿½(Setactive)
         startButton.SetActive(true);
         ContinueButton.SetActive(true);
         optionButton.SetActive(true);
@@ -221,36 +221,36 @@ public class CreditPanel1 : MonoBehaviour
         CreditButton.SetActive(true);
 
     }
-    public virtual void SubView() //ƒNƒŒƒWƒbƒg‰æ–Ê•\¦
+    public virtual void SubView() //ï¿½Nï¿½ï¿½ï¿½Wï¿½bï¿½gï¿½ï¿½Ê•\ï¿½ï¿½
     {
-        //ƒpƒlƒ‹ŠÖŒW
+        //ï¿½pï¿½lï¿½ï¿½ï¿½ÖŒW
         mainPanel.SetActive(true);
         subPanel.SetActive(true);
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
 
-        //ƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚Ìƒ{ƒ^ƒ“(Setactive)
+        //ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ìƒ{ï¿½^ï¿½ï¿½(Setactive)
         startButton.SetActive(false);
         ContinueButton.SetActive(false);
         optionButton.SetActive(false);
         quitButton.SetActive(false);
         CreditButton.SetActive(true);
 
-        //ƒ{ƒ^ƒ“‚ÌƒCƒxƒ“ƒgƒgƒŠƒK[ŠÖ˜A
+        //ï¿½{ï¿½^ï¿½ï¿½ï¿½ÌƒCï¿½xï¿½ï¿½ï¿½gï¿½gï¿½ï¿½ï¿½Kï¿½[ï¿½Ö˜A
         //eventTrigger_start.enabled = false;
         //eventTrigger_quit.enabled = false;
         //eventTrigger_option.enabled = false;
         eventTrigger_Credit.enabled = false;
         //eventTrigger_Continue_.enabled = false;
 
-        //ƒ{ƒ^ƒ“‹@”\ŠÖ˜AiInteractive)
+        //ï¿½{ï¿½^ï¿½ï¿½ï¿½@ï¿½\ï¿½Ö˜Aï¿½iInteractive)
         //start.interactable = false;
         //quit.interactable = false;
         Credit.interactable = false;
         //option.interactable = false;
 
-        //ƒpƒlƒ‹Šg‘å‚·‚é‘OiƒNƒŒƒWƒbƒgƒpƒlƒ‹j
+        //ï¿½pï¿½lï¿½ï¿½ï¿½gï¿½å‚·ï¿½ï¿½Oï¿½iï¿½Nï¿½ï¿½ï¿½Wï¿½bï¿½gï¿½pï¿½lï¿½ï¿½ï¿½j
         if (subPanel.activeSelf)
         {
             //subPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
@@ -259,37 +259,37 @@ public class CreditPanel1 : MonoBehaviour
         }
     }
 
-    public virtual void CreditView()//ƒIƒvƒVƒ‡ƒ“•\¦
+    public virtual void CreditView()//ï¿½Iï¿½vï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½
     {
-        //ƒpƒlƒ‹ŠÖŒW
+        //ï¿½pï¿½lï¿½ï¿½ï¿½ÖŒW
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
         OptionPanel.SetActive(true);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
 
-        //ƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚Ìƒ{ƒ^ƒ“(Setactive)
+        //ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ìƒ{ï¿½^ï¿½ï¿½(Setactive)
         startButton.SetActive(false);
         ContinueButton.SetActive(false);
         optionButton.SetActive(true);
         quitButton.SetActive(false);
         CreditButton.SetActive(false);
 
-        //ƒ{ƒ^ƒ“‚ÌƒCƒxƒ“ƒgƒgƒŠƒK[ŠÖ˜A
+        //ï¿½{ï¿½^ï¿½ï¿½ï¿½ÌƒCï¿½xï¿½ï¿½ï¿½gï¿½gï¿½ï¿½ï¿½Kï¿½[ï¿½Ö˜A
         //eventTrigger_start.enabled = false;
         //eventTrigger_quit.enabled = false;
         eventTrigger_option.enabled = false;
         //eventTrigger_Credit.enabled = false;
         //eventTrigger_Continue_.enabled = false;
 
-        //ƒ{ƒ^ƒ“‹@”\ŠÖ˜AiInteractive)
+        //ï¿½{ï¿½^ï¿½ï¿½ï¿½@ï¿½\ï¿½Ö˜Aï¿½iInteractive)
         //start.interactable = false;
         //Continue.interactable = false;
         //Credit.interactable = false;
         //quit.interactable = false;
         option.interactable = false;
 
-        //ƒpƒlƒ‹Šg‘å‚·‚é‘OiƒIƒvƒVƒ‡ƒ“ƒpƒlƒ‹j
+        //ï¿½pï¿½lï¿½ï¿½ï¿½gï¿½å‚·ï¿½ï¿½Oï¿½iï¿½Iï¿½vï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½pï¿½lï¿½ï¿½ï¿½j
         if (OptionPanel.activeSelf)
         {
             //OptionPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
@@ -299,37 +299,37 @@ public class CreditPanel1 : MonoBehaviour
         }
     }
 
-    public void QuitView()//I—¹‰æ–Ê•\¦
+    public void QuitView()//ï¿½Iï¿½ï¿½ï¿½ï¿½Ê•\ï¿½ï¿½
     {
-        //ƒpƒlƒ‹ŠÖŒW
+        //ï¿½pï¿½lï¿½ï¿½ï¿½ÖŒW
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(true);
         startPanel.SetActive(false);
 
-        //ƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚Ìƒ{ƒ^ƒ“(Setactive)
+        //ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ìƒ{ï¿½^ï¿½ï¿½(Setactive)
         startButton.SetActive(false);
         ContinueButton.SetActive(false);
         optionButton.SetActive(false);
         quitButton.SetActive(true);
         CreditButton.SetActive(false);
 
-        //ƒ{ƒ^ƒ“‚ÌƒCƒxƒ“ƒgƒgƒŠƒK[ŠÖ˜A
+        //ï¿½{ï¿½^ï¿½ï¿½ï¿½ÌƒCï¿½xï¿½ï¿½ï¿½gï¿½gï¿½ï¿½ï¿½Kï¿½[ï¿½Ö˜A
         //eventTrigger_start.enabled = false;
         eventTrigger_quit.enabled = false;
         //eventTrigger_option.enabled = false;
         //eventTrigger_Credit.enabled = false;
         //eventTrigger_Continue_.enabled = false;
 
-        //ƒ{ƒ^ƒ“‹@”\ŠÖ˜AiInteractive)
+        //ï¿½{ï¿½^ï¿½ï¿½ï¿½@ï¿½\ï¿½Ö˜Aï¿½iInteractive)
         //start.interactable = false;
         //Continue.interactable = false;
         //Credit.interactable = false;
         quit.interactable = false;
         //option.interactable = false;
 
-        //ƒpƒlƒ‹Šg‘å‚·‚é‘OiI—¹ƒpƒlƒ‹j
+        //ï¿½pï¿½lï¿½ï¿½ï¿½gï¿½å‚·ï¿½ï¿½Oï¿½iï¿½Iï¿½ï¿½ï¿½pï¿½lï¿½ï¿½ï¿½j
         if (QuitPanel.activeSelf)
         {
             //QuitPanel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
@@ -337,37 +337,37 @@ public class CreditPanel1 : MonoBehaviour
             StartSlidein();
         }
     }
-    public void startView()//ƒXƒ^[ƒgƒpƒlƒ‹•\¦
+    public void startView()//ï¿½Xï¿½^ï¿½[ï¿½gï¿½pï¿½lï¿½ï¿½ï¿½\ï¿½ï¿½
     {
-        //ƒpƒlƒ‹ŠÖŒW
+        //ï¿½pï¿½lï¿½ï¿½ï¿½ÖŒW
         mainPanel.SetActive(true);
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(true);
 
-        //ƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚Ìƒ{ƒ^ƒ“(Setactive)
+        //ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ìƒ{ï¿½^ï¿½ï¿½(Setactive)
         startButton.SetActive(true);
         ContinueButton.SetActive(false);
         optionButton.SetActive(false);
         quitButton.SetActive(false);
         CreditButton.SetActive(false);
 
-        //ƒ{ƒ^ƒ“‚ÌƒCƒxƒ“ƒgƒgƒŠƒK[ŠÖ˜A
+        //ï¿½{ï¿½^ï¿½ï¿½ï¿½ÌƒCï¿½xï¿½ï¿½ï¿½gï¿½gï¿½ï¿½ï¿½Kï¿½[ï¿½Ö˜A
         eventTrigger_start.enabled = false;
         //eventTrigger_quit.enabled = false;
         //eventTrigger_option.enabled = false;
         //eventTrigger_Credit.enabled = false;
         //eventTrigger_Continue_.enabled = false;
 
-        //ƒ{ƒ^ƒ“‹@”\ŠÖ˜AiInteractive)
+        //ï¿½{ï¿½^ï¿½ï¿½ï¿½@ï¿½\ï¿½Ö˜Aï¿½iInteractive)
         start.interactable = false;
         //Continue.interactable = false;
         //Credit.interactable = false;
         //option.interactable = false;
         //quit.interactable = false;
 
-        //ƒpƒlƒ‹Šg‘å‚·‚é‘OiƒXƒ^[ƒgƒpƒlƒ‹j
+        //ï¿½pï¿½lï¿½ï¿½ï¿½gï¿½å‚·ï¿½ï¿½Oï¿½iï¿½Xï¿½^ï¿½[ï¿½gï¿½pï¿½lï¿½ï¿½ï¿½j
         if (startPanel.activeSelf)
         {
             //startPanel.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
@@ -376,12 +376,12 @@ public class CreditPanel1 : MonoBehaviour
         }
     }
 
-    public void StartSlidein()//ƒpƒlƒ‹Šg‘åŠJn‚Ì‚½‚ß‚ÌŠÖ”
+    public void StartSlidein()//ï¿½pï¿½lï¿½ï¿½ï¿½gï¿½ï¿½Jï¿½nï¿½Ì‚ï¿½ï¿½ß‚ÌŠÖï¿½
     {
         StartCoroutine(ChangePaneltoBigSize());
     }
 
-    //ƒpƒlƒ‹Šg‘å(”Ä—p)
+    //ï¿½pï¿½lï¿½ï¿½ï¿½gï¿½ï¿½(ï¿½Ä—p)
     public IEnumerator ChangePaneltoBigSize()
     {
         var size = 0f;
@@ -391,7 +391,7 @@ public class CreditPanel1 : MonoBehaviour
         var size4 = 0f;
 
 
-        //ƒpƒlƒ‹Šg‘åiƒXƒ^[ƒgƒpƒlƒ‹j
+        //ï¿½pï¿½lï¿½ï¿½ï¿½gï¿½ï¿½iï¿½Xï¿½^ï¿½[ï¿½gï¿½pï¿½lï¿½ï¿½ï¿½j
 
         while (size <= 1.0f && startPanel.activeSelf)
         {
@@ -403,7 +403,7 @@ public class CreditPanel1 : MonoBehaviour
             //startPanel.transform.localPosition =
             yield return new WaitForSeconds(corrutin /** Time.deltaTime*/);
         }
-        //ƒpƒlƒ‹Šg‘åiƒIƒvƒVƒ‡ƒ“ƒpƒlƒ‹j
+        //ï¿½pï¿½lï¿½ï¿½ï¿½gï¿½ï¿½iï¿½Iï¿½vï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½pï¿½lï¿½ï¿½ï¿½j
         while (size2 <= 1.0f && OptionPanel.activeSelf)
         {
             //OptionPanel.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), new Vector3(1.0f, 1.0f, 1.0f), size2);
@@ -412,7 +412,7 @@ public class CreditPanel1 : MonoBehaviour
 
             yield return new WaitForSeconds(corrutin /** Time.deltaTime*/);
         }
-        //ƒpƒlƒ‹Šg‘åiƒNƒŒƒWƒbƒgƒpƒlƒ‹j
+        //ï¿½pï¿½lï¿½ï¿½ï¿½gï¿½ï¿½iï¿½Nï¿½ï¿½ï¿½Wï¿½bï¿½gï¿½pï¿½lï¿½ï¿½ï¿½j
 
         while (size3 <= 1.0f && subPanel.activeSelf)
         {
@@ -426,7 +426,7 @@ public class CreditPanel1 : MonoBehaviour
             yield return new WaitForSeconds(corrutin /** Time.deltaTime*/);
         }
 
-        //ƒpƒlƒ‹Šg‘åiI—¹ƒpƒlƒ‹j
+        //ï¿½pï¿½lï¿½ï¿½ï¿½gï¿½ï¿½iï¿½Iï¿½ï¿½ï¿½pï¿½lï¿½ï¿½ï¿½j
 
         while (size4 <= 1.0f && QuitPanel.activeSelf)
         {
@@ -439,14 +439,14 @@ public class CreditPanel1 : MonoBehaviour
 
     }
 
-    public void StartSlideOut()//ƒpƒlƒ‹k¬ŠJn‚Ì‚½‚ß‚ÌŠÖ”
+    public void StartSlideOut()//ï¿½pï¿½lï¿½ï¿½ï¿½kï¿½ï¿½ï¿½Jï¿½nï¿½Ì‚ï¿½ï¿½ß‚ÌŠÖï¿½
     {
         StartCoroutine(ChangePaneltoSmallSize());
         //StartCoroutine(ChangeButtontoSmallSize());
     }
 
 
-    //ƒpƒlƒ‹k¬(”Ä—p)
+    //ï¿½pï¿½lï¿½ï¿½ï¿½kï¿½ï¿½(ï¿½Ä—p)
     public IEnumerator ChangePaneltoSmallSize()
     {
         var size = 0f;
@@ -456,7 +456,7 @@ public class CreditPanel1 : MonoBehaviour
 
 
        
-        //ƒpƒlƒ‹k¬iƒXƒ^[ƒgƒpƒlƒ‹j
+        //ï¿½pï¿½lï¿½ï¿½ï¿½kï¿½ï¿½ï¿½iï¿½Xï¿½^ï¿½[ï¿½gï¿½pï¿½lï¿½ï¿½ï¿½j
 
         while (size <= 1.0f && startPanel.activeSelf)
         {
@@ -465,9 +465,9 @@ public class CreditPanel1 : MonoBehaviour
             size += speed * Time.deltaTime;
             yield return new WaitForSeconds(corrutin);
         }
-        Debug.Log("’Ê‚Á‚½");
+        Debug.Log("ï¿½Ê‚ï¿½ï¿½ï¿½");
 
-        //ƒpƒlƒ‹k¬iƒIƒvƒVƒ‡ƒ“ƒpƒlƒ‹j
+        //ï¿½pï¿½lï¿½ï¿½ï¿½kï¿½ï¿½ï¿½iï¿½Iï¿½vï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½pï¿½lï¿½ï¿½ï¿½j
         while (size2 <= 1.0f && OptionPanel.activeSelf)
         {
             //OptionPanel.transform.localScale = Vector3.Lerp(new Vector3(1.0f, 1.0f, 1.0f), new Vector3(0.5f, 0.5f, 0.5f), size2);
@@ -479,7 +479,7 @@ public class CreditPanel1 : MonoBehaviour
 
             yield return new WaitForSeconds(corrutin);
         }
-        //ƒpƒlƒ‹k¬iƒIƒvƒVƒ‡ƒ“ƒ{ƒ^ƒ“j
+        //ï¿½pï¿½lï¿½ï¿½ï¿½kï¿½ï¿½ï¿½iï¿½Iï¿½vï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½j
 
         //while (size2 <= 1.0f && !optionButton.activeSelf)
         //{
@@ -487,7 +487,7 @@ public class CreditPanel1 : MonoBehaviour
         //    size += speed * Time.deltaTime;
         //    yield return new WaitForSeconds(corrutin);
         //}
-        //ƒpƒlƒ‹k¬iƒNƒŒƒWƒbƒgƒ{ƒ^ƒ“j
+        //ï¿½pï¿½lï¿½ï¿½ï¿½kï¿½ï¿½ï¿½iï¿½Nï¿½ï¿½ï¿½Wï¿½bï¿½gï¿½{ï¿½^ï¿½ï¿½ï¿½j
 
         //while (size2 <= 1.0f && !CreditButton.activeSelf)
         //{
@@ -495,7 +495,7 @@ public class CreditPanel1 : MonoBehaviour
         //    size += speed * Time.deltaTime;
         //    yield return new WaitForSeconds(corrutin);
         //}
-        //ƒpƒlƒ‹k¬iƒNƒŒƒWƒbƒgƒpƒlƒ‹j
+        //ï¿½pï¿½lï¿½ï¿½ï¿½kï¿½ï¿½ï¿½iï¿½Nï¿½ï¿½ï¿½Wï¿½bï¿½gï¿½pï¿½lï¿½ï¿½ï¿½j
 
         while (size3 <= 1.0f && subPanel.activeSelf)
         {
@@ -509,7 +509,7 @@ public class CreditPanel1 : MonoBehaviour
             yield return new WaitForSeconds(corrutin);
         }
 
-        //ƒpƒlƒ‹Šg‘åiI—¹ƒpƒlƒ‹j
+        //ï¿½pï¿½lï¿½ï¿½ï¿½gï¿½ï¿½iï¿½Iï¿½ï¿½ï¿½pï¿½lï¿½ï¿½ï¿½j
 
         while (size4 <= 1.0f && QuitPanel.activeSelf)
         {
@@ -539,12 +539,12 @@ public class CreditPanel1 : MonoBehaviour
         //    yield return new WaitForSeconds(corrutin);
         //}
 
-        Debug.Log("’Ê‚Á‚½");
+        Debug.Log("ï¿½Ê‚ï¿½ï¿½ï¿½");
         subPanel.SetActive(false);
         OptionPanel.SetActive(false);
         QuitPanel.SetActive(false);
         startPanel.SetActive(false);
-        Debug.Log("’Ê‚Á‚½");
+        Debug.Log("ï¿½Ê‚ï¿½ï¿½ï¿½");
 
 
     }
@@ -555,7 +555,7 @@ public class CreditPanel1 : MonoBehaviour
     //    var size2 = 0f;
     //    var size3 = 0f;
     //    var size4 = 0f;
-    //    //ƒpƒlƒ‹k¬iƒXƒ^[ƒgƒ{ƒ^ƒ“j
+    //    //ï¿½pï¿½lï¿½ï¿½ï¿½kï¿½ï¿½ï¿½iï¿½Xï¿½^ï¿½[ï¿½gï¿½{ï¿½^ï¿½ï¿½ï¿½j
 
     //    while (size <= 1.0f && !startButton.activeSelf)
     //    {
@@ -563,7 +563,7 @@ public class CreditPanel1 : MonoBehaviour
     //        size += speed * Time.deltaTime;
     //        yield return new WaitForSeconds(corrutin);
     //    }
-    //    //ƒpƒlƒ‹k¬iƒIƒvƒVƒ‡ƒ“ƒ{ƒ^ƒ“j
+    //    //ï¿½pï¿½lï¿½ï¿½ï¿½kï¿½ï¿½ï¿½iï¿½Iï¿½vï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½j
 
     //    while (size2 <= 1.0f &&!optionButton.activeSelf)
     //    {
@@ -574,7 +574,7 @@ public class CreditPanel1 : MonoBehaviour
 
 
 
-    //    //ƒpƒlƒ‹k¬iƒNƒŒƒWƒbƒgƒ{ƒ^ƒ“j
+    //    //ï¿½pï¿½lï¿½ï¿½ï¿½kï¿½ï¿½ï¿½iï¿½Nï¿½ï¿½ï¿½Wï¿½bï¿½gï¿½{ï¿½^ï¿½ï¿½ï¿½j
 
     //    while (size3 <= 1.0f && !CreditButton.activeSelf)
     //    {
@@ -591,7 +591,7 @@ public class CreditPanel1 : MonoBehaviour
     //    }
 
 
-    //    //ƒpƒlƒ‹Šg‘åiI—¹ƒpƒlƒ‹j
+    //    //ï¿½pï¿½lï¿½ï¿½ï¿½gï¿½ï¿½iï¿½Iï¿½ï¿½ï¿½pï¿½lï¿½ï¿½ï¿½j
 
     //    while (size4 <= 1.0f && !quitButton.activeSelf)
     //    {
@@ -606,31 +606,31 @@ public class CreditPanel1 : MonoBehaviour
     //}
         void Update()
     {
-        //escapeƒL[‘Î‰
+        //escapeï¿½Lï¿½[ï¿½Î‰ï¿½
         if (Input.GetMouseButtonDown(1)||Input.GetKeyDown(KeyCode.Escape))
         {
-            //ƒpƒlƒ‹ŠÖŒW
+            //ï¿½pï¿½lï¿½ï¿½ï¿½ÖŒW
             OptionPanel.SetActive(false);
             mainPanel.SetActive(true);
             subPanel.SetActive(false);
             QuitPanel.SetActive(false);
             startPanel.SetActive(false);
 
-            //ƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚Ìƒ{ƒ^ƒ“(Setactive)
+            //ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ìƒ{ï¿½^ï¿½ï¿½(Setactive)
             startButton.SetActive(true);
             ContinueButton.SetActive(true);
             optionButton.SetActive(true);
             quitButton.SetActive(true);
             CreditButton.SetActive(true);
 
-            //ƒ{ƒ^ƒ“‹@”\ŠÖ˜AiInteractive)
+            //ï¿½{ï¿½^ï¿½ï¿½ï¿½@ï¿½\ï¿½Ö˜Aï¿½iInteractive)
             start.interactable = true;
             //Continue.interactable = true;
             Credit.interactable = true;
             quit.interactable = true;
             option.interactable = true;
 
-            //ƒ{ƒ^ƒ“‚ÌƒCƒxƒ“ƒgƒgƒŠƒK[ŠÖ˜A
+            //ï¿½{ï¿½^ï¿½ï¿½ï¿½ÌƒCï¿½xï¿½ï¿½ï¿½gï¿½gï¿½ï¿½ï¿½Kï¿½[ï¿½Ö˜A
             eventTrigger_start.enabled = true;
             eventTrigger_quit.enabled = true;
             eventTrigger_option.enabled = true;
