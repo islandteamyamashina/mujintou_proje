@@ -22,8 +22,10 @@ public class LoadScene_afterTitle : MonoBehaviour
         PlayerInfo.Instance.DestroySelf();
         SceneManager.LoadScene(Title);
         audiovolume.BGM = GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume;
+      
         audiovolume.SE = GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume;
-
+        Debug.Log(audiovolume.BGM);
+        Debug.Log(audiovolume.SE);  
         //SceneManager.sceneLoaded += OnSceneLoaded;
     }
 

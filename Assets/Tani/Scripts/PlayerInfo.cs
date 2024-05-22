@@ -62,7 +62,6 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] private Text day_text;
     [SerializeField] private List<TextureData> textureDatas;
     [SerializeField] private SlotManager inventry;
-   // [SerializeField] private Image weather_image;
     public List<Sprite> SunnyCloudyRainy;
     [SerializeField] private GameObject image_prefab;
     [SerializeField] private bool Excute_StartGame_FuncHere = false;
@@ -85,10 +84,13 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     private List<Texture2D> cursor_textures;
     private bool is_running_item_visualizing = false;
     private Queue<IEnumerator> visualize_coroutines = new Queue<IEnumerator>();
-    
 
+    public UnityAction OnHealthSet {private get;  set;}
+    public UnityAction OnHungerSet { private get; set; }
+    public UnityAction OnThirstSet { private get; set; }
+    public UnityAction OnWaterSet { private get; set; }
+    public UnityAction OnFireSet { private get; set; }
 
-   
 
     public int Health
     {
@@ -97,7 +99,11 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         {
             _player_Health = value;
             _player_Health = Mathf.Clamp(_player_Health,0, _Max_Player_Health);
-
+            if(OnHealthSet != null)
+            {
+                OnHealthSet.Invoke();
+            }
+            
         }
     }
     
@@ -234,8 +240,6 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         Inventry.GetItem(Items.Item_ID.item_mat_crab, 3);
         Inventry.GetItem(Items.Item_ID.item_mat_stone, 5);
         Inventry.GetItem(Items.Item_ID.item_craft_DIYmedicine, 2);
-
-
         AddPlayerCondition(Condition.Poisoned);
     }
 

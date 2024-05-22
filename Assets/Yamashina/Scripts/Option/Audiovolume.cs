@@ -9,19 +9,27 @@ using UnityEngine.UI;
 public class Audiovolume : MonoBehaviour
 {
     public static Audiovolume instance;
-    public float BGM = 1;
-    public float SE = 1;
+    public float BGM ;
+    public float SE;
+    public AudioSource audioSourceBGM;//BGM�X�s�[�J�[
+
+    public AudioSource audioSourceSE;//SoundEffect�̃X�s�[�J�[
     private void Awake()
     {
+
+        Debug.Log(BGM);
+        Debug.Log(SE);
+        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume = BGM;
+        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume = SE;
+
         audioSourceBGM = GameObject.FindWithTag("BGM").GetComponent<AudioSource>();
         audioSourceSE = GameObject.FindWithTag("SE").GetComponent<AudioSource>();
 
 
-        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume = audioSourceBGM.volume;
-        GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume = audioSourceSE.volume;
-        Debug.Log(GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume);
-        Debug.Log(GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume);
-
+        //Debug.Log(GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume);
+        //Debug.Log(GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume);
+        //Debug.Log(audioSourceBGM.volume);
+        //Debug.Log(audioSourceSE.volume);
         if (instance == null)
         {
             instance = this;
@@ -71,10 +79,14 @@ public class Audiovolume : MonoBehaviour
     }
 
 
+    //private void Update()
+    //{
+    //    audioSourceBGM.volume = BGM;
+    //    audioSourceSE.volume = SE;
+    //    Debug.Log($"Update{BGM}");
+    //    //Debug.Log(SE);
+    //}
 
-    public AudioSource audioSourceBGM;//BGM�X�s�[�J�[
-
-    public AudioSource audioSourceSE;//SoundEffect�̃X�s�[�J�[
 
     public void SetBgmVolume(float bgmVolume)
     {

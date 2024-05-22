@@ -19,7 +19,7 @@ public class EventPanelBase : MonoBehaviour
     [SerializeField]
     Transform buttons_prefab_parent;
     [SerializeField]
-    EventDatas endEventData;
+    public EventDatas endEventData;
 
 
     //private field
@@ -176,7 +176,7 @@ public class EventPanelBase : MonoBehaviour
             case 1005:
                 if(info.Day.day >= 10 && info.Thirst <= 20)
                 {
-                    return 15;
+                    return 12;
                 }
                 else
                 {
@@ -185,7 +185,7 @@ public class EventPanelBase : MonoBehaviour
             case 1011:
                 if (info.Day.day >= 10 && info.Thirst <= 20)
                 {
-                    return 15;
+                    return 12;
                 }
                 else
                 {
@@ -207,6 +207,42 @@ public class EventPanelBase : MonoBehaviour
                 return info.weather == PlayerInfo.Weather.Sunny ? 1 : 0;
             case 6010:
                 return info.weather == PlayerInfo.Weather.Rainy ? 1 : 0;
+            case 9901:
+                if (PlayerInfo.Instance.ActionValue == 5)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            case 9902:
+                if (PlayerInfo.Instance.ActionValue == 4)
+                {
+                    return 1;
+                }
+                else
+                { 
+                    return 0; 
+                }
+            case 9903:
+                if (PlayerInfo.Instance.ActionValue == 3)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            case 9904:
+                if(PlayerInfo.Instance.ActionValue <= 2)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
             default:
                 return 1;
         }

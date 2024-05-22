@@ -10,31 +10,48 @@ public class BaseLocationDaytimeController : MonoBehaviour
     List<PanelBase> panels;
     [SerializeField]
     SceneObject next_scene;
-
+    [SerializeField]
+    int pattern = 0;
+    [SerializeField]
+    GameObject BL_Tu_1_SceneControllerPrefab = null;
     // Start is called before the first frame update
     IEnumerator Start()
     {
-        if (PlayerInfo.Instance.Day.isDayTime)
+        switch (pattern)
         {
-            var areaNameShow = (AreaNameText)GameObject.FindAnyObjectByType(typeof(AreaNameText));
-            IEnumerator coroutine = areaNameShow.ShowAreaText();
-            StartCoroutine(coroutine);
-        }
-        else
-        {
-            var fade = ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
-            fade.Fade(Fading.type.FadeIn);
-        }
+            case 0:
+                if (PlayerInfo.Instance.Day.isDayTime)
+                {
+                    var areaNameShow = (AreaNameText)GameObject.FindAnyObjectByType(typeof(AreaNameText));
+                    IEnumerator coroutine = areaNameShow.ShowAreaText();
+                    StartCoroutine(coroutine);
+                }
+                else
+                {
+                    var fade = ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
+                    fade.Fade(Fading.type.FadeIn);
+                }
 
 
 
-        for (int i = 0; i < panels.Count; i++)
-        {
-            ActivatePanelAdditive(i);
+                for (int i = 0; i < panels.Count; i++)
+                {
+                    ActivatePanelAdditive(i);
+                }
+                yield return null;
+                DeactivateAllPanels();
+                PlayerInfo.Instance.Inventry.SetVisible(false);
+                break;
+            case 1:
+                {
+                    //tutorial ˆê‰ñ–Ú
+                    var fade = ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
+                    fade.Fade(Fading.type.FadeIn);
+                    Instantiate(BL_Tu_1_SceneControllerPrefab);
+                    break;
+                }
         }
-        yield return null;
-        DeactivateAllPanels();
-        PlayerInfo.Instance.Inventry.SetVisible(false);
+       
     }
 
 

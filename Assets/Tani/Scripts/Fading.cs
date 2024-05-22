@@ -16,7 +16,7 @@ public class Fading : MonoBehaviour
     public enum type { FadeIn,FadeOut};
     public void Fade(type type)
     {
-        
+
         if (fading_time == 0) return;
         if (!fade_image) return;
         fade_image.gameObject.SetActive(true);
