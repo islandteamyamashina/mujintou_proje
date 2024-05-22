@@ -28,6 +28,8 @@ public class PanelBase : MonoBehaviour
         
     }
 
+    virtual protected void Init() { }
+
     public void SetEnabled(bool enabled)
     {
         gameObject.SetActive(enabled);
