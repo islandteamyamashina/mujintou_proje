@@ -36,7 +36,6 @@ public class FloatingObject : MonoBehaviour
         // 複数のオブジェクトが同時に動かないよう、違いをランダムで設定
         difference = Random.Range(0, 1.0f);
         rb = GetComponent<Rigidbody2D>();
-        Debug.Log("おいらー：" + Quaternion.Euler(30, 40, 50));
     }
 
     void Update()
