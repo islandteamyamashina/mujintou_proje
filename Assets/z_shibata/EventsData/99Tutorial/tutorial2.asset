@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050302beb80aafa4a81bafe0a4641693, type: 3}
+  m_Name: tutorial2
+  m_EditorClassIdentifier: 
+  event_title: "\u751F\u6D3B\u57FA\u76E4"
+  scene_id: 2
+  event_view_sprite: {fileID: 21300000, guid: 2e8a9a0935ab39b45ae4313bfb089e44, type: 3}
+  probability: 1
+  main_text: "\u62E0\u70B9\u306B\u711A\u304D\u706B\u306F\u5FC5\u9808\u3060\u3002
+    \u4F5C\u308B\u305F\u3081\u306E\u6750\u6599\u306F\u2026\u3002 \u77F3\u3084\u679D\u304C\u3042\u308C\u3070\u3088\u3044\u3060\u308D\u3046\u304B\uFF1F"
+  callBackType: 0
+  buttons_prefab: {fileID: 6265861607819639980, guid: c961d507ef3d13f4282d677203be61e3, type: 3}
+  results:
+  - choise_text: "\u68EE\u306E\u4ED8\u8FD1\u3092\u63A2\u3059"
+    Gain_Items:
+    - id: 5
+      probability: 1
+      range_min: 7
+      range_max: 7
+    - id: 6
+      probability: 1
+      range_min: 5
+      range_max: 5
+    result_text: "\u6728\u306E\u679D\u3092\u3078\u3057\u6298\u3063\u3066\u8349\u3084\u3076\u3092\u304B\u304D\u5206\u3051\u308B\u3068\u3001\u67AF\u308C\u679D\u3084\u624B\u9803\u306A\u77F3\u3092\u6CA2\u5C71\u898B\u3064\u3051\u308B\u3053\u3068\u304C\u3067\u304D\u305F\uFF01  
+      \u30AB\u30D0\u30F3\u306B\u3064\u3081\u3066\u304A\u3053\u3046\u3002"
+    health_change_min: 0
+    health_change_max: 0
+    hunger_change_min: -5
+    hunger_change_max: -5
+    thirst_change_min: -8
+    thirst_change_max: -8
+    required_action_value: 1
+  - choise_text: "\u7802\u6D5C\u3092\u63A2\u3059"
+    Gain_Items:
+    - id: 5
+      probability: 1
+      range_min: 7
+      range_max: 7
+    - id: 6
+      probability: 1
+      range_min: 5
+      range_max: 5
+    result_text: "\u7802\u6D5C\u3092\u6B69\u3044\u3066\u3044\u308B\u3068 \u6E07\u3044\u305F\u6D41\u6728\u304C\u3044\u304F\u3064\u304B\u624B\u306B\u5165\u3063\u305F\u3002
+      \u5C11\u3057\u6E7F\u3063\u3066\u3044\u308B\u304C\u3001 \u77F3\u3082\u6CA2\u5C71\u62FE\u3046\u4E8B\u304C\u3067\u304D\u305F\uFF01  
+      \u2026\u91CD\u3044\u3002"
+    health_change_min: 0
+    health_change_max: 0
+    hunger_change_min: 0
+    hunger_change_max: 0
+    thirst_change_min: 0
+    thirst_change_max: 0
+    required_action_value: 1
