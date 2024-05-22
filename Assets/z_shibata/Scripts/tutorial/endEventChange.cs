@@ -9,19 +9,8 @@ public class endEventChange : MonoBehaviour
     [SerializeField] EventDatas newEndEventData;
     void Start()
     {
-        GetComponent<Button>().onClick.AddListener(SetEndEventData);
+        GameData.FindAnyObjectByType(typeof(EventPanelBase)).GetComponent<EventPanelBase>().endEventData = newEndEventData;
     }
 
-    void SetEndEventData()
-    {
-        var eventPanelBase = GameData.FindAnyObjectByType(typeof(EventPanelBase)) as EventPanelBase;
-        if (eventPanelBase != null)
-        {
-            eventPanelBase.GetType().GetField("endEventData", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(eventPanelBase, newEndEventData);
-        }
-        else
-        {
-            Debug.LogError("EventPanelBase not found");
-        }
-    }
+
 }

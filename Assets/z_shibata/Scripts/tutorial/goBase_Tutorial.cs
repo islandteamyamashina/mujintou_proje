@@ -9,7 +9,8 @@ public class goBase_Tutorial : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Button>().onClick.AddListener(event_controller.GoTutorialBase);
+        gameObject.GetComponent<Button>().onClick.AddListener(() =>
+        { ((EventSceneControllerBase)GameObject.FindAnyObjectByType(typeof(EventSceneControllerBase))).GoTutorialBase(); });
     }
 
 }
