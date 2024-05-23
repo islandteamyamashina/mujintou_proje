@@ -289,6 +289,14 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
             ResetCondition();
             SceneManager.LoadScene("TrueEndingScene");
         }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+
+            Health = 30;
+            Hunger = 0;
+            Thirst = 0;
+            
+        }
 
 
     }

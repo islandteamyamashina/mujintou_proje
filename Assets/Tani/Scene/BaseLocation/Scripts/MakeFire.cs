@@ -127,6 +127,10 @@ public class MakeFire : MonoBehaviour
             _=> false
         };
         MakeFireButton.interactable = PlayerInfo.Instance.Fire == 0 && selectedType != 0;
+        if(PlayerInfo.Instance.Hunger == 0 || PlayerInfo.Instance.Thirst == 0)
+        {
+            MakeFireButton.interactable = false;
+        }
         if(slotManager.GetSlotItem(0).Value.id != Items.Item_ID.EmptyObject)
         {
             var color = trans1.color;

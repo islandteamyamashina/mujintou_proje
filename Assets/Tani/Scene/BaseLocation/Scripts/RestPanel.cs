@@ -12,6 +12,10 @@ public class RestPanel : PanelBase
     [SerializeField]
     Text HealthChangeText;
     [SerializeField]
+    Text HungerChangeText;
+    [SerializeField]
+    Text ThirstChangeText;
+    [SerializeField]
     int health_change = 30;
     [SerializeField]
     int hunger_change = -30;
@@ -19,6 +23,12 @@ public class RestPanel : PanelBase
     int thirst_change = -30;
     [SerializeField]
     Image poisonImage;
+    [SerializeField]
+    Image StarvingImage;
+    [SerializeField]
+    Image ThirstyImage;
+    [SerializeField]
+    GameObject ExtraEffectText;
 
     PlayerInfo info;
     protected override void Start()
@@ -28,20 +38,73 @@ public class RestPanel : PanelBase
         rest_button.onClick.AddListener(Rest);
     }
 
+    int prev_health ;
+    int prev_hunger ;
+    int prev_thirst;
+    int poisonEffect = 0;
+    int hungryEffect = 0;
+    int thirstyEffect = 0;
 
     protected override void Update()
     {
-        int prev = info.Health;
-        int poisonEffect = 0;
+
+         prev_health  = info.Health;
+         prev_hunger = info.Hunger;
+         prev_thirst = info.Thirst;
         if (info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Poisoned))
         {
-            poisonEffect = 10;
+            poisonEffect = -10;
             poisonImage.gameObject.SetActive(true);
-        }else
+        }
+        else
         {
+            poisonEffect = 0;
             poisonImage.gameObject.SetActive(false);
         }
-        HealthChangeText.text = $"<b>{prev}%  >>  {Mathf.Clamp(prev + (info.Day.isDayTime ? (int)(health_change * 1.5f) - poisonEffect: health_change - poisonEffect), 0, 100)}%</b>";
+
+        if(info.Hunger == 0)
+        {
+            hungryEffect = -30;
+            StarvingImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            hungryEffect = 0;
+            StarvingImage.gameObject.SetActive(false);
+        }
+
+        if(info.Thirst == 0)
+        {
+            thirstyEffect = -10;
+            ThirstyImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            thirstyEffect = 0;
+            ThirstyImage.gameObject.SetActive(false);
+        }
+
+
+        HealthChangeText.text = $"<b>{prev_health}%  >> " +
+            $" {Mathf.Clamp(prev_health + (info.Fire > 0 ? (int)(health_change * 1.5f) + poisonEffect + hungryEffect : health_change + poisonEffect + hungryEffect), 0, 100)}%</b>";
+
+        HungerChangeText.text = $"<b>{prev_hunger}%  >> " +
+          $" {Mathf.Clamp(prev_hunger + hunger_change + thirstyEffect, 0, 100)}%</b>";
+
+        ThirstChangeText.text = $"<b>{prev_thirst}%  >> " +
+          $" {Mathf.Clamp(prev_thirst + thirst_change, 0, 100)}%</b>";
+        if (!poisonImage.gameObject.activeSelf)
+        {
+            if (!StarvingImage.gameObject.activeSelf)
+            {
+                if (!ThirstyImage.gameObject.activeSelf)
+                {
+                    ExtraEffectText.SetActive(false);
+                    return;
+                }
+            }
+        }
+        ExtraEffectText.SetActive(true);
     }
     private void OnEnable()
     {
@@ -56,9 +119,9 @@ public class RestPanel : PanelBase
         fading.OnFadeEnd.AddListener(() =>
         {
             var info = PlayerInfo.Instance;
-            info.Health += info.Day.isDayTime ?  (int)(health_change * 1.5f) : health_change;
-            info.Hunger += hunger_change;
-            info.Thirst += thirst_change;
+            info.Health = Mathf.Clamp(prev_health + (info.Fire > 0 ? (int)(health_change * 1.5f) + poisonEffect + hungryEffect : health_change + poisonEffect + hungryEffect), 0, 100);
+            info.Hunger = Mathf.Clamp(prev_hunger + hunger_change + thirstyEffect, 0, 100);
+            info.Thirst = Mathf.Clamp(prev_thirst + thirst_change, 0, 100);
             info.ActionValue += Mathf.CeilToInt(info.MaxActionValue / 2.0f);
             info.DoAction();
      
