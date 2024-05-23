@@ -31,6 +31,11 @@ namespace Opening
         ShakeUI shake;
         Fading fading;
         PlayerInfo info;
+
+        //柴田追加分//
+        [SerializeField] GameObject SEPlayer;
+        [SerializeField] GameObject BGMPlayer;
+        //ここまで//
         private void Start()
         {
 
@@ -72,9 +77,17 @@ namespace Opening
 
         void EventAfterFirst()
         {
+            //柴田追加分//
+            BGMPlayer.GetComponent<anotherBGMPlayer>().StartCoroutine("FadeOutAudio",2);
+            SEPlayer.GetComponent<anotherSoundPlayer>().ChooseSongs_SE(10);
+            //ここまで//
             var info = new ShakeUI.ShakeInfo(3, 100, 5);
             info.OnShakeEnd.AddListener(() => {
 
+                //柴田追加分//
+                anotherBGMPlayer ABP = BGMPlayer.GetComponent<anotherBGMPlayer>();
+                StartCoroutine(ABP.FadeInAudio(5, 2));
+                //ここまで//
 
                 var fade = (Fading)FindAnyObjectByType(typeof(Fading));
                 fade.fading_time = 0.5f;
@@ -113,6 +126,9 @@ namespace Opening
             textContol.ClickEventAfterTextsEnd.AddListener(() =>
             {
                 textContol.ClickEventAfterTextsEnd.RemoveAllListeners();
+                //柴田追加分//
+                SEPlayer.GetComponent<anotherSoundPlayer>().ChooseSongs_SE(10);
+                //ここまで//
                 var info = new ShakeUI.ShakeInfo(3, 100, 5);
                 info.OnShakeEnd.RemoveAllListeners();
                 info.OnShakeEnd.AddListener(() =>
@@ -122,8 +138,6 @@ namespace Opening
                     AddTextDataToTextControl(3);
                     textContol.ClickEventAfterTextsEnd.AddListener(EventAfterThird);
 
-                
-                    
                 });
                 shake.Shake(BG_image.gameObject, info);
             });
@@ -135,6 +149,9 @@ namespace Opening
         {
             textContol.ResetTextData();
             textContol.ClickEventAfterTextsEnd.RemoveAllListeners();
+            //柴田追加分//
+            BGMPlayer.GetComponent<anotherBGMPlayer>().StartCoroutine("FadeOutAudio", 3);
+            //ここまで//
             BG_image.sprite = BG_images[2];
             AddTextDataToTextControl(4);
             textContol.ClickEventAfterTextsEnd.AddListener(EventAfterForth);
@@ -173,6 +190,10 @@ namespace Opening
             yield return new WaitForSeconds(3);
             BG_image.sprite = BG_images[3];
             fading.Fade(Fading.type.FadeIn);
+            //柴田追加分//
+            anotherBGMPlayer ABP = BGMPlayer.GetComponent<anotherBGMPlayer>();
+            StartCoroutine(ABP.FadeInAudio(6, 2));
+            //ここまで//
             fading.OnFadeEnd.AddListener(() =>
             {
                 AddTextDataToTextControl(6);
@@ -183,7 +204,14 @@ namespace Opening
 
         void EventAfterSixth()
         {
-            SceneManager.LoadScene(next_scene);
+            //柴田追加分//
+            fading.Fade(Fading.type.FadeOut);
+            BGMPlayer.GetComponent<anotherBGMPlayer>().StartCoroutine("FadeOutAudio", 1);
+            fading.OnFadeEnd.AddListener(() => 
+            {
+                SceneManager.LoadScene(next_scene);
+            });
+            
         }
 
         

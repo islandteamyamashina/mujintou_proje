@@ -14,6 +14,9 @@ public class TutorialController : MonoBehaviour
 
     private void Start()
     {
+        var fade = GetComponent<Fading>();
+        fade.Fade(Fading.type.FadeIn);
+
         textControl.ResetTextData();
         textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
         AddTextDataToTextControl(0);
