@@ -24,6 +24,8 @@ namespace Opening
         GameObject PlayerPrefab;
         [SerializeField]
         SceneObject next_scene;
+        [SerializeField]
+        GameObject TextBG;
 
         TextControl textContol;
         ShakeUI shake;
@@ -72,12 +74,35 @@ namespace Opening
         {
             var info = new ShakeUI.ShakeInfo(3, 100, 5);
             info.OnShakeEnd.AddListener(() => {
-                BG_image.sprite = BG_images[1];
-                AddTextDataToTextControl(1);
-                textContol.ClickEventAfterTextsEnd.AddListener(EventAfterSecond);
+
+
+                var fade = (Fading)FindAnyObjectByType(typeof(Fading));
+                fade.fading_time = 0.5f;
+                fade.Fade(Fading.type.FadeOut);
+                fade.OnFadeEnd.AddListener(() =>
+                {
+                    StartCoroutine(cf());
+                });
             });
             shake.Shake(BG_image.gameObject, info);
             textContol.ClickEventAfterTextsEnd.RemoveAllListeners();
+        }
+
+        IEnumerator cf()
+        {
+            yield return null;
+            BG_image.sprite = BG_images[1];
+            var fade = (Fading)FindAnyObjectByType(typeof(Fading));
+            fade.fading_time = 0.5f;
+            fade.Fade(Fading.type.FadeIn);
+            fade.OnFadeEnd.AddListener(() =>
+            {
+
+                AddTextDataToTextControl(1);
+                textContol.ClickEventAfterTextsEnd.AddListener(EventAfterSecond);
+                fade.fading_time = 3f;
+            });
+
         }
 
         void EventAfterSecond()
@@ -92,13 +117,19 @@ namespace Opening
                 info.OnShakeEnd.RemoveAllListeners();
                 info.OnShakeEnd.AddListener(() =>
                 {
+
                     BG_image.sprite = BG_images[1];
                     AddTextDataToTextControl(3);
                     textContol.ClickEventAfterTextsEnd.AddListener(EventAfterThird);
+
+                
+                    
                 });
                 shake.Shake(BG_image.gameObject, info);
             });
         }
+
+
 
         void EventAfterThird()
         {
@@ -138,6 +169,7 @@ namespace Opening
 
         IEnumerator EventAfterFifthCoroutine()
         {
+            TextBG.SetActive(false);
             yield return new WaitForSeconds(3);
             BG_image.sprite = BG_images[3];
             fading.Fade(Fading.type.FadeIn);
@@ -145,6 +177,7 @@ namespace Opening
             {
                 AddTextDataToTextControl(6);
                 textContol.ClickEventAfterTextsEnd.AddListener(EventAfterSixth);
+                TextBG.SetActive(true);
             });
         }
 
