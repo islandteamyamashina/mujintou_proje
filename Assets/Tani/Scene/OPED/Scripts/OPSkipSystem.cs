@@ -30,6 +30,8 @@ public class OPSkipSystem : MonoBehaviour
                 if (data)
                 {
                     PlayerInfo.Instance.Inventry.GetItem(data.specil_item_id, 1);
+                    PlayerInfo.Instance.DoAction();
+                    PlayerInfo.Instance.DoAction();
                     SceneManager.LoadScene(baseLocation);
                 }
                 else
