@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,9 +15,12 @@ public class TutorialController : MonoBehaviour
 
     private void Start()
     {
+        //ŽÄ“c’Ç‰Á•ª//
         var fade = GetComponent<Fading>();
         fade.Fade(Fading.type.FadeIn);
-
+        anotherBGMPlayer ABP = GameObject.FindAnyObjectByType(typeof(anotherBGMPlayer)).GetComponent<anotherBGMPlayer>();
+        StartCoroutine(ABP.FadeInAudio(3, 4));
+        //‚±‚±‚Ü‚Å//
         textControl.ResetTextData();
         textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
         AddTextDataToTextControl(0);

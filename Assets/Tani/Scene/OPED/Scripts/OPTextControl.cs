@@ -209,6 +209,7 @@ namespace Opening
             BGMPlayer.GetComponent<anotherBGMPlayer>().StartCoroutine("FadeOutAudio", 1);
             fading.OnFadeEnd.AddListener(() => 
             {
+            //‚±‚±‚Ü‚Å//
                 SceneManager.LoadScene(next_scene);
             });
             
