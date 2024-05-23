@@ -80,15 +80,49 @@ public class EDTextFlow : MonoBehaviour
     IEnumerator f2()
     {
         tall_image_obj.gameObject.SetActive(true);
+        tall_image_obj.sprite = image_list[2];
         fade.Fade(Fading.type.FadeIn);
         yield return null;
         fade.OnFadeEnd.AddListener(() =>
         {
-           
-            StartCoroutine(move());
+
+            AddTextDataToTextControl(2);
+            textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
+            textControl.ClickEventAfterTextsEnd.AddListener(() =>
+            {
+                StartCoroutine(f3());
+            });
+
         });
     }
 
+    IEnumerator f3()
+    {
+        yield return null;
+        fade.Fade(Fading.type.FadeOut);
+        fade.OnFadeEnd.AddListener(() =>
+        {
+            fade.Fade(Fading.type.FadeIn);
+            StartCoroutine(f4());
+        });
+    }
+
+    IEnumerator f4()
+    {
+        yield return null;
+        fade.OnFadeEnd.AddListener(() =>
+        {
+            tall_image_obj.sprite = image_list[3];
+            AddTextDataToTextControl(3);
+            textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
+            textControl.ClickEventAfterTextsEnd.AddListener(() =>
+            {
+                textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
+                StartCoroutine(move());
+            });
+           
+        });
+    }
     IEnumerator move()
     {
         yield return new WaitForSeconds(3f);

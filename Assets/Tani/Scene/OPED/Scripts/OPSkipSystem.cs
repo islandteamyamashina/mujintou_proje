@@ -32,6 +32,11 @@ public class OPSkipSystem : MonoBehaviour
                     PlayerInfo.Instance.Inventry.GetItem(data.specil_item_id, 1);
                     PlayerInfo.Instance.DoAction();
                     PlayerInfo.Instance.DoAction();
+                    PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_branch, 5);
+                    PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_stone, 7);
+                    PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_coconut, 1);
+                    PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_bottle, 1);
+
                     SceneManager.LoadScene(baseLocation);
                 }
                 else
