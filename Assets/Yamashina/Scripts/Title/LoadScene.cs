@@ -91,8 +91,8 @@ public class LoadScene : MonoBehaviour
     public void AfterStart(int num = 0)
     {
         fade.scene_name_num = num;
-        Instantiate(playerInfo);
-        PlayerInfo.Instance.StartGame(true);
+        //Instantiate(playerInfo);
+        //PlayerInfo.Instance.StartGame(true);
         isstart = true;
         fade.feadout_f = true;
        
@@ -130,8 +130,8 @@ public class LoadScene : MonoBehaviour
         else
         {
             fade.scene_name_num = num;
-            Instantiate(playerInfo);
-            PlayerInfo.Instance.StartGame(false);
+            //Instantiate(playerInfo);
+            //PlayerInfo.Instance.StartGame(false);
             fade.feadout_f = true;
             
             if (fade.feadout_f == false)
