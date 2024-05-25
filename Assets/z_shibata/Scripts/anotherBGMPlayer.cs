@@ -8,7 +8,9 @@ public class anotherBGMPlayer : MonoBehaviour
     [SerializeField] int num;
     private void Start()
     {
+
         Invoke("PlayBGMofDiray", 0.1f);
+
     }
     public void ChooseSongs_BGM(int num)
     {
@@ -17,7 +19,11 @@ public class anotherBGMPlayer : MonoBehaviour
     }
     public void PlayBGMofDiray()
     {
+
         GameObject.FindWithTag("BGM").GetComponent<AudioSource>().clip = BGMclips[num];
+        Audiovolume.instance.audioSourceBGM = GameObject.FindWithTag("BGM").GetComponent<AudioSource>();
+        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume = Audiovolume.instance.BGM;
+
         GameObject.FindWithTag("BGM").GetComponent<AudioSource>().Play();
     }
     // フェードアウトの関数

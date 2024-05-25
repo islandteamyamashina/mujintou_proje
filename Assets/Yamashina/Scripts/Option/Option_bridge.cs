@@ -84,6 +84,8 @@ public class Option_bridge : MonoBehaviour
         Audiovolume.instance.SetBgmVolume(a);
         //audioMixer.SetFloat("BGM", multiAudio.ConvertVolumeToDb(bgmSlider.value));
 
+        Audiovolume.instance.BGM = GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume;
+
         BgmSave();
         print(a);
     }
@@ -97,7 +99,8 @@ public class Option_bridge : MonoBehaviour
         //audioMixer.SetFloat("SE", multiAudio.ConvertVolumeToDb(seSlider.value));
         //ÉZÅ[Éu
         SeSave();
-       
+
+        Audiovolume.instance.SE = GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume;
 
         //audioSourceBGM = GameObject.Find("BGM_ob").GetComponent<AudioSource>();
         //audioSourceSE= GameObject.Find("SE_ob").GetComponent<AudioSource>();

@@ -25,7 +25,6 @@ public class Audiovolume : MonoBehaviour
         audioSourceBGM = GameObject.FindWithTag("BGM").GetComponent<AudioSource>();
         audioSourceSE = GameObject.FindWithTag("SE").GetComponent<AudioSource>();
 
-
         //Debug.Log(GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume);
         //Debug.Log(GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume);
         //Debug.Log(audioSourceBGM.volume);

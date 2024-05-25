@@ -98,7 +98,7 @@ public class LoadScene : MonoBehaviour
        
         if (fade.feadout_f == false)
         {
-            GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume= audioVolume.BGM =
+            GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume = audioVolume.BGM;
            GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume=audioVolume.SE  ;
             Debug.Log(audioVolume.BGM);
             Debug.Log(audioVolume.SE);
@@ -136,7 +136,7 @@ public class LoadScene : MonoBehaviour
             
             if (fade.feadout_f == false)
             {
-                GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume = audioVolume.BGM =
+                GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume = audioVolume.BGM;
           GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume = audioVolume.SE;
                 Debug.Log(audioVolume.BGM);
                 Debug.Log(audioVolume.SE);

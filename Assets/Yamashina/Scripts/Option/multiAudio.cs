@@ -63,18 +63,22 @@ public class multiAudio : MonoBehaviour
             case 0:
                 GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = audioClipSE[num];
                 audioClipSE = GetComponent<multiAudio>().audioClipSE;
+                GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume = Audiovolume.instance.SE;
+
 
                 GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(audioClipSE[num]);
                 break;
             case 1:
                 GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = audioClipSE[num];
                 audioClipSE = GetComponent<multiAudio>().audioClipSE;
+                GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume = Audiovolume.instance.SE;
 
                 GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(audioClipSE[num]);
                 break;
             case 2:
                 GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = audioClipSE[num];
                 audioClipSE = GetComponent<multiAudio>().audioClipSE;
+                GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume = Audiovolume.instance.SE;
 
                 GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(audioClipSE[num]);
                 break;
