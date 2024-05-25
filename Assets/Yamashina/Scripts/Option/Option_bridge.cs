@@ -20,6 +20,8 @@ public class Option_bridge : MonoBehaviour
 
     void Start()
     {
+        Audiovolume.instance.BGM = GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume;
+        Audiovolume.instance.SE = GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume;
 
         Audiovolume.instance.audioSourceBGM = GameObject.FindWithTag("BGM").GetComponent<AudioSource>();
         Audiovolume.instance.audioSourceSE = GameObject.FindWithTag("SE").GetComponent<AudioSource>();

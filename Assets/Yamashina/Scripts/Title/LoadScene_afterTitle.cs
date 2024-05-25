@@ -12,7 +12,7 @@ public class LoadScene_afterTitle : MonoBehaviour
 
     private void Start()
     {
-        audiovolume = GameObject.FindAnyObjectByType<Audiovolume>().GetComponent<Audiovolume>();
+        //audiovolume = GameObject.FindAnyObjectByType<Audiovolume>().GetComponent<Audiovolume>();
 
         switchActivate = GameObject.FindAnyObjectByType<SwitchActivateSelf>().GetComponent<SwitchActivateSelf>();
     }
@@ -21,11 +21,11 @@ public class LoadScene_afterTitle : MonoBehaviour
         switchActivate.SwitchActiveSelf();
         PlayerInfo.Instance.DestroySelf();
         SceneManager.LoadScene(Title);
-        audiovolume.BGM = GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume;
+        //audiovolume.BGM = GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume;
       
-        audiovolume.SE = GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume;
-        Debug.Log(audiovolume.BGM);
-        Debug.Log(audiovolume.SE);  
+        //audiovolume.SE = GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume;
+        //Debug.Log(audiovolume.BGM);
+        //Debug.Log(audiovolume.SE);  
         //SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
