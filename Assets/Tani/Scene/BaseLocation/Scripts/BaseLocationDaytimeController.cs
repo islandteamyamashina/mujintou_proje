@@ -21,10 +21,12 @@ public class BaseLocationDaytimeController : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator Start()
     {
-        GameData.CanReturnTitle = true;
+        
         switch (pattern)
         {
+
             case 0:
+                GameData.CanReturnTitle = true;
                 if (PlayerInfo.Instance.Day.isDayTime)
                 {
                     var areaNameShow = (AreaNameText)GameObject.FindAnyObjectByType(typeof(AreaNameText));
