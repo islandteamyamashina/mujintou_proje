@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 140994408}
   - component: {fileID: 140994410}
   - component: {fileID: 140994409}
+  - component: {fileID: 140994411}
   m_Layer: 5
   m_Name: MainBackGround
   m_TagString: Untagged
@@ -263,6 +264,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140994407}
   m_CullTransparentMesh: 1
+--- !u!114 &140994411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140994407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 907452274}
+          m_TargetAssemblyTypeName: TextControl, Assembly-CSharp
+          m_MethodName: OnClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &194575398 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3410907305743379954, guid: 64ed8b244c506f043af6574af7c8fba6, type: 3}
