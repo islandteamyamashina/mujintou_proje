@@ -9,7 +9,7 @@ public class endEventChange : MonoBehaviour
     [SerializeField] EventDatas newEndEventData;
     void Start()
     {
-        GameData.FindAnyObjectByType(typeof(EventPanelBase)).GetComponent<EventPanelBase>().endEventData = newEndEventData;
+        FindAnyObjectByType(typeof(EventPanelBase)).GetComponent<EventPanelBase>().endEventData = newEndEventData;
     }
 
 

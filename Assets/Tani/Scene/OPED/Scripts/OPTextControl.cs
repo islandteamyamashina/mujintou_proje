@@ -38,7 +38,7 @@ namespace Opening
         //‚±‚±‚Ü‚Å//
         private void Start()
         {
-
+            GameData.CanReturnTitle = false;
             shake = GetComponent<ShakeUI>();
             textContol = GetComponent<TextControl>();
             fading = GetComponent<Fading>();
@@ -159,6 +159,7 @@ namespace Opening
 
         void EventAfterForth()
         {
+            ((OPSkipSystem)GameObject.FindAnyObjectByType(typeof(OPSkipSystem))).DestroySkipButton();
             textContol.ClickEventAfterTextsEnd.RemoveAllListeners();
             var choises = Instantiate<GameObject>(ChoiseButtonsPrefab, gameObject.transform);
             Button[] buttons = choises.GetComponentsInChildren<Button>();

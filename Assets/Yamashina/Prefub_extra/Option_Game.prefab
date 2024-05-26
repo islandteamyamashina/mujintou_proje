@@ -436,7 +436,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.0000021457672}
   m_SizeDelta: {x: 0, y: -0.0000023841858}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -511,8 +511,8 @@ RectTransform:
   m_Father: {fileID: 3199179705219310807}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.00000023841858}
   m_SizeDelta: {x: 7, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -749,7 +749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3199179704467489454
 RectTransform:
   m_ObjectHideFlags: 0
@@ -759,7 +759,7 @@ RectTransform:
   m_GameObject: {fileID: 3199179704467489455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.013888889, y: 0.013888889, z: 0.013888889}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3735080507153284595}
@@ -862,9 +862,9 @@ MonoBehaviour:
   audioClipsBGM:
   - {fileID: 8300000, guid: fa1a2b2d6c5c1f34f84d31e33761e406, type: 3}
   audioClipSE:
-  - {fileID: 8300000, guid: f55484fefd9d6e8479093307090b3de9, type: 3}
-  - {fileID: 8300000, guid: e515310e7e8a94349ae04619bbee83fe, type: 3}
-  - {fileID: 8300000, guid: a67ab5f1ca9ab2b42b870d9fe94f65b4, type: 3}
+  - {fileID: 8300000, guid: 081c438661c721d44b0a5947aa92f1d1, type: 3}
+  - {fileID: 8300000, guid: 2c452101104628d4db432021de484688, type: 3}
+  - {fileID: 8300000, guid: 2831d00b61120c74b93f559b44ab0d6e, type: 3}
 --- !u!1 &3199179704704635570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,7 +1220,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.458, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.15500045}
   m_SizeDelta: {x: 0, y: -0.30999932}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1495,6 +1495,7 @@ MonoBehaviour:
   Title:
     m_SceneName: Title_scene
   switchActivate: {fileID: 1968985528}
+  audiovolume: {fileID: 0}
 --- !u!114 &1744562073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1737,8 +1738,8 @@ RectTransform:
   m_Father: {fileID: 5715819956123344616}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.458, y: 0}
+  m_AnchorMax: {x: 0.458, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 7, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}

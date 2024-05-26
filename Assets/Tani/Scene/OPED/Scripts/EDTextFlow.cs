@@ -31,6 +31,7 @@ public class EDTextFlow : MonoBehaviour
 
     private void Awake()
     {
+        GameData.CanReturnTitle = false;
         if (PlayerInfo.InstanceNullable)
         {
             PlayerInfo.Instance.DestroySelf();

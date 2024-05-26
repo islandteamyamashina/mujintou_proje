@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameData : MonoBehaviour
+static public class GameData
 {
+    static public bool CanReturnTitle{ get; set; } = true;
 
-
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
+    
 
 
 }

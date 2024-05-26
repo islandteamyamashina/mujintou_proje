@@ -40,7 +40,7 @@ public class EventPanelBase : MonoBehaviour
 
     void Start()
     {
-
+        GameData.CanReturnTitle = false;
     }
 
     public void SetEvent(int index)
