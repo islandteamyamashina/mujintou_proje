@@ -27,16 +27,22 @@ public class FirePanel : PanelBase
     protected override void Awake()
     {
         base.Awake();
-        fire_icon_front.fillAmount = PlayerInfo.Instance.Fire / 100.0f;
-        ToCooking.interactable = PlayerInfo.Instance.Fire != 0;
-    }
-    protected override void Start()
-    {
 
         SetSortOrder(OrderOfUI.NormalPanel);
         SetFirePanelActivate(0);
         SetFirePanelActivate(1);
         SetFirePanelActivate(2);
+
+        fire_icon_front.fillAmount = PlayerInfo.Instance.Fire / 100.0f;
+        ToCooking.interactable = PlayerInfo.Instance.Fire != 0;
+
+        
+    }
+    protected override void Start()
+    {
+
+
+
 
     }
     private void OnEnable()
