@@ -78,7 +78,7 @@ public class EventSceneControllerBase : MonoBehaviour
 
     IEnumerator HideMovingImage()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
         imageInMoveing.SetActive(false);
         fading.Fade(Fading.type.FadeIn);
         eventPanel.SetRandomEvent();
