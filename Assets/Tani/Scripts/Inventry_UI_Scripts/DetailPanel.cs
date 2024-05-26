@@ -50,7 +50,11 @@ public class DetailPanel : MonoBehaviour
             {
                 PlayerInfo.Instance.MaxActionValue++;
                 foodUsageLog[id] = true;
-                
+            }
+
+            if(id == Items.Item_ID.item_craft_water || id == Items.Item_ID.item_craft_water2)
+            {
+                PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_bottle, 1);
             }
 
 
