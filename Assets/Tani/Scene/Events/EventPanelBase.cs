@@ -176,16 +176,16 @@ public class EventPanelBase : MonoBehaviour
             case 1005:
                 if(info.Day.day >= 10 && info.Thirst <= 20)
                 {
-                    return 12;
+                    return 1;
                 }
                 else
                 {
                     return 0;
                 }
             case 1011:
-                if (info.Day.day >= 10 && info.Thirst <= 20)
+                if (info.Day.day >= 20 && info.Thirst <= 50)
                 {
-                    return 12;
+                    return 1;
                 }
                 else
                 {

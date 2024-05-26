@@ -13,6 +13,6 @@ public class Botton_cave1 : MonoBehaviour
         button.interactable = PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_special_flash) >= 1;
 
         event_controller = FindObjectOfType<EventSceneControllerBase>();
-        GetComponent<Button>().onClick.AddListener(event_controller.GoCave);
+        GetComponent<Button>().onClick.AddListener(event_controller.GoCave_L);
     }
 }
