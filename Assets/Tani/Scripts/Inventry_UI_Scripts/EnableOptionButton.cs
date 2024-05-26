@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EnableOptionButton : MonoBehaviour
 {
-    private void OnEnable()
+    private IEnumerator Start()
     {
-     
-            gameObject.SetActive(!GameData.CanReturnTitle);
+        yield return 2;
+        print(GameData.CanReturnTitle);
+           gameObject.SetActive(GameData.CanReturnTitle);
         
     }
 }
