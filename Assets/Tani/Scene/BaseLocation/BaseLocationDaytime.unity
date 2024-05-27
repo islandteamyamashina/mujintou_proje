@@ -9947,6 +9947,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3577664809636568378, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577664809636568378, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577664809636568378, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577664809636568378, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577664809636568378, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577664809636568378, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577664809636568378, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1586373137}
+    - target: {fileID: 3577664809636568378, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnVisibilityChanged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577664809636568378, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577664809636568378, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ChooseSongs_SE
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577664809636568378, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerInfo, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577664809636568378, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: anotherSoundPlayer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577664809636568378, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577664809636568378, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577664809636568378, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577664809636568378, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7850399625113772841, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
       propertyPath: m_Name
       value: PlayerPanel
@@ -11369,6 +11433,17 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 6
   m_TargetDisplay: 0
+--- !u!114 &1586373137 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8184743206250225086, guid: 8c74e01256ee379458573e6fad9a78fc, type: 3}
+  m_PrefabInstance: {fileID: 1434631719}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ee30639273c854d9cb93ed7b7ab28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1611581386
 GameObject:
   m_ObjectHideFlags: 0
@@ -15215,6 +15290,38 @@ PrefabInstance:
     - target: {fileID: 4258364744748753590, guid: 9f17dfe4d9df8d849a3c9dc3873b5f53, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -228.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942422493612802647, guid: 9f17dfe4d9df8d849a3c9dc3873b5f53, type: 3}
+      propertyPath: recipes.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942422493612802647, guid: 9f17dfe4d9df8d849a3c9dc3873b5f53, type: 3}
+      propertyPath: recipes.Array.data[15].craft_num
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942422493612802647, guid: 9f17dfe4d9df8d849a3c9dc3873b5f53, type: 3}
+      propertyPath: recipes.Array.data[15].crafted_item
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942422493612802647, guid: 9f17dfe4d9df8d849a3c9dc3873b5f53, type: 3}
+      propertyPath: recipes.Array.data[15].input_items.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942422493612802647, guid: 9f17dfe4d9df8d849a3c9dc3873b5f53, type: 3}
+      propertyPath: recipes.Array.data[15].input_items.Array.data[0].id
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942422493612802647, guid: 9f17dfe4d9df8d849a3c9dc3873b5f53, type: 3}
+      propertyPath: recipes.Array.data[15].input_items.Array.data[1].id
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942422493612802647, guid: 9f17dfe4d9df8d849a3c9dc3873b5f53, type: 3}
+      propertyPath: recipes.Array.data[15].input_items.Array.data[0].amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942422493612802647, guid: 9f17dfe4d9df8d849a3c9dc3873b5f53, type: 3}
+      propertyPath: recipes.Array.data[15].input_items.Array.data[1].amount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
