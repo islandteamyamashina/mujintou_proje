@@ -461,6 +461,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186781738}
   m_CullTransparentMesh: 1
+--- !u!1 &244108297
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 244108299}
+  - component: {fileID: 244108298}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &244108298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244108297}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3080d11c40ade249bcab7f8f056203b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &244108299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244108297}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.230141, y: -4.857832, z: -2.811695}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &299795107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -836,6 +880,10 @@ PrefabInstance:
     - target: {fileID: 3410907304491221969, guid: 64ed8b244c506f043af6574af7c8fba6, type: 3}
       propertyPath: m_Name
       value: FadeCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410907304491221974, guid: 64ed8b244c506f043af6574af7c8fba6, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2319,9 +2367,9 @@ MonoBehaviour:
   volcanoEvent:
     m_SceneName: 
   caveEvent_fire:
-    m_SceneName: 
+    m_SceneName: Doukutu_fire
   caveEvent_light:
-    m_SceneName: 
+    m_SceneName: Doukutu_light
   tutorialBase:
     m_SceneName: 
 --- !u!1 &1980743471
