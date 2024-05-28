@@ -27,16 +27,17 @@ public class EDTextFlow : MonoBehaviour
     Image last_text;
     [SerializeField]
     SceneObject title;
-
+    [SerializeField]
+    GameObject bgmAudio;
 
     private void Awake()
     {
         GameData.CanReturnTitle = false;
-        if (PlayerInfo.InstanceNullable)
-        {
-            PlayerInfo.Instance.DestroySelf();
-        }
-        DataManager.ErasePlayerSaveData();
+        //if (PlayerInfo.InstanceNullable)
+        //{
+        //    PlayerInfo.Instance.DestroySelf();
+        //}
+        //DataManager.ErasePlayerSaveData();
         tall_image_obj.gameObject.SetActive(false);
         TextBG.SetActive(false);
         fade.fading_time = 3f;
@@ -52,6 +53,9 @@ public class EDTextFlow : MonoBehaviour
                 fade.Fade(Fading.type.FadeOut);
                 fade.OnFadeEnd.AddListener(() =>
                 {
+                    //追加
+                    bgmAudio.GetComponent<anotherBGMPlayer>().StartCoroutine("FadeOutAudio", 3);
+                    //
                     StartCoroutine(f1());
                 });
             });
@@ -62,6 +66,10 @@ public class EDTextFlow : MonoBehaviour
     {
         image_obj.sprite = image_list[1];
         fade.Fade(Fading.type.FadeIn);
+        //追加
+        anotherBGMPlayer ABP = bgmAudio.GetComponent<anotherBGMPlayer>();
+        StartCoroutine(ABP.FadeInAudio(0, 2));
+        //
         yield return null;
         fade.OnFadeEnd.AddListener(() =>
         {
@@ -153,6 +161,13 @@ public class EDTextFlow : MonoBehaviour
         var loaded = SceneManager.LoadSceneAsync(title);
         loaded.allowSceneActivation = false;
         yield return new WaitForSeconds(5f);
+        //プレイヤーの破壊をここに移動//
+        if (PlayerInfo.InstanceNullable)
+        {
+            PlayerInfo.Instance.DestroySelf();
+        }
+        DataManager.ErasePlayerSaveData();
+        //プレイヤーの破壊をここに移動//
         loaded.allowSceneActivation = true;
         
     }
