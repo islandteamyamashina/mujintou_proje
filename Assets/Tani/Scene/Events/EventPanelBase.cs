@@ -310,9 +310,9 @@ public class EventPanelBase : MonoBehaviour
         info.ActionValue -= result.required_action_value;
 
         string status_change =
-            $"体力 : {prev_health} ⇒ {info.Health}\n" +
-            $"水分 : {prev_thirst} ⇒ {info.Thirst}\n" +
-            $"空腹 : {prev_hunger} ⇒ {info.Hunger}\n" +
+            $"体力　 : {prev_health} ⇒ {info.Health}\n" +
+            $"水分 　: {prev_thirst} ⇒ {info.Thirst}\n" +
+            $"空腹 　: {prev_hunger} ⇒ {info.Hunger}\n" +
             $"行動値 : {prev_action} ⇒ {info.ActionValue}";
         event_text_control.AddTextData(status_change);
 
