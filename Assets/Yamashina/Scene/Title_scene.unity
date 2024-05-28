@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Elasticity: 0.5
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 20
   m_Viewport: {fileID: 1390198809}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1072604057}
@@ -2119,7 +2119,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -15, y: 10}
+  m_AnchoredPosition: {x: -110, y: 9.999939}
   m_SizeDelta: {x: 10, y: -17}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1072604057
@@ -2165,8 +2165,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1910159412}
   m_HandleRect: {fileID: 1910159411}
   m_Direction: 2
-  m_Value: 1.0000014
-  m_Size: 0.4707058
+  m_Value: 1
+  m_Size: 0.22212644
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2775,8 +2775,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.77, y: -0.00036938413}
-  m_SizeDelta: {x: 8.77, y: 465.28}
+  m_AnchoredPosition: {x: -8.77, y: 0}
+  m_SizeDelta: {x: -114.83, y: 985.97}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1423043119
 GameObject:
@@ -3956,7 +3956,7 @@ RectTransform:
   m_Father: {fileID: 807807058}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5292942}
+  m_AnchorMin: {x: 0, y: 0.7778736}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -2.8, y: -5.800003}
   m_SizeDelta: {x: 6.995, y: 20}
@@ -4129,9 +4129,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1996890980}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.23, y: 0.23, z: 0.23}
+  m_LocalScale: {x: 0.22999997, y: 0.22999997, z: 0.22999997}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1404636831}
@@ -4139,8 +4139,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 107.6, y: 137.7}
-  m_SizeDelta: {x: 784.5, y: 591.73}
+  m_AnchoredPosition: {x: 116.770004, y: 1.4799805}
+  m_SizeDelta: {x: 784.5, y: 4248.48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1996890982
 MonoBehaviour:
@@ -4165,7 +4165,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: eb93eb4d7ea09aa4383bbff1013fc5ea, type: 3}
     m_FontSize: 64
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 6
     m_MaxSize: 64
@@ -4173,19 +4173,9 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_VerticalOverflow: 0
     m_LineSpacing: 1.5
-  m_Text: "\u67F4\u7530\u96BC\u4E5F \u3000\u30C7\u30A3\u30EC\u30AF\u30BF\u30FC\r\n\u767D\u6728\u7F8E\u4E45
-    \u3000\u30D7\u30E9\u30F3\u30CA\u30FC\r\n\u4E0A\u53E3\u512A\u5948 \u3000\u30D7\u30E9\u30F3\u30CA\u30FC\r\n\u8C37\u3000\u7409\u6597
-    \u3000\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\r\n\u5742\u672C\u8F1D\u559C \u3000\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\r\n\u85E4\u672C\u958B\u6731
-    \u3000\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\r\n\u5C71\u54C1\u771F\u6B69 \u3000\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\r\n\u5927\u5EAD\u98AF\u821E
-    \u3000\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\r\n\u658E\u85E4\u98A8\u9999 \u3000\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\r\n\u52A0\u85E4\u5B8F\u592A\u90CE
-    \u30AD\u30E3\u30E9\u30AF\u30BF\u30FC\u30C7\u30B6\u30A4\u30CA\u30FC\r\n\u5C0F\u5C71\u3000\u6643\u4E00
-    \u30AD\u30E3\u30E9\u30AF\u30BF\u30FC\u30C7\u30B6\u30A4\u30CA\u30FC\r\n\u677E\u5C71\u679C\u84EE\u3000
-    \u30AD\u30E3\u30E9\u30AF\u30BF\u30FC\u30C7\u30B6\u30A4\u30CA\u30FC\r\n\u68EE\u3057\u3065\u306E\u3000
-    \u30B0\u30E9\u30D5\u30A3\u30C3\u30AB\u30FC\r\n\u4F50\u91CE\u5143\u4EBA\u3000
-    \u30B0\u30E9\u30D5\u30A3\u30C3\u30AB\u30FC\r\n\u671B\u6708 \u67DA\u8449\u3000\u30B0\u30E9\u30D5\u30A3\u30C3\u30AB\u30FC\r\n\u9234\u6728\u52C7\u4F51\u3000
-    UI\u30C7\u30B6\u30A4\u30CA\u30FC"
+  m_Text: "\u30C7\u30A3\u30EC\u30AF\u30BF\u30FC\r\nJ.Shibata\r\n\r\n\u30EA\u30FC\u30C9\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\r\nM.Yamashina\r\n\r\n\u30A2\u30FC\u30C8\u30C7\u30A3\u30EC\u30AF\u30BF\u30FC\r\nK.Koyama\r\nS.Mori\r\n\r\n\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC\r\nM.Yamashina\r\nR.Tani\r\nT.Sakamoto\r\n\r\n\u80CC\u666F\u30C7\u30B6\u30A4\u30F3\r\nK.Kato\r\nK.Koyama\r\nK.Matsuyama\r\nM.Shiraki\r\nS.Mori\r\nY.Motchizuki\r\nY.Nishi\r\n\r\n\u30A2\u30A4\u30C6\u30E0\u30C7\u30B6\u30A4\u30F3\r\nH.Miyagoshi\r\nK.Kato\r\nK.Koyama\r\nK.Matsuyama\r\nS.Mori\r\nY.Motchizuki\r\nY.Nishi\r\n\r\nUI\u30C7\u30B6\u30A4\u30F3\r\nY.Suzuki\r\n\r\n\u30D7\u30E9\u30F3\u30CA\u30FC\r\nJ.Shibata\r\nM.shiraki\r\nY.Kamiguchi\r\n\r\n\u6280\u8853\u30B5\u30DD\u30FC\u30C8\r\nH.Asakura\r\nT.Hamada"
 --- !u!222 &1996890983
 CanvasRenderer:
   m_ObjectHideFlags: 0
