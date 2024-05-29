@@ -252,6 +252,7 @@ public class MakeFire : MonoBehaviour
                 PlayerInfo.Instance.Fire += 30;
                 Fire_Icon_Middle.fillAmount = 0;
                 SelectedResultText.text = "âŒÇ®Ç±Çµê¨å˜!";
+                ((anotherBGMPlayer)FindAnyObjectByType(typeof(anotherBGMPlayer))).ChangeBGM(1);
             }
             else
             {
