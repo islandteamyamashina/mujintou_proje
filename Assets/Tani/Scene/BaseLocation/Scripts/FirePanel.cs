@@ -36,7 +36,7 @@ public class FirePanel : PanelBase
         fire_icon_front.fillAmount = PlayerInfo.Instance.Fire / 100.0f;
         ToCooking.interactable = PlayerInfo.Instance.Fire != 0;
 
-        
+        PlayerInfo.Instance.Inventry.OnSlotVisibilityChanged += ApplySlotContollerVisibility;
     }
     protected override void Start()
     {
@@ -54,6 +54,7 @@ public class FirePanel : PanelBase
     protectedÅ@override void Update()
     {
         base.Update();
+
         ToMakeFire.gameObject.SetActive(PlayerInfo.Instance.Fire == 0);
         ToAddFire.gameObject.SetActive(PlayerInfo.Instance.Fire != 0);
         fire_icon_front.fillAmount = PlayerInfo.Instance.Fire / 100.0f;
@@ -75,5 +76,20 @@ public class FirePanel : PanelBase
         fire_panels[index].SetActive(true);
     }
 
+    void ApplySlotContollerVisibility()
+    {
+        if (!PlayerInfo.Instance.Inventry.GetVisibility())
+        {
+            ((BaseLocationDaytimeController)FindAnyObjectByType(
+                 typeof(BaseLocationDaytimeController))).DeactivateAllPanels();
+        }
+    }
+    private void OnDestroy()
+    {
+        if (PlayerInfo.InstanceNullable)
+        {
+            PlayerInfo.Instance.Inventry.OnSlotVisibilityChanged -= ApplySlotContollerVisibility;
 
+        }
+    }
 }

@@ -106,6 +106,7 @@ public class MakeFire : MonoBehaviour
 
     private void Update()
     {
+
         select_FireSet.interactable = slotManager.GetSlotItem(0).Value.id == Items.Item_ID.item_craft_onFireSet;
         select_Lighter.interactable = slotManager.GetSlotItem(1).Value.id == Items.Item_ID.item_special_lighter;
 
@@ -164,6 +165,9 @@ public class MakeFire : MonoBehaviour
 
     private void Awake()
     {
+        PlayerInfo.Instance.Inventry.OnSlotVisibilityChanged += ApplySlotContollerVisibility;
+
+
         closeThisPanelButton.onClick.AddListener(()=>{
             ((FirePanel)FindAnyObjectByType(typeof(FirePanel))).SetFirePanelActivate(0);
             Fire_Icon_Middle.fillAmount = 0;
@@ -263,5 +267,23 @@ public class MakeFire : MonoBehaviour
         });
     }
 
-    
+
+    void ApplySlotContollerVisibility()
+    {
+        if (!PlayerInfo.Instance.Inventry.GetVisibility())
+        {
+            ((BaseLocationDaytimeController)FindAnyObjectByType(
+                 typeof(BaseLocationDaytimeController))).DeactivateAllPanels();
+        }
+    }
+    private void OnDestroy()
+    {
+        if (PlayerInfo.InstanceNullable)
+        {
+            PlayerInfo.Instance.Inventry.OnSlotVisibilityChanged -= ApplySlotContollerVisibility;
+
+        }
+    }
+
+
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.IO;
+using UnityEngine.Events;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -34,7 +35,7 @@ public class SlotManager : MonoBehaviour
     string fileName = "";
 
 
-
+    public UnityAction OnSlotVisibilityChanged { get; set; } = null;
 
 
     private Vector2Int slot_rect = new Vector2Int(0, 0);
@@ -607,10 +608,13 @@ public class SlotManager : MonoBehaviour
         if (Slots_Main)
         {
             Slots_Main.SetActive(visible);
+            OnSlotVisibilityChanged?.Invoke();
         }
         else
         {
             gameObject.SetActive(visible);
+            OnSlotVisibilityChanged?.Invoke();
+
         }
     }
     public void SwitchVisible()
@@ -618,13 +622,18 @@ public class SlotManager : MonoBehaviour
         if (Slots_Main)
         {
             Slots_Main.SetActive(!Slots_Main.activeSelf);
+
+            OnSlotVisibilityChanged?.Invoke();
+
         }
         else
         {
             gameObject.SetActive(!gameObject.activeSelf);
+            OnSlotVisibilityChanged?.Invoke();
+
         }
 
-        
+
     }
 
     public bool GetVisibility()
