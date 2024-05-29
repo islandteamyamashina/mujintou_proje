@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.WebSockets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +9,7 @@ public class anotherBGMPlayer : MonoBehaviour
 {
     [SerializeField] AudioClip[] BGMclips;
     [SerializeField] int num;
-    [SerializeField] Scene baseLocation;
+    [SerializeField] SceneObject baseLocation;
     private void Start()
     {
 
@@ -17,33 +18,27 @@ public class anotherBGMPlayer : MonoBehaviour
     }
     public void ChooseSongs_BGM(int num)
     {
+            GameObject.FindWithTag("BGM").GetComponent<AudioSource>().clip = BGMclips[num];
+            GameObject.FindWithTag("BGM").GetComponent<AudioSource>().Play();
+    }
+    public void PlayBGMofDiray()
+    {
+        //山品追加分
+        Audiovolume.instance.audioSourceBGM = GameObject.FindWithTag("BGM").GetComponent<AudioSource>();
+        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume = Audiovolume.instance.BGM;
+        //こっから柴田都合
         if(baseLocation != null)
-        {
-            if (SceneManager.GetActiveScene().name == baseLocation.name)
+        { 
+            if (baseLocation == SceneManager.GetActiveScene().name)
             {
                 num = 2;
                 if(PlayerInfo.Instance.Fire >= 1.0f)
                 {
                     num = 1;
                 }
-                GameObject.FindWithTag("BGM").GetComponent<AudioSource>().clip = BGMclips[num];
-                GameObject.FindWithTag("BGM").GetComponent<AudioSource>().Play();
             }
         }
-        else
-        {
-            GameObject.FindWithTag("BGM").GetComponent<AudioSource>().clip = BGMclips[num];
-            GameObject.FindWithTag("BGM").GetComponent<AudioSource>().Play();
-        }
-
-    }
-    public void PlayBGMofDiray()
-    {
-
         GameObject.FindWithTag("BGM").GetComponent<AudioSource>().clip = BGMclips[num];
-        Audiovolume.instance.audioSourceBGM = GameObject.FindWithTag("BGM").GetComponent<AudioSource>();
-        GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume = Audiovolume.instance.BGM;
-
         GameObject.FindWithTag("BGM").GetComponent<AudioSource>().Play();
     }
     // フェードアウトの関数
