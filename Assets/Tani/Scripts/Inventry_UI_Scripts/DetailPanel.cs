@@ -44,6 +44,11 @@ public class DetailPanel : MonoBehaviour
 
             affiliation.UseSlotItem(index);
 
+            if (id == Items.Item_ID.item_craft_water || id == Items.Item_ID.item_craft_water2)
+            {
+                PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_bottle, 1);
+            }
+
             //Keyにアイテムがなかったらスキップ
             if (!foodUsageLog.ContainsKey(id)) {return; }
             if(  foodUsageLog[id] == false)
@@ -52,10 +57,7 @@ public class DetailPanel : MonoBehaviour
                 foodUsageLog[id] = true;
             }
 
-            if(id == Items.Item_ID.item_craft_water || id == Items.Item_ID.item_craft_water2)
-            {
-                PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_bottle, 1);
-            }
+           
 
 
         });
