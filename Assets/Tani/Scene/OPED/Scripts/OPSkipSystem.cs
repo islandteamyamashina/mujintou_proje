@@ -47,8 +47,8 @@ public class OPSkipSystem : MonoBehaviour
                     PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_bottle, 1);
 
                     PlayerInfo.Instance.Health = 100;
-                    PlayerInfo.Instance.Thirst = 83-10;
-                    PlayerInfo.Instance.Hunger = 75-30;
+                    PlayerInfo.Instance.Thirst = 83-30;
+                    PlayerInfo.Instance.Hunger = 75-10;
                     SceneManager.LoadScene(baseLocation);
                 }
                 else
