@@ -56,6 +56,8 @@ public class MakeFire : MonoBehaviour
     Image trans2;
     [SerializeField]
     Text success_posibility_text;
+    [SerializeField]
+    Button closeThisPanelButton;
 
     int selectedType = 0;//0 : ‚È‚µ 1 : ‘fŽè ,2 : FireSet ,3 : Lighter
 
@@ -162,7 +164,10 @@ public class MakeFire : MonoBehaviour
 
     private void Awake()
     {
-    
+        closeThisPanelButton.onClick.AddListener(()=>{
+            ((FirePanel)FindAnyObjectByType(typeof(FirePanel))).SetFirePanelActivate(0);
+            Fire_Icon_Middle.fillAmount = 0;
+        });
 
         select_hand.onClick.AddListener(() =>
         {

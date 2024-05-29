@@ -26,26 +26,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     }
     public Weather weather { get; set; }
 
-    [Header("��Ԉُ�ɂ��e���l")]
-    [SerializeField]private int _Max_Poisoned_Damage = 5;
-    [SerializeField] private int _Min_Poisoned_Damage = 5;
-
-    [SerializeField] private int _Max_Hungry_Effect = 5;
-    [SerializeField] private int _Min_Hungry_Effect = 3;
-
-    [SerializeField] private int _Max_Thirsty_Effect = 5;
-    [SerializeField] private int _Min_Thirsty_Effect = 3;
-
-    [SerializeField] private int _Max_HungryAndThirsty_Damage = 10;
-    [SerializeField] private int _Min_HungryAndThirsty_Damage = 8;
-
-    [Space]
-
     
-    [Header("�X�e�[�^�X�̏����l�ő�l")]
-    [SerializeField]private int _Init_Player_Health = 50;
-    [SerializeField] private int _Init_Player_Hunger = 50;
-    [SerializeField] private int _Init_Player_Thirst = 50;
 
     [SerializeField] private int _Max_Player_Health = 100;
     [SerializeField] private int _Max_Player_Hunger = 100;
@@ -53,13 +34,11 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [SerializeField] private int _Max_Player_Thirst = 100;
     [SerializeField] private int _Max_Player_Luck = 100;
 
-    [Space, Header("���̑�")]
-    [SerializeField, Tooltip("�s�����Ƃɑ�����N�����l")] private int water_gain = 5;
-    [SerializeField, Tooltip("�s�����ƂɌ��镰�Βl")] private int fire_decrease = 5;
+    [Space]
+    [SerializeField] private int water_gain = 5;
+    [SerializeField] private int fire_decrease = 5;
 
     [Space]
-    [Header("�e�X�g��")]
-    [SerializeField] private Text day_text;
     [SerializeField] private List<TextureData> textureDatas;
     [SerializeField] private SlotManager inventry;
     public List<Sprite> SunnyCloudyRainy;
@@ -115,6 +94,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         {
             _player_Hunger = value;
             _player_Hunger = Mathf.Clamp(_player_Hunger, 0, _Max_Player_Hunger);
+            OnHungerSet?.Invoke();
         }
     }
 
@@ -125,6 +105,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         {
             _player_Thirst = value;
             _player_Thirst = Mathf.Clamp(_player_Thirst, 0, _Max_Player_Thirst);
+            OnThirstSet?.Invoke();
         }
     }
     public int Luck
@@ -144,6 +125,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         {
             water_value = value;
             water_value = Mathf.Clamp(water_value, 0, 100);
+            OnWaterSet?.Invoke();
         }
     }
 
@@ -154,19 +136,14 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         {
             fire_value = value;
             fire_value = Mathf.Clamp(fire_value, 0, 100);
+            OnFireSet?.Invoke();
         }
     }
 
     public int StartArea { get; set; } = 0;
 
-    public SlotManager Inventry
-    {
-        get
-        {
-            return inventry;
-        }
+    public SlotManager Inventry => inventry;
 
-    }
 
     public int ActionValue
     {
@@ -241,6 +218,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         //Inventry.GetItem(Items.Item_ID.item_mat_stone, 5);
         //Inventry.GetItem(Items.Item_ID.item_craft_DIYmedicine, 2);
         //AddPlayerCondition(Condition.Poisoned);
+        Inventry.GetItem(Items.Item_ID.item_craft_water, 3);
     }
 
     protected override void Awake()
