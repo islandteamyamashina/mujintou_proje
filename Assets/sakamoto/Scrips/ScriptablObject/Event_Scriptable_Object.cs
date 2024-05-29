@@ -124,7 +124,7 @@ public class EventData : ScriptableObject
         this.Sentakusi2_Result1 = sentakusi2Result1;
         this.Sentakusi2_Zyouken = sentakusi2Zyouken;
         this.Sentakusi2_Zyouken_num = sentakusi2Zyouken_num;
-        this.Sentakusi2_Reward1 = sentakusi1Reward1;
+        this.Sentakusi2_Reward1 = sentakusi2Reward1;
         this.Sentakusi2_Reward1_num = sentakusi2Reward1_num;
         this.Sentakusi2_Reward2 = sentakusi2Reward2;
         this.Sentakusi2_Reward2_num = sentakusi2Reward2_num;
