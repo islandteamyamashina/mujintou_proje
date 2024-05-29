@@ -48,21 +48,25 @@ public class BadEndController : MonoBehaviour
 
     public void BackToTitle()
     {
+        SEAudio.GetComponent<anotherSoundPlayer>().ChooseSongs_SE(0);
+
         var loaded = SceneManager.LoadSceneAsync(title);
         loaded.allowSceneActivation = false;
-        
-        //プレイヤーの破壊をここに移動//
-        if (PlayerInfo.InstanceNullable)
+        fade.Fade(Fading.type.FadeOut);
+        fade.OnFadeEnd.AddListener(() =>
+        {
+
+            //プレイヤーの破壊をここに移動//
+            if (PlayerInfo.InstanceNullable)
         {
             PlayerInfo.Instance.DestroySelf();
         }
         DataManager.ErasePlayerSaveData();
-        SEAudio.GetComponent<anotherSoundPlayer>().ChooseSongs_SE(2);
 
         //プレイヤーの破壊をここに移動//
         loaded.allowSceneActivation = true;
 
-
+        });
 
     }
 }
