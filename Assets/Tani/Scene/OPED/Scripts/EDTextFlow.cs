@@ -53,9 +53,6 @@ public class EDTextFlow : MonoBehaviour
                 fade.Fade(Fading.type.FadeOut);
                 fade.OnFadeEnd.AddListener(() =>
                 {
-                    //’Ç‰Á
-                    bgmAudio.GetComponent<anotherBGMPlayer>().StartCoroutine("FadeOutAudio", 3);
-                    //
                     StartCoroutine(f1());
                 });
             });
@@ -67,8 +64,7 @@ public class EDTextFlow : MonoBehaviour
         image_obj.sprite = image_list[1];
         fade.Fade(Fading.type.FadeIn);
         //’Ç‰Á
-        anotherBGMPlayer ABP = bgmAudio.GetComponent<anotherBGMPlayer>();
-        StartCoroutine(ABP.FadeInAudio(0, 2));
+        bgmAudio.GetComponent<anotherBGMPlayer>().ChangeBGM(0);
         //
         yield return null;
         fade.OnFadeEnd.AddListener(() =>
