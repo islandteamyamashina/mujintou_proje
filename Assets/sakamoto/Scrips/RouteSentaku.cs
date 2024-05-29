@@ -360,7 +360,7 @@ public class RouteSentaku : Event_Text
     void nextEvent(int event_num)
     {
         event_manage.now_event_num = event_num;
-        if (event_num == 12)
+        if (event_manage.eventDatas[event_manage.now_event_num].Event_ID== 5013)
         {
             //“´ŒA‚Ìˆê”Ô‰œ
             textControl.ResetTextData();
