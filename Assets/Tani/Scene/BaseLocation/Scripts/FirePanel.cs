@@ -21,6 +21,8 @@ public class FirePanel : PanelBase
     Image fire_icon_front;
     [SerializeField]
     Image fire_icon_middle;
+    [SerializeField]
+    Button close;
 
     bool isFirst = true;
 
@@ -37,6 +39,10 @@ public class FirePanel : PanelBase
         ToCooking.interactable = PlayerInfo.Instance.Fire != 0;
 
         PlayerInfo.Instance.Inventry.OnSlotVisibilityChanged += ApplySlotContollerVisibility;
+        close.onClick.AddListener(() =>
+        {
+            PlayerInfo.Instance.Inventry.SetVisible(false);
+        });
     }
     protected override void Start()
     {

@@ -12,6 +12,10 @@ public class AddFire : MonoBehaviour
     [SerializeField]
     SlotManager SlotManager;
 
+    private void OnEnable()
+    {
+        PlayerInfo.Instance.Inventry.SetVisible(true);
+    }
     private void Awake()
     {
         

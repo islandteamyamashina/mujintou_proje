@@ -74,7 +74,7 @@ public class MakeFire : MonoBehaviour
         thirst_Change_Text.text = $"{info.Thirst} >> {info.Thirst}";
         success_posibility_text.text = "";
 
-       
+        PlayerInfo.Instance.Inventry.SetVisible(true);
   
 
     }
