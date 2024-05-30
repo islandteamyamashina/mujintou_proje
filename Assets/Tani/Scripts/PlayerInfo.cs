@@ -281,8 +281,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         {
 
             Health = 30;
-            Hunger = 0;
-            Thirst = 0;
+            Hunger = 10;
+            Thirst = 10;
             
         }
 

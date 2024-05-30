@@ -55,6 +55,7 @@ public class FirePanel : PanelBase
     {
         SetFirePanelActivate(0);
         fire_icon_middle.fillAmount = 0;
+        PlayerInfo.Instance.Inventry.SetVisible(true);
         
     }
     protectedÅ@override void Update()
@@ -87,7 +88,7 @@ public class FirePanel : PanelBase
         if (!PlayerInfo.Instance.Inventry.GetVisibility())
         {
             ((BaseLocationDaytimeController)FindAnyObjectByType(
-                 typeof(BaseLocationDaytimeController))).DeactivateAllPanels();
+                 typeof(BaseLocationDaytimeController))).DeactivatePanel(1);
         }
     }
     private void OnDestroy()
