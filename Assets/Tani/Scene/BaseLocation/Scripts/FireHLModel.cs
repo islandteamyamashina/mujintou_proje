@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class FireHLModel : MonoBehaviour
 {
+    //‚±‚êmodel‚¶‚á‚È‚­‚ÄPresenter‚¾‚í
+    //Playerinfo --> model
+    //Image view --> view
+    //this --> presenter
+    //Playerinfo‚ÌFire‚ðReactiveProperty‚Æ‚µ‚ÄŒöŠJ‚·‚é‚Æ‚È‚¨—Ç‚«
+
     [SerializeField]
     ImageViewWithSprites image_view;
 

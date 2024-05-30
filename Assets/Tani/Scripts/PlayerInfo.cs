@@ -444,6 +444,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         if (Health == 0)
         {
             SceneManager.LoadScene(bad_end);
+            Inventry.SetVisible(false);
         }
     }
 
