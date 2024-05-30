@@ -41,8 +41,6 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     [Space]
     [SerializeField] private List<TextureData> textureDatas;
     [SerializeField] private SlotManager inventry;
-    public List<Sprite> SunnyCloudyRainy;
-    [SerializeField] private GameObject image_prefab;
     [SerializeField] private bool Excute_StartGame_FuncHere = false;
     [SerializeField] SceneObject true_end;
     [SerializeField] SceneObject bad_end;
@@ -61,8 +59,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     private int fire_value = 0;
     private int day = 2;
     private List<Texture2D> cursor_textures;
-    private bool is_running_item_visualizing = false;
-    private Queue<IEnumerator> visualize_coroutines = new Queue<IEnumerator>();
+
 
     public UnityAction OnHealthSet {private get;  set;}
     public UnityAction OnHungerSet { private get; set; }
@@ -218,7 +215,10 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         //Inventry.GetItem(Items.Item_ID.item_mat_stone, 5);
         //Inventry.GetItem(Items.Item_ID.item_craft_DIYmedicine, 2);
         //AddPlayerCondition(Condition.Poisoned);
-        Inventry.GetItem(Items.Item_ID.item_craft_water, 3);
+        Inventry.GetItem(Items.Item_ID.item_craft_water, 10,true);
+        Inventry.GetItem(Items.Item_ID.item_craft_water, 10, true);
+        Inventry.GetItem(Items.Item_ID.item_craft_water, 10, true);
+        Inventry.GetItem(Items.Item_ID.item_craft_water, 10, true);
     }
 
     protected override void Awake()
@@ -380,74 +380,9 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
     }
-    IEnumerator MoveImage(Items.Item_ID id, int num)
-    {
 
-        (GameObject,Image)[] objects = new (GameObject, Image)[num];
-        Sprite sprite = SlotManager.GetItemData(id).icon;
-        // -160  <<  320  width : 480 
-        float height = num > 6 ? 480.0f / num - 1 : 80;
-        for (int i = 0; i < num; i++)
-        {
-            objects[i].Item1 = Instantiate<GameObject>(image_prefab);
-            objects[i].Item1.transform.SetParent(gameObject.transform.GetChild(0).GetChild(0));
-            objects[i].Item1.transform.SetAsFirstSibling();
-            objects[i].Item1.transform.localPosition = new Vector3(550, -160 + height * i, 0);
-            objects[i].Item2 = objects[i].Item1.GetComponent<Image>();
-            objects[i].Item2.sprite = sprite;
-        }
-
-        yield return  new WaitForSeconds(1.5f);
-
-        int sliding_speed = 320;
-        while(objects[num - 1].Item1 != null)
-        {
-            for (int i = 0; i < num; i++)
-            {
-                if (!objects[i].Item1) continue;
-                objects[i].Item1.transform.Translate(0, -sliding_speed * Time.deltaTime, 0);
-                var color = objects[i].Item2.color;
-                color.a = Mathf.Clamp01((objects[i].Item1.transform.localPosition.y + 250) / 150);
-                if(color.a == 0)
-                {
-                    Destroy(objects[i].Item1);
-                    objects[i].Item1 = null;
-                    continue;
-                }
-                objects[i].Item2.color = color;
-                
-            }
-
-            yield return null;
-        }
-
-
-        if(visualize_coroutines.Count > 0)
-        {
-            StartCoroutine(visualize_coroutines.Dequeue());
-        }
-        else
-        {
-            is_running_item_visualizing = false;
-        }
-    }
-    public void ItemViewVisualize(Items.Item_ID id, int num)
-    {
-
-
-        if (!is_running_item_visualizing)
-        {
-            StartCoroutine(MoveImage(id, num));
-            is_running_item_visualizing = true;
-        }
-        else
-        {
-            visualize_coroutines.Enqueue(MoveImage(id, num));
-        }
-
-
-
-    }
+  
+    
 
 
     void LoadData()

@@ -42,7 +42,7 @@ public class SlotManager : MonoBehaviour
     protected Slot[] _Slots = null;
     protected (Items.Item_ID id, int amount)[] item_list = null;
     private float active_range = 0;
-
+    private ItemPickupVisualizer visualizer;
     
 
     virtual protected void Awake()
@@ -52,13 +52,13 @@ public class SlotManager : MonoBehaviour
 
 
         LoadSlotDatas(fileName);
-
+        visualizer = GetComponentInParent<ItemPickupVisualizer>();
 
     }
 
     virtual protected void Start()
     {
-
+      
     }
 
     virtual protected void Update()
@@ -443,7 +443,7 @@ public class SlotManager : MonoBehaviour
                     ChangeSlotItemAmount(item_list[i].amount + num, i);
                     if (visualize)
                     {
-                        PlayerInfo.Instance.ItemViewVisualize(id, num);
+                       visualizer.ItemViewVisualize(id, num);
                     }
                     return true;
                 }
@@ -456,7 +456,7 @@ public class SlotManager : MonoBehaviour
             SetItemToSlot(id, num, slot.Slot_index);
             if (visualize)
             {
-                PlayerInfo.Instance.ItemViewVisualize(id, num);
+                visualizer.ItemViewVisualize(id, num);
             }
             return true;
         }else
@@ -703,6 +703,9 @@ public class SlotManager : MonoBehaviour
     {
         SaveSlotDatas(fileName);
     }
+
+
+
 
 
 #if UNITY_EDITOR
