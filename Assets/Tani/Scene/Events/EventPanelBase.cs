@@ -317,10 +317,11 @@ public class EventPanelBase : MonoBehaviour
         event_text_control.AddTextData(status_change);
 
 
-
+        
 
         if (!info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Poisoned))
         {
+            
             if (!info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Hungry))
             {
                 if (!info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Thirsty))
@@ -330,7 +331,31 @@ public class EventPanelBase : MonoBehaviour
             }
         }
 
+        string conditionChangeText = "";
 
+        int prev_poison_health = info.Health;
+        int after_poison_health = (int)(info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Poisoned) ? prev_poison_health * 0.8f : prev_poison_health);
+
+        if (info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Poisoned))
+        {
+            conditionChangeText += $"ì≈: ëÃóÕ{info.Health} ÅÀ {(int)(info.Health * 0.8f)}\n";
+            info.Health = (int)(info.Health * 0.8f);
+        }
+
+        if (info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Hungry))
+        {
+            conditionChangeText += $"ãÛï† : ëÃóÕ{info.Health} ÅÀ {Mathf.Clamp(info.Health - ((100 - info.Hunger) / 4),0,100)}\n";
+            info.Health = (int)(info.Health - ((100 - info.Hunger) / 4));
+        }
+
+        if (info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Thirsty))
+        {
+            conditionChangeText += $"äâÇ´ : êHóø{info.Hunger} ÅÀ {Mathf.Clamp(info.Hunger - ((100 - info.Thirst) / 4),0,100)}\n";
+            info.Hunger = (int)(info.Hunger - ((100 - info.Thirst) / 4));
+        }
+
+        event_text_control.AddTextData(conditionChangeText);
+        
         
 
         NoSpecificCondition:
