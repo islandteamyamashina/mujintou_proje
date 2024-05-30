@@ -413,6 +413,7 @@ GameObject:
   - component: {fileID: 3577664808387167849}
   - component: {fileID: 3577664808387167850}
   - component: {fileID: 1666787427}
+  - component: {fileID: 4296502942492729798}
   m_Layer: 0
   m_Name: Weather
   m_TagString: Untagged
@@ -490,6 +491,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c57bb908dbc0e24488b6e509e5b4186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  view: {fileID: 4296502942492729798}
+--- !u!114 &4296502942492729798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3577664808387167851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b0e7f6cd6c1a34b8ed966e890d18c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteDatas:
+  - {fileID: 21300000, guid: ff0e7e07e14316b469e61df36bd8d44a, type: 3}
+  - {fileID: 21300000, guid: 95eea5913749efd418c66176e478500e, type: 3}
+  - {fileID: 21300000, guid: 358b36aeedd3fb2479e05eb05e566ef4, type: 3}
+  img_obj: {fileID: 3577664808387167850}
 --- !u!1 &3577664809608381296
 GameObject:
   m_ObjectHideFlags: 0
