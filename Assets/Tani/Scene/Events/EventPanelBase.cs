@@ -317,6 +317,24 @@ public class EventPanelBase : MonoBehaviour
         event_text_control.AddTextData(status_change);
 
 
+
+
+        if (!info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Poisoned))
+        {
+            if (!info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Hungry))
+            {
+                if (!info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Thirsty))
+                {
+                    goto NoSpecificCondition;
+                }
+            }
+        }
+
+
+        
+
+        NoSpecificCondition:
+
         //Šl“¾Œ‹‰Ê‚ð•\‚·•¶Žš—ñ
         if (result.Gain_Items.Count != 0)
         {

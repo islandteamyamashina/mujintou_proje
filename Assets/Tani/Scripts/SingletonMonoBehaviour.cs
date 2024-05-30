@@ -34,7 +34,7 @@ public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
     {
         if (instance != null && instance != this)
         {
-            //Debug.LogError(typeof(T) + " is multiple created", this);
+         //   Debug.LogError(typeof(T) + " is multiple created", this);
             Destroy(this.gameObject);
             return;
         }

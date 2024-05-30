@@ -2,9 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class ItemPickupVisualizer : MonoBehaviour
 {
+    private void Awake()
+    {
+        SceneManager.sceneLoaded += (scene, mode) =>
+        {
+            visualize_coroutines.Clear();
+            if (is_running_item_visualizing)
+            {
+                StopCoroutine("MoveImage");
+            }
+        };
+    }
+
     [SerializeField] private GameObject image_prefab;
     [SerializeField] private int visualize_canvas_order = 5;
 

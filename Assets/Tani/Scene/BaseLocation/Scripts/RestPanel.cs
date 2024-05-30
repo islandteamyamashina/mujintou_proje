@@ -62,7 +62,7 @@ public class RestPanel : PanelBase
             poisonImage.gameObject.SetActive(false);
         }
 
-        if(info.Hunger == 0)
+        if(info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Hungry))
         {
             hungryEffect = -40;
             StarvingImage.gameObject.SetActive(true);
@@ -73,7 +73,7 @@ public class RestPanel : PanelBase
             StarvingImage.gameObject.SetActive(false);
         }
 
-        if(info.Thirst == 0)
+        if(info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Thirsty))
         {
             thirstyEffect = -20;
             ThirstyImage.gameObject.SetActive(true);

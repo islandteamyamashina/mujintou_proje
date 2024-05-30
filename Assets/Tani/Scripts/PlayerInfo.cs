@@ -214,21 +214,31 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         //Inventry.GetItem(Items.Item_ID.item_mat_crab, 3);
         //Inventry.GetItem(Items.Item_ID.item_mat_stone, 5);
         //Inventry.GetItem(Items.Item_ID.item_craft_DIYmedicine, 2);
-        //AddPlayerCondition(Condition.Poisoned);
-        Inventry.GetItem(Items.Item_ID.item_craft_water, 10,true);
-        Inventry.GetItem(Items.Item_ID.item_craft_water, 10, true);
-        Inventry.GetItem(Items.Item_ID.item_craft_water, 10, true);
-        Inventry.GetItem(Items.Item_ID.item_craft_water, 10, true);
+
     }
 
     protected override void Awake()
     {
         base.Awake();
-
-        
-
         DontDestroyOnLoad(gameObject);
 
+        OnHungerSet += () =>
+        {
+            if(Hunger <= 20)
+            {
+                AddPlayerCondition(Condition.Hungry);
+            }
+            else
+            {
+                EraseCondition(Condition.Hungry);
+            }
+        };
+
+        OnThirstSet += () =>
+        {
+            if (Thirst <= 20) AddPlayerCondition(Condition.Thirsty);
+            else EraseCondition(Condition.Thirsty);
+        };
     }
 
     private void Start()
