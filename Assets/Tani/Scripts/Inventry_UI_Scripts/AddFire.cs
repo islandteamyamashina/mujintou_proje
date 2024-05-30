@@ -47,7 +47,7 @@ public class AddFire : MonoBehaviour
         if (!PlayerInfo.Instance.Inventry.GetVisibility())
         {
             ((BaseLocationDaytimeController)FindAnyObjectByType(
-                 typeof(BaseLocationDaytimeController))).DeactivateAllPanels();
+                 typeof(BaseLocationDaytimeController))).DeactivatePanel(1);
         }
     }
 
