@@ -354,12 +354,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+        m_TargetAssemblyTypeName: anotherSoundPlayer, Assembly-CSharp
+        m_MethodName: ChooseSongs_SE
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: BaseLocationDaytimeController, Assembly-CSharp
+        m_MethodName: DeactivateAllPanels
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -727,18 +739,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2050868740902838265}
-        m_TargetAssemblyTypeName: FirePanel, Assembly-CSharp
-        m_MethodName: SetFirePanelActivate
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: multiAudio, Assembly-CSharp
         m_MethodName: ChooseSongs_SE
@@ -1097,7 +1097,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &2050868739114555669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4293,7 +4293,7 @@ MonoBehaviour:
   trans1: {fileID: 2050868739990515902}
   trans2: {fileID: 2050868739832337656}
   success_posibility_text: {fileID: 2050868738799643965}
-  closeThisPanelButton: {fileID: 0}
+  closeThisPanelButton: {fileID: 2050868738886819475}
 --- !u!1 &2050868740724485482
 GameObject:
   m_ObjectHideFlags: 0
@@ -4692,7 +4692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2050868740902838264
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4737,6 +4737,7 @@ MonoBehaviour:
   ToCooking: {fileID: 2050868740744221913}
   fire_icon_front: {fileID: 2050868739684646726}
   fire_icon_middle: {fileID: 2050868739328223683}
+  close: {fileID: 4612317971828524944}
 --- !u!1 &2747562817448966398
 GameObject:
   m_ObjectHideFlags: 0
@@ -5673,11 +5674,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8275885427414199181, guid: b0b067c6bca75ef4f84bb95d72c20de3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 15.6263
       objectReference: {fileID: 0}
     - target: {fileID: 8275885427414199181, guid: b0b067c6bca75ef4f84bb95d72c20de3, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 7.3535
       objectReference: {fileID: 0}
     - target: {fileID: 8275885427414199181, guid: b0b067c6bca75ef4f84bb95d72c20de3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5709,11 +5710,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8275885427414199181, guid: b0b067c6bca75ef4f84bb95d72c20de3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 7.8131714
       objectReference: {fileID: 0}
     - target: {fileID: 8275885427414199181, guid: b0b067c6bca75ef4f84bb95d72c20de3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 3.6767883
       objectReference: {fileID: 0}
     - target: {fileID: 8275885427414199181, guid: b0b067c6bca75ef4f84bb95d72c20de3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
