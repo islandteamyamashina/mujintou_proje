@@ -61,11 +61,11 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     private List<Texture2D> cursor_textures;
 
 
-    public UnityAction OnHealthSet {private get;  set;}
-    public UnityAction OnHungerSet { private get; set; }
-    public UnityAction OnThirstSet { private get; set; }
-    public UnityAction OnWaterSet { private get; set; }
-    public UnityAction OnFireSet { private get; set; }
+    public UnityAction OnHealthSet { get;  set;}
+    public UnityAction OnHungerSet {  get; set; }
+    public UnityAction OnThirstSet {  get; set; }
+    public UnityAction OnWaterSet {  get; set; }
+    public UnityAction OnFireSet {  get; set; }
 
 
     public int Health

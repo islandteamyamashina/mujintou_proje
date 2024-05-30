@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class MainPanel : PanelBase
+public class FireHLModel : MonoBehaviour
 {
+    [SerializeField]
     ImageViewWithSprites image_view;
 
-    
-    //‚È‚ñ‚©‚±‚Ì–¼‘O‚¢‚â‚â‚È
     enum EBL_Situation
     {
         DayTimeNoFire = 0,
@@ -18,38 +16,27 @@ public class MainPanel : PanelBase
     }
 
     EBL_Situation situation = EBL_Situation.DayTimeNoFire;
-    protected override void Awake()
+    protected void Awake()
     {
-        image_view = GetComponentInChildren<ImageViewWithSprites>();
 
         //ƒpƒlƒ‹ŠÖŒW
 
-        UpdateBG();
-        PlayerInfo.Instance.OnFireSet += UpdateBG;
+        UpdateImage();
+        PlayerInfo.Instance.OnFireSet += UpdateImage;
 
     }
     private void OnDestroy()
     {
         if (PlayerInfo.InstanceNullable)
         {
-            PlayerInfo.Instance.OnFireSet -= UpdateBG;
+            PlayerInfo.Instance.OnFireSet -= UpdateImage;
 
         }
     }
 
-    protected override void Start()
-    {
-        SetSortOrder(OrderOfUI.MainPanel);
-    }
 
-    protected override void Update()
-    {
-        base.Update();
 
-        
-    }
-
-    void UpdateBG()
+    void UpdateImage()
     {
         var info = PlayerInfo.Instance;
         if (info.Day.isDayTime)
@@ -65,5 +52,6 @@ public class MainPanel : PanelBase
 
         image_view.SetImageSprite((int)situation);
     }
+
 
 }

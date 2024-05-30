@@ -57,7 +57,11 @@ public class ItemPickupVisualizer : MonoBehaviour
 
             yield return null;
         }
-        Destroy(c.gameObject);
+        if (c)
+        {
+            Destroy(c.gameObject);
+        }
+       
 
 
         if (visualize_coroutines.Count > 0)
