@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.IO;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -593,6 +594,11 @@ public class SlotManager : MonoBehaviour
                         {
                             PlayerInfo.Instance.EraseCondition(PlayerInfo.Condition.Poisoned);
                         }
+                        break;
+                    }
+                case Items.Item_ID.item_craft_raft:
+                    {
+                        SceneManager.LoadScene("TrueEndingScene_CaseOfRaft");
                         break;
                     }
                 default:
