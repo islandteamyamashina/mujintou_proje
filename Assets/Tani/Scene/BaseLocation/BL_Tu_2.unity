@@ -2216,6 +2216,7 @@ GameObject:
   - component: {fileID: 290528661}
   - component: {fileID: 290528660}
   - component: {fileID: 290528659}
+  - component: {fileID: 290528662}
   m_Layer: 5
   m_Name: Tirgger_Craft
   m_TagString: Untagged
@@ -2354,10 +2355,10 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: multiAudio, Assembly-CSharp
-          m_MethodName: ChooseSongs_SE
-          m_Mode: 3
+        - m_Target: {fileID: 290528662}
+          m_TargetAssemblyTypeName: TutorialArrow, Assembly-CSharp
+          m_MethodName: ArrowFalse
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2366,6 +2367,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &290528662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290528657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62bad95e861551e49bbe5e3465438b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &316758318
 GameObject:
   m_ObjectHideFlags: 0
@@ -8531,23 +8544,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216633323}
   m_CullTransparentMesh: 1
---- !u!1 &1224536543 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4942422494050029989, guid: 9f17dfe4d9df8d849a3c9dc3873b5f53, type: 3}
-  m_PrefabInstance: {fileID: 4258364744003916059}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1224536549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224536543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62bad95e861551e49bbe5e3465438b36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1256350526 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8959499101212443136, guid: a21f3ad853287be4da446cd2d07c2676, type: 3}
@@ -15387,7 +15383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4942422494050029991, guid: 9f17dfe4d9df8d849a3c9dc3873b5f53, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4942422494050029991, guid: 9f17dfe4d9df8d849a3c9dc3873b5f53, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -15404,7 +15400,7 @@ PrefabInstance:
     - target: {fileID: 4942422494050029991, guid: 9f17dfe4d9df8d849a3c9dc3873b5f53, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1224536549}
+      objectReference: {fileID: 0}
     - target: {fileID: 4942422494050029991, guid: 9f17dfe4d9df8d849a3c9dc3873b5f53, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -15444,10 +15440,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4942422494050029989, guid: 9f17dfe4d9df8d849a3c9dc3873b5f53, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1224536549}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f17dfe4d9df8d849a3c9dc3873b5f53, type: 3}
 --- !u!1001 &6497453574391592899
 PrefabInstance:
