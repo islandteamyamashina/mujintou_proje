@@ -32,6 +32,10 @@ public class EDTextFlow : MonoBehaviour
 
     private void Awake()
     {
+        //インベントリ開いたままtrueEndに飛ぶと開きっぱなしになるみたいなので加えました（柴田）
+        var player = GameObject.FindAnyObjectByType<PlayerInfo>();
+        player.Inventry.SetVisible(false);
+        ///ここまで///
         GameData.CanReturnTitle = false;
         //if (PlayerInfo.InstanceNullable)
         //{
