@@ -44,6 +44,7 @@ public class OPSkipSystem : MonoBehaviour
                     PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_branch, 1);
                     PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_coconutJuice, 1);
                     PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_bottle, 1);
+                    PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_stone, 1);
 
                     PlayerInfo.Instance.Health = 100;
                     PlayerInfo.Instance.Thirst = 83-30;
