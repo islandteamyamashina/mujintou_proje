@@ -191,6 +191,9 @@ public class EventPanelBase : MonoBehaviour
                 {
                     return 0;
                 }
+            case 1009:
+                PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_special_knife,1);
+                return 100;
             case 1010:
                 return info.weather == PlayerInfo.Weather.Rainy ? 1 : 0;
             case 1004:

@@ -983,6 +983,7 @@ GameObject:
   - component: {fileID: 19482003022188659}
   - component: {fileID: 19482003022188660}
   - component: {fileID: 19482003022188661}
+  - component: {fileID: 946319376}
   m_Layer: 5
   m_Name: Tirgger_Fire
   m_TagString: Untagged
@@ -1133,6 +1134,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &946319376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19482003022188663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300c459c7767a8345aa4b48c46f1edbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image_view: {fileID: 1746322435}
 --- !u!1 &19482003130608503
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,7 +1279,7 @@ GameObject:
   - component: {fileID: 19482003191542619}
   - component: {fileID: 19482003191542620}
   - component: {fileID: 19482003191542621}
-  - component: {fileID: 1628960624432378159}
+  - component: {fileID: 1746322435}
   m_Layer: 5
   m_Name: Fire_HL
   m_TagString: Untagged
@@ -1331,7 +1345,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1628960624432378159
+--- !u!114 &1746322435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1340,41 +1354,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 19482003191542622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 23b0e7f6cd6c1a34b8ed966e890d18c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: bb9b4ba9862367e44b1de595f92d43be, type: 3}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 19482003191542621}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  spriteDatas:
+  - {fileID: 21300000, guid: bb9b4ba9862367e44b1de595f92d43be, type: 3}
+  - {fileID: 21300000, guid: ee7f2645e2775434d8b49f723d4bfdca, type: 3}
+  - {fileID: 21300000, guid: aa1905ce1404a93458fd9e49d286398d, type: 3}
+  - {fileID: 21300000, guid: d2850e85d83851341bc1fbceef1e2fca, type: 3}
+  img_obj: {fileID: 19482003191542621}
 --- !u!1 &19482003222796372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,10 +1656,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownedMainCanvas: {fileID: 19482003013810047}
-  bg_image_obj: {fileID: 19482003841293515}
-  extra_sprites:
-  - {fileID: 21300000, guid: bf542fe7ee87cf24bb58b3a683b8d64d, type: 3}
-  - {fileID: 21300000, guid: 1ade99999594ff1458df1f13b85b5b44, type: 3}
 --- !u!1 &19482003595424811
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,6 +1991,7 @@ GameObject:
   - component: {fileID: 19482003841293513}
   - component: {fileID: 19482003841293514}
   - component: {fileID: 19482003841293515}
+  - component: {fileID: 1464875655}
   m_Layer: 5
   m_Name: BG
   m_TagString: Untagged
@@ -2072,3 +2057,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1464875655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19482003841293516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b0e7f6cd6c1a34b8ed966e890d18c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteDatas:
+  - {fileID: 21300000, guid: bf542fe7ee87cf24bb58b3a683b8d64d, type: 3}
+  - {fileID: 21300000, guid: 00d6fba1dce503c4b95dfc535446b4ce, type: 3}
+  - {fileID: 21300000, guid: e357a7afb1d8564498a802e51fc334e3, type: 3}
+  - {fileID: 21300000, guid: c977cfe7b60014f42a0d462b10c68b84, type: 3}
+  img_obj: {fileID: 19482003841293515}

@@ -7,11 +7,12 @@ using UnityEngine.UI;
 public class Choise_10062 : MonoBehaviour
 {
     Button button;
-    private void Start()
+    private void Awake()
     {
         button = GetComponent<Button>();
         button.interactable = PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_craft_DIYknife) >= 1
             || PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_special_knife) >= 1;
+        
     }
 
 }
