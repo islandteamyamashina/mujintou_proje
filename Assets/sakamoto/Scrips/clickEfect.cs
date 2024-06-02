@@ -5,6 +5,7 @@ using UnityEngine;
 public class clickEfect : MonoBehaviour
 {
     [SerializeField] GameObject efect;
+    
     Vector3 mousePos, worldPos;
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,10 @@ public class clickEfect : MonoBehaviour
             //}
             Debug.Log("ç∂ÉNÉäÉbÉN");  
             Instantiate(efect,worldPos,Quaternion.Euler(0.0f,0.0f,0.0f));          
-            //Debug.Log(efect.transform.position);
+
+            efect.transform.position = worldPos;
+            Debug.Log(efect.transform.position);
+
         }   
         
 
