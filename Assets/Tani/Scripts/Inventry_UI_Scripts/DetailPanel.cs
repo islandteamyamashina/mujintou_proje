@@ -24,6 +24,10 @@ public class DetailPanel : MonoBehaviour
     string foodUsageLogForActionValueIncrease_textName = "FoodUsageLog.txt";
     string fullPath;
     Dictionary<Items.Item_ID,bool> foodUsageLog = new Dictionary<Items.Item_ID, bool>();
+    private void OnEnable()
+    {
+        SlotManager.selectedItem.slotManager = null;
+    }
     private void Awake()
     {
         fullPath = Application.streamingAssetsPath + "/Saves/" + foodUsageLogForActionValueIncrease_textName;

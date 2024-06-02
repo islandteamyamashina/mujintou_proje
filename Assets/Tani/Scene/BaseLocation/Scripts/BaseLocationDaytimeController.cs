@@ -21,7 +21,7 @@ public class BaseLocationDaytimeController : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator Start()
     {
-        
+        PlayerInfo.Instance.SetInventryLock(false);
         switch (pattern)
         {
 
