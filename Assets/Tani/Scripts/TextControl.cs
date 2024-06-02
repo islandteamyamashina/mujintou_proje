@@ -41,8 +41,9 @@ public class TextControl : MonoBehaviour
     bool use_back_log_text = true;
     [SerializeField]
     GameObject backLogObject;
+    //山品追加分
 
-
+    [SerializeField] public anotherSoundPlayer soundPlayer;
 
     public UnityEvent ClickEventAfterTextsEnd { get; private set; } = new UnityEvent();
 
@@ -66,7 +67,9 @@ public class TextControl : MonoBehaviour
     {
         text = GetComponent<Text>();
         generator = new TextGenerator();
-        if (use_back_log_text) { BackLogValidiate(); }
+        //山品追加分
+
+        soundPlayer = GameObject.FindAnyObjectByType<anotherSoundPlayer>().GetComponent<anotherSoundPlayer>();        if (use_back_log_text) { BackLogValidiate(); }
         
 
         default_font_size = text.fontSize;
@@ -217,7 +220,9 @@ public class TextControl : MonoBehaviour
                 str_range = 0;
                 time_sum = 0;
                 UpdateFontSize(str_page,default_font_size);
+                //山品追加分
 
+                soundPlayer.ChooseSongs_SE(2);
             }
             else//次のページがなければ文章はそのまま、
             {
