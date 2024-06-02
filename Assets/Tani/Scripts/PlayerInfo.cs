@@ -203,17 +203,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         this.inventry.SwitchVisible();
 
 
-        //Inventry.GetItem(Items.Item_ID.item_mat_coconut, 3);
-        //Inventry.GetItem(Items.Item_ID.item_mat_magma, 3);
-        //Inventry.GetItem(Items.Item_ID.item_craft_onFireSet, 1);
-        //Inventry.GetItem(Items.Item_ID.item_special_lighter, 1);
-        //Inventry.GetItem((Items.Item_ID)34, 1);
-        //Inventry.GetItem(Items.Item_ID.item_mat_branch, 10);
-        //Inventry.GetItem(Items.Item_ID.item_craft_water, 3);
-        //Inventry.GetItem(Items.Item_ID.item_mat_shell, 3);
-        //Inventry.GetItem(Items.Item_ID.item_mat_crab, 3);
-        //Inventry.GetItem(Items.Item_ID.item_mat_stone, 5);
-        //Inventry.GetItem(Items.Item_ID.item_craft_DIYmedicine, 2);
+        Inventry.GetItem(Items.Item_ID.item_craft_coconutJuice, 5);
 
     }
 

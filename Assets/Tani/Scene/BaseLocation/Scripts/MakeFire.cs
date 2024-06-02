@@ -114,26 +114,25 @@ public class MakeFire : MonoBehaviour
         {
            0=>false,
 
-           1 =>              PlayerInfo.Instance.Health >= -health_Change_Hand &&
+           1 =>     (PlayerInfo.Instance.Fire == 0 &&
+                         PlayerInfo.Instance.Health >= -health_Change_Hand) &&
                             (PlayerInfo.Instance.Hunger >= -hunger_Change_Hand &&
                             PlayerInfo.Instance.Thirst >= -thirst_Change_Hand),
 
             2 => (slotManager.GetSlotItem(0).Value.id == Items.Item_ID.item_craft_onFireSet &&
                             PlayerInfo.Instance.Health >= -health_Change_FireSet)&&
                             (PlayerInfo.Instance.Hunger >= -hunger_Change_FireSet &&
-                            PlayerInfo.Instance.Thirst >= -thirst_Change_FireSet),
+                            PlayerInfo.Instance.Thirst >= -thirst_Change_FireSet)
+                            && PlayerInfo.Instance.Fire == 0,
 
            3=> (slotManager.GetSlotItem(1).Value.id == Items.Item_ID.item_special_lighter &&
                             PlayerInfo.Instance.Health >= -health_Change_Lighter) &&
                             (PlayerInfo.Instance.Hunger >= -hunger_Change_Lighter &&
-                            PlayerInfo.Instance.Thirst >= -thirst_Change_Lighter),
+                            PlayerInfo.Instance.Thirst >= -thirst_Change_Lighter)
+                            && PlayerInfo.Instance.Fire == 0 ,
             _=> false
         };
-        MakeFireButton.interactable = PlayerInfo.Instance.Fire == 0 && selectedType != 0;
-        if(PlayerInfo.Instance.Hunger == 0 || PlayerInfo.Instance.Thirst == 0)
-        {
-            MakeFireButton.interactable = false;
-        }
+
         if(slotManager.GetSlotItem(0).Value.id != Items.Item_ID.EmptyObject)
         {
             var color = trans1.color;
@@ -177,9 +176,9 @@ public class MakeFire : MonoBehaviour
         {
             var info = PlayerInfo.Instance;
             selectedType = 1;
-            health_Change_Text.text = $"{info.Health} >> {Mathf.Clamp(info.Health + health_Change_Hand, 0, 100)}";
-            hunger_Change_Text.text = $"{info.Hunger} >> {Mathf.Clamp(info.Hunger + hunger_Change_Hand, 0, 100)}";
-            thirst_Change_Text.text = $"{info.Thirst} >> {Mathf.Clamp(info.Thirst + thirst_Change_Hand, 0, 100)}";
+            health_Change_Text.text = $"{info.Health} >> {info.Health + health_Change_Hand}";
+            hunger_Change_Text.text = $"{info.Hunger} >> {info.Hunger + hunger_Change_Hand}";
+            thirst_Change_Text.text = $"{info.Thirst} >> {info.Thirst + thirst_Change_Hand}";
             SelectedResultText.text = "素手でやるしかない";
             Fire_Icon_Middle.fillAmount = 0.3f;
             success_posibility_text.text = "成功確率 : 30%";
@@ -189,9 +188,9 @@ public class MakeFire : MonoBehaviour
         {
             var info = PlayerInfo.Instance;
             selectedType = 2;
-            health_Change_Text.text = $"{info.Health} >> {Mathf.Clamp(info.Health + health_Change_FireSet, 0, 100)}";
-            hunger_Change_Text.text = $"{info.Hunger} >> {Mathf.Clamp(info.Hunger + hunger_Change_FireSet, 0, 100)}";
-            thirst_Change_Text.text = $"{info.Thirst} >> {Mathf.Clamp(info.Thirst + thirst_Change_FireSet, 0, 100)}";
+            health_Change_Text.text = $"{info.Health} >> {info.Health + health_Change_FireSet}";
+            hunger_Change_Text.text = $"{info.Hunger} >> {info.Hunger + hunger_Change_FireSet}";
+            thirst_Change_Text.text = $"{info.Thirst} >> {info.Thirst + thirst_Change_FireSet}";
             SelectedResultText.text = "火おこしセットを使用";
             Fire_Icon_Middle.fillAmount = 0.3f;
             success_posibility_text.text = "成功確率 : 80%";
@@ -201,9 +200,9 @@ public class MakeFire : MonoBehaviour
         {
             var info = PlayerInfo.Instance;
             selectedType = 3;
-            health_Change_Text.text = $"{info.Health} >> {Mathf.Clamp(info.Health + health_Change_Lighter, 0, 100)}";
-            hunger_Change_Text.text = $"{info.Hunger} >> {Mathf.Clamp(info.Hunger + hunger_Change_Lighter, 0, 100)}";
-            thirst_Change_Text.text = $"{info.Thirst} >> {Mathf.Clamp(info.Thirst + thirst_Change_Lighter, 0, 100)}";
+            health_Change_Text.text = $"{info.Health} >> {info.Health + health_Change_Lighter}";
+            hunger_Change_Text.text = $"{info.Hunger} >> {info.Hunger + hunger_Change_Lighter}";
+            thirst_Change_Text.text = $"{info.Thirst} >> {info.Thirst + thirst_Change_Lighter}";
             SelectedResultText.text = "ライターを使う";
             Fire_Icon_Middle.fillAmount = 0.3f;
             success_posibility_text.text = "成功確率 : 100%";
@@ -237,8 +236,12 @@ public class MakeFire : MonoBehaviour
             if( selectedType == 2)
             {
                 slotManager.ChangeSlotItemAmount(slotManager.GetSlotItem(0).Value.amount - 1, 0);
-
             }
+
+            PlayerInfo.Instance.OnHealthSet += OnHealthChange;
+            PlayerInfo.Instance.OnHungerSet += OnHungerChange;
+            PlayerInfo.Instance.OnThirstSet += OnThirstChange;
+
 
             float random = Random.value;
             if(random <= selectedType switch
@@ -282,10 +285,60 @@ public class MakeFire : MonoBehaviour
     {
         if (PlayerInfo.InstanceNullable)
         {
-            PlayerInfo.Instance.Inventry.OnSlotVisibilityChanged -= ApplySlotContollerVisibility;
-
+            var info = PlayerInfo.Instance;
+            info.Inventry.OnSlotVisibilityChanged -= ApplySlotContollerVisibility;
+            info.OnHealthSet -= OnHealthChange;
+            info.OnThirstSet -= OnThirstChange;
+            info.OnHungerSet -= OnHungerChange;
         }
     }
 
+    void OnHealthChange()
+    {
+        if (!health_Change_Text) return;
+        int temp = selectedType switch
+        {
+            0 => 0,
+            1 => health_Change_Hand,
+            2 => health_Change_FireSet,
+            3 => health_Change_Lighter,
+            _ => 0,
+
+        };
+        health_Change_Text.text =
+       $"{PlayerInfo.Instance.Health} >> {PlayerInfo.Instance.Health + temp}";
+    }
+    void OnHungerChange()
+    {
+        if (!hunger_Change_Text) return;
+        int temp = selectedType switch
+        {
+            0 => 0,
+            1 => hunger_Change_Hand,
+            2 => hunger_Change_FireSet,
+            3 => hunger_Change_Lighter,
+            _ => 0,
+
+        };
+        hunger_Change_Text.text =
+       $"{PlayerInfo.Instance.Hunger} >> {PlayerInfo.Instance.Hunger + temp}";
+    }
+    void OnThirstChange()
+    {
+      
+        if (!thirst_Change_Text) return;
+        print("thist set");
+        int temp = selectedType switch
+        {
+            0 => 0,
+            1 => thirst_Change_Hand,
+            2 => thirst_Change_FireSet,
+            3 => thirst_Change_Lighter,
+            _ => 0,
+
+        };
+        thirst_Change_Text.text =
+       $"{PlayerInfo.Instance.Thirst} >> {PlayerInfo.Instance.Thirst + temp}";
+    }
 
 }
