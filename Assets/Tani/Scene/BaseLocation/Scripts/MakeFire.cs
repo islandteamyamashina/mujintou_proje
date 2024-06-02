@@ -241,7 +241,7 @@ public class MakeFire : MonoBehaviour
             PlayerInfo.Instance.OnHealthSet += OnHealthChange;
             PlayerInfo.Instance.OnHungerSet += OnHungerChange;
             PlayerInfo.Instance.OnThirstSet += OnThirstChange;
-
+             
 
             float random = Random.value;
             if(random <= selectedType switch
