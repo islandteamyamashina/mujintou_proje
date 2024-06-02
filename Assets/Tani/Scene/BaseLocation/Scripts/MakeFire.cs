@@ -62,7 +62,7 @@ public class MakeFire : MonoBehaviour
     int selectedType = 0;//0 : ‚È‚µ 1 : ‘fŽè ,2 : FireSet ,3 : Lighter
 
 
-    
+
     private void OnEnable()
     {
         selectedType = 0;
@@ -75,7 +75,7 @@ public class MakeFire : MonoBehaviour
         success_posibility_text.text = "";
 
         PlayerInfo.Instance.Inventry.SetVisible(true);
-  
+
 
     }
 
@@ -112,28 +112,28 @@ public class MakeFire : MonoBehaviour
 
         MakeFireButton.interactable = selectedType switch
         {
-           0=>false,
+            0 => false,
 
-           1 =>     (PlayerInfo.Instance.Fire == 0 &&
-                         PlayerInfo.Instance.Health >= -health_Change_Hand) &&
-                            (PlayerInfo.Instance.Hunger >= -hunger_Change_Hand &&
-                            PlayerInfo.Instance.Thirst >= -thirst_Change_Hand),
+            1 => (PlayerInfo.Instance.Fire == 0 &&
+                          PlayerInfo.Instance.Health >= -health_Change_Hand) &&
+                             (PlayerInfo.Instance.Hunger >= -hunger_Change_Hand &&
+                             PlayerInfo.Instance.Thirst >= -thirst_Change_Hand),
 
             2 => (slotManager.GetSlotItem(0).Value.id == Items.Item_ID.item_craft_onFireSet &&
-                            PlayerInfo.Instance.Health >= -health_Change_FireSet)&&
+                            PlayerInfo.Instance.Health >= -health_Change_FireSet) &&
                             (PlayerInfo.Instance.Hunger >= -hunger_Change_FireSet &&
                             PlayerInfo.Instance.Thirst >= -thirst_Change_FireSet)
                             && PlayerInfo.Instance.Fire == 0,
 
-           3=> (slotManager.GetSlotItem(1).Value.id == Items.Item_ID.item_special_lighter &&
-                            PlayerInfo.Instance.Health >= -health_Change_Lighter) &&
-                            (PlayerInfo.Instance.Hunger >= -hunger_Change_Lighter &&
-                            PlayerInfo.Instance.Thirst >= -thirst_Change_Lighter)
-                            && PlayerInfo.Instance.Fire == 0 ,
-            _=> false
+            3 => (slotManager.GetSlotItem(1).Value.id == Items.Item_ID.item_special_lighter &&
+                             PlayerInfo.Instance.Health >= -health_Change_Lighter) &&
+                             (PlayerInfo.Instance.Hunger >= -hunger_Change_Lighter &&
+                             PlayerInfo.Instance.Thirst >= -thirst_Change_Lighter)
+                             && PlayerInfo.Instance.Fire == 0,
+            _ => false
         };
 
-        if(slotManager.GetSlotItem(0).Value.id != Items.Item_ID.EmptyObject)
+        if (slotManager.GetSlotItem(0).Value.id != Items.Item_ID.EmptyObject)
         {
             var color = trans1.color;
             color.a = 0;
@@ -167,7 +167,7 @@ public class MakeFire : MonoBehaviour
         PlayerInfo.Instance.Inventry.OnSlotVisibilityChanged += ApplySlotContollerVisibility;
 
 
-        closeThisPanelButton.onClick.AddListener(()=>{
+        closeThisPanelButton.onClick.AddListener(() => {
             ((FirePanel)FindAnyObjectByType(typeof(FirePanel))).SetFirePanelActivate(0);
             Fire_Icon_Middle.fillAmount = 0;
         });
@@ -233,23 +233,21 @@ public class MakeFire : MonoBehaviour
                 3 => thirst_Change_Lighter,
                 _ => 0
             };
-            if( selectedType == 2)
+            if (selectedType == 2)
             {
                 slotManager.ChangeSlotItemAmount(slotManager.GetSlotItem(0).Value.amount - 1, 0);
             }
 
-            PlayerInfo.Instance.OnHealthSet += OnHealthChange;
-            PlayerInfo.Instance.OnHungerSet += OnHungerChange;
-            PlayerInfo.Instance.OnThirstSet += OnThirstChange;
-             
+
+
 
             float random = Random.value;
-            if(random <= selectedType switch
+            if (random <= selectedType switch
             {
-                1=> 0.3f,
-                2=>0.8f,
-                3=>1f,
-                _=>0
+                1 => 0.3f,
+                2 => 0.8f,
+                3 => 1f,
+                _ => 0
             })
             {
                 PlayerInfo.Instance.Fire += 30;
@@ -270,6 +268,10 @@ public class MakeFire : MonoBehaviour
             }
 
         });
+
+        PlayerInfo.Instance.OnHealthSet += OnHealthChange;
+        PlayerInfo.Instance.OnHungerSet += OnHungerChange;
+        PlayerInfo.Instance.OnThirstSet += OnThirstChange;
     }
 
 
@@ -287,9 +289,13 @@ public class MakeFire : MonoBehaviour
         {
             var info = PlayerInfo.Instance;
             info.Inventry.OnSlotVisibilityChanged -= ApplySlotContollerVisibility;
-            info.OnHealthSet -= OnHealthChange;
-            info.OnThirstSet -= OnThirstChange;
-            info.OnHungerSet -= OnHungerChange;
+            print("remove");
+            if (info.OnHealthSet != null)
+                info.OnHealthSet -= OnHealthChange;
+            if (info.OnThirstSet != null)
+                info.OnThirstSet -= OnThirstChange;
+            if (info.OnHungerSet != null)
+                info.OnHungerSet -= OnHungerChange;
         }
     }
 
@@ -325,9 +331,9 @@ public class MakeFire : MonoBehaviour
     }
     void OnThirstChange()
     {
-      
+        print(thirst_Change_Text);
         if (!thirst_Change_Text) return;
-        print("thist set");
+
         int temp = selectedType switch
         {
             0 => 0,
