@@ -58,6 +58,7 @@ public class FirePanel : PanelBase
         PlayerInfo.Instance.Inventry.SetVisible(true);
         
     }
+
     protectedÅ@override void Update()
     {
         base.Update();
