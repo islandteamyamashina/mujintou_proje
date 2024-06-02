@@ -78,6 +78,20 @@ public class MakeFire : MonoBehaviour
 
 
     }
+    private void OnDisable()
+    {
+        if (!PlayerInfo.InstanceNullable) return;
+        var data1 = slotManager.GetSlotItem(0).Value;
+        var data2 = slotManager.GetSlotItem(1).Value;
+        if (PlayerInfo.Instance.Inventry.GetItem(data1.id, data1.amount))
+        {
+            slotManager.ClearSlot(0);
+        }
+        if (PlayerInfo.Instance.Inventry.GetItem(data2.id, data2.amount))
+        {
+            slotManager.ClearSlot(1);
+        }
+    }
 
     public void Init()
     {
@@ -289,7 +303,6 @@ public class MakeFire : MonoBehaviour
         {
             var info = PlayerInfo.Instance;
             info.Inventry.OnSlotVisibilityChanged -= ApplySlotContollerVisibility;
-            print("remove");
             if (info.OnHealthSet != null)
                 info.OnHealthSet -= OnHealthChange;
             if (info.OnThirstSet != null)
@@ -331,7 +344,6 @@ public class MakeFire : MonoBehaviour
     }
     void OnThirstChange()
     {
-        print(thirst_Change_Text);
         if (!thirst_Change_Text) return;
 
         int temp = selectedType switch

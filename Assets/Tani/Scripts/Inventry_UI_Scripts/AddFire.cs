@@ -16,6 +16,17 @@ public class AddFire : MonoBehaviour
     {
         PlayerInfo.Instance.Inventry.SetVisible(true);
     }
+    private void OnDisable()
+    {
+        if (!PlayerInfo.InstanceNullable) return;
+        var data1 = SlotManager.GetSlotItem(0).Value;
+
+        if (PlayerInfo.Instance.Inventry.GetItem(data1.id, data1.amount))
+        {
+            SlotManager.ClearSlot(0);
+        }
+
+    }
     private void Awake()
     {
         
