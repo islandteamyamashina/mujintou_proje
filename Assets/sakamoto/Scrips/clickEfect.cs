@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class clickEfect : MonoBehaviour
 {
+    //クリックエフェクトのプレハブを取得
     [SerializeField] GameObject efect;
+    [SerializeField] Animator animator;
+
     
+    //スクリーン座標とワールド座標の宣言
     Vector3 mousePos, worldPos;
     // Start is called before the first frame update
     void Start()
     {
-        
+        //anime = efect.GetComponent<Animator>(); 
     }
 
     // Update is called once per frame
@@ -22,22 +26,30 @@ public class clickEfect : MonoBehaviour
         worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10.0f));
         //Debug.Log(worldPos);
  
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0))
         {
-            //if(efect)
+            //if (efect)
             //{
             //    Destroy(efect);
             //}
-            Debug.Log("左クリック");  
-            Instantiate(efect,worldPos,Quaternion.Euler(0.0f,0.0f,0.0f));          
+            Debug.Log("左クリック"+ worldPos);
 
+            //efect.transform.position = worldPos;
+            //anime.SetBool("clickAnime", true);
+
+            efect.SetActive(true);
             efect.transform.position = worldPos;
-            Debug.Log(efect.transform.position);
+            animator.Play("clickAnime",0);
+            //efect.transform.parent = parent.transform;
 
-        }   
-        
+            //Debug.Log(efect.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.position);
+            //efect.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.position = worldPos;
+            //Debug.Log(efect.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.position);
 
-
+            //efect.transform.position = worldPos;
+            //anime.SetBool("clickAnime", true);
+            //Debug.Log(efect.transform.position);
+        }
 
     }
 }
