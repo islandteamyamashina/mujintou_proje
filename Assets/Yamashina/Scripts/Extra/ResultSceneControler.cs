@@ -19,6 +19,8 @@ public class ResultSceneControler : MonoBehaviour
     [SerializeField] Text Special;
     [SerializeField] 
     RawImage RawImage;
+    [SerializeField] Image action;
+    [SerializeField]ActionValueController actionValueController;    
 
     private void Awake()
     {
@@ -35,8 +37,9 @@ public class ResultSceneControler : MonoBehaviour
             Txt_deador.text = "脱出成功";
 
         }
-        //Debug.Log(gameObject.GetComponent<SpecialItemData>().specil_item_id);
-        Special.text = "最初にてに入れたアイテムは"+gameObject.GetComponent<SpecialItemData>().specil_item_id.ToString();
+        Debug.Log(gameObject.GetComponent<SpecialItemData>().specil_item_id);
+        Special.text = "最初にてに入れたアイテムは" + gameObject.GetComponent<SpecialItemData>().specil_item_id.ToString();
+        //    action = PlayerInfo.Instance.OnActionValueChange.AddListener(() => actionValueController.GetComponent<ActionVa);
     }
     private void Start()
     {
