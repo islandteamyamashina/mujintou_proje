@@ -9,10 +9,10 @@ public class anotherSoundPlayer : MonoBehaviour
     {
         Audiovolume.instance.audioSourceSE = GameObject.FindWithTag("SE").GetComponent<AudioSource>();
 
-        if (!Audiovolume.instance.audioSourceSE.isPlaying)
-        {
+        //if (!Audiovolume.instance.audioSourceSE.isPlaying)
+        //{
             GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(audioClipSE[num]);
-        }
+        //}
 
             GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume = Audiovolume.instance.SE;
         
