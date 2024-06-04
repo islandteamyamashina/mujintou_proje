@@ -5,6 +5,7 @@ using System.IO;
 using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class ResultSceneControler : MonoBehaviour
 {
@@ -13,35 +14,62 @@ public class ResultSceneControler : MonoBehaviour
 
     [SerializeField]
     SceneObject title;
-    [SerializeField]
+    [SerializeField] Text Txt_deador;
+    [SerializeField] Text Txt_day;
+    [SerializeField] Text Special;
+    [SerializeField] 
     RawImage RawImage;
 
-    public static void Capture(string path)
+    private void Awake()
+    {
+        Debug.Log(PlayerInfo.Instance.Day.day);
+        Txt_day.text = PlayerInfo.Instance.Day.day.ToString() + " ì˙ñ⁄";
+        if (PlayerInfo.Instance.Health <= 0)
         {
-            string directory = Path.GetDirectoryName(path);
+            Debug.Log(PlayerInfo.Instance.Health);
+            Txt_deador.text = "íEèoé∏îs";
 
-            if (!Directory.Exists(directory))
-            {
-                Directory.CreateDirectory(directory);
-            }
-
-            string extension = Path.GetExtension(path).ToLower();
-
-            switch (extension)
-            {
-                case ".jpg":
-                case ".jpeg":
-                    File.WriteAllBytes(path, ScreenCapture.CaptureScreenshotAsTexture().EncodeToJPG());
-                    break;
-                case ".png":
-                    ScreenCapture.CaptureScreenshot(path);
-                    break;
-                case ".tga":
-                    File.WriteAllBytes(path, ScreenCapture.CaptureScreenshotAsTexture().EncodeToTGA());
-                    break;
-            }
         }
-    
+        if (PlayerInfo.Instance.Health > 0)
+        {
+            Txt_deador.text = "íEèoê¨å˜";
+
+        }
+        //Debug.Log(gameObject.GetComponent<SpecialItemData>().specil_item_id);
+        Special.text = "ç≈èâÇ…ÇƒÇ…ì¸ÇÍÇΩÉAÉCÉeÉÄÇÕ"+gameObject.GetComponent<SpecialItemData>().specil_item_id.ToString();
+    }
+    private void Start()
+    {
+
+        Invoke(nameof(ReToTitle), 5.5f);
+
+    }
+    public static void Capture(string path)
+    {
+        string directory = Path.GetDirectoryName(path);
+
+        if (!Directory.Exists(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+
+        string extension = Path.GetExtension(path).ToLower();
+
+        switch (extension)
+        {
+            case ".jpg":
+            case ".jpeg":
+                File.WriteAllBytes(path, ScreenCapture.CaptureScreenshotAsTexture().EncodeToJPG());
+                break;
+            case ".png":
+                ScreenCapture.CaptureScreenshot(path);
+                break;
+            case ".tga":
+                File.WriteAllBytes(path, ScreenCapture.CaptureScreenshotAsTexture().EncodeToTGA());
+                break;
+        }
+    }
+
     public void ReToTitle()
     {
         var loaded = SceneManager.LoadSceneAsync(title);
@@ -56,6 +84,8 @@ public class ResultSceneControler : MonoBehaviour
         loaded.allowSceneActivation = true;
 
     }
+  
+
     public void Capture_button()
     {
         Capture("screenshot/test.png");

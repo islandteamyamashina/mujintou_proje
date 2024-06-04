@@ -32,6 +32,8 @@ public class EDTextFlow : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log(PlayerInfo.Instance.Day.day);
+
         //インベントリ開いたままtrueEndに飛ぶと開きっぱなしになるみたいなので加えました（柴田）
         var player = GameObject.FindAnyObjectByType<PlayerInfo>();
         player.Inventry.SetVisible(false);
@@ -160,14 +162,16 @@ public class EDTextFlow : MonoBehaviour
         }
         var loaded = SceneManager.LoadSceneAsync(title);
         loaded.allowSceneActivation = false;
+        Debug.Log(PlayerInfo.Instance.Day.day);
+
         yield return new WaitForSeconds(5f);
-        //プレイヤーの破壊をここに移動//
-        if (PlayerInfo.InstanceNullable)
-        {
-            PlayerInfo.Instance.DestroySelf();
-        }
-        DataManager.ErasePlayerSaveData();
-        //プレイヤーの破壊をここに移動//
+        ////プレイヤーの破壊をここに移動//
+        //if (PlayerInfo.InstanceNullable)
+        //{
+        //    PlayerInfo.Instance.DestroySelf();
+        //}
+        //DataManager.ErasePlayerSaveData();
+        ////プレイヤーの破壊をここに移動//
         loaded.allowSceneActivation = true;
         
     }

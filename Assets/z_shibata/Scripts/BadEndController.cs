@@ -22,6 +22,9 @@ public class BadEndController : MonoBehaviour
     }
     IEnumerator BadEnd()
     {
+        Debug.Log(PlayerInfo.Instance.Health);
+        Debug.Log(PlayerInfo.Instance.Day.day);
+
         //var player = GameObject.FindAnyObjectByType<PlayerInfo>();
         //GameObject playerOb = player.gameObject;
         ////playerOb.transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
@@ -57,11 +60,11 @@ public class BadEndController : MonoBehaviour
         {
 
             //プレイヤーの破壊をここに移動//
-            if (PlayerInfo.InstanceNullable)
-        {
-            PlayerInfo.Instance.DestroySelf();
-        }
-        DataManager.ErasePlayerSaveData();
+        //    if (PlayerInfo.InstanceNullable)
+        //{
+        //    PlayerInfo.Instance.DestroySelf();
+        //}
+        //DataManager.ErasePlayerSaveData();
 
         //プレイヤーの破壊をここに移動//
         loaded.allowSceneActivation = true;
