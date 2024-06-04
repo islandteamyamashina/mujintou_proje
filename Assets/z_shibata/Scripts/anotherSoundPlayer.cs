@@ -7,7 +7,12 @@ public class anotherSoundPlayer : MonoBehaviour
     public AudioClip[] audioClipSE;
     public void ChooseSongs_SE(int num)
     {
-        Audiovolume.instance.audioSourceSE = GameObject.FindWithTag("SE").GetComponent<AudioSource>();
+        GameObject au = GameObject.FindWithTag("SE");
+
+        if (au.GetComponent<SoundCoolTime>().canPlay)
+        {
+            au.GetComponent<SoundCoolTime>().canPlay = false;
+            Audiovolume.instance.audioSourceSE = GameObject.FindWithTag("SE").GetComponent<AudioSource>();
 
         //if (!Audiovolume.instance.audioSourceSE.isPlaying)
         //{
@@ -16,5 +21,7 @@ public class anotherSoundPlayer : MonoBehaviour
 
             GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume = Audiovolume.instance.SE;
         
+        }
+       
     }
 }

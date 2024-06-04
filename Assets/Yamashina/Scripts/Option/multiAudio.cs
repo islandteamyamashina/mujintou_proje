@@ -58,41 +58,46 @@ public class multiAudio : MonoBehaviour
 
     public void ChooseSongs_SE(int num)
     {
-
-        switch (num)
+        if (GameObject.FindWithTag("SE").GetComponent<SoundCoolTime>().canPlay)
         {
-            case 0:
-                //if (!Audiovolume.instance.audioSourceSE.isPlaying)
-                //{
+            switch (num)
+            {
+                case 0:
+                    //if (!Audiovolume.instance.audioSourceSE.isPlaying)
+                    //{
+                    GameObject.FindWithTag("SE").GetComponent<SoundCoolTime>().canPlay = false;
                     GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = audioClipSE[num];
                     audioClipSE = GetComponent<multiAudio>().audioClipSE;
                     GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume = Audiovolume.instance.SE;
 
 
                     GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(audioClipSE[num]);
-                //}
-                break;
+                    //}
+                    break;
 
-            case 1:
-                //if (!Audiovolume.instance.audioSourceSE.isPlaying)
-                //{
+                case 1:
+                    //if (!Audiovolume.instance.audioSourceSE.isPlaying)
+                    //{
+                    GameObject.FindWithTag("SE").GetComponent<SoundCoolTime>().canPlay = false;
                     GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = audioClipSE[num];
                     audioClipSE = GetComponent<multiAudio>().audioClipSE;
                     GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume = Audiovolume.instance.SE;
 
                     GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(audioClipSE[num]);
-                //}
-                break;
-            case 2:
-                //if (!Audiovolume.instance.audioSourceSE.isPlaying)
-                //{
+                    //}
+                    break;
+                case 2:
+                    //if (!Audiovolume.instance.audioSourceSE.isPlaying)
+                    //{
+                    GameObject.FindWithTag("SE").GetComponent<SoundCoolTime>().canPlay = false;
                     GameObject.FindWithTag("SE").GetComponent<AudioSource>().clip = audioClipSE[num];
                     audioClipSE = GetComponent<multiAudio>().audioClipSE;
                     GameObject.FindWithTag("SE").GetComponent<AudioSource>().volume = Audiovolume.instance.SE;
 
                     GameObject.FindWithTag("SE").GetComponent<AudioSource>().PlayOneShot(audioClipSE[num]);
-                //}
-                break;
+                    //}
+                    break;
+            }
         }
     }
 
