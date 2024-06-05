@@ -38,9 +38,13 @@ public class ResultSceneControler : MonoBehaviour
 
         }
         Debug.Log(PlayerInfo.Instance.FirstItemId);
-        Special.text = "最初に手に入れたアイテムは" + (Items.Item_ID)PlayerInfo.Instance.FirstItemId;
+        int ID =PlayerInfo.Instance.FirstItemId;
+        string name = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)ID);
+        Special.text = "最初に手に入れたアイテムは" + name;
+        Instantiate(ActionValueImagePrefab, action.gameObject.transform);
+
     }
-   
+
     private void Start()
     {
 
