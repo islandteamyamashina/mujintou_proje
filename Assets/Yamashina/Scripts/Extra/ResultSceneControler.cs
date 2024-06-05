@@ -37,9 +37,8 @@ public class ResultSceneControler : MonoBehaviour
             Txt_deador.text = "脱出成功";
 
         }
-        //Debug.Log(gameObject.GetComponent<SpecialItemData>().specil_item_id);
-        //Special.text = "最初にてに入れたアイテムは" + gameObject.GetComponent<SpecialItemData>().specil_item_id.ToString();
-        Instantiate(ActionValueImagePrefab,action.gameObject.transform);
+        Debug.Log(PlayerInfo.Instance.FirstItemId);
+        Special.text = "最初に手に入れたアイテムは" + (Items.Item_ID)PlayerInfo.Instance.FirstItemId;
     }
    
     private void Start()
