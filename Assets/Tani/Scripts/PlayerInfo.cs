@@ -168,6 +168,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         }
     }
 
+    public int FirstItemId { get; set; } = (int)Items.Item_ID.EmptyObject;
     public UnityEvent OnActionValueChange { get; } = new UnityEvent();
 
     public UnityEvent OnMaxActionValueChange { get; } = new UnityEvent();
@@ -273,6 +274,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
             Health = 30;
             Hunger = 10;
             Thirst = 10;
+            print((Items.Item_ID)FirstItemId);
             
         }
 
@@ -399,6 +401,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         fire_value = data.fire;
         ActionValue = data.action;
         MaxActionValue = data.max_action;
+        FirstItemId = data.firstItemId;
        // UnityEngine.SceneManagement.SceneManager.LoadScene()
     }
 

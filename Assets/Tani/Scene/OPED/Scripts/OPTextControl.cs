@@ -168,6 +168,7 @@ namespace Opening
                 button.onClick.AddListener(() =>
                 {
                     var item = button.gameObject.GetComponent<SpecialItemData>().specil_item_id;
+                    PlayerInfo.Instance.FirstItemId = (int)item;
                     info.Inventry.GetItem(item, 1);
                     Destroy(choises);
                     textContol.ResetTextData();

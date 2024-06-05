@@ -39,6 +39,7 @@ public class OPSkipSystem : MonoBehaviour
                 if (data)
                 {
                     PlayerInfo.Instance.Inventry.GetItem(data.specil_item_id, 1);
+                    PlayerInfo.Instance.FirstItemId = (int)data.specil_item_id;
                     PlayerInfo.Instance.DoAction();
                     PlayerInfo.Instance.DoAction();
                     PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_branch, 1);
