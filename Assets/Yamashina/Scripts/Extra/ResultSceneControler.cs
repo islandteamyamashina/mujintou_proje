@@ -17,64 +17,60 @@ public class ResultSceneControler : MonoBehaviour
     [SerializeField] Text Txt_deador;
     [SerializeField] Text Txt_day;
     [SerializeField] Text Special;
-    [SerializeField] 
+    [SerializeField]
     RawImage RawImage;
     [SerializeField] GameObject action;
     [SerializeField]
     GameObject ActionValueImagePrefab;
+    [SerializeField]
+    Image ItemImage;
+    [SerializeField] public GameObject Text_screen;
+    public string gamepath;
+    public string timeStamp;
+    string screenShotPath;
+
     private void Awake()
     {
         Debug.Log(PlayerInfo.Instance.Day.day);
-        Txt_day.text = PlayerInfo.Instance.Day.day.ToString() + " 日目";
+        Txt_day.text = PlayerInfo.Instance.Day.day.ToString() + " 日";
         if (PlayerInfo.Instance.Health <= 0)
         {
             Debug.Log(PlayerInfo.Instance.Health);
-            Txt_deador.text = "脱出失敗";
+            Txt_deador.text = "生還  失敗";
 
         }
         if (PlayerInfo.Instance.Health > 0)
         {
-            Txt_deador.text = "脱出成功";
+            Txt_deador.text = "生還  成功";
 
         }
         Debug.Log(PlayerInfo.Instance.FirstItemId);
-        int ID =PlayerInfo.Instance.FirstItemId;
+        int ID = PlayerInfo.Instance.FirstItemId;
         string name = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)ID);
-        Special.text = "最初に手に入れたアイテムは" + name;
+        ItemImage.sprite = SlotManager.GetItemData((Items.Item_ID)PlayerInfo.Instance.FirstItemId).icon;
+            Special.text = name;
         Instantiate(ActionValueImagePrefab, action.gameObject.transform);
+        Text_screen.SetActive(false);
 
     }
 
     private void Start()
     {
 
-        Invoke(nameof(ReToTitle), 5.5f);
+        Invoke(nameof(ReToTitle), 10f);
 
     }
-    public static void Capture(string path)
+    public string Capture()
     {
-        string directory = Path.GetDirectoryName(path);
+        DateTime date = DateTime.Now;
+        timeStamp = date.ToString("yyyy-MM-dd-HH-mm-ss-fff");
+        string path = "";
 
-        if (!Directory.Exists(directory))
-        {
-            Directory.CreateDirectory(directory);
-        }
+        // プロジェクトファイル直下に作成
+        path = "screenshot/" + timeStamp + ".png";
 
-        string extension = Path.GetExtension(path).ToLower();
 
-        switch (extension)
-        {
-            case ".jpg":
-            case ".jpeg":
-                File.WriteAllBytes(path, ScreenCapture.CaptureScreenshotAsTexture().EncodeToJPG());
-                break;
-            case ".png":
-                ScreenCapture.CaptureScreenshot(path);
-                break;
-            case ".tga":
-                File.WriteAllBytes(path, ScreenCapture.CaptureScreenshotAsTexture().EncodeToTGA());
-                break;
-        }
+        return path;
     }
 
     public void ReToTitle()
@@ -91,16 +87,24 @@ public class ResultSceneControler : MonoBehaviour
         loaded.allowSceneActivation = true;
 
     }
-  
+
 
     public void Capture_button()
     {
-        Capture("screenshot/test.png");
+        Text_screen.SetActive(true);
+
+        screenShotPath = Capture();
+
+        // ファイルとして保存するならFile.WriteAllBytes()を実行
+        ScreenCapture.CaptureScreenshot(screenShotPath);
+
+
+
     }
-    public void Display()
-    {
-        File.ReadAllBytes("screenshot/test.png");
-    }
+    //public void Display()
+    //{
+    //    File.ReadAllBytes("screenshot/test.png");
+    //}
 }
 
 
