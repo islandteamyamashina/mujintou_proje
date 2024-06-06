@@ -17,6 +17,8 @@ public class ResultSceneControler : MonoBehaviour
     [SerializeField] Text Txt_deador;
     [SerializeField] Text Txt_day;
     [SerializeField] Text Special;
+    [SerializeField]
+    Fading fade;
     //[SerializeField]
     //RawImage RawImage;
     //[SerializeField] GameObject action;
@@ -31,6 +33,7 @@ public class ResultSceneControler : MonoBehaviour
 
     private void Awake()
     {
+        fade.Fade(Fading.type.FadeIn);
         Debug.Log(PlayerInfo.Instance.Day.day);
         Txt_day.text = PlayerInfo.Instance.Day.day.ToString() + " “ú";
         if (PlayerInfo.Instance.Health <= 0)

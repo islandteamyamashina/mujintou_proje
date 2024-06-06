@@ -164,16 +164,22 @@ public class EDTextFlow : MonoBehaviour
         loaded.allowSceneActivation = false;
         Debug.Log(PlayerInfo.Instance.Day.day);
 
+
         yield return new WaitForSeconds(5f);
-        ////プレイヤーの破壊をここに移動//
-        //if (PlayerInfo.InstanceNullable)
-        //{
-        //    PlayerInfo.Instance.DestroySelf();
-        //}
-        //DataManager.ErasePlayerSaveData();
-        ////プレイヤーの破壊をここに移動//
-        loaded.allowSceneActivation = true;
-        
+      
+            ////プレイヤーの破壊をここに移動//
+            //if (PlayerInfo.InstanceNullable)
+            //{
+            //    PlayerInfo.Instance.DestroySelf();
+            //}
+            //DataManager.ErasePlayerSaveData();
+            ////プレイヤーの破壊をここに移動//
+            loaded.allowSceneActivation = true;
+        fade.Fade(Fading.type.FadeOut);
+        fade.OnFadeEnd.AddListener(() =>
+        {
+            fade.Fade(Fading.type.FadeIn);
+        });
     }
 
     void AddTextDataToTextControl(int index)
