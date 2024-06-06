@@ -5,7 +5,9 @@ using UnityEngine;
 public class clickEfect : MonoBehaviour
 {
     //クリックエフェクトのプレハブを取得
+    [Header("クリックエフェクトのプレハブを入れて")]
     [SerializeField] GameObject efect;
+    [Header("クリックエフェクトのプレハブを入れて")]
     [SerializeField] Animator animator;
 
     
@@ -23,7 +25,7 @@ public class clickEfect : MonoBehaviour
         //マウスの位置を取得
         mousePos = Input.mousePosition;         
         //マウス座標をワールド座標に変換
-        worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10.0f));
+        worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y + 5, 10.0f));
         //Debug.Log(worldPos);
  
         if (Input.GetMouseButtonUp(0))
