@@ -58,8 +58,10 @@ public class BadEndController : MonoBehaviour
         fade.Fade(Fading.type.FadeOut);
         fade.OnFadeEnd.AddListener(() =>
         {
+            fade.Fade(Fading.type.FadeIn);
+        });
 
-            //プレイヤーの破壊をここに移動//
+        //プレイヤーの破壊をここに移動//
         //    if (PlayerInfo.InstanceNullable)
         //{
         //    PlayerInfo.Instance.DestroySelf();
@@ -69,7 +71,6 @@ public class BadEndController : MonoBehaviour
         //プレイヤーの破壊をここに移動//
         loaded.allowSceneActivation = true;
 
-        });
 
     }
 }
