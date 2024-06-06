@@ -17,11 +17,11 @@ public class ResultSceneControler : MonoBehaviour
     [SerializeField] Text Txt_deador;
     [SerializeField] Text Txt_day;
     [SerializeField] Text Special;
-    [SerializeField]
-    RawImage RawImage;
-    [SerializeField] GameObject action;
-    [SerializeField]
-    GameObject ActionValueImagePrefab;
+    //[SerializeField]
+    //RawImage RawImage;
+    //[SerializeField] GameObject action;
+    //[SerializeField]
+    //GameObject ActionValueImagePrefab;
     [SerializeField]
     Image ItemImage;
     [SerializeField] public GameObject Text_screen;
@@ -36,12 +36,12 @@ public class ResultSceneControler : MonoBehaviour
         if (PlayerInfo.Instance.Health <= 0)
         {
             Debug.Log(PlayerInfo.Instance.Health);
-            Txt_deador.text = "ê∂ä“  é∏îs";
+            Txt_deador.text = "ê∂ä“ é∏îs";
 
         }
         if (PlayerInfo.Instance.Health > 0)
         {
-            Txt_deador.text = "ê∂ä“  ê¨å˜";
+            Txt_deador.text = "ê∂ä“ ê¨å˜";
 
         }
         Debug.Log(PlayerInfo.Instance.FirstItemId);
@@ -49,7 +49,7 @@ public class ResultSceneControler : MonoBehaviour
         string name = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)ID);
         ItemImage.sprite = SlotManager.GetItemData((Items.Item_ID)PlayerInfo.Instance.FirstItemId).icon;
             Special.text = name;
-        Instantiate(ActionValueImagePrefab, action.gameObject.transform);
+        //Instantiate(ActionValueImagePrefab, action.gameObject.transform);
         Text_screen.SetActive(false);
 
     }
