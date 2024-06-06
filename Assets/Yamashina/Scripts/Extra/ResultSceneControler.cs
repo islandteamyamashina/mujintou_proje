@@ -30,7 +30,7 @@ public class ResultSceneControler : MonoBehaviour
     public string gamepath;
     public string timeStamp;
     string screenShotPath;
-
+    float screenstop = 0.5f;
     private void Awake()
     {
         fade.Fade(Fading.type.FadeIn);
@@ -94,14 +94,18 @@ public class ResultSceneControler : MonoBehaviour
 
     public void Capture_button()
     {
-        Text_screen.SetActive(true);
 
         screenShotPath = Capture();
 
         // ファイルとして保存するならFile.WriteAllBytes()を実行
         ScreenCapture.CaptureScreenshot(screenShotPath);
+        float nowtime = Time.time;
+        nowtime += screenstop;
 
-
+        if (nowtime > 5)
+        {
+            Text_screen.SetActive(true);
+        }
 
     }
     //public void Display()
