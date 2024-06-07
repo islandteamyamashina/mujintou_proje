@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class clickEfect : MonoBehaviour
+public class clickEfect_Overlay : MonoBehaviour
 {
     //クリックエフェクトのプレハブを取得
     [Header("クリックエフェクトのプレハブを入れて")]
     [SerializeField] GameObject efect;
     [Header("クリックエフェクトのプレハブを入れて")]
     [SerializeField] Animator animator;
+    [Header("canvasのRendermodeがoverlayならチェックを入れる。\n Cameraなら不要")]
+    [SerializeField] bool overlay;
 
     
     //スクリーン座標とワールド座標の宣言
@@ -40,7 +42,14 @@ public class clickEfect : MonoBehaviour
             //anime.SetBool("clickAnime", true);
 
             efect.SetActive(true);
-            efect.transform.position = worldPos;
+            if (overlay)
+            {
+                efect.transform.position = mousePos;
+            }
+            else
+            {
+                efect.transform.position = worldPos;
+            }
             animator.Play("clickAnime",0);
             //efect.transform.parent = parent.transform;
 
