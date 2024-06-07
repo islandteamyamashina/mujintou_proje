@@ -18,8 +18,7 @@ public class ResultSceneControler : MonoBehaviour
     [SerializeField] Text Txt_deador;
     [SerializeField] Text Txt_day;
     [SerializeField] Text Special;
-    [SerializeField]
-    Fading fade;
+    
     //[SerializeField]
     //RawImage RawImage;
     //[SerializeField] GameObject action;
@@ -33,11 +32,9 @@ public class ResultSceneControler : MonoBehaviour
     string screenShotPath;
     bool isDisplayed;
     [SerializeField] anotherSoundPlayer SEAudio;
-    [SerializeField] Button totitile;
-
+    [SerializeField] Fade fade;
     private void Awake()
     {
-        fade.Fade(Fading.type.FadeIn);
         //生存日数
         Debug.Log(PlayerInfo.Instance.Day.day);
         Txt_day.text = PlayerInfo.Instance.Day.day.ToString() + "日";
@@ -69,9 +66,10 @@ public class ResultSceneControler : MonoBehaviour
     {
         //撮影したかどうか
         isDisplayed = false;
-        
+        fade.feadout_f = false;
+
         //どのくらいの秒数で自動でタイトル画面に戻るか
-        Invoke(nameof(ReToTitle), 50f);
+        //Invoke(nameof(ReToTitle), 50f);
     }
     public static class ScreenshotCaptor
     {
@@ -144,8 +142,8 @@ public class ResultSceneControler : MonoBehaviour
     }
     public void ResetTitle()
     {
-        var loaded = SceneManager.LoadSceneAsync(title);
-        loaded.allowSceneActivation = false;
+        //var loaded = SceneManager.LoadSceneAsync(title);
+        //loaded.allowSceneActivation = false;
 
         //プレイヤーの破壊をここに移動//
         if (PlayerInfo.InstanceNullable)
@@ -153,15 +151,11 @@ public class ResultSceneControler : MonoBehaviour
             PlayerInfo.Instance.DestroySelf();
         }
         DataManager.ErasePlayerSaveData();
+
         //プレイヤーの破壊をここに移動//
-        loaded.allowSceneActivation = true;
-
-        fade.OnFadeEnd.AddListener(() =>
-        {
-
-
-            fade.Fade(Fading.type.FadeIn);
-        });
+        //loaded.allowSceneActivation = true;
+        fade.feadout_f = true;
+      
     }
     //撮影完了時に実行される（撮影しましたのテキスト表示）
     private void Callback()
