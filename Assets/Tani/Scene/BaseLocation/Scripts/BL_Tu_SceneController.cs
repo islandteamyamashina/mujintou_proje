@@ -9,7 +9,7 @@ public class BL_Tu_SceneController : MonoBehaviour
     [SerializeField]
     List<TextAsset> textAssets;
     [SerializeField]
-    GameObject tips;
+    GameObject[] tips;
 
 
     private void Start()
@@ -21,7 +21,7 @@ public class BL_Tu_SceneController : MonoBehaviour
         {
             textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            Instantiate(tips);
+            Instantiate(tips[0]);
 
         });
     }
@@ -36,6 +36,7 @@ public class BL_Tu_SceneController : MonoBehaviour
         {
             textControl.ClickEventAfterTextsEnd.RemoveAllListeners();
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            Instantiate(tips[1]);
 
         });
     }
