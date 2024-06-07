@@ -32,13 +32,17 @@ public class ResultSceneControler : MonoBehaviour
     public string timeStamp;
     string screenShotPath;
     bool isDisplayed;
+    [SerializeField] anotherSoundPlayer SEAudio;
+    [SerializeField] Button totitile;
 
     private void Awake()
     {
         fade.Fade(Fading.type.FadeIn);
+        //生存日数
         Debug.Log(PlayerInfo.Instance.Day.day);
         Txt_day.text = PlayerInfo.Instance.Day.day.ToString() + "日";
-        //Txt_day.text = 20.ToString() + "日";
+
+        //生存かどうか
         if (PlayerInfo.Instance.Health <= 0)
         {
             Debug.Log(PlayerInfo.Instance.Health);
@@ -48,24 +52,26 @@ public class ResultSceneControler : MonoBehaviour
         if (PlayerInfo.Instance.Health > 0)
         {
             Txt_deador.text = "成功";
-
         }
+
+        //最初に手に入れたアイテムの名前
         Debug.Log(PlayerInfo.Instance.FirstItemId);
         int ID = PlayerInfo.Instance.FirstItemId;
         string name = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)ID);
-        ItemImage.sprite = SlotManager.GetItemData((Items.Item_ID)PlayerInfo.Instance.FirstItemId).icon;
         Special.text = name;
-        //Instantiate(ActionValueImagePrefab, action.gameObject.transform);
-        //Text_screen.SetActive(false);
 
+        //最初に手に入れたアイテムのイメージ
+        ItemImage.sprite = SlotManager.GetItemData((Items.Item_ID)PlayerInfo.Instance.FirstItemId).icon;
+        SEAudio = GameObject.FindAnyObjectByType<anotherSoundPlayer>().GetComponent<anotherSoundPlayer>();
     }
 
     private void Start()
     {
+        //撮影したかどうか
         isDisplayed = false;
-        //Text_screen.SetActive(false);
+        
+        //どのくらいの秒数で自動でタイトル画面に戻るか
         Invoke(nameof(ReToTitle), 50f);
-
     }
     public static class ScreenshotCaptor
     {
@@ -75,12 +81,12 @@ public class ResultSceneControler : MonoBehaviour
         /// </summary>
         public static IEnumerator Capture(string imageName = "image.png", Action callback = null)
         {
-
+            //実際の日付に変換
             DateTime date = DateTime.Now;
             imageName = date.ToString("yyyy-MM-dd-HH-mm-ss-fff");
              string path = "";
 
-            // プロジェクトファイル直下に作成
+            // プロジェクトファイルのスクリーンショットフォルダの直下に作成
             path = "screenshot/" + imageName + ".png";
             string imagePath = path;
 
@@ -121,8 +127,10 @@ public class ResultSceneControler : MonoBehaviour
     }
     public void ReToTitle()
     {
+
         var loaded = SceneManager.LoadSceneAsync(title);
         loaded.allowSceneActivation = false;
+       
         //プレイヤーの破壊をここに移動//
         if (PlayerInfo.InstanceNullable)
         {
@@ -132,25 +140,29 @@ public class ResultSceneControler : MonoBehaviour
         //プレイヤーの破壊をここに移動//
         loaded.allowSceneActivation = true;
 
+        fade.OnFadeEnd.AddListener(() =>
+        {
+            totitile.onClick.AddListener(() =>
+            {
+                SEAudio.ChooseSongs_SE(0);
+            });
+
+
+            fade.Fade(Fading.type.FadeIn);
+        });
     }
-    //public void Display()
-    //{
-    //    File.ReadAllBytes("screenshot/test.png");
-    //}
+
+    //実際にインスペクター上で撮影ボタンに設定している関数
     public void CaptureButtton()
     {
+        SEAudio.ChooseSongs_SE(0);
 
-        StartCoroutine(
-          ScreenshotCaptor.Capture(
-            imageName: "Screenshot.png", 
-    callback: Callback
-          )
-        );
-
+        StartCoroutine(ScreenshotCaptor.Capture
+            (imageName: "Screenshot.png", callback: Callback));
 
     }
 
-    //撮影完了時に実行される
+    //撮影完了時に実行される（撮影しましたのテキスト表示）
     private void Callback()
     {
         Debug.Log("撮影完了");
