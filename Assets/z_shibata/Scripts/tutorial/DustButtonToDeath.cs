@@ -12,6 +12,8 @@ public class DustButtonToDeath : MonoBehaviour
     GameObject dustBox;
     [SerializeField] GameObject awayButton;
     bool once = false;
+
+    [SerializeField] Items.Item_ID[] switchX;
     private void Start()
     {
         inv = PlayerInfo.Instance.Inventry.gameObject;
@@ -37,7 +39,6 @@ public class DustButtonToDeath : MonoBehaviour
     }
     void FindDustBox()
     {
-        Debug.Log("find");
         once = true;
         //awayButton = GameObject.Find("trowaway");
         dustBox = GameObject.Find("dustBox");
@@ -49,14 +50,22 @@ public class DustButtonToDeath : MonoBehaviour
     }
     public void InstaMassage()
     {
-        Debug.Log("button");
         var b = dustBox.GetComponent<SlotManager>().GetSlotItem(0).Value.id;
-        Debug.Log(b);
         var c = Items.Item_ID.EmptyObject;
+        
         if (b != c)
         {
-            Instantiate(massage);
+            for (int i = 0; i < switchX.Length ; i++)
+            {
+                var a = switchX[i];
+                if(b == a)
+                {
+                    Debug.Log(switchX);
+                    Instantiate(massage);
+                    return;
+                }
+            }
+            dustBox.GetComponent<SlotManager>().ClearSlot(0);
         }
-        
     }
 }
