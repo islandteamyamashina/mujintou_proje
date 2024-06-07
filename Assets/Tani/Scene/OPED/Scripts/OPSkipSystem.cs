@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
+using System;
 
 public class OPSkipSystem : MonoBehaviour
 {
@@ -14,7 +16,6 @@ public class OPSkipSystem : MonoBehaviour
     SceneObject baseLocation;
     [SerializeField]
     Button SkipButton;
-    
     void Start()
     {
 
@@ -26,7 +27,6 @@ public class OPSkipSystem : MonoBehaviour
             Destroy(SkipButton.gameObject);
         }
     }
-
     
     public void CreatSkipMenu()
     {
@@ -42,7 +42,15 @@ public class OPSkipSystem : MonoBehaviour
                     PlayerInfo.Instance.FirstItemId = (int)data.specil_item_id;
                     PlayerInfo.Instance.DoAction();
                     PlayerInfo.Instance.DoAction();
-                    PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.item_craft_coconutJuice);
+                    //危険//ここから先、激ヤバコード//危険//
+                    PlayerInfo.Instance.Inventry.SetVisible(true);
+
+                    SlotManager.selectedItem = (PlayerInfo.Instance.Inventry.GetComponent<SlotManager>(),0);
+                    SlotManager.selectedItem.slotManager.UseSlotItem(SlotManager.selectedItem.index);
+                    GameObject.FindAnyObjectByType<DetailPanel>().gameObject.transform.GetChild(4).GetComponent<Button>().onClick.Invoke();
+                    
+                    PlayerInfo.Instance.Inventry.SetVisible(false);
+                    //危険//ここまで激ヤバコード//危険//
                     PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_bottle, 1);
 
                     PlayerInfo.Instance.Health = 100;
