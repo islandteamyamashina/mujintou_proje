@@ -128,28 +128,9 @@ public class ResultSceneControler : MonoBehaviour
     public void ReToTitle()
     {
 
-        var loaded = SceneManager.LoadSceneAsync(title);
-        loaded.allowSceneActivation = false;
-       
-        //プレイヤーの破壊をここに移動//
-        if (PlayerInfo.InstanceNullable)
-        {
-            PlayerInfo.Instance.DestroySelf();
-        }
-        DataManager.ErasePlayerSaveData();
-        //プレイヤーの破壊をここに移動//
-        loaded.allowSceneActivation = true;
+        SEAudio.ChooseSongs_SE(0);
 
-        fade.OnFadeEnd.AddListener(() =>
-        {
-            totitile.onClick.AddListener(() =>
-            {
-                SEAudio.ChooseSongs_SE(0);
-            });
-
-
-            fade.Fade(Fading.type.FadeIn);
-        });
+        Invoke(nameof(ResetTitle), 0.2f);
     }
 
     //実際にインスペクター上で撮影ボタンに設定している関数
@@ -161,7 +142,27 @@ public class ResultSceneControler : MonoBehaviour
             (imageName: "Screenshot.png", callback: Callback));
 
     }
+    public void ResetTitle()
+    {
+        var loaded = SceneManager.LoadSceneAsync(title);
+        loaded.allowSceneActivation = false;
 
+        //プレイヤーの破壊をここに移動//
+        if (PlayerInfo.InstanceNullable)
+        {
+            PlayerInfo.Instance.DestroySelf();
+        }
+        DataManager.ErasePlayerSaveData();
+        //プレイヤーの破壊をここに移動//
+        loaded.allowSceneActivation = true;
+
+        fade.OnFadeEnd.AddListener(() =>
+        {
+
+
+            fade.Fade(Fading.type.FadeIn);
+        });
+    }
     //撮影完了時に実行される（撮影しましたのテキスト表示）
     private void Callback()
     {
