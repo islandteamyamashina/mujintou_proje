@@ -6,6 +6,7 @@ using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using System.Text.RegularExpressions;
 
 public class ResultSceneControler : MonoBehaviour
 {
@@ -26,11 +27,12 @@ public class ResultSceneControler : MonoBehaviour
     //GameObject ActionValueImagePrefab;
     [SerializeField]
     Image ItemImage;
-    [SerializeField] public GameObject Text_screen;
+    [SerializeField] public  GameObject Text_screen;
     public string gamepath;
     public string timeStamp;
     string screenShotPath;
-    float screenstop = 0.5f;
+    bool isDisplayed;
+
     private void Awake()
     {
         fade.Fade(Fading.type.FadeIn);
@@ -51,31 +53,71 @@ public class ResultSceneControler : MonoBehaviour
         int ID = PlayerInfo.Instance.FirstItemId;
         string name = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)ID);
         ItemImage.sprite = SlotManager.GetItemData((Items.Item_ID)PlayerInfo.Instance.FirstItemId).icon;
-            Special.text = name;
+        Special.text = name;
         //Instantiate(ActionValueImagePrefab, action.gameObject.transform);
-        Text_screen.SetActive(false);
+        //Text_screen.SetActive(false);
 
     }
 
     private void Start()
     {
-
-        Invoke(nameof(ReToTitle), 10f);
+        isDisplayed = false;
+        //Text_screen.SetActive(false);
+        Invoke(nameof(ReToTitle), 50f);
 
     }
-    public string Capture()
+    public static class ScreenshotCaptor
     {
-        DateTime date = DateTime.Now;
-        timeStamp = date.ToString("yyyy-MM-dd-HH-mm-ss-fff");
-        string path = "";
 
-        // プロジェクトファイル直下に作成
-        path = "screenshot/" + timeStamp + ".png";
+        /// <summary>
+        /// スクリーンショットを撮る
+        /// </summary>
+        public static IEnumerator Capture(string imageName = "image.png", Action callback = null)
+        {
 
+            DateTime date = DateTime.Now;
+            imageName = date.ToString("yyyy-MM-dd-HH-mm-ss-fff");
+             string path = "";
 
-        return path;
+            // プロジェクトファイル直下に作成
+            path = "screenshot/" + imageName + ".png";
+            string imagePath = path;
+
+            //iOS、Android実機の時はパスにApplication.persistentDataPathを追加
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
+    imagePath = Path.Combine(Application.persistentDataPath, imageName);
+#endif
+
+            //前に撮ったスクショを削除
+            File.Delete(imagePath);
+
+            //スクリーンショットを撮る
+            UnityEngine.ScreenCapture.CaptureScreenshot(imagePath);
+            //スクリーンショットが保存されるまで待機(最大2秒)
+            float latency = 0, latencyLimit = 2;
+            while (latency < latencyLimit)
+            {
+                //ファイルが存在していればループ終了
+                if (File.Exists(imagePath))
+                {
+                    break;
+                }
+                latency += Time.deltaTime;
+                yield return null;
+            }
+            //待機時間が上限に達していたら警告表示(おそらくスクショが保存出来ていない時)
+            if (latency >= latencyLimit)
+            {
+                Debug.LogWarning("待機時間が上限に達しました！正常にスクリーンショットが保存できていません！");
+            }
+
+            //コールバックが登録されていれば実行
+            if (callback != null)
+            {
+                callback();
+            }
+        }
     }
-
     public void ReToTitle()
     {
         var loaded = SceneManager.LoadSceneAsync(title);
@@ -90,29 +132,31 @@ public class ResultSceneControler : MonoBehaviour
         loaded.allowSceneActivation = true;
 
     }
-
-
-    public void Capture_button()
-    {
-
-        screenShotPath = Capture();
-
-        // ファイルとして保存するならFile.WriteAllBytes()を実行
-        ScreenCapture.CaptureScreenshot(screenShotPath);
-        float nowtime = Time.time;
-        nowtime += screenstop;
-
-        if (nowtime > 5)
-        {
-            Text_screen.SetActive(true);
-        }
-
-    }
     //public void Display()
     //{
     //    File.ReadAllBytes("screenshot/test.png");
     //}
+    public void CaptureButtton()
+    {
+
+        StartCoroutine(
+          ScreenshotCaptor.Capture(
+            imageName: "Screenshot.png", 
+    callback: Callback
+          )
+        );
+
+
+    }
+
+    //撮影完了時に実行される
+    private void Callback()
+    {
+        Debug.Log("撮影完了");
+        Text_screen.SetActive(true);
+    }
 }
+
 
 
 // Start is called before the first frame update
