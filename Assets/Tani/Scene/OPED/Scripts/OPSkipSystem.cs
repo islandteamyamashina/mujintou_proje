@@ -17,7 +17,7 @@ public class OPSkipSystem : MonoBehaviour
     
     void Start()
     {
-        
+
     }
     public void DestroySkipButton()
     {
@@ -42,14 +42,12 @@ public class OPSkipSystem : MonoBehaviour
                     PlayerInfo.Instance.FirstItemId = (int)data.specil_item_id;
                     PlayerInfo.Instance.DoAction();
                     PlayerInfo.Instance.DoAction();
-                    PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_branch, 1);
-                    PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_coconutJuice, 1);
+                    PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.item_craft_coconutJuice);
                     PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_bottle, 1);
-                    PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_stone, 1);
 
                     PlayerInfo.Instance.Health = 100;
-                    PlayerInfo.Instance.Thirst = 83-30;
-                    PlayerInfo.Instance.Hunger = 75-10;
+                    PlayerInfo.Instance.Thirst = 83;
+                    PlayerInfo.Instance.Hunger = 75;
                     SceneManager.LoadScene(baseLocation);
                 }
                 else

@@ -19,9 +19,6 @@ public class tutorialItemStash : MonoBehaviour
         PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.Plank);
 
 
-        PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.item_mat_branch);
-        PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.item_mat_branch);
-        PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.item_mat_branch);
-        PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.item_mat_branch);
+        PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.Butterfly);
     }
 }

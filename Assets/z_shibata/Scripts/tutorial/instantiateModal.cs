@@ -9,4 +9,8 @@ public class instantiateModal : MonoBehaviour
     {
         Instantiate(Modal);
     }
+    public void InstantiateObject()
+    {
+        Instantiate(Modal);
+    }
 }
