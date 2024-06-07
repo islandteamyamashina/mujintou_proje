@@ -37,16 +37,17 @@ public class ResultSceneControler : MonoBehaviour
     {
         fade.Fade(Fading.type.FadeIn);
         Debug.Log(PlayerInfo.Instance.Day.day);
-        Txt_day.text = PlayerInfo.Instance.Day.day.ToString() + " “ú";
+        Txt_day.text = PlayerInfo.Instance.Day.day.ToString() + "“ú";
+        //Txt_day.text = 20.ToString() + "“ú";
         if (PlayerInfo.Instance.Health <= 0)
         {
             Debug.Log(PlayerInfo.Instance.Health);
-            Txt_deador.text = "¶ŠÒ ¸”s";
+            Txt_deador.text = "¸”s";
 
         }
         if (PlayerInfo.Instance.Health > 0)
         {
-            Txt_deador.text = "¶ŠÒ ¬Œ÷";
+            Txt_deador.text = "¬Œ÷";
 
         }
         Debug.Log(PlayerInfo.Instance.FirstItemId);
