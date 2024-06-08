@@ -175,6 +175,8 @@ public class EDTextFlow : MonoBehaviour
             //DataManager.ErasePlayerSaveData();
             ////ƒvƒŒƒCƒ„[‚Ì”j‰ó‚ð‚±‚±‚ÉˆÚ“®//
             loaded.allowSceneActivation = true;
+        fade.fading_time = 3f;
+
         fade.Fade(Fading.type.FadeOut);
         fade.OnFadeEnd.AddListener(() =>
         {

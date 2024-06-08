@@ -55,6 +55,8 @@ public class BadEndController : MonoBehaviour
 
         var loaded = SceneManager.LoadSceneAsync(title);
         loaded.allowSceneActivation = false;
+        fade.fading_time = 3f;
+
         fade.Fade(Fading.type.FadeOut);
         fade.OnFadeEnd.AddListener(() =>
         {
@@ -70,6 +72,7 @@ public class BadEndController : MonoBehaviour
 
         //ƒvƒŒƒCƒ„[‚Ì”j‰ó‚ğ‚±‚±‚ÉˆÚ“®//
         loaded.allowSceneActivation = true;
+
 
 
     }
