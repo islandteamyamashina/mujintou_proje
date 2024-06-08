@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class clickEfect_Overlay : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class clickEfect_Overlay : MonoBehaviour
     [SerializeField] Animator animator;
     [Header("canvasのRendermodeがoverlayならチェックを入れる。\n Cameraなら不要")]
     [SerializeField] bool overlay;
+    [SerializeField] UnityEvent ClickEndEvent;
 
     
     //スクリーン座標とワールド座標の宣言
@@ -36,7 +38,7 @@ public class clickEfect_Overlay : MonoBehaviour
             //{
             //    Destroy(efect);
             //}
-            Debug.Log("左クリック"+ worldPos);
+            //Debug.Log("左クリック"+ worldPos);
 
             //efect.transform.position = worldPos;
             //anime.SetBool("clickAnime", true);
@@ -51,6 +53,7 @@ public class clickEfect_Overlay : MonoBehaviour
                 efect.transform.position = worldPos;
             }
             animator.Play("clickAnime",0);
+            ClickEndEvent.Invoke();
             //efect.transform.parent = parent.transform;
 
             //Debug.Log(efect.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.position);
@@ -62,5 +65,9 @@ public class clickEfect_Overlay : MonoBehaviour
             //Debug.Log(efect.transform.position);
         }
 
+    }
+    public void test()
+    {
+        Debug.Log("テスト成功");
     }
 }
