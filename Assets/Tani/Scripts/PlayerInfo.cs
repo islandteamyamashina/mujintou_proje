@@ -204,7 +204,7 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         this.inventry.SwitchVisible();
 
 
-        Inventry.GetItem(Items.Item_ID.item_craft_coconutJuice, 5);
+        //Inventry.GetItem(Items.Item_ID.item_craft_coconutJuice, 5);
 
     }
 
