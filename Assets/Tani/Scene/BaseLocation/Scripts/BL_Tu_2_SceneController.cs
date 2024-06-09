@@ -35,12 +35,13 @@ public class BL_Tu_2_SceneController : MonoBehaviour
 
     private void Update()
     {
-        if(PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_coconut ) == 0
+        if(PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.Leaf ) == 0
             && PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_craft_coconutJuice) == 0
             && PlayerInfo.Instance.MaxActionValue == 5)
         {
             PlayerInfo.Instance.MaxActionValue++;
         }
+        
     }
 
     void MakeTips2()
