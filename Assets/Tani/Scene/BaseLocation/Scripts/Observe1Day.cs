@@ -10,6 +10,7 @@ public class Observe1Day : MonoBehaviour
     {
         if(PlayerInfo.Instance.Day.day == 1)
         {
+            PlayerInfo.Instance.DestroySelf();
             SceneManager.LoadScene(op);
 
         }
