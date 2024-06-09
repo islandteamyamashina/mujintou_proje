@@ -226,7 +226,7 @@ public class RouteSentaku : Event_Text
         PlayerInfo.Instance.Thirst += thirst;
 
         textControl.AddTextData($"体力 　{beforeHelth} => {PlayerInfo.Instance.Health}\n" +
-                                $"空腹度 {beforeHunger} => {PlayerInfo.Instance.Hunger}\n" +
+                                $"食料 {beforeHunger} => {PlayerInfo.Instance.Hunger}\n" +
                                 $"水分 　{beforeThirst} => {PlayerInfo.Instance.Thirst}");
     }
 

@@ -49,7 +49,7 @@ public class SO_Item : ScriptableObject
     private ItemParameter ItemParameter;
 
     /// <summary>
-    ///   このオブジェクトに設定された体力、空腹、水分の回復情報を取得できます。
+    ///   このオブジェクトに設定された体力、食料、水分の回復情報を取得できます。
     /// </summary>
     public ItemParameter GetHealValue()
     {

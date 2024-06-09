@@ -312,7 +312,7 @@ public class EventPanelBase : MonoBehaviour
         string status_change =
             $"体力　 : {prev_health} ⇒ {info.Health}\n" +
             $"水分 　: {prev_thirst} ⇒ {info.Thirst}\n" +
-            $"空腹 　: {prev_hunger} ⇒ {info.Hunger}\n" +
+            $"食料 　: {prev_hunger} ⇒ {info.Hunger}\n" +
             $"行動値 : {prev_action} ⇒ {info.ActionValue}";
         event_text_control.AddTextData(status_change);
 
@@ -344,7 +344,7 @@ public class EventPanelBase : MonoBehaviour
 
         if (info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Hungry))
         {
-            conditionChangeText += $"空腹 : 体力{info.Health} ⇒ {Mathf.Clamp(info.Health - (((100 - info.Hunger) / 4) -19),0,100)}\n";
+            conditionChangeText += $"食料 : 体力{info.Health} ⇒ {Mathf.Clamp(info.Health - (((100 - info.Hunger) / 4) -19),0,100)}\n";
             info.Health = Mathf.Clamp(info.Health - (((100 - info.Hunger) / 4) - 19), 0, 100);
         }
 

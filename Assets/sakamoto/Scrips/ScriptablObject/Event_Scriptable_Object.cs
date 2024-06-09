@@ -42,7 +42,7 @@ public class EventData : ScriptableObject
     public int Sentakusi1_Reward3_num;
     [Header("体力")]
     public int Sentakusi1_health;
-    [Header("空腹度")]
+    [Header("食料")]
     public int Sentakusi1_hunger;
     [Header("水分")]
     public int Sentakusi1_warter;
@@ -72,7 +72,7 @@ public class EventData : ScriptableObject
     public int Sentakusi2_Reward3_num;
     [Header("体力")]
     public int Sentakusi2_health;
-    [Header("空腹度")]
+    [Header("食料")]
     public int Sentakusi2_hunger;
     [Header("水分")]
     public int Sentakusi2_warter;

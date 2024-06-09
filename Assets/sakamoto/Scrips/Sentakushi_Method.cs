@@ -138,11 +138,11 @@ public class Sentakushi_Method : Event_Text
                 Debug.Log("通った");
                 effect.damage_f = true;
             }
-            Debug.Log("変換前の体力は" + PlayerInfo.Instance.Health + "空腹度は" + PlayerInfo.Instance.Hunger + "水分は" + PlayerInfo.Instance.Thirst + "です");
+            Debug.Log("変換前の体力は" + PlayerInfo.Instance.Health + "食料は" + PlayerInfo.Instance.Hunger + "水分は" + PlayerInfo.Instance.Thirst + "です");
             PlayerInfo.Instance.Health += event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_health;
             PlayerInfo.Instance.Hunger += event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_hunger;
             PlayerInfo.Instance.Thirst += event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_warter;
-            Debug.Log("変換後の体力は" + PlayerInfo.Instance.Health + "空腹度は" + PlayerInfo.Instance.Hunger + "水分は" + PlayerInfo.Instance.Thirst + "です");
+            Debug.Log("変換後の体力は" + PlayerInfo.Instance.Health + "食料は" + PlayerInfo.Instance.Hunger + "水分は" + PlayerInfo.Instance.Thirst + "です");
 
             if (PlayerInfo.Instance.Day.day <= event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_day || event_manage.eventDatas[event_manage.now_event_num].Sentakusi1_day == 0)
             {
@@ -193,11 +193,11 @@ public class Sentakushi_Method : Event_Text
 
             GoToLoadScene = true;
 
-            Debug.Log("変換前の体力は" + PlayerInfo.Instance.Health + "空腹度は" + PlayerInfo.Instance.Hunger + "水分は" + PlayerInfo.Instance.Thirst + "です");
+            Debug.Log("変換前の体力は" + PlayerInfo.Instance.Health + "食料は" + PlayerInfo.Instance.Hunger + "水分は" + PlayerInfo.Instance.Thirst + "です");
             PlayerInfo.Instance.Health += event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_health;
             PlayerInfo.Instance.Hunger += event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_hunger;
             PlayerInfo.Instance.Thirst += event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_warter;
-            Debug.Log("変換後の体力は" + PlayerInfo.Instance.Health + "空腹度は" + PlayerInfo.Instance.Hunger + "水分は" + PlayerInfo.Instance.Thirst + "です");
+            Debug.Log("変換後の体力は" + PlayerInfo.Instance.Health + "食料は" + PlayerInfo.Instance.Hunger + "水分は" + PlayerInfo.Instance.Thirst + "です");
 
             if (PlayerInfo.Instance.Day.day <= event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_day || event_manage.eventDatas[event_manage.now_event_num].Sentakusi2_day == 0)
             {
