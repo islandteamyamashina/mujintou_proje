@@ -80,6 +80,7 @@ public class BaseLocationDaytimeController : MonoBehaviour
 
     void Update()
     {
+        if (PlayerInfo.InstanceNullable == null) return;
         PlayerInfo.Instance.CheckPlayerDeath();
         if (Input.GetMouseButton(1))
         {

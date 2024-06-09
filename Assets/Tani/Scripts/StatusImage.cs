@@ -44,6 +44,7 @@ public class StatusImage : MonoBehaviour
 
     void Update()
     {
+        if (PlayerInfo.InstanceNullable == null) return;
         
         image.fillAmount = info.GetStatusPercent((int)status_type);
         switch (status_type)

@@ -43,6 +43,7 @@ public class CraftPanel : PanelBase
     protected override void Update()
     {
         base.Update();
+        if (PlayerInfo.InstanceNullable == null) return;
 
         if (gameObject.activeSelf && !PlayerInfo.Instance.Inventry.GetVisibility())
         {

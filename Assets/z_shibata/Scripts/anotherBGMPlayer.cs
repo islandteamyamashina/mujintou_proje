@@ -24,6 +24,8 @@ public class anotherBGMPlayer : MonoBehaviour
     public void PlayBGMofDiray()
     {
         //éRïií«â¡ï™
+        if (PlayerInfo.InstanceNullable == null) return;
+
         Audiovolume.instance.audioSourceBGM = GameObject.FindWithTag("BGM").GetComponent<AudioSource>();
         GameObject.FindWithTag("BGM").GetComponent<AudioSource>().volume = Audiovolume.instance.BGM;
         //Ç±Ç¡Ç©ÇÁéƒìcìsçá

@@ -190,9 +190,10 @@ public class MakeFire : MonoBehaviour
         {
             var info = PlayerInfo.Instance;
             selectedType = 1;
-            health_Change_Text.text = $"{info.Health} >> {info.Health + health_Change_Hand}";
-            hunger_Change_Text.text = $"{info.Hunger} >> {info.Hunger + hunger_Change_Hand}";
-            thirst_Change_Text.text = $"{info.Thirst} >> {info.Thirst + thirst_Change_Hand}";
+            string shortof = "不足"; 
+            health_Change_Text.text = $"{info.Health} >> {((info.Health + health_Change_Hand >= 0)? info.Health + health_Change_Hand : shortof )}";
+            hunger_Change_Text.text = $"{info.Hunger} >> {((info.Hunger + hunger_Change_Hand >= 0) ? info.Hunger + hunger_Change_Hand : shortof)}";
+            thirst_Change_Text.text = $"{info.Thirst} >> {((info.Thirst + thirst_Change_Hand >= 0) ? info.Thirst + thirst_Change_Hand : shortof)}";
             SelectedResultText.text = "素手でやるしかない";
             Fire_Icon_Middle.fillAmount = 0.3f;
             success_posibility_text.text = "成功確率 : 30%";
@@ -202,9 +203,10 @@ public class MakeFire : MonoBehaviour
         {
             var info = PlayerInfo.Instance;
             selectedType = 2;
-            health_Change_Text.text = $"{info.Health} >> {info.Health + health_Change_FireSet}";
-            hunger_Change_Text.text = $"{info.Hunger} >> {info.Hunger + hunger_Change_FireSet}";
-            thirst_Change_Text.text = $"{info.Thirst} >> {info.Thirst + thirst_Change_FireSet}";
+            string shortof = "不足";
+            health_Change_Text.text = $"{info.Health} >> {((info.Health + health_Change_FireSet >= 0) ? info.Health + health_Change_FireSet : shortof)}";
+            hunger_Change_Text.text = $"{info.Hunger} >> {((info.Hunger + hunger_Change_FireSet >= 0) ? info.Hunger + hunger_Change_FireSet : shortof)}";
+            thirst_Change_Text.text = $"{info.Thirst} >> {((info.Thirst + thirst_Change_FireSet >= 0) ? info.Thirst + thirst_Change_FireSet : shortof)}";
             SelectedResultText.text = "火おこしセットを使用";
             Fire_Icon_Middle.fillAmount = 0.3f;
             success_posibility_text.text = "成功確率 : 80%";
@@ -214,9 +216,10 @@ public class MakeFire : MonoBehaviour
         {
             var info = PlayerInfo.Instance;
             selectedType = 3;
-            health_Change_Text.text = $"{info.Health} >> {info.Health + health_Change_Lighter}";
-            hunger_Change_Text.text = $"{info.Hunger} >> {info.Hunger + hunger_Change_Lighter}";
-            thirst_Change_Text.text = $"{info.Thirst} >> {info.Thirst + thirst_Change_Lighter}";
+            string shortof = "不足";
+            health_Change_Text.text = $"{info.Health} >> {((info.Health + health_Change_Lighter >= 0) ? info.Health + health_Change_Lighter : shortof)}";
+            hunger_Change_Text.text = $"{info.Hunger} >> {((info.Hunger + hunger_Change_Lighter >= 0) ? info.Hunger + hunger_Change_Lighter : shortof)}";
+            thirst_Change_Text.text = $"{info.Thirst} >> {((info.Thirst + thirst_Change_Lighter >= 0) ? info.Thirst + thirst_Change_Lighter : shortof)}";
             SelectedResultText.text = "ライターを使う";
             Fire_Icon_Middle.fillAmount = 0.3f;
             success_posibility_text.text = "成功確率 : 100%";

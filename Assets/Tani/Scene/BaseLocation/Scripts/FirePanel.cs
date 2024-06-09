@@ -62,6 +62,7 @@ public class FirePanel : PanelBase
     protectedÅ@override void Update()
     {
         base.Update();
+        if (PlayerInfo.InstanceNullable == null) return;
 
         ToMakeFire.gameObject.SetActive(PlayerInfo.Instance.Fire == 0);
         ToAddFire.gameObject.SetActive(PlayerInfo.Instance.Fire != 0);

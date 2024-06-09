@@ -13,7 +13,7 @@ public class ConditionPresenter : MonoBehaviour
 
     private void Update()
     {
-
+        if (PlayerInfo.InstanceNullable == null) return;
         poisonImage.SetActive(PlayerInfo.Instance.IsPlayerConditionEqualTo(PlayerInfo.Condition.Poisoned));
         hungryImage.SetActive(PlayerInfo.Instance.IsPlayerConditionEqualTo(PlayerInfo.Condition.Hungry));
         thristyImage.SetActive(PlayerInfo.Instance.IsPlayerConditionEqualTo(PlayerInfo.Condition.Thirsty));
