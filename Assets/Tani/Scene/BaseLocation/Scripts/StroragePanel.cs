@@ -35,6 +35,8 @@ public class StroragePanel : PanelBase
     // Update is called once per frame
     protected override void Update()
     {
+        if (PlayerInfo.InstanceNullable == null) return;
+
         if (gameObject.activeSelf && !PlayerInfo.Instance.Inventry.GetVisibility())
         {
             gameObject.SetActive(false);

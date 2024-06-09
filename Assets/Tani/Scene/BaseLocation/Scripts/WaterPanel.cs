@@ -40,6 +40,7 @@ public class WaterPanel : PanelBase
 
     protected override void Update()
     {
+        if (PlayerInfo.InstanceNullable == null) return;
         int prev = info.Thirst;
         water_value_text.text = $"<b>{prev}% Ë {Mathf.Clamp(prev + waterAmountPerOnce, 0, 100)}%</b>";
         spring_water_text.text = $"’™… : {info.Water}";

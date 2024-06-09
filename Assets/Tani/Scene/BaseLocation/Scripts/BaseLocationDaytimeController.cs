@@ -80,7 +80,13 @@ public class BaseLocationDaytimeController : MonoBehaviour
 
     void Update()
     {
+        if (PlayerInfo.InstanceNullable == null) return;
         PlayerInfo.Instance.CheckPlayerDeath();
+        if (Input.GetMouseButton(1))
+        {
+            DeactivateAllPanels();
+            PlayerInfo.Instance.Inventry.SetVisible(false);
+        }
     }
     private void Awake()
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using System;
+using UnityEngine.Events;
 
 public class DetailPanel : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class DetailPanel : MonoBehaviour
     string foodUsageLogForActionValueIncrease_textName = "FoodUsageLog.txt";
     string fullPath;
     Dictionary<Items.Item_ID,bool> foodUsageLog = new Dictionary<Items.Item_ID, bool>();
+    public event UnityAction<Items.Item_ID> OnItemUse;
     private void OnEnable()
     {
         SlotManager.selectedItem.slotManager = null;
@@ -47,6 +49,7 @@ public class DetailPanel : MonoBehaviour
             if (!affiliation) return;
 
             affiliation.UseSlotItem(index);
+            OnItemUse.Invoke(id);
 
             if (id == Items.Item_ID.item_craft_water || id == Items.Item_ID.item_craft_water2)
             {
