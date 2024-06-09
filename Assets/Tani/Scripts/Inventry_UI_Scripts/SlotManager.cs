@@ -279,7 +279,7 @@ public class SlotManager : MonoBehaviour
         return item_list[index];
     }
 
-    static private GameObject[] SearchActiveSlotsInScene()
+    static public GameObject[] SearchActiveSlotsInScene()
     {
         return GameObject.FindGameObjectsWithTag(Slot.slot_tag_name);
     }

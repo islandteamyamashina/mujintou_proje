@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class BL_Tu_2_SceneController : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class BL_Tu_2_SceneController : MonoBehaviour
     [SerializeField]
     SceneObject nextScene;
 
-
+    List<SlotManager> slots = new List<SlotManager>();
     private void Start()
     {
         textControl.ResetTextData();
@@ -31,24 +32,29 @@ public class BL_Tu_2_SceneController : MonoBehaviour
         });
 
         PlayerInfo.Instance.OnMaxActionValueChange.AddListener(MakeTips2);
+        PlayerInfo.Instance.Inventry.SetVisible(true);
+        PlayerInfo.Instance.gameObject.GetComponentInChildren<DetailPanel>().OnItemUse += OnCoconutsUsed;
+        PlayerInfo.Instance.Inventry.SetVisible(false);
+
+
     }
 
-    private void Update()
+    void OnCoconutsUsed(Items.Item_ID iD)
     {
-        if(PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.Leaf ) == 0
-            && PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_craft_coconutJuice) == 0
-            && PlayerInfo.Instance.MaxActionValue == 5)
+        if(iD == Items.Item_ID.item_craft_coconutJuice)
         {
+            PlayerInfo.Instance.Inventry.SetVisible(true);
+            PlayerInfo.Instance.gameObject.GetComponentInChildren<DetailPanel>().OnItemUse -= OnCoconutsUsed;
+            PlayerInfo.Instance.Inventry.SetVisible(false);
             PlayerInfo.Instance.MaxActionValue++;
         }
-        
     }
 
     void MakeTips2()
     {
         PlayerInfo.Instance.OnMaxActionValueChange.RemoveListener(MakeTips2);
         Instantiate(nextTips);
-        PlayerInfo.Instance.Inventry.SwitchVisible();
+        PlayerInfo.Instance.Inventry.SetVisible(false);
     }
 
     public void NextText()
