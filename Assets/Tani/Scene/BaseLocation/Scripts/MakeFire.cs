@@ -131,13 +131,14 @@ public class MakeFire : MonoBehaviour
             1 => (PlayerInfo.Instance.Fire == 0 &&
                           PlayerInfo.Instance.Health >= -health_Change_Hand) &&
                              (PlayerInfo.Instance.Hunger >= -hunger_Change_Hand &&
-                             PlayerInfo.Instance.Thirst >= -thirst_Change_Hand),
+                             PlayerInfo.Instance.Thirst >= -thirst_Change_Hand
+                             && PlayerInfo.Instance.ActionValue >= 2),
 
             2 => (slotManager.GetSlotItem(0).Value.id == Items.Item_ID.item_craft_onFireSet &&
                             PlayerInfo.Instance.Health >= -health_Change_FireSet) &&
                             (PlayerInfo.Instance.Hunger >= -hunger_Change_FireSet &&
                             PlayerInfo.Instance.Thirst >= -thirst_Change_FireSet)
-                            && PlayerInfo.Instance.Fire == 0,
+                            && PlayerInfo.Instance.Fire == 0 && PlayerInfo.Instance.ActionValue >= 1,
 
             3 => (slotManager.GetSlotItem(1).Value.id == Items.Item_ID.item_special_lighter &&
                              PlayerInfo.Instance.Health >= -health_Change_Lighter) &&
@@ -250,6 +251,14 @@ public class MakeFire : MonoBehaviour
                 3 => thirst_Change_Lighter,
                 _ => 0
             };
+            PlayerInfo.Instance.ActionValue += selectedType switch
+            {
+                1 => 2,
+                2 => 1,
+                3 => 0,
+                _ => 0
+            };
+
             if (selectedType == 2)
             {
                 slotManager.ChangeSlotItemAmount(slotManager.GetSlotItem(0).Value.amount - 1, 0);

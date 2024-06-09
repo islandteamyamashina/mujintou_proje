@@ -145,6 +145,7 @@ public class CraftSlots : SlotManager
                     - temp_current_recipe.input_items[i].amount, temp_current_recipe.input_relation[i]);
             }
             SetItemToSlot(temp_current_recipe.crafted_item, temp_current_recipe.craft_num, craft_output_slot.Slot_index);
+            PlayerInfo.Instance.ActionValue--;
             return ;
         }
         else if(craftable == 2)
@@ -158,7 +159,9 @@ public class CraftSlots : SlotManager
             }
 
             ChangeSlotItemAmount(GetSlotItem(craft_output_slot.Slot_index).Value.amount + temp_current_recipe.craft_num, craft_output_slot.Slot_index);
-            return ;
+            PlayerInfo.Instance.ActionValue--;
+
+            return;
         }
         else
         {

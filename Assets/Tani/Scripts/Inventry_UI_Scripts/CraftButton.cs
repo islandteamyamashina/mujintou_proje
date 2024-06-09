@@ -30,6 +30,6 @@ public class CraftButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        button.interactable = craft.CheckCraftable() != 0;
+        button.interactable = craft.CheckCraftable() != 0 && PlayerInfo.Instance.ActionValue >= 1;
     }
 }
