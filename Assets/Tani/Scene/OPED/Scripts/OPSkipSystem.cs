@@ -43,14 +43,16 @@ public class OPSkipSystem : MonoBehaviour
                     PlayerInfo.Instance.DoAction();
                     PlayerInfo.Instance.DoAction();
                     //危険//ここから先、激ヤバコード//危険//
-                    PlayerInfo.Instance.Inventry.SetVisible(true);
+                    //PlayerInfo.Instance.Inventry.SetVisible(true);
 
-                    SlotManager.selectedItem = (PlayerInfo.Instance.Inventry.GetComponent<SlotManager>(),0);
-                    SlotManager.selectedItem.slotManager.UseSlotItem(SlotManager.selectedItem.index);
-                    GameObject.FindAnyObjectByType<DetailPanel>().gameObject.transform.GetChild(4).GetComponent<Button>().onClick.Invoke();
-                    
-                    PlayerInfo.Instance.Inventry.SetVisible(false);
+                    //SlotManager.selectedItem = (PlayerInfo.Instance.Inventry.GetComponent<SlotManager>(),0);
+                    //SlotManager.selectedItem.slotManager.UseSlotItem(SlotManager.selectedItem.index);
+                    //GameObject.FindAnyObjectByType<DetailPanel>().gameObject.transform.GetChild(4).GetComponent<Button>().onClick.Invoke();
+
+                    //PlayerInfo.Instance.Inventry.SetVisible(false);
                     //危険//ここまで激ヤバコード//危険//
+                    PlayerInfo.Instance.MaxActionValue++;
+
                     PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_bottle, 1);
 
                     PlayerInfo.Instance.Health = 100;
