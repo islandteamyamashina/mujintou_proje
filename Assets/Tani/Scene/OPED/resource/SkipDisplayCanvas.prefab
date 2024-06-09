@@ -80,50 +80,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u30AA\u30FC\u30D7\u30CB\u30F3\u30B0\u3068\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB\u3092\u30B9\u30AD\u30C3\u30D7\u3057\u307E\u3059"
---- !u!1 &3185160792687017670
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2709585093870500690}
-  - component: {fileID: 7362213329228904799}
-  m_Layer: 0
-  m_Name: SkipAndUseCJ
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2709585093870500690
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3185160792687017670}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32.96234, y: -43.80905, z: 1.8937838}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7415364865466854026}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7362213329228904799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3185160792687017670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 846933dff7b8aa44699bca03e06b631b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7415364865466854070
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +116,6 @@ RectTransform:
   - {fileID: 7415364865775766921}
   - {fileID: 1660624001645447210}
   - {fileID: 7525990857646429857}
-  - {fileID: 2709585093870500690}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -446,7 +401,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7362213329228904799}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SkipAndUseCJ, Assembly-CSharp
         m_MethodName: StashCJ
         m_Mode: 1
