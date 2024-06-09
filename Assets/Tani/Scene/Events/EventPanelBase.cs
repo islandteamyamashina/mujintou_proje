@@ -344,14 +344,14 @@ public class EventPanelBase : MonoBehaviour
 
         if (info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Hungry))
         {
-            conditionChangeText += $"‹ó•  : ‘Ì—Í{info.Health} Ë {Mathf.Clamp(info.Health - (((100 - info.Hunger) / 4) -20),0,100)}\n";
-            info.Health = Mathf.Clamp(info.Health - (((100 - info.Hunger) / 4) - 20), 0, 100);
+            conditionChangeText += $"‹ó•  : ‘Ì—Í{info.Health} Ë {Mathf.Clamp(info.Health - (((100 - info.Hunger) / 4) -19),0,100)}\n";
+            info.Health = Mathf.Clamp(info.Health - (((100 - info.Hunger) / 4) - 19), 0, 100);
         }
 
         if (info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Thirsty))
         {
-            conditionChangeText += $"Š‰‚« : H—¿{info.Hunger} Ë {Mathf.Clamp(info.Hunger - (((100 - info.Thirst) / 4) -20),0,100)}\n";
-            info.Hunger = Mathf.Clamp(info.Hunger - (((100 - info.Thirst) / 4) - 20),0,100);
+            conditionChangeText += $"Š‰‚« : H—¿{info.Hunger} Ë {Mathf.Clamp(info.Hunger - (((100 - info.Thirst) / 4) -19),0,100)}\n";
+            info.Hunger = Mathf.Clamp(info.Hunger - (((100 - info.Thirst) / 4) - 19),0,100);
         }
 
         event_text_control.AddTextData(conditionChangeText);
