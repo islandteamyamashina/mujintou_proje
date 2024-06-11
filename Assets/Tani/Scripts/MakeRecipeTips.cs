@@ -29,7 +29,14 @@ public class MakeRecipeTips : MakeFloatWindow
             c.renderMode = RenderMode.ScreenSpaceOverlay;
             createdObject = Instantiate(window, c_obj.transform);
             createdObject.transform.position = this.gameObject.transform.position + offset;
-            createdObject.GetComponentInChildren<Text>().text = SlotManager.GetItemData(id).item_name;
+            createdObject.transform.parent.GetComponent<Canvas>().sortingOrder = 6;
+            var item_data = SlotManager.GetItemData(id);
+            createdObject.GetComponentInChildren<Text>().text =
+                                                    (SlotManager.GetItemData(id).item_name + "\n" +
+                                                    "‘Ì—Í :" +item_data.Health_Change ) + "\n" +
+                                                    "H—¿ :" +item_data.Hunger_Change + "\n" +
+                                                    "…•ª :" +item_data.Thirst_Chage + "\n" + 
+                                                    item_data.extra_effect;
 
         });
         entries[1].callback.AddListener(_ =>
