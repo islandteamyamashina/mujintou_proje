@@ -20,10 +20,20 @@ public class BaseLocationDaytimeController : MonoBehaviour
     GameObject BL_Tu_3_SceneControllerPrefab = null;
 
     float LongClickTanp = 0;
-    [SerializeField] float time;
+
+    [SerializeField] GameObject LongClickPr;
+    GameObject LongClickEf;
+    [SerializeField] GameObject parent;
+    [SerializeField] LoadGauge loadGauge;
+    [SerializeField] GameObject[] panels_GO;
+    bool closePanels;
+    bool prehabF;
     // Start is called before the first frame update
     IEnumerator Start()
     {
+        closePanels = false;
+        prehabF = true;
+
         PlayerInfo.Instance.SetInventryLock(false);
         switch (pattern)
         {
@@ -83,13 +93,35 @@ public class BaseLocationDaytimeController : MonoBehaviour
     
     void Update()
     {
+        closePanels = false;
+        for (int i = 0; i < panels_GO.Length; i++)
+        {
+            bool[] check = new bool[panels_GO.Length];
+            if (!panels_GO[i].activeSelf) check[i] = false;
+            else check[i] = true;
+            if (check[i]) closePanels = true;
+        }
+        if(PlayerInfo.Instance.Inventry.GetVisibility()) closePanels = true;
+
         if (PlayerInfo.InstanceNullable == null) return;
         PlayerInfo.Instance.CheckPlayerDeath();
         if (Input.GetMouseButton(1) )
         {
-            LongClickTanp += time * Time.deltaTime;
-            if(LongClickTanp > time)
+            LongClickTanp +=  Time.deltaTime;
+            if (0.5f < LongClickTanp && LongClickTanp < 0.6f)
             {
+                if (prehabF)
+                {   
+                    efectStart();
+                    Debug.Log("プレハブ生成");
+                    prehabF = false;
+                }
+            }
+            if(LongClickTanp > loadGauge.countTime + 0.5f)
+            {
+                Debug.Log("プレハブ破壊");
+                Destroy(LongClickEf);
+                closePanels = true;
                 DeactivateAllPanels();
                 PlayerInfo.Instance.Inventry.SetVisible(false);
                 LongClickTanp = 0;
@@ -99,9 +131,25 @@ public class BaseLocationDaytimeController : MonoBehaviour
         }
         if(Input.GetMouseButtonUp(1))
         {
+            Destroy(LongClickEf);
+            prehabF = true;
             LongClickTanp = 0;
             Debug.Log("tanp初期化");
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+           
+        }
+        void efectStart()
+        {
+            if (closePanels)
+            {
+                LongClickEf = Instantiate(LongClickPr);
+                LongClickEf.gameObject.transform.parent = PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0);
+                LongClickEf.transform.position = Input.mousePosition;
+            }
+        }
+
     }
     private void Awake()
     {

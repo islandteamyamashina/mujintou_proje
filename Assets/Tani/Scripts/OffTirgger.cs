@@ -8,7 +8,8 @@ public class OffTirgger : MonoBehaviour
 {
     //[SerializeField] GameObject Trigger;
     [SerializeField] GameObject[] HLs;
-    [SerializeField] List <EventTrigger> eventTriggers;
+    [SerializeField]  public List <EventTrigger> eventTriggers;
+    
 
     private void Awake()
     {

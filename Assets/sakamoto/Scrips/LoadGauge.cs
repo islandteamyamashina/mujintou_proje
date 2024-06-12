@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class LoadGauge : MonoBehaviour
 {
     [SerializeField] Image gauge;
-    [SerializeField] float  countTime;
+    public float  countTime;
 
     // Start is called before the first frame update
     void Start()
