@@ -18,6 +18,9 @@ public class BaseLocationDaytimeController : MonoBehaviour
     GameObject BL_Tu_2_SceneControllerPrefab = null;
     [SerializeField]
     GameObject BL_Tu_3_SceneControllerPrefab = null;
+
+    float LongClickTanp = 0;
+    [SerializeField] float time;
     // Start is called before the first frame update
     IEnumerator Start()
     {
@@ -77,16 +80,28 @@ public class BaseLocationDaytimeController : MonoBehaviour
        
     }
 
-
+    
     void Update()
     {
         if (PlayerInfo.InstanceNullable == null) return;
         PlayerInfo.Instance.CheckPlayerDeath();
-        //if (Input.GetMouseButton(1)&& )
-        //{
-        //    DeactivateAllPanels();
-        //    PlayerInfo.Instance.Inventry.SetVisible(false);
-        //}
+        if (Input.GetMouseButton(1) )
+        {
+            LongClickTanp += time * Time.deltaTime;
+            if(LongClickTanp > time)
+            {
+                DeactivateAllPanels();
+                PlayerInfo.Instance.Inventry.SetVisible(false);
+                LongClickTanp = 0;
+            }
+            //DeactivateAllPanels();
+            //PlayerInfo.Instance.Inventry.SetVisible(false);
+        }
+        if(Input.GetMouseButtonUp(1))
+        {
+            LongClickTanp = 0;
+            Debug.Log("tanpèâä˙âª");
+        }
     }
     private void Awake()
     {
