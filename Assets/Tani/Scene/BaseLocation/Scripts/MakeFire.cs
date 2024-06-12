@@ -251,7 +251,7 @@ public class MakeFire : MonoBehaviour
                 3 => thirst_Change_Lighter,
                 _ => 0
             };
-            PlayerInfo.Instance.ActionValue += selectedType switch
+            PlayerInfo.Instance.ActionValue -= selectedType switch
             {
                 1 => 2,
                 2 => 1,

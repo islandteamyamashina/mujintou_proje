@@ -6796,6 +6796,10 @@ MonoBehaviour:
   BL_Tu_1_SceneControllerPrefab: {fileID: 578258187834864790, guid: 104d4afef463da843967f3a26f03346c, type: 3}
   BL_Tu_2_SceneControllerPrefab: {fileID: 0}
   BL_Tu_3_SceneControllerPrefab: {fileID: 0}
+  LongClickPr: {fileID: 0}
+  parent: {fileID: 0}
+  loadGauge: {fileID: 0}
+  panels_GO: []
 --- !u!224 &964864655
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14668,9 +14672,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 1823886147}
     m_Modifications:
     - target: {fileID: 19482001962260832, guid: 0fb2cefaf0cb2ac468bf9483074d1c5f, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19482001962260832, guid: 0fb2cefaf0cb2ac468bf9483074d1c5f, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19482001962260832, guid: 0fb2cefaf0cb2ac468bf9483074d1c5f, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 19482001962260832, guid: 0fb2cefaf0cb2ac468bf9483074d1c5f, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1458670972}
     - target: {fileID: 19482001962260832, guid: 0fb2cefaf0cb2ac468bf9483074d1c5f, type: 3}
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -14678,6 +14694,34 @@ PrefabInstance:
     - target: {fileID: 19482001962260832, guid: 0fb2cefaf0cb2ac468bf9483074d1c5f, type: 3}
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
+      objectReference: {fileID: 1458670972}
+    - target: {fileID: 19482001962260832, guid: 0fb2cefaf0cb2ac468bf9483074d1c5f, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 19482001962260832, guid: 0fb2cefaf0cb2ac468bf9483074d1c5f, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ChooseSongs_SE
+      objectReference: {fileID: 0}
+    - target: {fileID: 19482001962260832, guid: 0fb2cefaf0cb2ac468bf9483074d1c5f, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ChooseSongs_SE
+      objectReference: {fileID: 0}
+    - target: {fileID: 19482001962260832, guid: 0fb2cefaf0cb2ac468bf9483074d1c5f, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: anotherSoundPlayer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 19482001962260832, guid: 0fb2cefaf0cb2ac468bf9483074d1c5f, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: anotherSoundPlayer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 19482001962260832, guid: 0fb2cefaf0cb2ac468bf9483074d1c5f, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19482001962260832, guid: 0fb2cefaf0cb2ac468bf9483074d1c5f, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 19482001962260895, guid: 0fb2cefaf0cb2ac468bf9483074d1c5f, type: 3}
       propertyPath: m_night_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
