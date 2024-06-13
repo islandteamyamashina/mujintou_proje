@@ -32,7 +32,7 @@ public class clickEfect_Overlay : MonoBehaviour
         worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y + 5, 10.0f));
         //Debug.Log(worldPos);
  
-        if (Input.GetMouseButtonUp(0)|| Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonUp(0)|| Input.GetMouseButtonUp(1))
         {
             //if (efect)
             //{

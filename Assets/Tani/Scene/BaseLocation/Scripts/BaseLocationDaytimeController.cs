@@ -22,7 +22,10 @@ public class BaseLocationDaytimeController : MonoBehaviour
     float LongClickTanp = 0;
 
     [SerializeField] GameObject LongClickPr;
+    //クリックエフェクト
     GameObject LongClickEf;
+    //クリックエフェクトの親オブジェクト
+    GameObject LongClickPa;
     [SerializeField] GameObject parent;
     [SerializeField] LoadGauge loadGauge;
     [SerializeField] GameObject[] panels_GO;
@@ -121,6 +124,7 @@ public class BaseLocationDaytimeController : MonoBehaviour
             {
                 Debug.Log("プレハブ破壊");
                 Destroy(LongClickEf);
+                Destroy(LongClickPa);
                 closePanels = true;
                 DeactivateAllPanels();
                 PlayerInfo.Instance.Inventry.SetVisible(false);
@@ -132,6 +136,7 @@ public class BaseLocationDaytimeController : MonoBehaviour
         if(Input.GetMouseButtonUp(1))
         {
             Destroy(LongClickEf);
+            Destroy(LongClickPa);
             prehabF = true;
             LongClickTanp = 0;
             Debug.Log("tanp初期化");
@@ -144,8 +149,9 @@ public class BaseLocationDaytimeController : MonoBehaviour
         {
             if (closePanels)
             {
+                LongClickPa = Instantiate(parent);
                 LongClickEf = Instantiate(LongClickPr);
-                LongClickEf.gameObject.transform.parent = PlayerInfo.Instance.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0);
+                LongClickEf.gameObject.transform.parent = LongClickPa.transform.GetChild(0);
                 LongClickEf.transform.position = Input.mousePosition;
             }
         }
