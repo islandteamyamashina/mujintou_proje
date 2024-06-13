@@ -18,6 +18,7 @@ public class stopAnimeation : MonoBehaviour
     }
     public void stopAnime()
     {
-        anime.SetActive(false);
+        //anime.SetActive(false);
+        //Destroy(gameObject);
     }
 }
