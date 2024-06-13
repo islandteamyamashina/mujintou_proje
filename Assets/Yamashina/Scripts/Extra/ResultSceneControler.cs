@@ -86,8 +86,7 @@ public class ResultSceneControler : MonoBehaviour
 
             // プロジェクトファイルのスクリーンショットフォルダの直下に作成
             path = "screenshot/" + imageName + ".png";
-            string imagePath = path;
-
+            string imagePath = Application.streamingAssetsPath + "/"+path;
             //iOS、Android実機の時はパスにApplication.persistentDataPathを追加
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
     imagePath = Path.Combine(Application.persistentDataPath, imageName);
