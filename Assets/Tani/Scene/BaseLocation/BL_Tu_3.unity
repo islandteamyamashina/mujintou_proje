@@ -6782,6 +6782,10 @@ MonoBehaviour:
   BL_Tu_1_SceneControllerPrefab: {fileID: 0}
   BL_Tu_2_SceneControllerPrefab: {fileID: 0}
   BL_Tu_3_SceneControllerPrefab: {fileID: 706007094373351205, guid: 0d2fe1aa965cbdf40bd5c049de7bd395, type: 3}
+  LongClickPr: {fileID: 0}
+  parent: {fileID: 0}
+  loadGauge: {fileID: 0}
+  panels_GO: []
 --- !u!224 &964864655
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15301,6 +15305,10 @@ PrefabInstance:
     - target: {fileID: 2050868740902838267, guid: 21e980e9574645347bbe1772eed9dbbd, type: 3}
       propertyPath: m_Name
       value: FirePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050868740902838267, guid: 21e980e9574645347bbe1772eed9dbbd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
