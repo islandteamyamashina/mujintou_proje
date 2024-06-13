@@ -14,10 +14,10 @@ public class clickEfect_Overlay : MonoBehaviour
     //クリックエフェクト
     GameObject ClickEfect;
     GameObject ClickEfectParent;
-    [Header("canvasのRendermodeがoverlayならチェックを入れる。\n Cameraなら不要")]
-    [SerializeField] bool overlay;
+    //[Header("canvasのRendermodeがoverlayならチェックを入れる。\n Cameraなら不要")]
+    //[SerializeField] bool overlay;
     [SerializeField] UnityEvent ClickEndEvent;
-    [SerializeField] Camera targetCamera;
+    //[SerializeField] Camera targetCamera;
 
 
     //スクリーン座標とワールド座標の宣言
@@ -44,23 +44,24 @@ public class clickEfect_Overlay : MonoBehaviour
             ClickEfectParent = Instantiate(parent);
             ClickEfect = Instantiate(efect);
 
-            if (!overlay)
-            {
-                ClickEfectParent.gameObject.transform.GetChild(0).GetComponent<Canvas>().worldCamera = targetCamera;
-            }
+            //if (!overlay)
+            //{
+            //    ClickEfectParent.gameObject.transform.GetChild(0).GetComponent<Canvas>().worldCamera = targetCamera;
+            
+            //}
 
             ClickEfect.gameObject.transform.parent = ClickEfectParent.transform.GetChild(0);
 
             animator = ClickEfect.GetComponent<Animator>();
             efect.SetActive(true);
-            if (overlay)
-            {
+            //if (overlay)
+            //{
                 ClickEfect.transform.position = mousePos;
-            }
-            else
-            {
-                ClickEfect.transform.position = worldPos;
-            }
+            //}
+            //else
+            //{
+            //    ClickEfect.transform.position = worldPos;
+            //}
             animator.Play("clickAnime",0);
             ClickEndEvent.Invoke();
 
