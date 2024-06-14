@@ -19,6 +19,10 @@ public class PurposeSet : MonoBehaviour
             case 2:
                 purpose[num-1].SetActive(false);
                 break;
+            case 3:
+                purpose[num - 1].SetActive(false);
+                purpose[num].SetActive(true);
+                break;
 
         }
 
