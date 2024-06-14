@@ -22,6 +22,8 @@ public class SetLocationPanelSystem : MonoBehaviour
     [SerializeField]
     Button depature_button;
     [SerializeField]
+    GameObject depature_text;@//Ä“c’Ç‰Á•Ï”
+    [SerializeField]
     Fading fading;
 
     SceneObject selectedLocation;
@@ -73,7 +75,18 @@ public class SetLocationPanelSystem : MonoBehaviour
         UpdateButtonState();
         info.button.image.sprite = info.on_hover_sprite;
         selectedLocation = info.distination;
-        depature_button.interactable = true;
+        //Ä“c‚ªif•¶‚ğ‘‚«‰Á‚¦‚Ü‚µ‚½
+        if(PlayerInfo.Instance.ActionValue > 0)
+        {
+            depature_text.SetActive(false);
+            depature_button.interactable = true;
+        }
+        else
+        {
+            depature_text.SetActive(true);
+            depature_button.interactable = false;
+        }
+        //‚±‚±‚Ü‚Å
         
     }
 

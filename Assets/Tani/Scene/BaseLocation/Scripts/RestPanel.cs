@@ -54,7 +54,7 @@ public class RestPanel : PanelBase
         if (info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Poisoned))
         {
             
-            poisonEffect = -15;
+            poisonEffect = -20;
             poisonImage.gameObject.SetActive(true);
         }
         else
