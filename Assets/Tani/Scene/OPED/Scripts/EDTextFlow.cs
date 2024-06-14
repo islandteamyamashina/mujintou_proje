@@ -167,20 +167,14 @@ public class EDTextFlow : MonoBehaviour
 
         yield return new WaitForSeconds(5f);
       
-            ////プレイヤーの破壊をここに移動//
-            //if (PlayerInfo.InstanceNullable)
-            //{
-            //    PlayerInfo.Instance.DestroySelf();
-            //}
-            //DataManager.ErasePlayerSaveData();
-            ////プレイヤーの破壊をここに移動//
-            loaded.allowSceneActivation = true;
         fade.fading_time = 3f;
 
         fade.Fade(Fading.type.FadeOut);
         fade.OnFadeEnd.AddListener(() =>
         {
             fade.Fade(Fading.type.FadeIn);
+
+            loaded.allowSceneActivation = true;
         });
     }
 
