@@ -20,7 +20,6 @@ public class PurposeSet : MonoBehaviour
                 purpose[num-1].SetActive(false);
                 break;
             case 3:
-                purpose[num - 1].SetActive(false);
                 purpose[num].SetActive(true);
                 break;
 
