@@ -49,7 +49,7 @@ public class DetailPanel : MonoBehaviour
             if (!affiliation) return;
 
             affiliation.UseSlotItem(index);
-            OnItemUse.Invoke(id);
+            OnItemUse?.Invoke(id);
 
             if (id == Items.Item_ID.item_craft_water || id == Items.Item_ID.item_craft_water2)
             {
