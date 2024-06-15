@@ -276,7 +276,7 @@ public class MakeFire : MonoBehaviour
                 _ => 0
             })
             {
-                PlayerInfo.Instance.Fire += 30;
+                PlayerInfo.Instance.Fire += 100;
                 Fire_Icon_Middle.fillAmount = 0;
                 SelectedResultText.text = "âŒÇ®Ç±Çµê¨å˜!";
                 ((anotherSoundPlayer)FindAnyObjectByType(typeof(anotherSoundPlayer))).ChooseSongs_SE(11);
