@@ -9004,6 +9004,7 @@ GameObject:
   - component: {fileID: 1265888928}
   - component: {fileID: 1265888930}
   - component: {fileID: 1265888931}
+  - component: {fileID: 1265888932}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9111,6 +9112,24 @@ MonoBehaviour:
   - {fileID: 1517960671}
   - {fileID: 1085728108}
   - {fileID: 1316381916}
+--- !u!114 &1265888932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265888926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d60262cd36619441a56d4ccb9279942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  efect: {fileID: 6102249559068850532, guid: a92056aebbf19c54c863e3d76ad5173c, type: 3}
+  animator: {fileID: 6102249559068850534, guid: a92056aebbf19c54c863e3d76ad5173c, type: 3}
+  parent: {fileID: 522619188237199035, guid: c0f428839ba574f4fbf36aa27b1c8178, type: 3}
+  ClickEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!224 &1274501928 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5808919919394709288, guid: 6b18cfe49e1c1cc44a901bf2fcd24962, type: 3}
