@@ -118,7 +118,7 @@ public class Slot : MonoBehaviour,ISelectHandler,IDeselectHandler
         
     }
 
-    void OnSlotEndDrag()
+    public void OnSlotEndDrag()
     {
 
         

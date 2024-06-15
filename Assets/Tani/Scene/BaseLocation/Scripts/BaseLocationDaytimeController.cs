@@ -30,13 +30,14 @@ public class BaseLocationDaytimeController : MonoBehaviour
     [SerializeField] LoadGauge loadGauge;
     [SerializeField] GameObject[] panels_GO;
     bool closePanels;
+    bool restCheck;
     bool prehabF;
-    // Start is called before the first frame update
+     // Start is called before the first frame update
     IEnumerator Start()
     {
         closePanels = false;
         prehabF = true;
-
+        restCheck = false; 
         PlayerInfo.Instance.SetInventryLock(false);
         switch (pattern)
         {
@@ -111,24 +112,36 @@ public class BaseLocationDaytimeController : MonoBehaviour
         if (Input.GetMouseButton(1) )
         {
             LongClickTanp +=  Time.deltaTime;
-            if (0.5f < LongClickTanp && LongClickTanp < 0.6f)
+            if (!Input.GetMouseButton(0))
             {
-                if (prehabF)
-                {   
-                    efectStart();
-                    Debug.Log("プレハブ生成");
-                    prehabF = false;
+                if (0.5f < LongClickTanp && LongClickTanp < 0.6f)
+                {
+                    if (prehabF)
+                    {
+                        if (!restCheck)
+                        {
+                            efectStart();
+                            Debug.Log("プレハブ生成");
+                            prehabF = false;
+                        }
+                    }
+                    if (LongClickTanp > loadGauge.countTime + 0.5f)
+                    {
+                        Debug.Log("プレハブ破壊");
+                        Destroy(LongClickEf);
+                        Destroy(LongClickPa);
+                        closePanels = true;
+                        DeactivateAllPanels();
+                        PlayerInfo.Instance.Inventry.SetVisible(false);
+                        LongClickTanp = 0;
+                    }
                 }
             }
-            if(LongClickTanp > loadGauge.countTime + 0.5f)
+            else
             {
-                Debug.Log("プレハブ破壊");
                 Destroy(LongClickEf);
                 Destroy(LongClickPa);
                 closePanels = true;
-                DeactivateAllPanels();
-                PlayerInfo.Instance.Inventry.SetVisible(false);
-                LongClickTanp = 0;
             }
             //DeactivateAllPanels();
             //PlayerInfo.Instance.Inventry.SetVisible(false);
@@ -210,6 +223,16 @@ public class BaseLocationDaytimeController : MonoBehaviour
     {
 
         SceneManager.LoadScene(next_scene);
+    }
+
+    public void restCheckTrue()
+    {
+        restCheck = true;
+        Invoke("restCheckFalse", 5.0f);
+    }
+    void restCheckFalse()
+    {
+        restCheck = false;
     }
 }
    
