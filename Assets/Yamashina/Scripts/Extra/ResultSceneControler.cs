@@ -137,6 +137,8 @@ public class ResultSceneControler : MonoBehaviour
 
         StartCoroutine(ScreenshotCaptor.Capture
             (imageName: "Screenshot.png", callback: Callback));
+        GameObject.FindGameObjectWithTag("ClickEffect").SetActive(false);   
+
 
     }
     public void ResetTitle()
