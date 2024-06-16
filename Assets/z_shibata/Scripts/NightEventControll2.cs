@@ -28,7 +28,7 @@ public class NightEventControll2 : MonoBehaviour
                 if (PlayerInfo.Instance.Inventry.GetNullSlot())
                 {
                     result_text += PlayerInfo.Instance.Inventry.GetItemName(n) + $"Ç{num}å¬älìæÇµÇ‹ÇµÇΩÅB\n";
-                    PlayerInfo.Instance.Inventry.GetItem(n, num, true);
+                    PlayerInfo.Instance.Inventry.GetItem(n, num);
                 }
                 else
                 {
@@ -42,6 +42,6 @@ public class NightEventControll2 : MonoBehaviour
         Debug.Log(result_text);
 
     }
-    
+
 }
 
