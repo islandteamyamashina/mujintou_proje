@@ -601,6 +601,11 @@ public class SlotManager : MonoBehaviour
                         SceneManager.LoadScene("TrueEndingScene_CaseOfRaft");
                         break;
                     }
+                case Items.Item_ID.item_special_book:
+                    {
+                        PlayerInfo.Instance.MaxActionValue += 2;
+                        break;
+                    }
                 default:
                     break;
             }

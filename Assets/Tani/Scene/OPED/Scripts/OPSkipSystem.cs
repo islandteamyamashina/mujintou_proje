@@ -38,7 +38,11 @@ public class OPSkipSystem : MonoBehaviour
                 var data = button.gameObject.GetComponent<SpecialItemData>();
                 if (data)
                 {
-                    PlayerInfo.Instance.Inventry.GetItem(data.specil_item_id, 1);
+                    int itemNum;
+                    if(data.specil_item_id == Items.Item_ID.item_special_food) 
+                         { itemNum = 5; }
+                    else { itemNum = 1; }
+                    PlayerInfo.Instance.Inventry.GetItem(data.specil_item_id, itemNum);
                     PlayerInfo.Instance.FirstItemId = (int)data.specil_item_id;
                     PlayerInfo.Instance.DoAction();
                     PlayerInfo.Instance.DoAction();
