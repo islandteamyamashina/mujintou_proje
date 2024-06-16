@@ -13,16 +13,20 @@ public class NightEventControll2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        probability = 1;
+
+        probability = 0.45f;
         string result_text = string.Empty;
+        result_text += PlayerInfo.Instance.Inventry.GetItemName(Items.Item_ID.item_mat_shell) + $"を{1}個獲得しました。\n";
+        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_shell, 1);
         foreach (var n in Gain_Items)
         {
             Debug.Log("foreach");
             // このアイテムを取得できるか
             bool bGet = Random.value <= probability;
-            probability -= 0.15f;
+            probability -= 0.05f;
             if (bGet)
             {
+                Debug.Log(probability);
                 //いくつ獲得できるか
                 int num = 1;
                 if (PlayerInfo.Instance.Inventry.GetNullSlot())

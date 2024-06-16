@@ -9,6 +9,7 @@ public class OffTirgger : MonoBehaviour
     //[SerializeField] GameObject Trigger;
     [SerializeField] GameObject[] HLs;
     [SerializeField]  public List <EventTrigger> eventTriggers;
+    [SerializeField] GameObject cover;
     
 
     private void Awake()
@@ -46,6 +47,7 @@ public class OffTirgger : MonoBehaviour
             eventTriggers[5].enabled = false;
             Debug.Log(PlayerInfo.Instance.Inventry.gameObject.gameObject.activeSelf);
 
+            cover.SetActive(true);
             //HLs.SetActive(false);   
         }
         if (!PlayerInfo.Instance.Inventry.GetVisibility())
@@ -58,6 +60,8 @@ public class OffTirgger : MonoBehaviour
             eventTriggers[3].enabled = true;
             eventTriggers[4].enabled = true;
             eventTriggers[5].enabled = true;
+
+            cover.SetActive(false);
             //HLs.SetActive(true);
 
 
