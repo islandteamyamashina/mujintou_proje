@@ -125,17 +125,18 @@ public class BaseLocationDaytimeController : MonoBehaviour
                             prehabF = false;
                         }
                     }
-                    if (LongClickTanp > loadGauge.countTime + 0.5f)
-                    {
-                        Debug.Log("プレハブ破壊");
-                        Destroy(LongClickEf);
-                        Destroy(LongClickPa);
-                        closePanels = true;
-                        DeactivateAllPanels();
-                        PlayerInfo.Instance.Inventry.SetVisible(false);
-                        LongClickTanp = 0;
-                    }
                 }
+                if (LongClickTanp > loadGauge.countTime + 0.5f)
+                {
+                    Debug.Log("プレハブ破壊");
+                    Destroy(LongClickEf);
+                    Destroy(LongClickPa);
+                    closePanels = true;
+                    DeactivateAllPanels();
+                    PlayerInfo.Instance.Inventry.SetVisible(false);
+                    LongClickTanp = 0;
+                }
+
             }
             else
             {
