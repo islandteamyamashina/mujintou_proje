@@ -47,10 +47,10 @@ public class clickEfect_Overlay : MonoBehaviour
             //if (!overlay)
             //{
             //    ClickEfectParent.gameObject.transform.GetChild(0).GetComponent<Canvas>().worldCamera = targetCamera;
-            
+
             //}
 
-            ClickEfect.gameObject.transform.parent = ClickEfectParent.transform.GetChild(0);
+            ClickEfect.gameObject.transform.SetParent(ClickEfectParent.transform.GetChild(0));
 
             animator = ClickEfect.GetComponent<Animator>();
             efect.SetActive(true);

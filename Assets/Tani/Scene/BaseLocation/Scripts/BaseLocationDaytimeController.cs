@@ -165,7 +165,7 @@ public class BaseLocationDaytimeController : MonoBehaviour
             {
                 LongClickPa = Instantiate(parent);
                 LongClickEf = Instantiate(LongClickPr);
-                LongClickEf.gameObject.transform.parent = LongClickPa.transform.GetChild(0);
+                LongClickEf.gameObject.transform.SetParent( LongClickPa.transform.GetChild(0));
                 LongClickEf.transform.position = Input.mousePosition;
             }
         }
