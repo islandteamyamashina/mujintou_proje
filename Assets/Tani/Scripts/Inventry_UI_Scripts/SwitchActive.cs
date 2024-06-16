@@ -21,6 +21,7 @@ public class SwitchActive : MonoBehaviour
         {
             firstActive.SetActive(!firstActive.activeSelf);
             secondActive.SetActive(!secondActive.activeSelf);
+            PlayerInfo.Instance.OnVisibilityChanged();
         });
     }
 
