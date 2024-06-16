@@ -45,7 +45,7 @@ public class OffTirgger : MonoBehaviour
             eventTriggers[3].enabled = false;
             eventTriggers[4].enabled = false;
             eventTriggers[5].enabled = false;
-            Debug.Log(PlayerInfo.Instance.Inventry.gameObject.gameObject.activeSelf);
+            //Debug.Log(PlayerInfo.Instance.Inventry.gameObject.gameObject.activeSelf);
 
             cover.SetActive(true);
             //HLs.SetActive(false);   
