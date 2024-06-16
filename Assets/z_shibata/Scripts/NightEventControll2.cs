@@ -47,6 +47,7 @@ public class NightEventControll2 : MonoBehaviour
             result_text += PlayerInfo.Instance.Inventry.GetItemName(Items.Item_ID.item_mat_shell) + $"‚ğ{1}ŒÂŠl“¾‚µ‚Ü‚µ‚½B\n";
             PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_shell, 1);
         }
+        PlayerInfo.Instance.SavePalyerData();
         textComponent.AddTextData(result_text);
         Debug.Log(result_text);
 
