@@ -526,7 +526,7 @@ public class SlotManager : MonoBehaviour
             {
                 case Items.Item_ID.item_mat_shell:
                     {
-                        float probability = 0.05f;
+                        float probability = 0.10f;
                         if(Random.value < probability)
                         {
                             PlayerInfo.Instance.AddPlayerCondition(PlayerInfo.Condition.Poisoned);
@@ -535,7 +535,7 @@ public class SlotManager : MonoBehaviour
                     }
                 case Items.Item_ID.item_mat_snake:
                     {
-                        float probability = 0.05f;
+                        float probability = 0.10f;
                         if (Random.value < probability)
                         {
                             PlayerInfo.Instance.AddPlayerCondition(PlayerInfo.Condition.Poisoned);
@@ -544,7 +544,7 @@ public class SlotManager : MonoBehaviour
                     }
                 case Items.Item_ID.item_mat_stMash:
                     {
-                        float probability = 0.05f;
+                        float probability = 0.9f;
                         if (Random.value < probability)
                         {
                             PlayerInfo.Instance.AddPlayerCondition(PlayerInfo.Condition.Poisoned);
@@ -553,7 +553,7 @@ public class SlotManager : MonoBehaviour
                     }
                 case Items.Item_ID.item_mat_herb:
                     {
-                        float probability = 0.8f;
+                        float probability = 0.65f;
                         if (Random.value < probability)
                         {
                             PlayerInfo.Instance.EraseCondition(PlayerInfo.Condition.Poisoned);
