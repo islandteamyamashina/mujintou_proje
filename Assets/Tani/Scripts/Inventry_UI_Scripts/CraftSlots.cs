@@ -54,6 +54,7 @@ public class CraftSlots : SlotManager
     [SerializeField]
     bool use_action_value = true;
 
+    public bool UseActionValue => use_action_value;
 
     int input_slot_num = 0;
 
