@@ -26,12 +26,12 @@ public class OffTirgger : MonoBehaviour
         ////HLs[4].SetActive(true);
         //HLs[5].SetActive(true);
 
-        Debug.Log(PlayerInfo.Instance.Inventry.GetVisibility());   
+       // Debug.Log(PlayerInfo.Instance.Inventry.GetVisibility());   
     }
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(PlayerInfo.Instance.Inventry.GetVisibility());
+       // Debug.Log(PlayerInfo.Instance.Inventry.GetVisibility());
         //インベントリが開いていたら他のUIがおせないようにする処理
         if (PlayerInfo.Instance.Inventry.GetVisibility())
         {
@@ -61,7 +61,7 @@ public class OffTirgger : MonoBehaviour
             //HLs.SetActive(true);
 
 
-            Debug.Log(PlayerInfo.Instance.Inventry.GetVisibility());
+            //Debug.Log(PlayerInfo.Instance.Inventry.GetVisibility());
 
             //HLs.SetActive(true);
         }

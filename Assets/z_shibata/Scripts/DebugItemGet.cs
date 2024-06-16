@@ -9,5 +9,7 @@ public class DebugItemGet : MonoBehaviour
     public void DebugItemGetter()
     {
         PlayerInfo.Instance.Inventry.GetItem(getItem, num);
+        PlayerInfo.Instance.Health = 100;
+        PlayerInfo.Instance.ActionValue = 5;
     }
 }
