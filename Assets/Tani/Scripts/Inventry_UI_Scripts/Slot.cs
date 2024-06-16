@@ -62,6 +62,16 @@ public class Slot : MonoBehaviour,ISelectHandler,IDeselectHandler
         eventTrigger.triggers.Add(entry3);
         #endregion
         gameObject.tag = slot_tag_name;
+        Affiliation.OnSlotVisibilityChanged += () =>
+        {
+            if (!Affiliation.GetVisibility())
+            {
+                if (selectedImage)
+                {
+                    selectedImage.gameObject.SetActive(false);
+                }
+            }
+        };
     }
 
     public void SetIcon(Sprite icon , int alpha = 255)
@@ -98,7 +108,10 @@ public class Slot : MonoBehaviour,ISelectHandler,IDeselectHandler
     
     void OnSlotStartDrag()
     {
-
+        if (Input.GetMouseButton(1))
+        {
+            return;
+        }
         if(Affiliation.GetSlotItem(Slot_index).Value.id != Items.Item_ID.EmptyObject)
         {
             dragging_item_exist = true;
