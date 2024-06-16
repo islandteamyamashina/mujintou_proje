@@ -201,7 +201,7 @@ public class MakeFire : MonoBehaviour
             hunger_Change_Text.text = $"{info.Hunger} >> {((info.Hunger + hunger_Change_Hand >= 0) ? info.Hunger + hunger_Change_Hand : shortof)}";
             thirst_Change_Text.text = $"{info.Thirst} >> {((info.Thirst + thirst_Change_Hand >= 0) ? info.Thirst + thirst_Change_Hand : shortof)}";
             SelectedResultText.text = "素手でやるしかない";
-            Fire_Icon_Middle.fillAmount = 0.3f;
+            Fire_Icon_Middle.fillAmount = 0.9f;
             success_posibility_text.text = "成功確率 : 30%";
         });
 
@@ -214,7 +214,7 @@ public class MakeFire : MonoBehaviour
             hunger_Change_Text.text = $"{info.Hunger} >> {((info.Hunger + hunger_Change_FireSet >= 0) ? info.Hunger + hunger_Change_FireSet : shortof)}";
             thirst_Change_Text.text = $"{info.Thirst} >> {((info.Thirst + thirst_Change_FireSet >= 0) ? info.Thirst + thirst_Change_FireSet : shortof)}";
             SelectedResultText.text = "火おこしセットを使用";
-            Fire_Icon_Middle.fillAmount = 0.3f;
+            Fire_Icon_Middle.fillAmount = 0.9f;
             success_posibility_text.text = "成功確率 : 80%";
         });
 
@@ -227,7 +227,7 @@ public class MakeFire : MonoBehaviour
             hunger_Change_Text.text = $"{info.Hunger} >> {((info.Hunger + hunger_Change_Lighter >= 0) ? info.Hunger + hunger_Change_Lighter : shortof)}";
             thirst_Change_Text.text = $"{info.Thirst} >> {((info.Thirst + thirst_Change_Lighter >= 0) ? info.Thirst + thirst_Change_Lighter : shortof)}";
             SelectedResultText.text = "ライターを使う";
-            Fire_Icon_Middle.fillAmount = 0.3f;
+            Fire_Icon_Middle.fillAmount = 0.9f;
             success_posibility_text.text = "成功確率 : 100%";
         });
 
@@ -281,7 +281,7 @@ public class MakeFire : MonoBehaviour
                 _ => 0
             })
             {
-                PlayerInfo.Instance.Fire += 100;
+                PlayerInfo.Instance.Fire += 90;
                 Fire_Icon_Middle.fillAmount = 0;
                 SelectedResultText.text = "火おこし成功!";
                 ((anotherSoundPlayer)FindAnyObjectByType(typeof(anotherSoundPlayer))).ChooseSongs_SE(11);
