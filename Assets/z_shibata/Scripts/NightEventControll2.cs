@@ -10,20 +10,19 @@ public class NightEventControll2 : MonoBehaviour
 
     [SerializeField] Items.Item_ID[] Gain_Items;
     float probability = 1;
+    int getNum;
     // Start is called before the first frame update
     void Start()
     {
-
+        getNum = 0;
         probability = 0.45f;
         string result_text = string.Empty;
-        result_text += PlayerInfo.Instance.Inventry.GetItemName(Items.Item_ID.item_mat_shell) + $"を{1}個獲得しました。\n";
-        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_shell, 1);
+
         foreach (var n in Gain_Items)
         {
             Debug.Log("foreach");
             // このアイテムを取得できるか
             bool bGet = Random.value <= probability;
-            probability -= 0.05f;
             if (bGet)
             {
                 Debug.Log(probability);
@@ -31,6 +30,8 @@ public class NightEventControll2 : MonoBehaviour
                 int num = 1;
                 if (PlayerInfo.Instance.Inventry.GetNullSlot())
                 {
+                    probability -= 0.09f;
+                    getNum++;
                     result_text += PlayerInfo.Instance.Inventry.GetItemName(n) + $"を{num}個獲得しました。\n";
                     PlayerInfo.Instance.Inventry.GetItem(n, num);
                 }
@@ -38,9 +39,13 @@ public class NightEventControll2 : MonoBehaviour
                 {
                     result_text += PlayerInfo.Instance.Inventry.GetItemName(n) + $"{num}個は持ち切れなかった!\n";
                 }
-
-
             }
+            
+        }
+        if (getNum == 0)
+        {
+            result_text += PlayerInfo.Instance.Inventry.GetItemName(Items.Item_ID.item_mat_shell) + $"を{1}個獲得しました。\n";
+            PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_shell, 1);
         }
         textComponent.AddTextData(result_text);
         Debug.Log(result_text);
