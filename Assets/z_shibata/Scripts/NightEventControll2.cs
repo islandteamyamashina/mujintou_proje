@@ -47,6 +47,20 @@ public class NightEventControll2 : MonoBehaviour
             result_text += PlayerInfo.Instance.Inventry.GetItemName(Items.Item_ID.item_mat_shell) + $"‚ğ{1}ŒÂŠl“¾‚µ‚Ü‚µ‚½B\n";
             PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_shell, 1);
         }
+
+        if(PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_craft_torch) >= 1)
+        {
+            if (PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_special_flash) < 1)
+            {
+                bool rnd = Random.value < 0.2f;
+                if (rnd && PlayerInfo.Instance.MaxActionValue > 6)
+                {
+                    PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.item_craft_torch);
+                    result_text +=  "\n" + "\n" + $"‚½‚¢‚Ü‚Â‚ª”R‚¦s‚«‚Ä‚µ‚Ü‚Á‚½B\n";
+                }
+            }
+        }
+        PlayerInfo.Instance.SavePalyerData();
         textComponent.AddTextData(result_text);
         Debug.Log(result_text);
 
