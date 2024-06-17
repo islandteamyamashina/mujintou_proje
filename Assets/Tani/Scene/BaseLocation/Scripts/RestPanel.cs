@@ -29,7 +29,8 @@ public class RestPanel : PanelBase
     Image ThirstyImage;
     [SerializeField]
     GameObject ExtraEffectText;
-
+    [SerializeField]
+    GameObject fireBoost;//ŽÄ“c’Ç‰Á•Ï”
     PlayerInfo info;
     protected override void Start()
     {
@@ -112,6 +113,16 @@ public class RestPanel : PanelBase
     private void OnEnable()
     {
         RestButtonText.text = PlayerInfo.Instance.Day.isDayTime ? "–é‚Ü‚Å‹x‚Þ" : "‡–°‚ð‚Æ‚é";
+        //ŽÄ“c’Ç‰Á‚±‚±‚©‚ç
+        if(PlayerInfo.Instance.Fire >= 1)
+        { 
+            fireBoost.SetActive(true); 
+        }
+        else if(PlayerInfo.Instance.Fire < 1)
+        {
+            fireBoost.SetActive(false);
+        }
+        //‚±‚±‚Ü‚Å
     }
 
     void Rest()
