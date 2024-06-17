@@ -250,36 +250,32 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     }
 
     
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SavePalyerData();
-            SetInventryLock(true);
-        }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Return))
+    //    {
+    //        SavePalyerData();
+    //        SetInventryLock(true);
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.X))
+    //    {
 
+    //        Health = 100;
+    //        Hunger = 100;
+    //        Thirst = 100;
+    //        ResetCondition();
+    //        SceneManager.LoadScene("TrueEndingScene");
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.C))
+    //    {
 
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-
-            Health = 100;
-            Hunger = 100;
-            Thirst = 100;
-            ResetCondition();
-            SceneManager.LoadScene("TrueEndingScene");
-        }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-
-            Health = 30;
-            Hunger = 10;
-            Thirst = 10;
-            print((Items.Item_ID)FirstItemId);
+    //        Health = 30;
+    //        Hunger = 10;
+    //        Thirst = 10;
+    //        print((Items.Item_ID)FirstItemId);
             
-        }
-
-
-    }
+    //    }
+    //}
 
     #region Condition
     public enum Condition

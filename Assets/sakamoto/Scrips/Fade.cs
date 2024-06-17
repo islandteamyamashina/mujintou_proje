@@ -36,11 +36,11 @@ public class Fade : MonoBehaviour
         {
             FeadOut(Scenename_list[scene_name_num]);
         }
-        if(Input.GetKeyDown(KeyCode.A)) 
-        {
-            feadout_f = true;
-            //Debug.Log(feadout_f);
-        }
+        //if(Input.GetKeyDown(KeyCode.A)) 
+        //{
+        //    feadout_f = true;
+        //    //Debug.Log(feadout_f);
+        //}
         
     }
     void FeadIn()
