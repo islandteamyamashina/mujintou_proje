@@ -14,6 +14,7 @@ public class NightEventControll2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bool stilDest = false;
         getNum = 0;
         probability = 0.45f;
         string result_text = string.Empty;
@@ -47,7 +48,7 @@ public class NightEventControll2 : MonoBehaviour
             result_text += PlayerInfo.Instance.Inventry.GetItemName(Items.Item_ID.item_mat_shell) + $"‚ğ{1}ŒÂŠl“¾‚µ‚Ü‚µ‚½B\n";
             PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_shell, 1);
         }
-
+        //‚½‚¢‚Ü‚Â‚µ‚©‚à‚Á‚Ä‚¢‚È‚¢
         if(PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_craft_torch) >= 1)
         {
             if (PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_special_flash) < 1)
@@ -56,7 +57,21 @@ public class NightEventControll2 : MonoBehaviour
                 if (rnd && PlayerInfo.Instance.MaxActionValue > 6)
                 {
                     PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.item_craft_torch);
-                    result_text +=  "\n" + "\n" + $"‚½‚¢‚Ü‚Â‚ª”R‚¦s‚«‚Ä‚µ‚Ü‚Á‚½B\n";
+                    result_text +=  "\n" + "\n" + $"‚½‚¢‚Ü‚Â‚ª”R‚¦s‚«‚Ä‚µ‚Ü‚Á‚½I\n";
+                    stilDest = true ;
+                }
+            }
+        }
+        //‰ù’†“d“”‚ğ‚Á‚Ä‚¢‚éê‡i—Dæ“I‚É‰ù’†“d“”‚ğ”j‰ój
+        if (!stilDest)
+        {
+            if (PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_special_flash) >= 1)
+            {
+                bool rnd = Random.value < 0.2f;
+                if (rnd && PlayerInfo.Instance.MaxActionValue > 6)
+                {
+                    PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.item_special_flash);
+                    result_text += "\n" + "\n" + $"‰ù’†“d“”‚Ì“d’r‚ªØ‚ê‚Ä‚µ‚Ü‚Á‚½I\n";
                 }
             }
         }

@@ -12291,7 +12291,6 @@ GameObject:
   - component: {fileID: 1901026714}
   - component: {fileID: 1901026713}
   - component: {fileID: 1885529129}
-  - component: {fileID: 7225443030753232062}
   m_Layer: 0
   m_Name: InventryPanelCanvas
   m_TagString: Untagged
@@ -12396,19 +12395,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image_prefab: {fileID: 6551137836290588583, guid: 5c046803548a92b45ad2fc6d4396889d, type: 3}
   visualize_canvas_order: 5
---- !u!114 &7225443030753232062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1901026711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 872ba333f39dd6d479637a37ae473085, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  caveImage: {fileID: 7151638434491752841}
 --- !u!1 &1902023845
 GameObject:
   m_ObjectHideFlags: 0
@@ -14919,13 +14905,14 @@ GameObject:
   - component: {fileID: 6106821659293991803}
   - component: {fileID: 146934358039976164}
   - component: {fileID: 188988854264597999}
+  - component: {fileID: 8370122785433507075}
   m_Layer: 0
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6106821659293991803
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14984,6 +14971,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8370122785433507075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7151638434491752841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 872ba333f39dd6d479637a37ae473085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caveImage: {fileID: 7151638434491752841}
 --- !u!1 &7442476927048545548
 GameObject:
   m_ObjectHideFlags: 0
