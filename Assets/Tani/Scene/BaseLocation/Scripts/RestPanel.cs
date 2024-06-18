@@ -55,7 +55,7 @@ public class RestPanel : PanelBase
         if (info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Poisoned))
         {
             
-            poisonEffect = -20;
+            poisonEffect = -25;
             poisonImage.gameObject.SetActive(true);
         }
         else
@@ -67,7 +67,7 @@ public class RestPanel : PanelBase
         if(info.IsPlayerConditionEqualTo(PlayerInfo.Condition.Hungry))
         {
             float mul = ((20 - PlayerInfo.Instance.Hunger) / 20.0f) + 1;
-            hungryEffect = (int)(-40 * mul);
+            hungryEffect = (int)(-20 * mul);
             StarvingImage.gameObject.SetActive(true);
         }
         else
