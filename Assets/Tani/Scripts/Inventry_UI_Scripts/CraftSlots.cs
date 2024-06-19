@@ -153,6 +153,17 @@ public class CraftSlots : SlotManager
                 PlayerInfo.Instance.ActionValue--;
 
             }
+            //柴田追加コード//ここから//
+            switch (temp_current_recipe.crafted_item)
+            {
+                case Items.Item_ID.item_craft_boiledEgg:
+                    PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_bottle, 1);
+                    break;
+                case Items.Item_ID.item_craft_seaSoup:
+                    PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_bottle,1);
+                    break;
+            }
+            //ここまで//
             return ;
         }
         else if(craftable == 2)
@@ -170,7 +181,17 @@ public class CraftSlots : SlotManager
             {
                 PlayerInfo.Instance.ActionValue--;
             }
-            
+            //柴田追加コード//ここから//
+            switch (temp_current_recipe.crafted_item)
+            {
+                case Items.Item_ID.item_craft_boiledEgg:
+                    PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_bottle, 1);
+                    break;
+                case Items.Item_ID.item_craft_seaSoup:
+                    PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_bottle, 1);
+                    break;
+            }
+            //ここまで//
 
             return;
         }
