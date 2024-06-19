@@ -442,6 +442,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     {
         if (Health == 0)
         {
+            var fade = ((Fading)GameObject.FindAnyObjectByType(typeof(Fading)));
+            fade.Fade(Fading.type.FadeIn);
             SceneManager.LoadScene(bad_end);
             Inventry.SetVisible(false);
         }

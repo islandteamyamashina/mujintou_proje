@@ -32,6 +32,8 @@ public class EDTextFlow : MonoBehaviour
 
     private void Awake()
     {
+        fade.Fade(Fading.type.FadeOut);
+
         Debug.Log(PlayerInfo.Instance.Day.day);
 
         //インベントリ開いたままtrueEndに飛ぶと開きっぱなしになるみたいなので加えました（柴田）
