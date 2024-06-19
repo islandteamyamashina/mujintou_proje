@@ -52,9 +52,16 @@ public class BL_Tu_2_SceneController : MonoBehaviour
 
     void MakeTips2()
     {
-        PlayerInfo.Instance.OnMaxActionValueChange.RemoveListener(MakeTips2);
-        Instantiate(nextTips);
-        PlayerInfo.Instance.Inventry.SetVisible(false);
+        if(PlayerInfo.Instance.MaxActionValue == 8)
+        { 
+            return;
+        }
+        if(PlayerInfo.Instance.MaxActionValue == 6 || PlayerInfo.Instance.MaxActionValue == 9)
+        {
+            PlayerInfo.Instance.OnMaxActionValueChange.RemoveListener(MakeTips2);
+            Instantiate(nextTips);
+            PlayerInfo.Instance.Inventry.SetVisible(false);
+        }
     }
 
     public void NextText()
