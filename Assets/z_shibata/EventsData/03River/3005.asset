@@ -35,7 +35,11 @@ MonoBehaviour:
     thirst_change_max: -10
     required_action_value: 2
   - choise_text: "\u5F37\u5F15\u306B\u9032\u3080"
-    Gain_Items: []
+    Gain_Items:
+    - id: 5
+      probability: 1
+      range_min: 1
+      range_max: 1
     result_text: "\u6642\u9593\u306F\u9650\u3089\u308C\u3066\u3044\u308B\uFF01\u5F37\u5F15\u306B
       \u9032\u3080\uFF01\uFF01\u30FB\u30FB\u30FB\u306C\u304B\u308B\u307F\u306B\u30CF\u30DE\u3063\u3066\u8EE2\u3093\u3067\u3057\u307E\u3063\u305F\uFF01\uFF01"
     health_change_min: -20
