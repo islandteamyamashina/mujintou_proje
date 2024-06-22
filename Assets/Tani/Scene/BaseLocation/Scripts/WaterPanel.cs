@@ -69,7 +69,7 @@ public class WaterPanel : PanelBase
     {
         PlayerInfo.Instance.Water -= 30;
         PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.item_mat_bottle);
-        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_water,1);
+        PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_water2,1);
 
     }
 
