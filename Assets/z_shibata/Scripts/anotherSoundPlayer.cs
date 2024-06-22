@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class anotherSoundPlayer : MonoBehaviour
 {
+    int Option_Count;
+
+    private void Start()
+    {
+        Option_Count = 0;
+    }
+
     public AudioClip[] audioClipSE;
     public void ChooseSongs_SE(int num)
     {
@@ -23,5 +30,19 @@ public class anotherSoundPlayer : MonoBehaviour
         
         }
        
+    }
+
+    public void ChooseSongs_SE_Opsion()
+    {
+        Option_Count++;
+
+        if (Option_Count % 2 == 0) 
+        {
+            ChooseSongs_SE(1);          
+        }
+        else
+        {
+            ChooseSongs_SE(2);
+        }
     }
 }
