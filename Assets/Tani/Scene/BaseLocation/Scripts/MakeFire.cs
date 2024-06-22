@@ -215,7 +215,7 @@ public class MakeFire : MonoBehaviour
             thirst_Change_Text.text = $"{info.Thirst} >> {((info.Thirst + thirst_Change_FireSet >= 0) ? info.Thirst + thirst_Change_FireSet : shortof)}";
             SelectedResultText.text = "火おこしセットを使用";
             Fire_Icon_Middle.fillAmount = 0.9f;
-            success_posibility_text.text = "成功確率 : 80%";
+            success_posibility_text.text = "成功確率 : 100%";
         });
 
         select_Lighter.onClick.AddListener(() =>
@@ -276,7 +276,7 @@ public class MakeFire : MonoBehaviour
             if (random <= selectedType switch
             {
                 1 => 0.3f,
-                2 => 0.8f,
+                2 => 1f,
                 3 => 1f,
                 _ => 0
             })
