@@ -26,6 +26,7 @@ public class BaseLocationDaytimeController : MonoBehaviour
     GameObject LongClickEf;
     //クリックエフェクトの親オブジェクト
     GameObject LongClickPa;
+    //[SerializeField] GameObject Image_close;
     [SerializeField] GameObject parent;
     [SerializeField] LoadGauge loadGauge;
     [SerializeField] GameObject[] panels_GO;
@@ -35,6 +36,7 @@ public class BaseLocationDaytimeController : MonoBehaviour
      // Start is called before the first frame update
     IEnumerator Start()
     {
+        //Image_close.SetActive(false);   
         closePanels = false;
         prehabF = true;
         restCheck = false; 
@@ -169,14 +171,22 @@ public class BaseLocationDaytimeController : MonoBehaviour
                 LongClickEf.transform.position = Input.mousePosition;
             }
         }
-
+        //Image_close.SetActive(closePanels);
     }
     private void Awake()
     {
         
 
     }
-
+     public  void Pushing()
+    {
+        if (closePanels)
+        {
+            DeactivateAllPanels();
+            PlayerInfo.Instance.Inventry.SetVisible(false);
+            closePanels= false; 
+        }
+    }
     
 
     public void ActivatePanelSingle(int index)
