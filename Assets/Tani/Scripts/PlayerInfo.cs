@@ -60,6 +60,8 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
     private int day = 2;
     private List<Texture2D> cursor_textures;
 
+    //坂本用
+    private bool doukutuCheck = true;
 
     public UnityAction OnHealthSet { get;  set;}
     public UnityAction OnHungerSet {  get; set; }
@@ -454,6 +456,14 @@ public class PlayerInfo : SingletonMonoBehaviour<PlayerInfo>
         SlotManager.selectedItem.slotManager = null;
     }
 
+    public void SetdoukutuCheck(bool condition)
+    {
+        doukutuCheck = condition;
+    }
+    public bool GetdoukutuCheck()
+    {
+        return doukutuCheck;
+    }
 }
 
 [System.Serializable]
