@@ -60,6 +60,8 @@ public class MakeFire : MonoBehaviour
     Button closeThisPanelButton;
     [SerializeField]
     GameObject[] actionValues;//柴田追加変数
+    [SerializeField]
+    GameObject[] highlights;//柴田追加変数
 
     int selectedType = 0;//0 : なし 1 : 素手 ,2 : FireSet ,3 : Lighter
 
@@ -81,6 +83,9 @@ public class MakeFire : MonoBehaviour
         actionValues[0].SetActive(false);//柴田追加
         actionValues[1].SetActive(false);//柴田追加
         actionValues[2].SetActive(false);//柴田が追加しました
+        highlights[0].SetActive(false);//柴田追加
+        highlights[1].SetActive(false);//柴田追加
+        highlights[2].SetActive(false);//柴田が追加しました
 
     }
     private void OnDisable()
