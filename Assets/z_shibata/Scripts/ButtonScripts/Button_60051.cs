@@ -9,7 +9,7 @@ public class Button_60051 : MonoBehaviour
     void Start()
     {
         button = GetComponent<Button>();
-        if(PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_craft_water) <= 1 && PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_craft_water2) <= 1)
+        if(PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_craft_water) >= 1 || PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_craft_water2) >= 1)
         {
             button.interactable = true;
         }
@@ -19,7 +19,7 @@ public class Button_60051 : MonoBehaviour
             gameObject.GetComponent<Button>().onClick.AddListener(() =>
             { PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.item_craft_water); });
         }
-        else if(PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_craft_water2) >= 1)
+        else if(PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_craft_water2) >= 1 && PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_craft_water) < 1)
         {
             gameObject.GetComponent<Button>().onClick.AddListener(() =>
             { PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.item_craft_water2); });

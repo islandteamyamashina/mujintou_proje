@@ -32,7 +32,7 @@ public class AddFire : MonoBehaviour
         
         AddFireButton.onClick.AddListener(() =>
         {
-            PlayerInfo.Instance.Fire += 10;
+            PlayerInfo.Instance.Fire += 15;
             SlotManager.ChangeSlotItemAmount(SlotManager.GetSlotItem(0).Value.amount - 1,0);
 
         });
@@ -45,7 +45,7 @@ public class AddFire : MonoBehaviour
         AddFireButton.interactable = SlotManager.GetSlotItem(0).Value.id == Items.Item_ID.item_mat_branch && PlayerInfo.Instance.Fire != 100;
         if (AddFireButton.interactable)
         {
-            fire_icon_middle.fillAmount = Mathf.Clamp01((PlayerInfo.Instance.Fire + 10 )/ 100.0f);
+            fire_icon_middle.fillAmount = Mathf.Clamp01((PlayerInfo.Instance.Fire + 15 )/ 100.0f);
         }
         else
         {
