@@ -916,6 +916,7 @@ GameObject:
   - component: {fileID: 519420039}
   - component: {fileID: 519420040}
   - component: {fileID: 519420041}
+  - component: {fileID: 519420042}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1064,6 +1065,19 @@ MonoBehaviour:
   parent: {fileID: 522619188237199035, guid: c0f428839ba574f4fbf36aa27b1c8178, type: 3}
   LongClickPr: {fileID: 541459650143036767, guid: 7ef35ea9a9be77f4bb73fe316654f7f6, type: 3}
   loadGauge: {fileID: 541459650143036737, guid: 7ef35ea9a9be77f4bb73fe316654f7f6, type: 3}
+--- !u!114 &519420042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae16efb43f3d704db2cddb383358d35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Help: {fileID: 1490063898}
 --- !u!1 &539696658 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4295592156357734784, guid: 942fb6085e657ab48b093d7a35275894, type: 3}
