@@ -305,7 +305,7 @@ public class RouteSentaku : Event_Text
             //生成位置
             Vector3 pos = new Vector3(550, -250 + 125f * (i + 1), 0.0f);
             //プレハブを指定位置に生成
-            Instantiate(ItemPrefab, pos, Quaternion.identity);
+            //Instantiate(ItemPrefab, pos, Quaternion.identity);
             GameObject obj = Instantiate(ItemPrefab, pos, Quaternion.identity);
             obj.transform.SetParent(Route1.image.canvas.gameObject.transform);
             obj.transform.localScale = Vector3.one;
@@ -330,7 +330,7 @@ public class RouteSentaku : Event_Text
             //生成位置
             Vector3 pos = new Vector3(550, -250 + 125f * (i + 1), 0.0f);
             //プレハブを指定位置に生成
-            Instantiate(ItemPrefab, pos, Quaternion.identity);
+            //Instantiate(ItemPrefab, pos, Quaternion.identity);
             GameObject obj = Instantiate(ItemPrefab, pos, Quaternion.identity);
             obj.transform.SetParent(Route1.image.canvas.gameObject.transform);
             obj.transform.localScale = Vector3.one;
