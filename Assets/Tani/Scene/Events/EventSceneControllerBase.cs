@@ -115,12 +115,14 @@ public class EventSceneControllerBase : MonoBehaviour
     }
     public void GoCave()
     {
+        PlayerInfo.Instance.ActionValue--;
 
         fading.Fade(Fading.type.FadeOut);
         fading.OnFadeEnd.AddListener(() => { SceneManager.LoadScene(caveEvent_fire); });
     }
     public void GoCave_L()
     {
+        PlayerInfo.Instance.ActionValue--;
 
         fading.Fade(Fading.type.FadeOut);
         fading.OnFadeEnd.AddListener(() => { SceneManager.LoadScene(caveEvent_light); });
