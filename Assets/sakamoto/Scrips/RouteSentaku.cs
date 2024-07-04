@@ -47,6 +47,7 @@ public class RouteSentaku : Event_Text
     //ChatGPTì
     void Start()
     {
+        PlayerInfo.Instance.SavePalyerData();   
         //”z—ñ‚Ì‰Šú‰»
         item_ID = new int[2];
         get_Num = new int[2];
@@ -393,6 +394,7 @@ public class RouteSentaku : Event_Text
 
     void eventStart()
     {
+        PlayerInfo.Instance.SavePalyerData();
         BG2.SetActive(false);
         Loadimage.SetActive(false);
         //textControl.AddTextData(event_manage.eventDatas[event_manage.now_event_num].Main_Text);
