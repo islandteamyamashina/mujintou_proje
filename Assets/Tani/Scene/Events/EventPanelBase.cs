@@ -40,7 +40,9 @@ public class EventPanelBase : MonoBehaviour
 
     void Start()
     {
+
         GameData.CanReturnTitle = false;
+        PlayerInfo.Instance.SavePalyerData();   
     }
 
     public void SetEvent(int index)
@@ -387,8 +389,10 @@ public class EventPanelBase : MonoBehaviour
             }
             event_text_control.AddTextData(result_text);
         }
-        
-       event_text_control.ClickEventAfterTextsEnd.AddListener(ONEndEvent);
+        PlayerInfo.Instance.SavePalyerData();
+
+
+        event_text_control.ClickEventAfterTextsEnd.AddListener(ONEndEvent);
        
 
     }
