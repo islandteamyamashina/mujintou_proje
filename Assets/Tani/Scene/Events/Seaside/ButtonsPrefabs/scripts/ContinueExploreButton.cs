@@ -14,6 +14,7 @@ public class ContinueExploreButton : MonoBehaviour
         {
             Debug.LogError("GameController doesn't have EventSceneControllerBase");
         }
+        PlayerInfo.Instance.SavePalyerData();
         //print("Continue explore");
         GetComponent<Button>().interactable = PlayerInfo.Instance.ActionValue >= 1;
         GetComponent<Button>().onClick.AddListener(event_controller.RestartEvent_NoMovingImage);
