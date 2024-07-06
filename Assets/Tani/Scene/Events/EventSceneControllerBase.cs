@@ -109,7 +109,6 @@ public class EventSceneControllerBase : MonoBehaviour
 
     public void GoVolcano()
     {
-        PlayerInfo.Instance.ActionValue-=2;
 
         fading.Fade(Fading.type.FadeOut);
         fading.OnFadeEnd.AddListener(() => { SceneManager.LoadScene(volcanoEvent); });
