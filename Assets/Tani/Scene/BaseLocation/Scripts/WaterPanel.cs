@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class WaterPanel : PanelBase
 {
     [SerializeField]
@@ -15,6 +16,7 @@ public class WaterPanel : PanelBase
     Button PourButton;
     [SerializeField]
     int waterAmountPerOnce = 10;
+    bool invIsOn;
 
     PlayerInfo info;
     // Start is called before the first frame update
@@ -28,7 +30,7 @@ public class WaterPanel : PanelBase
         PourButton.interactable = PlayerInfo.Instance.Water >= 30 &&
                     PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_bottle) >= 1;
         DrinkButton.interactable = info.Water >= waterAmountPerOnce;
-
+        ItemMax();
     }
 
     protected override void Awake()
@@ -48,6 +50,19 @@ public class WaterPanel : PanelBase
         PourButton.interactable = PlayerInfo.Instance.Water >= 30 &&
                                     PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_bottle) >= 1;
         DrinkButton.interactable = info.Water >= waterAmountPerOnce;
+
+        if( PlayerInfo.Instance.Inventry.GetVisibility() == true )
+        {
+            invIsOn = true;
+        }
+        if (invIsOn)
+        {
+            if (PlayerInfo.Instance.Inventry.GetVisibility() == false)
+            {
+                ItemMax();
+                invIsOn = false;
+            }
+        }
     }
 
     void DrinkWater()
@@ -70,8 +85,20 @@ public class WaterPanel : PanelBase
         PlayerInfo.Instance.Water -= 30;
         PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.item_mat_bottle);
         PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_craft_water2,1);
-
+        
     }
 
+    void ItemMax()
+    {
+        var slot = PlayerInfo.Instance.Inventry.GetNullSlot();
+        if (slot == null)
+        {
+            PourButton.interactable = false;
+        }
+        else if(slot != null)
+        {
+            PourButton.interactable = true;
+        }
+    }
     
 }
