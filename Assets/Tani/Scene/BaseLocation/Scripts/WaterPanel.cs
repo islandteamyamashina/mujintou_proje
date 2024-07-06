@@ -30,6 +30,12 @@ public class WaterPanel : PanelBase
         PourButton.interactable = PlayerInfo.Instance.Water >= 30 &&
                     PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_bottle) >= 1;
         DrinkButton.interactable = info.Water >= waterAmountPerOnce;
+        
+    }
+    private void OnEnable()
+    {
+        PourButton.interactable = PlayerInfo.Instance.Water >= 30 &&
+                                PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_bottle) >= 1;
         ItemMax();
     }
 
@@ -47,8 +53,7 @@ public class WaterPanel : PanelBase
         water_value_text.text = $"<b>{prev}% ⇒ {Mathf.Clamp(prev + waterAmountPerOnce, 0, 100)}%</b>";
         spring_water_text.text = $"貯水 : {info.Water}";
 
-        PourButton.interactable = PlayerInfo.Instance.Water >= 30 &&
-                                    PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_bottle) >= 1;
+        PourButton.interactable = PlayerInfo.Instance.Water >= 30;
         DrinkButton.interactable = info.Water >= waterAmountPerOnce;
 
         if( PlayerInfo.Instance.Inventry.GetVisibility() == true )
@@ -93,10 +98,13 @@ public class WaterPanel : PanelBase
         var slot = PlayerInfo.Instance.Inventry.GetNullSlot();
         if (slot == null)
         {
+            Debug.Log("アイテムnull");
             PourButton.interactable = false;
         }
         else if(slot != null)
         {
+            Debug.Log("アイテムnotnull");
+            Debug.Log(slot);
             PourButton.interactable = true;
         }
     }
