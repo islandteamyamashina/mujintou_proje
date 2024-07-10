@@ -8,6 +8,7 @@ public class Button60011 : MonoBehaviour
     void Start()
     {
         button = GetComponent<Button>();
-        button.interactable = PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_stone) >= 1;
+        button.interactable =button.interactable &&(
+PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_stone) >= 1);
     }
 }
