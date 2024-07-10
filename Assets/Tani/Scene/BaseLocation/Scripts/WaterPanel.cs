@@ -18,10 +18,17 @@ public class WaterPanel : PanelBase
     int waterAmountPerOnce = 10;
     bool invIsOn;
 
+    //ウォーターパネルの汲むボダンのinteractable
+    bool waterPanel_inteFalse;
+    [SerializeField]
     PlayerInfo info;
+    [SerializeField]
+    GameObject InventoryMaxText;
     // Start is called before the first frame update
     protected override void Start()
     {
+        InventoryMaxText.SetActive(false);
+
         info = PlayerInfo.Instance;
         SetSortOrder(OrderOfUI.NormalPanel);
         DrinkButton.onClick.AddListener(DrinkWater);
@@ -36,7 +43,10 @@ public class WaterPanel : PanelBase
     {
         PourButton.interactable = PlayerInfo.Instance.Water >= 30 &&
                                 PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_bottle) >= 1;
+        Debug.Log(PourButton.interactable);
         ItemMax();
+        Debug.Log(PourButton.interactable);
+
     }
 
     protected override void Awake()
@@ -55,8 +65,9 @@ public class WaterPanel : PanelBase
 
         PourButton.interactable = PlayerInfo.Instance.Water >= 30;
         DrinkButton.interactable = info.Water >= waterAmountPerOnce;
+        Debug.Log(PourButton.interactable);
 
-        if( PlayerInfo.Instance.Inventry.GetVisibility() == true )
+        if ( PlayerInfo.Instance.Inventry.GetVisibility() == true )
         {
             invIsOn = true;
         }
@@ -64,9 +75,18 @@ public class WaterPanel : PanelBase
         {
             if (PlayerInfo.Instance.Inventry.GetVisibility() == false)
             {
-                ItemMax();
+                Debug.Log(PourButton.interactable);
+
+                //ItemMax();
                 invIsOn = false;
+                Debug.Log(PourButton.interactable);
+
             }
+        }
+        if (waterPanel_inteFalse == false)
+        {
+            PourButton.interactable = false;
+
         }
     }
 
@@ -95,17 +115,21 @@ public class WaterPanel : PanelBase
 
     void ItemMax()
     {
+
         var slot = PlayerInfo.Instance.Inventry.GetNullSlot();
         if (slot == null)
         {
             Debug.Log("アイテムnull");
-            PourButton.interactable = false;
+            waterPanel_inteFalse = false;
+            InventoryMaxText.SetActive(true);
         }
         else if(slot != null)
         {
             Debug.Log("アイテムnotnull");
             Debug.Log(slot);
-            PourButton.interactable = true;
+            waterPanel_inteFalse = true;
+            InventoryMaxText.SetActive(false);  
+            //PourButton.interactable = true;
         }
     }
     
