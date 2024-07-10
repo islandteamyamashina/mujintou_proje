@@ -41,9 +41,9 @@ public class WaterPanel : PanelBase
     }
     private void OnEnable()
     {
-        PourButton.interactable = PlayerInfo.Instance.Water >= 30 &&
-                                PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_bottle) >= 1;
-        Debug.Log(PourButton.interactable);
+        //PourButton.interactable = PlayerInfo.Instance.Water >= 30 &&
+        //                        PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_bottle) >= 1;
+        //Debug.Log(PourButton.interactable);
         ItemMax();
         Debug.Log(PourButton.interactable);
 
@@ -63,29 +63,34 @@ public class WaterPanel : PanelBase
         water_value_text.text = $"<b>{prev}% ÅÀ {Mathf.Clamp(prev + waterAmountPerOnce, 0, 100)}%</b>";
         spring_water_text.text = $"íôêÖ : {info.Water}";
 
-        PourButton.interactable = PlayerInfo.Instance.Water >= 30;
         DrinkButton.interactable = info.Water >= waterAmountPerOnce;
         Debug.Log(PourButton.interactable);
+      ItemMax();
 
-        if ( PlayerInfo.Instance.Inventry.GetVisibility() == true )
-        {
-            invIsOn = true;
-        }
-        if (invIsOn)
-        {
-            if (PlayerInfo.Instance.Inventry.GetVisibility() == false)
-            {
-                Debug.Log(PourButton.interactable);
+        //if ( PlayerInfo.Instance.Inventry.GetVisibility() == true )
+        //{
+        //    invIsOn = true;
+        //}
+        //if (invIsOn)
+        //{
+        //    if (PlayerInfo.Instance.Inventry.GetVisibility() == false)
+        //    {
+        //        Debug.Log(PourButton.interactable);
 
-                //ItemMax();
-                invIsOn = false;
-                Debug.Log(PourButton.interactable);
+        //        invIsOn = false;
+        //        Debug.Log(PourButton.interactable);
 
-            }
-        }
+        //    }
+        //}
         if (waterPanel_inteFalse == false)
         {
             PourButton.interactable = false;
+
+        }
+        else  if(waterPanel_inteFalse == true && PlayerInfo.Instance.Water >= 30 &&
+                                PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_bottle) >= 1)
+            { 
+            PourButton.interactable = true;
 
         }
     }
