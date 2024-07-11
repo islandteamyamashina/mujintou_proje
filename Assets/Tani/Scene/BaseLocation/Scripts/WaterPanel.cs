@@ -82,15 +82,26 @@ public class WaterPanel : PanelBase
 
         //    }
         //}
-        if (waterPanel_inteFalse == false)
+        if (waterPanel_inteFalse == false && PlayerInfo.Instance.Water >= 30 &&
+                                PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_bottle) >= 1)
         {
             PourButton.interactable = false;
 
         }
-        else  if(waterPanel_inteFalse == true && PlayerInfo.Instance.Water >= 30 &&
+        else  if(waterPanel_inteFalse == true && PlayerInfo.Instance.Water >= 30&&
                                 PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_bottle) >= 1)
             { 
             PourButton.interactable = true;
+
+        }
+        else if((waterPanel_inteFalse == true&& PlayerInfo.Instance.Water < 30 &&
+                                PlayerInfo.Instance.Inventry.GetItemAmount(Items.Item_ID.item_mat_bottle) < 1))
+        {
+            PourButton.interactable = false;    
+        }
+        else
+        {
+            PourButton.interactable = false;
 
         }
     }

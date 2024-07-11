@@ -23,7 +23,13 @@ public class Button_NeedBottol : MonoBehaviour
         {
             gameObject.GetComponent<Button>().onClick.AddListener(() =>
             { PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.item_mat_bottle); });
-            Itemget = true; 
+            if (PlayerInfo.Instance.Inventry.GetNullSlot())
+            {
+                PlayerInfo.Instance.Inventry.GetItem(Items.Item_ID.item_mat_bottle, 1);
+            }
+            Itemget = true;
+            
+            
         }
 
            

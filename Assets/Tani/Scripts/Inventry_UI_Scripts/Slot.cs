@@ -112,6 +112,10 @@ public class Slot : MonoBehaviour,ISelectHandler,IDeselectHandler
         {
             return;
         }
+        if(Input.GetMouseButton(2))
+        {
+            return;
+        }
         if(Affiliation.GetSlotItem(Slot_index).Value.id != Items.Item_ID.EmptyObject)
         {
             dragging_item_exist = true;
