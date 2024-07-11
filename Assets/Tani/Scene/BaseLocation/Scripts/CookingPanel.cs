@@ -11,6 +11,8 @@ public class CookingPanel : PanelBase
     CraftSlots craftslots;
     [SerializeField]
     Button close_button;
+    [SerializeField]
+    CraftSlots slotManager;
     protected override void Awake()
     {
         OnStateChange.AddListener((enable) =>
@@ -32,9 +34,35 @@ public class CookingPanel : PanelBase
         SetSortOrder(OrderOfUI.NormalPanel);    
     }
 
+    private void OnDisable()
+    {
+        if (!PlayerInfo.InstanceNullable) return;
+        var data1 = slotManager.GetSlotItem(0).Value;
+        var data2 = slotManager.GetSlotItem(1).Value;
+        var data3 = slotManager.GetSlotItem(2).Value;
+        var data4 = slotManager.GetSlotItem(3).Value;
+
+        if (PlayerInfo.Instance.Inventry.GetItem(data1.id, data1.amount))
+        {
+            slotManager.ClearSlot(0);
+        }
+        if (PlayerInfo.Instance.Inventry.GetItem(data2.id, data2.amount))
+        {
+            slotManager.ClearSlot(1);
+        }
+        if(PlayerInfo.Instance.Inventry.GetItem(data3.id, data3.amount))
+        {
+            slotManager.ClearSlot(2);
+        }
+        if(PlayerInfo.Instance.Inventry.GetItem(data4.id, data4.amount))
+        {
+            slotManager.ClearSlot(3);
+        }
+    }
 
     protected override void Update()
     {
+        base.Update();
         if (PlayerInfo.InstanceNullable == null) return;
 
         if (gameObject.activeSelf && !PlayerInfo.Instance.Inventry.GetVisibility())
