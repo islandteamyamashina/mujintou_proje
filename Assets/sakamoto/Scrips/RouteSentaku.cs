@@ -276,7 +276,7 @@ public class RouteSentaku : Event_Text
         Item_name[1] = PlayerInfo.Instance.Inventry.GetItemName((Items.Item_ID)itemID);
         if (PlayerInfo.Instance.Inventry.GetItem((Items.Item_ID)itemID, getNum))
         {
-            textControl.AddTextData($"{Item_name[1]}‚ğ{getNum}‚ÂŠl“¾I");
+            textControl.AddTextData($"{Item_name[1]}‚ğ{getNum}ŒÂŠl“¾I");
         }
         else
         {
