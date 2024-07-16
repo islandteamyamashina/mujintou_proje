@@ -245,6 +245,20 @@ public class EventPanelBase : MonoBehaviour
                 {
                     return 0;
                 }
+
+
+            case 60051:
+                if (PlayerInfo.Instance.Inventry.UseItem(Items.Item_ID.item_craft_water2))
+                {
+                    PlayerInfo.Instance.EraseCondition(PlayerInfo.Condition.Poisoned);
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+
+                }
+
             default:
                 return 1;
         }
