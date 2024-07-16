@@ -10,8 +10,9 @@ public class Button_60092 : MonoBehaviour
 
     void Start()
     {
-        button = GetComponent<Button>();
         Itemget = false;
+
+        button = GetComponent<Button>();
            }
 
     private void Update()
