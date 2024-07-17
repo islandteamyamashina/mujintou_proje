@@ -36,12 +36,7 @@ public class LoadScene : MonoBehaviour
             }
             else
             {
-                string colorString2 = "#4D4D4D"; // 黒色（ほかのボタンの通常色（の16進数文字列
-                Color newColor2;
-                ColorUtility.TryParseHtmlString(colorString2, out newColor2); // 新しくColorを作成
-                Text.color = newColor2;
-                Debug.Log(newColor2);
-                Debug.Log("通った");
+               
 
             }
         }
