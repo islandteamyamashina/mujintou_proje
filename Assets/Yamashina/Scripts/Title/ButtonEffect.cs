@@ -30,6 +30,13 @@ public class ButtonEffect : MonoBehaviour
         trigger2.triggers.Add(new EventTrigger.Entry { eventID = EventTriggerType.PointerExit });
         trigger2.triggers[1].callback.AddListener((data) => { OnRouteExit(b_Continue); });
 
+
+       if(!DataManager.DoesSaveExist())
+        {
+            trigger2.triggers[0].callback.RemoveAllListeners();
+            trigger2.triggers[1].callback.RemoveAllListeners();
+
+        }
         EventTrigger trigger3 = b_Option.gameObject.AddComponent<EventTrigger>();
         trigger3.triggers.Add(new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter });
         trigger3.triggers[0].callback.AddListener((data) => { OnRouteEnter(b_Option); });
